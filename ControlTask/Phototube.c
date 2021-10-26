@@ -39,9 +39,9 @@ int Phototube_Time_Count_L=0;      //光电管计时 左
 函数：Phototube_Configuration()
 功能：光电管IO初始化
 备注：
-		 PA0：左侧光电管
-		 PA1：中间光电管//以及没了
-		 PA2：右侧光电管
+		 PI7：左侧光电管
+		 PA1：中间光电管//已拆卸
+		 PI6：右侧光电管
 ***/
 
 void Phototube_Configuration(void)
@@ -62,7 +62,7 @@ void Phototube_Configuration(void)
 	GPIO_PC6_InitStructure.GPIO_Speed=GPIO_Speed_100MHz;	
 	GPIO_Init(GPIOC,&GPIO_PC6_InitStructure);
 	
-	/***---右侧光电管**/
+	/***---左侧光电管**/
 	//G
 	GPIO_PI7_InitStructure.GPIO_Pin=GPIO_Pin_7;
 	GPIO_PI7_InitStructure.GPIO_Mode=GPIO_Mode_IN;
@@ -71,7 +71,7 @@ void Phototube_Configuration(void)
 	GPIO_PI7_InitStructure.GPIO_Speed=GPIO_Speed_100MHz;	
 	GPIO_Init(GPIOI,&GPIO_PI7_InitStructure);
 	
-	/***---左侧光电管***/
+	/***---右侧光电管***/
 	// F
 	GPIO_PI6_InitStructure.GPIO_Pin=GPIO_Pin_6;
 	GPIO_PI6_InitStructure.GPIO_Mode=GPIO_Mode_IN;
@@ -92,7 +92,7 @@ void Phototube_Handle(void)
 /***左侧光电管**/
 	//PI7见背面丝印
 
-	  PI7_Level = PIin(7);
+	  PI7_Level = PCin(6);
 		if(lastPI7_Level==1 && PI7_Level==0)
 		{
 			Phototube_Left_Flag = 1;//左侧光电管检测到柱子标志
@@ -126,7 +126,7 @@ void Phototube_Handle(void)
 ***/
 /**右侧光电管**/
 		//PI6见背面丝印
-		PI6_Level = PIin(6);  //本次PI6电平值
+		PI6_Level = PIin(7);  //本次PI7电平值
 		if(lastPI6_Level==1 && PI6_Level==0)
 		{
 			Phototube_Right_Flag = 1;//右侧光电管检测到柱子标志1
