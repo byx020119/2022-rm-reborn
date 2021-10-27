@@ -17,7 +17,7 @@ void PID_Calc(struct PID_Regulator *pid)
 		VAL_LIMIT(pid->componentKi,-pid->componentKiMax,pid->componentKiMax)
 		if(pid->Reset_i == 1&& (pid->err[0] * pid->err[1] < 0))
 		{
-			pid->componentKi = 0;
+			pid->componentKi = 0;//由于ki得到的值累加，达到要求后在此清零
 		}
 		
 		pid->componentKd = pid->kd * ( pid->err[0] - pid->err[1] );
@@ -65,13 +65,13 @@ void GimbalPID_Calc(PID_Regulator *pid)
 		VAL_LIMIT(pid->componentKi,-pid->componentKiMax,pid->componentKiMax)
 		if(pid->Reset_i == 1&& (pid->err[0] * pid->err[1] < 0))
 		{
-			pid->componentKi = 0;
+			pid->componentKi = 0;//由于ki得到的值累加，达到要求后在此清零
 		}
 		
-		yawKdPart_Array[yawKdPart_Index++] = pid->err[0] - pid->err[1];
+		yawKdPart_Array[yawKdPart_Index++] = pid->err[0] - pid->err[1];//取五次误差的差值
 		if(yawKdPart_Index>=5) yawKdPart_Index = 0;
 		
-		pid->componentKd = pid->kd * (yawKdPart_Array[0]+yawKdPart_Array[1]+yawKdPart_Array[2]+yawKdPart_Array[3]+yawKdPart_Array[4])/5;
+		pid->componentKd = pid->kd * (yawKdPart_Array[0]+yawKdPart_Array[1]+yawKdPart_Array[2]+yawKdPart_Array[3]+yawKdPart_Array[4])/5;//取五次误差的差值取平均
 		VAL_LIMIT(pid->componentKd,-pid->componentKdMax,pid->componentKdMax)
 		pid->componentoutput =pid->componentKp + pid->componentKi + pid->componentKd;
 	}

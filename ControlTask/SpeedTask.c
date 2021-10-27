@@ -58,7 +58,7 @@ int    Last_Dodeg_STATE_Change=0;
 /***
 函数：GMPitchControlLoop()
 功能：利用PID计算出pitch电机的输出量
-备注：无
+备注：串级控制
 ***/
 void GMPitchControlLoop(void)
 {
@@ -141,7 +141,7 @@ void GMPitchControlLoop(void)
 /***
 函数：GMYawControlLoop()
 功能：利用PID计算出yaw电机的输出量
-备注：无
+备注：串级控制
 ***/
 void GMYawControlLoop(void)
 {
@@ -300,7 +300,7 @@ void SetGimbalMotorOutput(void)
 /***
 函数：CMControlLoop()
 功能：底盘控制任务，输出底盘电机电流
-备注：无
+备注：速度控制
 ***/
 void CMControlLoop(void)
 {  
