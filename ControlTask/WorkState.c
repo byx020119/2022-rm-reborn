@@ -224,6 +224,7 @@ void WorkStateSwitchProcess(void)
 /***
 函数：SetWorkState(WorkState_e state)
 功能：返回当前工作状态
+备注：整个工程没用过
 ***/
 void SetWorkState(WorkState_e state)
 {
@@ -235,7 +236,8 @@ void SetWorkState(WorkState_e state)
 
 /***
 函数：WorkState_e GetWorkState(void)
-功能：设置工作状态
+功能：返回工作状态
+备注：用return值返回工作状态
 ***/
 WorkState_e GetWorkState(void)
 {
