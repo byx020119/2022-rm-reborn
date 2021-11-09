@@ -24,7 +24,7 @@ void Control_Task(void)
 	
 	/***云台控制任务***/
 	YawFreeRoation();                 //自由状态时，云台自由旋转
-//	YawFreeRoation_Doget();           //躲避状态时，云台自由旋转
+  YawFreeRoation_Doget();           //躲避状态时，云台自由旋转
 	GMYawControlLoop();								//计算Y轴电机输出量,0x205
 	GMPitchControlLoop();							//计算P轴电机输出量,0x206
 	
@@ -38,7 +38,7 @@ void Control_Task(void)
 	
   /***底盘控制任务***/
   Chassis_Motion_Switch();      //自由状态，底盘运动到边界后，换向(正交编码器)
-//Chassis_Motion_Switch_Doget();//躲避状态，底盘运动到边界后，换向
+  Chassis_Motion_Switch_Doget();//躲避状态，底盘运动到边界后，换向
 	GraduallyChangeCMSpeed();     //底盘电机速度平滑换向
 	CMControlLoop();							//底盘控制任务 发送底盘电机输出量
   Phototube_Handle();           //光电管控制任务	

@@ -39,7 +39,7 @@ void WorkStateFSM(void)
 		{		
 			if(time_tick_2ms > PREPARE_TIME_TICK_MS)//准备状态维持2s
 			{
-				workState = Freedom_STATE;
+				workState = Dodeg_STATE;//测试躲避状态修改，原本：Freedom_STATE;
 			}
 				
 		}break;
@@ -76,8 +76,7 @@ void WorkStateFSM(void)
 			{
 				workState = Freedom_STATE;  //自由状态
 			}		
-			
-			 if(CameraDetectTarget_Flag == 1)   //转向过程中摄像头识别到目标，变为识别状态
+			if(CameraDetectTarget_Flag == 1)   //转向过程中摄像头识别到目标，变为识别状态
 			{
 				workState = ChariotRecognition_STATE;
 			}
@@ -123,7 +122,7 @@ void WorkStateFSM(void)
 		{	
       if(DodgeTarget_Flag == 0)		//躲避结束，变为自由状态
 			{
-				workState = Freedom_STATE;  
+				 //workState = Freedom_STATE;  
 			}				
 			if(RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
