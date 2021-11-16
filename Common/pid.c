@@ -4,6 +4,7 @@
 #include "common.h"
 
 //component:要素，零件
+//备注：所有PID使用这个函数
 void PID_Calc(struct PID_Regulator *pid)
 {
 	pid->err[0] = pid->ref - pid->fdb;//err[0]存放的是ref和fdb的差值，误差
@@ -52,6 +53,7 @@ double yawKdPart_Array[5] = {0,0,0,0,0};
 u8 yawKdPart_Index = 0;
 
 //云台专用PID
+//备注:未使用，仅仅多一个五次取平均值
 void GimbalPID_Calc(PID_Regulator *pid)
 {
 	pid->err[0] = pid->ref - pid->fdb;

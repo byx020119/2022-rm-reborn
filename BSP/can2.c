@@ -19,8 +19,8 @@ void CAN2_Configuration(void)
 		CAN_InitTypeDef        can2;
 		CAN_FilterInitTypeDef  can2_filter;
 		
-		GPIO_PinAFConfig(GPIOB, GPIO_PinSource5, GPIO_AF_CAN1);
-    GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_CAN1);
+		GPIO_PinAFConfig(GPIOB, GPIO_PinSource5, GPIO_AF_CAN2);
+    GPIO_PinAFConfig(GPIOB, GPIO_PinSource6, GPIO_AF_CAN2);
 
     gpio.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_6;
     gpio.GPIO_Mode = GPIO_Mode_AF;
@@ -42,7 +42,7 @@ void CAN2_Configuration(void)
     can2.CAN_Prescaler = 3;            //CAN BaudRate 42/(1+9+4)/3=1Mbps ;820R电调反馈报文通信波特率为1Mbps，发送频率为1KHz
     CAN_Init(CAN2, &can2);
 
-	  can2_filter.CAN_FilterNumber=0;               //选中28个筛选器中的第0个筛选器
+	  can2_filter.CAN_FilterNumber=14;               //选中28个筛选器中的第0个筛选器 can1为0，can2为14
 	  can2_filter.CAN_FilterMode=CAN_FilterMode_IdMask;     //筛选器模式配置:有标识符屏蔽位模式和标识符列表模式
 	  can2_filter.CAN_FilterScale=CAN_FilterScale_32bit;    //筛选器位宽配置：1个32位标识符屏蔽位模式筛选器，2个16位标识符屏蔽位模式筛选器和2个32位标识符列表模式筛选器，4个16位标识符列表模式筛选器
 	  can2_filter.CAN_FilterIdHigh=0x0000;
@@ -60,7 +60,7 @@ void CAN2_Configuration(void)
 	{
 		NVIC_InitTypeDef       nvic;
 
-    nvic.NVIC_IRQChannel = CAN1_RX0_IRQn;
+    nvic.NVIC_IRQChannel = CAN2_RX0_IRQn;
     nvic.NVIC_IRQChannelPreemptionPriority = 1;
     nvic.NVIC_IRQChannelSubPriority = 1;
     nvic.NVIC_IRQChannelCmd = ENABLE;

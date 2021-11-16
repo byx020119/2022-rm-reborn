@@ -39,7 +39,7 @@ void WorkStateFSM(void)
 		{		
 			if(time_tick_2ms > PREPARE_TIME_TICK_MS)//准备状态维持2s
 			{
-				workState = Dodeg_STATE;//测试躲避状态修改，原本：Freedom_STATE;
+				workState = Freedom_STATE;//测试躲避状态修改此处为： Dodeg_STATE 自由模式 ：Freedom_STATE;
 			}
 				
 		}break;
@@ -164,21 +164,21 @@ void WorkStateSwitchProcess(void)
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		ControtLoopTaskInit();//重新初始化控制环
 	}
-	
 	/***
 	  状态变化：准备状态变为自由状态
 	  操    作：开摩擦轮，不发弹
 	  备    注：无
 	***/
-	if((Last_Dodeg_STATE_Change == 1) && (Dodeg_STATE_Change == 0))  
+	if((lastWorkState == PREPARE_STATE) && (workState == Freedom_STATE))  
 	{
-		YawCurrentPositionSave = -GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
+		YawCurrentPositionSave = GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
 		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
 		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
 		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
 		Last_Dodeg_STATE_Change = 0;	
 	}
 	
+
 	
 	/***
 	  状态变化：识别状态变为自由状态
@@ -214,6 +214,7 @@ void WorkStateSwitchProcess(void)
 		YawCurrentPositionSave = -GMYawEncoder.ecd_angle;
 		PitchCurrentPositionSave = GMPitchEncoder.ecd_angle;
 	}
+
 	
 	
 }

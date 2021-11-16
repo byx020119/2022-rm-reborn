@@ -29,6 +29,14 @@ RC_Ctl_t RC_CtrlData;
 		 4.s1扳到最下面，全关
 		 5.s2扳到中间，摩擦轮开，拨轮关
 		 6.s2扳到最上，全开
+		 
+		 //遥控器测试模式s2=1：
+		 1.ch1控制底盘前后移动
+		 2.ch2控制yaw水平旋转(累加、限位)
+		 3.ch3控制pitch竖直摆动(累加、限位)
+		 4.s2=2,停止状态 s2=3,测试状态 s2=1,准备状态，2s后进入自由状态
+		 5.
+		 
 **/
 void RemoteDataPrcess(uint8_t *pData)
 {
@@ -62,7 +70,7 @@ void RemoteDataPrcess(uint8_t *pData)
 	
 	Chassis_Speed_Ref = (RC_CtrlData.rc.ch1-1024);
 
-	GimbalRef.pitch_angle_dynamic_ref +=(RC_CtrlData.rc.ch3-1024)*0.005;//*0.01
+	GimbalRef.pitch_angle_dynamic_ref +=(RC_CtrlData.rc.ch3-1024)*0.003;//*0.01   /*原0.005*/
 	GimbalRef.yaw_angle_dynamic_ref  +=(RC_CtrlData.rc.ch2-1024)*0.00285;//0.0085
 //	if((RC_CtrlData.rc.s1==2)&&(GetFrictionState()==FRICTION_WHEEL_OFF))//打开摩擦轮
 

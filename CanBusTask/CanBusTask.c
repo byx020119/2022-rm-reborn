@@ -5,7 +5,7 @@
 #include "WorkState.h"
 
 uint32_t can_count = 0;
-int16_t  pitch_ecd_bias = 200;
+int16_t  pitch_ecd_bias = 6200;//200
 int16_t  yaw_ecd_bias   = 0;
 
 //关键字volatile:提醒编译器它后面所定义的变量随时都有可能改变，

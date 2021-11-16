@@ -46,22 +46,23 @@ void YawFreeRoation(void)
 {
 	if(GetWorkState()==Freedom_STATE)//粗巡逻状态 自由状态
 	{
-		if(GMPitchEncoder.ecd_angle-20>=0)   ///角度-20>=0
+		if(GMPitchEncoder.ecd_angle-35>=0)   //38//35//30
 		{
 		pitch_rotate_flag = 1;   //转向在某个位置，p轴转向标志位1？
 		}
-		if(GMPitchEncoder.ecd_angle+4<=0)
+		if(GMPitchEncoder.ecd_angle-3<=0)//-3
 		{
 		pitch_rotate_flag=0;    //转向在某个位置，p轴转向标志位0？
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.1f;   //p轴标志位1，p轴转向角度+0.2？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.2f;   //p轴标志位1，p轴转向角度+0.2？
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.1f;   //p轴标志位0，p轴转向角度-0.2？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.2f;   //p轴标志位0，p轴转向角度-0.2？
 		}
+		
 		
 		
 		
