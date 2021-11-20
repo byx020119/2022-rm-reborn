@@ -171,6 +171,52 @@
 	0,\
 }\
 
+//CM6位置环结构体初始化 2022加
+#define CM6_POSITION_PID_DEFAULT \
+{\
+	0,\
+	0,\
+	{0,0},\
+	0,\
+	0,\
+	0,\
+	0,\
+	0,\
+	0,\
+	4900,\
+	1000,\
+	1500,\
+	0,\
+	4900,\
+	&PID_Calc,\
+	&PID_Reset,\
+	0,\
+	0,\
+	0,\
+}\
+//CM6速度环PID初始化 2022加
+#define CM6_SPEED_PID_DEFAULT \
+{\
+	0,\
+	0,\
+	{0,0},\
+	0.0f,\
+	0.0f,\
+	0.0f,\
+	0,\
+	0,\
+	0,\
+	5000,\
+	3500,\
+	1500,\
+	0,\
+	5000,\
+	&PID_Calc,\
+	&PID_Reset,\
+	0,\
+	0,\
+	0,\
+}\
 
 //CM7位置环结构体初始化
 #define CM7_POSITION_PID_DEFAULT \
@@ -234,6 +280,9 @@ extern PID_Regulator GMPSpeedPID;
 extern PID_Regulator GMYPositionPID;			
 extern PID_Regulator GMYSpeedPID;
 
+extern PID_Regulator CM6PositionPID;
+extern PID_Regulator CM6SpeedPID;
+
 extern PID_Regulator CM7PositionPID;
 extern PID_Regulator CM7SpeedPID;
 
@@ -249,6 +298,7 @@ typedef struct
 {
   float pitch_angle_dynamic_ref;
   float yaw_angle_dynamic_ref;
+	float brake_angle_dynamic_ref;
 }Gimbal_Ref_t;
 
 typedef struct
@@ -271,6 +321,7 @@ extern float Chassis_Speed_Ref;
 extern float Yaw_FeedForward;
 extern int   Dodeg_STATE_Change;
 extern int   Last_Dodeg_STATE_Change;
+extern int   Brake_flag; 
 
 void GMPitchControlLoop(void);
 void GMYawControlLoop(void);
@@ -278,5 +329,6 @@ void SetGimbalMotorOutput(void);
 void CMControlLoop(void);
 void ShooterMControlLoop(void);
 void GraduallyChangeCMSpeed(void);
+void GMBrakeControlLoop(void);
 
 #endif

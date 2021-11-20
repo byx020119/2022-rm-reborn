@@ -21,27 +21,31 @@ Target DLL:      Segger\JL2CM3.dll V2.99.23.0
 Dialog DLL:      TCM.DLL V1.27.0.0
  
 <h2>Project:</h2>
-C:\Users\白羽\Desktop\RM\使用代码\-2022- - 副本\USER\shaobing c.uvprojx
-Project File Date:  10/21/2021
+C:\Users\白羽\Desktop\RM\使用代码\-2022-\USER\shaobing c.uvprojx
+Project File Date:  11/20/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'shaobing c'
-compiling can2.c...
-..\BSP\can2.c(102): warning:  #1-D: last line of file ends without a newline
-  }
-..\BSP\can2.c: 1 warning, 0 errors
+compiling ControlTask.c...
+..\ControlTask\ControlTask.c(33): warning:  #223-D: function "HeatControl_Task" declared implicitly
+  	HeatControl_Task();
+..\ControlTask\ControlTask.c(34): warning:  #223-D: function "FrictionWheelControl" declared implicitly
+    FrictionWheelControl();             //摩擦轮拨弹电机控制任务
+..\ControlTask\ControlTask.c(35): warning:  #223-D: function "BoLunMotorControl" declared implicitly
+  	BoLunMotorControl();
+..\ControlTask\ControlTask.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=32140 RO-data=1332 RW-data=2724 ZI-data=4132  
+Program Size: Code=32620 RO-data=1332 RW-data=3024 ZI-data=4240  
 FromELF: creating hex file...
-"..\OBJ\shaobing c.axf" - 0 Error(s), 1 Warning(s).
+"..\OBJ\shaobing c.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_shaobing_c
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

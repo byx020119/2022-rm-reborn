@@ -23,6 +23,10 @@ PID_Regulator GMPPositionPID1 = GIMBAL_MOTOR_PITCH_POSITION_PID_DEFAULT;
 PID_Regulator GMPSpeedPID 	 = GIMBAL_MOTOR_PITCH_SPEED_PID_DEFAULT;
 PID_Regulator GMYPositionPID = GIMBAL_MOTOR_YAW_POSITION_PID_DEFAULT;			
 PID_Regulator GMYSpeedPID 	 = GIMBAL_MOTOR_YAW_SPEED_PID_DEFAULT;
+
+PID_Regulator CM6PositionPID = CM6_POSITION_PID_DEFAULT;//2022加
+PID_Regulator CM6SpeedPID    = CM6_SPEED_PID_DEFAULT;//2022加
+
 PID_Regulator CM7PositionPID = CM7_POSITION_PID_DEFAULT;
 PID_Regulator CM7SpeedPID    = CM7_SPEED_PID_DEFAULT;
 
@@ -34,8 +38,10 @@ RampGen_t GMPitchRamp = RAMP_GEN_DAFAULT;
 RampGen_t GMYawRamp   = RAMP_GEN_DAFAULT;
 RampGen_t CMRamp      = RAMP_GEN_DAFAULT;
 
-Gimbal_Ref_t GimbalRef;             //定义云台参考值结构体
-CM2_Ref_t CM2Ref;                   //定义CM2参考值结构体
+Gimbal_Ref_t GimbalRef;             //定义双环控制参考值结构体（云台，刹车）刹车因为不经过角度控制，只经过标志位控制所以暂时未使用这个值
+CM2_Ref_t CM2Ref;                   //定义单环控制参考值结构体（CM2）
+int Brake_flag=0;                   //定义刹车标志位 1为水平时
+
 float CMSpeedRate =1.0f;            //底盘电机速度系数
 float Yaw_FeedForward = 0.0;        //yaw识别补偿值
 float Chassis_Position_Ref = 0;     //底盘位置目标值
@@ -55,6 +61,59 @@ float  CR_Pitch_Symbol=0;
 float  CR_Pitch_increment=0;
 int    Dodeg_STATE_Change = 0;
 int    Last_Dodeg_STATE_Change=0;
+/***
+函数：GMBrakeControlLoop()
+功能：利用PID计算出brake电机的输出量
+备注：串级控制
+***/
+void GMBrakeControlLoop(void)
+{
+		CM6PositionPID.kp = 80;
+	  CM6PositionPID.ki = 1;
+		CM6PositionPID.kd = 0;
+	
+	  CM6SpeedPID.kp = 30;
+		CM6SpeedPID.ki = 0;
+		CM6SpeedPID.kd = 2;
+    switch(Brake_flag)
+		{
+			//位置环得出输出值
+			case 0: //水平时计算位置环值
+			{
+				CM6PositionPID.ref=0.0f;
+				CM6PositionPID.fdb = CM6Encoder.ecd_angle;
+				CM6PositionPID.Calc(&CM6PositionPID);
+				break;
+			}
+			
+			case -1://左倾时计算位置环值
+			{
+				CM6PositionPID.ref=-50;
+				CM6PositionPID.fdb = CM6Encoder.ecd_angle;
+				CM6PositionPID.Calc(&CM6PositionPID);
+				break;
+			}
+			
+			case 1://右倾时计算位置环值
+			{
+				CM6PositionPID.ref=50;
+				CM6PositionPID.fdb = CM6Encoder.ecd_angle;
+				CM6PositionPID.Calc(&CM6PositionPID);
+				break;
+			}
+			default: ;
+		}
+			//速度环得到输出值
+			CM6SpeedPID.ref = CM6PositionPID.output;
+	    CM6SpeedPID.fdb = CM6Encoder.filter_rate;
+    	CM6SpeedPID.Calc(&CM6SpeedPID);
+			
+			
+			
+		
+}
+
+	 
 /***
 函数：GMPitchControlLoop()
 功能：利用PID计算出pitch电机的输出量
@@ -271,6 +330,7 @@ void SetGimbalMotorOutput(void)
 	if((GetWorkState() == STOP_STATE))   
 	{
 		Set_Gimbal_Current(CAN1, 0, 0);     //yaw + pitch	+M7（拨轮）	
+	  Set_Gimbal_Current1(CAN2,(int16_t)(CM6SpeedPID.output),(int16_t)(CM7SpeedPID.output)); 
 	}
 	//识别、躲避
 	
@@ -279,7 +339,7 @@ void SetGimbalMotorOutput(void)
 	{	
 //		Set_Gimbal_Current(CAN1,2000,3000,(int16_t)(CM7SpeedPID.output));     //yaw + pitch+BoLunMotor	
   		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(GMPSpeedPID.output));     //yaw + pitch	
-		  Set_Gimbal_Current1(CAN2,(int16_t)(CM7SpeedPID.output));   //BoLunMotor
+		  Set_Gimbal_Current1(CAN2,(int16_t)(CM6SpeedPID.output),(int16_t)(CM7SpeedPID.output));   //BoLunMotor
 //  	  Set_Gimbal_Current(CAN1,0,(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output));    
 //   	  Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),0,(int16_t)(CM7SpeedPID.output));
 //		Set_Gimbal_Current(CAN1,0,0,(int16_t)(CM7SpeedPID.output));

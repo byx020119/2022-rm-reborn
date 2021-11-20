@@ -3,10 +3,11 @@
 #include "CanBusTask.h"
 #include "encoder.h"
 #include "WorkState.h"
-
+//每次电机位置调整时必须先调下面pitch_ecd_bias数值
 uint32_t can_count = 0;
 int16_t  pitch_ecd_bias = 6200;//200
 int16_t  yaw_ecd_bias   = 0;
+int16_t  brake_ecd_bias = 0;//有减速比，每次刷新电机圈数清零，无法通过给定值回正，须手动
 
 //关键字volatile:提醒编译器它后面所定义的变量随时都有可能改变，
 //因此编译后的程序每次需要存储或读取这个变量的时候，都会直接从变量地址中读取数据。
@@ -18,6 +19,7 @@ volatile Encoder CM3Encoder			= {0,0,0,0,0,0,0,{0,0,0,0,0,0},0,0,0};
 volatile Encoder CM4Encoder			= {0,0,0,0,0,0,0,{0,0,0,0,0,0},0,0,0};
 volatile Encoder GMYawEncoder 	= {0,0,0,0,0,0,0,{0,0,0,0,0,0},0,0,0};
 volatile Encoder GMPitchEncoder = {0,0,0,0,0,0,0,{0,0,0,0,0,0},0,0,0};
+volatile Encoder CM6Encoder 		= {0,0,0,0,0,0,0,{0,0,0,0,0,0},0,0,0};//2022加
 volatile Encoder CM7Encoder 		= {0,0,0,0,0,0,0,{0,0,0,0,0,0},0,0,0};
 
 uint16_t Shooter_17_Heat = 0; //17mm弹丸枪口热量
@@ -133,16 +135,32 @@ void CanReceiveMsgProcess(CanRxMsg * msg)
 			}
 	}
 }
-
+//can2波轮电机ID同Y轴207，故写此函数
 void CanReceiveMsgProcess1(CanRxMsg * msg)
 {
     can_count++;
 	switch(msg->StdId)
 	{
-		case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机
+		case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机 ID 7
 		{
 			(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
 		}
+	  case  CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID://刹车机构 2022加 ID 6
+			{
+				if(can_count<50)
+				{
+					GetEncoderBias(&CM6Encoder ,msg);
+					if(CM6Encoder.ecd_bias-brake_ecd_bias>4096)
+						brake_ecd_bias+=8192;
+					else if(CM6Encoder.ecd_bias-brake_ecd_bias<-4096)
+						brake_ecd_bias-=8192;
+				}
+				else
+				{
+					CM6Encoder.ecd_bias = brake_ecd_bias;
+					Motor_2310_EncoderProcess(&CM6Encoder ,msg);
+				}
+			}break;
 		default:
 		{
 		}				
@@ -188,7 +206,7 @@ void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq,int16_t gimbal_
     tx_message.Data[7] = 0xff;
     CAN_Transmit(CANx,&tx_message);
 }
-void Set_Gimbal_Current1(CAN_TypeDef *CANx,int16_t cm7_iq)//can2波轮控制
+void Set_Gimbal_Current1(CAN_TypeDef *CANx,int16_t cm6_iq,int16_t cm7_iq)//can2波轮控制
 {
     CanTxMsg tx_message;    
     tx_message.StdId = 0x1FF;
@@ -198,8 +216,8 @@ void Set_Gimbal_Current1(CAN_TypeDef *CANx,int16_t cm7_iq)//can2波轮控制
     
     tx_message.Data[0] = 0xff;
     tx_message.Data[1] = 0xff;
-    tx_message.Data[2] = 0xff;
-    tx_message.Data[3] = 0xff;
+    tx_message.Data[2] = (unsigned char)(cm6_iq >> 8);//2022加
+    tx_message.Data[3] = (unsigned char)cm6_iq;//2022加
     tx_message.Data[4] = (unsigned char)(cm7_iq >> 8);
     tx_message.Data[5] = (unsigned char)cm7_iq;
     tx_message.Data[6] = 0xff;

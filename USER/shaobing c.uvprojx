@@ -684,6 +684,11 @@
               <FileType>1</FileType>
               <FilePath>..\ControlTask\JudgingSystemTask.c</FilePath>
             </File>
+            <File>
+              <FileName>BrakeTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ControlTask\BrakeTask.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

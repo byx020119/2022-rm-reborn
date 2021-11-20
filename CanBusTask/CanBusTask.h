@@ -38,6 +38,7 @@ extern volatile Encoder CM4Encoder;
 
 extern volatile Encoder GMYawEncoder;
 extern volatile Encoder GMPitchEncoder;
+extern volatile Encoder CM6Encoder;//2022¼Ó
 extern volatile Encoder CM7Encoder;
 
 extern uint16_t Shooter_17_Heat;
@@ -51,6 +52,6 @@ void CanReceiveMsgProcess(CanRxMsg * msg);
 void CanReceiveMsgProcess1(CanRxMsg * msg);
 void Set_CM_Speed(CAN_TypeDef *CANx, int16_t cm1_iq, int16_t cm2_iq,int16_t cm3_iq, int16_t cm4_iq);
 void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq, int16_t gimbal_pitch_iq);
-void Set_Gimbal_Current1(CAN_TypeDef *CANx,int16_t cm7_iq);
+void Set_Gimbal_Current1(CAN_TypeDef *CANx, int16_t cm6_iq, int16_t cm7_iq);
 void Set_Gimbal_CALI_STATE(CAN_TypeDef *CANx);
 #endif

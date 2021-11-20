@@ -27,13 +27,14 @@ void Control_Task(void)
   YawFreeRoation_Doget();           //躲避状态时，云台自由旋转
 	GMYawControlLoop();								//计算Y轴电机输出量,0x205
 	GMPitchControlLoop();							//计算P轴电机输出量,0x206
+	GMBrakeControlLoop();             //计算刹车电机输出量
 	
 	/***发弹控制任务***/
 	HeatControl_Task();
   FrictionWheelControl();             //摩擦轮拨弹电机控制任务
 	BoLunMotorControl();
 	ShooterMControlLoop();      		  //发射机构控制任务,0x207
-	SetGimbalMotorOutput();						//将云台、波轮电机输出量传给电机
+	SetGimbalMotorOutput();						//将云台、波轮、刹车电机输出量发送
 	
 	
   /***底盘控制任务***/

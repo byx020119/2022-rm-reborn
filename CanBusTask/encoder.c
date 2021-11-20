@@ -10,6 +10,7 @@ void GetEncoderBias(volatile Encoder *v, CanRxMsg * msg)
 		v->ecd_value = v->ecd_bias;
 }
 
+//2310 与2006使用同一套解码
 void Motor_2310_EncoderProcess(volatile Encoder *v, CanRxMsg * msg)
 {
 	int i=0;
