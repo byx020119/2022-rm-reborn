@@ -27,7 +27,7 @@ extern Time_Count Yaw_Correction;
 extern Time_Count Remote_microsecond;
 extern Time_Count usart1_microsecond;//ря╦д
 extern Time_Count mpu6050_micrsecond;
-
+extern Time_Count brake_limt ;
 void TIM2_Configuration(void);
 uint32_t Get_Time_Micros(void);
 void TIM6_Configuration(void);

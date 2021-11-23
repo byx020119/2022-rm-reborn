@@ -109,9 +109,10 @@ void RemoteDataPrcess(uint8_t *pData)
 	 }
 	
 	
- 	 if(RC_CtrlData.rc.s1==2)  //关闭摩擦轮 2
+ 	 if(RC_CtrlData.rc.s1==2)  //关闭摩擦轮 2 刹车模块置于平衡
 	 {
 			friction_wheel_state_flag = 0;
+		  
 	 }  
 	
 	 if(RC_CtrlData.rc.s1==1)//打开波轮 1
@@ -124,6 +125,13 @@ void RemoteDataPrcess(uint8_t *pData)
 	 {
 		  TempShootingFlag=0;
 	 }
+	 switch(RC_CtrlData.rc.s1)//刹车模块位置测试
+	 {
+		 case 2: Brake_flag=0;
+		 case 3: Brake_flag=-1;
+		 case 1: Brake_flag=1;
+	 }
+	 
 	
 }	
  

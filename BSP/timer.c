@@ -3,6 +3,7 @@
 
 Time_Count system_micrsecond	 		=	TIME_COUNT_INIT;   //系统时间 单位us
 Time_Count shot_frequency_limt 		= TIME_COUNT_INIT;   //发射机构频率控制时间 单位us
+Time_Count brake_limt             =TIME_COUNT_INIT;    //刹车机构控制时间 单位us
 Time_Count Yaw_Correction 		= TIME_COUNT_INIT;
 Time_Count Remote_microsecond     = TIME_COUNT_INIT;   //测试状态向准备状态切换控制时间
 Time_Count usart1_microsecond     = TIME_COUNT_INIT;   //妙算相邻两次发数时间差

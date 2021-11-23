@@ -21,6 +21,7 @@ extern uint8_t Phototube_Middle_Flag;
 extern uint8_t Phototube_Right_Flag;
 extern uint32_t Phototube_Time_Left; 
 extern uint32_t Phototube_Time_Right;
+extern int Phototube_brake;
 
 typedef uint32_t datatype;
 

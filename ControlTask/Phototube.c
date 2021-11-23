@@ -30,6 +30,7 @@ uint8_t Phototube_Middle_Flag     = 0;  //中间光电管检测到柱子标志
 uint8_t Phototube_Right_Flag    = 0;    //右侧光电管检测到柱子标志
 int Phototube_Time_Count_R=0;      //光电管计时 右
 int Phototube_Time_Count_L=0;      //光电管计时 左
+int Phototube_brake=0;             //传给刹车的标志，此标志的复位在BrakeTask中
 
 
 
@@ -97,6 +98,7 @@ void Phototube_Handle(void)
 		{
 			Phototube_Left_Flag = 1;//左侧光电管检测到柱子标志
 			Phototube_Time_Count_R=0;
+			Phototube_brake=1;//刹车
 		}
 		if(Phototube_Left_Flag == 1)  
 		{
@@ -131,6 +133,7 @@ void Phototube_Handle(void)
 		{
 			Phototube_Right_Flag = 1;//右侧光电管检测到柱子标志1
 			Phototube_Time_Count_L=0;
+			Phototube_brake=1;//刹车
 		}
 		if(Phototube_Right_Flag == 1)  
 		{

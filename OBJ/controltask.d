@@ -43,3 +43,4 @@
 ..\obj\controltask.o: ..\ControlTask\WorkState.h
 ..\obj\controltask.o: ..\ControlTask\Freedom_Status.h
 ..\obj\controltask.o: ..\ControlTask\DogetState.h
+..\obj\controltask.o: ..\ControlTask\BrakeTask.h
