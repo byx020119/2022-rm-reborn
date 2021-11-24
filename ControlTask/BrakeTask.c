@@ -12,7 +12,7 @@
 void Brake_Handle()
 {
 	//光电管检测刹车
-	if(Phototube_brake==1)//左侧检测换向
+	if(Phototube_brake==1||(cm1_lastref<0&&CM1SpeedPID.ref>0)||(cm1_lastref<0&&CM1SpeedPID.ref==0))//左侧检测换向
 	{
 		Brake_flag=-1;
 		Phototube_brake=0;//光电管检测刹车标志清零
@@ -25,7 +25,7 @@ void Brake_Handle()
 		}
 		
 	}
-	if(Phototube_brake==1)//右侧检测换向
+	if(Phototube_brake1==1||(cm1_lastref>0&&CM1SpeedPID.ref<0)||(cm1_lastref>0&&CM1SpeedPID.ref==0))//右侧检测换向
 	{
 		Brake_flag=1;
 		Phototube_brake=0;
@@ -38,4 +38,6 @@ void Brake_Handle()
 		}
 		
 	}
+
+	
 }

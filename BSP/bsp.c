@@ -1,6 +1,7 @@
 #include "bsp.h"
 #include "timer.h"
 #include "can1.h"
+#include "can2.h"
 #include "usart3.h"
 #include "Phototube.h"
 void BSP_Init(void)

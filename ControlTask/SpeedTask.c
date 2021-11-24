@@ -26,6 +26,7 @@ PID_Regulator GMYSpeedPID 	 = GIMBAL_MOTOR_YAW_SPEED_PID_DEFAULT;
 
 PID_Regulator CM6PositionPID = CM6_POSITION_PID_DEFAULT;//2022加
 PID_Regulator CM6SpeedPID    = CM6_SPEED_PID_DEFAULT;//2022加
+float cm1_lastref=0;//上次底盘电机ref值 2022加
 
 PID_Regulator CM7PositionPID = CM7_POSITION_PID_DEFAULT;
 PID_Regulator CM7SpeedPID    = CM7_SPEED_PID_DEFAULT;
@@ -384,6 +385,7 @@ void CMControlLoop(void)
 		  CM1SpeedPID.ki = 0.5;//0.5
 	   	CM1SpeedPID.kd = 5;//20
 			
+      cm1_lastref	=	CM1SpeedPID.ref;
 			CM1SpeedPID.ref = 0;
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;//0;
 			CM1SpeedPID.Calc(&CM1SpeedPID);
@@ -393,10 +395,12 @@ void CMControlLoop(void)
 		{
 			if(Speed_change==0)
 				{
-				 CM1SpeedPID.ref = -0.1*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
+				cm1_lastref	=	CM1SpeedPID.ref;
+				CM1SpeedPID.ref = -0.1*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			  }
 			if(Speed_change==1)
 				{
+			  cm1_lastref	=	CM1SpeedPID.ref;
 				CM1SpeedPID.ref = -0.1*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
 			  }
 			
@@ -415,6 +419,7 @@ void CMControlLoop(void)
 		//自由状态、测试状态、被攻击状态
 		if(GetWorkState()== Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE)
 		{
+			cm1_lastref	=	CM1SpeedPID.ref;
 			CM1SpeedPID.ref = -Chassis_Speed_Ref ;//-  Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
 			CM1SpeedPID.Calc(&CM1SpeedPID);
@@ -430,6 +435,7 @@ void CMControlLoop(void)
 		//躲避
 		if(GetWorkState()== Dodeg_STATE)
 		{	
+			cm1_lastref	=	CM1SpeedPID.ref;
 			CM1SpeedPID.ref = Chassis_Speed_Ref ;//+ Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
 			CM1SpeedPID.Calc(&CM1SpeedPID);
