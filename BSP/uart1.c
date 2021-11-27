@@ -70,7 +70,7 @@ u8 CR_yaw_Angle_Index = 0;
 u8 CR_yaw_Angle_CNT   = 0;
 int8_t loop_j;
 
-char Sendtosight[10];///发送给视觉
+char Sendtosight[12];///发送给视觉
 static int count_Sendtosight=0;
 void USART1_DMA_TX_config();
 void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize);
@@ -86,6 +86,7 @@ float E_TEST1=0;
 float E_TEST2=0;
 float E_TEST3=0;
 int camere_count=0;
+int colorflag = 0;
 
 /***
 函数：usart1_Init(bound)
@@ -246,28 +247,40 @@ void Sendtosightway(int value)//与视觉商定
 	int GMYawtemp_Eular;//=(-Angles+180)*10;
 	int GMPitchtemp_Encoder;//=(-Eular[0]+90)*10;
 	
-	if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方
+//  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
+//	{
+//	Sendtosight[0]='B';	
+//	}
+//	if(robotState.robot_id>=101&&robotState.robot_id<=109)
+//	{
+//	Sendtosight[0]='R';	
+//	}
+	
+	colorflag=PCin(6);
+//没有的时候：利用开关
+	if( PCin(6) == 1 )
 	{
-	Sendtosight[0]='B';	
+		Sendtosight[0] ='B';	
 	}
-	if(robotState.robot_id>=101&&robotState.robot_id<=109)
+	if( PCin(6) == 0)
 	{
-	Sendtosight[0]='R';	
+		Sendtosight[0]='R';	
 	}
+
 	
 	Sendtosight[1]='M';//开始发送
 	Sendtosight[2]='N';
 	Sendtosight[3]='L';
 	
-	Sendtosight[8]=(uint8_t)(GMPitchtemp_Encoder/1000+48);//千位
-	Sendtosight[9]=(uint8_t)(GMPitchtemp_Encoder%1000/100+48);//百位
-	Sendtosight[10]=(uint8_t)(GMPitchtemp_Encoder%100/10+48);//十位
-	Sendtosight[11]=(uint8_t)(GMPitchtemp_Encoder%10+48);//个位
-	
 	Sendtosight[4]=(uint8_t)(GMYawtemp_Eular/1000+48);//baiwei
 	Sendtosight[5]=(uint8_t)(GMYawtemp_Eular%1000/100+48);
 	Sendtosight[6]=(uint8_t)(GMYawtemp_Eular%100/10+48);
 	Sendtosight[7]=(uint8_t)(GMYawtemp_Eular%10+48);
+	
+	Sendtosight[8]=(uint8_t)(GMPitchtemp_Encoder/1000+48);//千位
+	Sendtosight[9]=(uint8_t)(GMPitchtemp_Encoder%1000/100+48);//百位
+	Sendtosight[10]=(uint8_t)(GMPitchtemp_Encoder%100/10+48);//十位
+	Sendtosight[11]=(uint8_t)(GMPitchtemp_Encoder%10+48);//个位
 	
   while(count_Sendtosight<value)
   {
@@ -303,13 +316,16 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 	 E_TEST3++;
 	 E_TEST=ChariotRecognitionTemp[0];
 	 E_TEST1 =ChariotRecognitionTemp[1];	
-  	//USART3收到数据时，摄像头发现目标标志变为1。
+		
+  	//UART1收到数据时，摄像头发现目标标志变为1。
 	  CameraDetectTarget_Flag =1;	
 		CR_ringBuffer.lost_COUNT =0;	
-	  if(RC_CtrlData.rc.s1==3)//打开摩擦轮
+		
+	  if(RC_CtrlData.rc.s1==3)//  if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4游戏开始，且识别到，开波轮
 	  {
-		  TempShootingFlag=1;
+		  TempShootingFlag=1;//发弹标志位
 	  }
+		
 		usart1_microsecond.time_now = Get_Time_Micros();//本次收到数据的时刻
 		usart1_microsecond.time_error = usart1_microsecond.time_now - usart1_microsecond.time_last;//计算相邻两次的时间
 		
@@ -322,10 +338,11 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		
 		if(enter_CNT >30) enter_CNT = 30;
 		
-		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE)
+		//停止，准备，测试和躲避状态不识别，如果识别到之后变为躲避模式，不接受视觉发来的数据，故云台保持识别的数据，要在状态里手动关闭摩擦轮
+		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE)
 		{
-			ChariotRecognition_yaw=0;
-			ChariotRecognition_pitch=0;
+			ChariotRecognition_yaw=GMYawEncoder.ecd_angle;
+			ChariotRecognition_pitch= GMPitchEncoder.ecd_angle;
 		}
 		else  //自由、识别、精巡逻和躲避状态
 		{
@@ -336,7 +353,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 //				ChariotRecognition_yaw = last_ChariotRecognition_yaw;
 //			}
 			
-			if(CR_ringBuffer.lost_COUNT<20)  
+			if(CR_ringBuffer.lost_COUNT<35)  
 			{
 				CR_ringBuffer.ringBuf[CR_ringBuffer.tailPosition++] = ChariotRecognition_yaw;//yaw角度入列
 				if(CR_ringBuffer.tailPosition >= BUFFER_SIZE) CR_ringBuffer.tailPosition = 0;//形成环形队列
@@ -366,19 +383,19 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		usart1_microsecond.time_last = Get_Time_Micros();//记录上一次收到数据的时刻
 	}
 	
-	if(p[0]=='R'&&p[1]=='M'&&p[2]=='A'&&p[3]=='A')//识别不到
+	if(p[0]=='R'&&p[1]=='M'&&p[2]=='A'&&p[3]=='A'&&p[4]=='A')//识别不到
 	{
 		
 			E_TEST=0;
       E_TEST1=0;
 		
 		CR_ringBuffer.lost_COUNT++;
-		if(CR_ringBuffer.lost_COUNT>=20)//如果改这个数据一定要全改，很容易卡在识别模式里
+		if(CR_ringBuffer.lost_COUNT>=35)//如果改这个数据一定要全改，很容易卡在识别模式里
 		{
-			CR_ringBuffer.lost_COUNT = 20;
+			CR_ringBuffer.lost_COUNT = 35;
 		}
 		
-		if(CR_ringBuffer.lost_COUNT<=20)//连续丢失目标的次数小于3次，进行预测
+		if(CR_ringBuffer.lost_COUNT<=35)//连续丢失目标的次数小于3次，进行预测
 		{
 
 			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
@@ -386,13 +403,13 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
    	}	
 	}
 	
-	if(CR_ringBuffer.lost_COUNT>=20)
+	if(CR_ringBuffer.lost_COUNT>=35)
 	{
 		enter_CNT = 0;
 		ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
 		ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;
 		TempShootingFlag = 0;
-		CameraDetectTarget_Flag = 0;//如果连续20帧没识别到，则换状态
+		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
 	}
 }
 
@@ -415,6 +432,3 @@ uint16_t filter(uint16_t *distance_buf)//滤波其实视觉做了
 	
 	return (int)(distance_buf[Dis_buf_Size/2]);
 }
-
-
-
