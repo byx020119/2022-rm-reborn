@@ -26,7 +26,7 @@ PID_Regulator GMYSpeedPID 	 = GIMBAL_MOTOR_YAW_SPEED_PID_DEFAULT;
 
 PID_Regulator CM6PositionPID = CM6_POSITION_PID_DEFAULT;//2022加
 PID_Regulator CM6SpeedPID    = CM6_SPEED_PID_DEFAULT;//2022加
-float cm1_lastref=0;//上次底盘电机ref值 2022加
+
 
 PID_Regulator CM7PositionPID = CM7_POSITION_PID_DEFAULT;
 PID_Regulator CM7SpeedPID    = CM7_SPEED_PID_DEFAULT;
@@ -69,13 +69,13 @@ int    Last_Dodeg_STATE_Change=0;
 ***/
 void GMBrakeControlLoop(void)
 {
-		CM6PositionPID.kp = 80;
-	  CM6PositionPID.ki = 1;
-		CM6PositionPID.kd = 0;
+		CM6PositionPID.kp = 20;//20
+	  CM6PositionPID.ki = 0.01;//0.01
+		CM6PositionPID.kd = 1;
 	
-	  CM6SpeedPID.kp = 30;
+	  CM6SpeedPID.kp = 10;//10
 		CM6SpeedPID.ki = 0;
-		CM6SpeedPID.kd = 2;
+		CM6SpeedPID.kd = 0;
     switch(Brake_flag)
 		{
 			//位置环得出输出值
@@ -89,7 +89,7 @@ void GMBrakeControlLoop(void)
 			
 			case -1://左倾时计算位置环值
 			{
-				CM6PositionPID.ref=-50;
+				CM6PositionPID.ref=-45;
 				CM6PositionPID.fdb = CM6Encoder.ecd_angle;
 				CM6PositionPID.Calc(&CM6PositionPID);
 				break;
@@ -97,7 +97,7 @@ void GMBrakeControlLoop(void)
 			
 			case 1://右倾时计算位置环值
 			{
-				CM6PositionPID.ref=50;
+				CM6PositionPID.ref=45;
 				CM6PositionPID.fdb = CM6Encoder.ecd_angle;
 				CM6PositionPID.Calc(&CM6PositionPID);
 				break;
@@ -385,7 +385,7 @@ void CMControlLoop(void)
 		  CM1SpeedPID.ki = 0.5;//0.5
 	   	CM1SpeedPID.kd = 5;//20
 			
-      cm1_lastref	=	CM1SpeedPID.ref;
+     
 			CM1SpeedPID.ref = 0;
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;//0;
 			CM1SpeedPID.Calc(&CM1SpeedPID);
@@ -395,12 +395,12 @@ void CMControlLoop(void)
 		{
 			if(Speed_change==0)
 				{
-				cm1_lastref	=	CM1SpeedPID.ref;
+				
 				CM1SpeedPID.ref = -0.1*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			  }
 			if(Speed_change==1)
 				{
-			  cm1_lastref	=	CM1SpeedPID.ref;
+			 
 				CM1SpeedPID.ref = -0.1*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
 			  }
 			
@@ -419,7 +419,7 @@ void CMControlLoop(void)
 		//自由状态、测试状态、被攻击状态
 		if(GetWorkState()== Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE)
 		{
-			cm1_lastref	=	CM1SpeedPID.ref;
+			
 			CM1SpeedPID.ref = -Chassis_Speed_Ref ;//-  Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
 			CM1SpeedPID.Calc(&CM1SpeedPID);
@@ -435,7 +435,7 @@ void CMControlLoop(void)
 		//躲避
 		if(GetWorkState()== Dodeg_STATE)
 		{	
-			cm1_lastref	=	CM1SpeedPID.ref;
+			
 			CM1SpeedPID.ref = Chassis_Speed_Ref ;//+ Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
 			CM1SpeedPID.Calc(&CM1SpeedPID);

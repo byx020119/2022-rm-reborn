@@ -37,5 +37,6 @@
 ..\obj\bsp.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\bsp.o: ..\BSP\timer.h
 ..\obj\bsp.o: ..\BSP\can1.h
+..\obj\bsp.o: ..\BSP\can2.h
 ..\obj\bsp.o: ..\BSP\usart3.h
 ..\obj\bsp.o: ..\ControlTask\Phototube.h
