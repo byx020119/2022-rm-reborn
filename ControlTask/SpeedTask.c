@@ -330,8 +330,8 @@ void SetGimbalMotorOutput(void)
 	//云台控制输出								
 	if((GetWorkState() == STOP_STATE))   
 	{
-		Set_Gimbal_Current(CAN1, 0, 0);     //yaw + pitch	+M7（拨轮）	
-	  Set_Gimbal_Current1(CAN2,(int16_t)(CM6SpeedPID.output),(int16_t)(CM7SpeedPID.output)); 
+		Set_Gimbal_Current(CAN1, 0, 0);     //yaw + pitch
+	  Set_Gimbal_Current1(CAN2,(int16_t)(CM6SpeedPID.output),0); 
 	}
 	//识别、躲避
 	
@@ -485,8 +485,8 @@ void ShooterMControlLoop(void)
 	CM7PositionPID.kd = 0;//0
 	
 	CM7SpeedPID.kp = 60;//50//55//60
-	CM7SpeedPID.ki = 0.0;//0
-	CM7SpeedPID.kd = 15;//10//25//20//25
+	CM7SpeedPID.ki = 0;//0
+	CM7SpeedPID.kd = 0;//10//25//20//25
 	
 	//识别模式且s1推到中间打开摩擦轮才会打开波轮
 	if(TempShootingFlag==1)//||(GetWorkState() == ChariotRecognition_STATE&&RC_CtrlData.rc.s1==3))//打开波轮发弹
@@ -497,16 +497,16 @@ void ShooterMControlLoop(void)
 		
 		CM7SpeedPID.ref = 250;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
 	}
-	//放卡弹
-	if(CM7Encoder.ecd_raw_rate < 10)
-	{ 
-		CM7SpeedPID.ref = -500;
-	}
-	if(CM7Encoder.ecd_raw_rate < -5 )
-	{			
-		CM7SpeedPID.ref = 250;//
-	}
-//	if(CM7Encoder.ecd_raw_rate<-5 &&)
+//	//放卡弹
+//	if(CM7Encoder.ecd_raw_rate < 10)
+//	{ 
+//		CM7SpeedPID.ref = -500;
+//	}
+//	if(CM7Encoder.ecd_raw_rate < -5 )
+//	{			
+//		CM7SpeedPID.ref = 250;//
+//	}
+////	if(CM7Encoder.ecd_raw_rate<-5 &&)
 //	{
 //		kadanflag = 0 ;
 //		kadantt = 10 ;
@@ -518,7 +518,7 @@ void ShooterMControlLoop(void)
 		CM7SpeedPID.ref = 0;
 	}
 	
-	CM7SpeedPID.fdb = CM7Encoder.ecd_raw_rate;  //CM7SpeedPID.fdb = CM7Encoder.ecd_raw_rate/10;均匀转动，但是没劲
+	CM7SpeedPID.fdb = CM7Encoder.filter_rate;  //CM7SpeedPID.fdb = CM7Encoder.ecd_raw_rate
 	CM7SpeedPID.Calc(&CM7SpeedPID);
 	
 //	if(CM7PositionPID.ref-CM7PositionPID.fdb>200)//卡弹反转
