@@ -96,6 +96,7 @@ void RemoteDataPrcess(uint8_t *pData)
 	if(RC_CtrlData.rc.s2==2)
 	{
 		RemoteTest_Flag = 0;//遥控器关闭时，遥控器测试状态变为0。拨杆拨到最下面
+		Brake_flag=0;//刹车回正
 	}
 
 	
@@ -125,11 +126,23 @@ void RemoteDataPrcess(uint8_t *pData)
 	 {
 		  TempShootingFlag=0;
 	 }
-	 switch(RC_CtrlData.rc.s1)//刹车模块位置测试
+	 switch(RC_CtrlData.rc.s1)//刹车模块位置测试（方向从板子方向向电池方向看）
 	 {
-		 case 2: Brake_flag=0;
-		 case 3: Brake_flag=-1;
-		 case 1: Brake_flag=1;
+		 case 2://(中间)
+		 { 
+			 Brake_flag=0;
+			 break;
+		 }
+		 case 3://（左面）
+		 {			
+			 Brake_flag=-1;
+			 break;
+		 }
+		 case 1://(最右面)
+		 {
+			 Brake_flag=1;
+			 break;
+		 }
 	 }
 	 
 	

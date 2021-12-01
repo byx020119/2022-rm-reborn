@@ -1770,7 +1770,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x53DBAFAE)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAE)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x53DBAFAE)
 I (..\CanBusTask\CanBusTask.h)(0x619848BF)
-F (..\ControlTask\RemoteTask.c)(0x61A6267D)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-I.\RTE\_shaobing_c-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0-D__UVISION_VERSION="523" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\remotetask.o --omf_browse ..\obj\remotetask.crf --depend ..\obj\remotetask.d)
+F (..\ControlTask\RemoteTask.c)(0x61A7537C)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-I.\RTE\_shaobing_c-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0-D__UVISION_VERSION="523" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\remotetask.o --omf_browse ..\obj\remotetask.crf --depend ..\obj\remotetask.d)
 I (..\ControlTask\RemoteTask.h)(0x5FBE62BA)
 I (..\USER\stm32f4xx.h)(0x5FB67CE6)
 I (..\CORE\core_cm4.h)(0x53C7D532)
