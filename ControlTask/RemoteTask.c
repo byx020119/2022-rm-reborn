@@ -26,7 +26,7 @@ RC_Ctl_t RC_CtrlData;
 		 1.ch1控制底盘前后移动
 		 2.ch2控制yaw水平旋转(累加、限位)
 		 3.ch3控制pitch竖直摆动(累加、限位)
-		 4.s1扳到最下面，全关
+		 4.s1扳到最下面，全关,刹车回正
 		 5.s2扳到中间，摩擦轮开，拨轮关
 		 6.s2扳到最上，全开
 		 
@@ -35,7 +35,7 @@ RC_Ctl_t RC_CtrlData;
 		 2.ch2控制yaw水平旋转(累加、限位)
 		 3.ch3控制pitch竖直摆动(累加、限位)
 		 4.s2=2,停止状态 s2=3,测试状态 s2=1,准备状态，2s后进入自由状态
-		 5.
+		 5.s1控制刹车块
 		 
 **/
 void RemoteDataPrcess(uint8_t *pData)
