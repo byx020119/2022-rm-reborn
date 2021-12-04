@@ -144,6 +144,7 @@ void CanReceiveMsgProcess1(CanRxMsg * msg)
 		case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机 ID 7
 		{
 			(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
+			break;
 		}
 	  case  CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID://刹车机构 2022加 ID 6
 			{

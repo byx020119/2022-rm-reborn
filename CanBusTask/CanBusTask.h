@@ -1,6 +1,7 @@
 #ifndef CanBusTask_H
 #define CanBusTask_H
-#include <stm32f4xx.h>
+#include "stm32f4xx.h"
+#include "stm32f4xx_can.h"
 
 /* Chassis Motor */
 #define CAN_BUS1_MOTOR1_FEEDBACK_MSG_ID           0x201
