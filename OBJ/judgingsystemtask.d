@@ -2,7 +2,7 @@
 ..\obj\judgingsystemtask.o: ..\USER\main.h
 ..\obj\judgingsystemtask.o: ..\USER\stm32f4xx.h
 ..\obj\judgingsystemtask.o: ..\CORE\core_cm4.h
-..\obj\judgingsystemtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\judgingsystemtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\judgingsystemtask.o: ..\CORE\core_cmInstr.h
 ..\obj\judgingsystemtask.o: ..\CORE\core_cmFunc.h
 ..\obj\judgingsystemtask.o: ..\CORE\core_cm4_simd.h
@@ -35,11 +35,11 @@
 ..\obj\judgingsystemtask.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\judgingsystemtask.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\judgingsystemtask.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\judgingsystemtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\judgingsystemtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\judgingsystemtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\judgingsystemtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\judgingsystemtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\judgingsystemtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\judgingsystemtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\judgingsystemtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\string.h
+..\obj\judgingsystemtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\judgingsystemtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\judgingsystemtask.o: ..\BSP\bsp.h
 ..\obj\judgingsystemtask.o: ..\BSP\can1.h
 ..\obj\judgingsystemtask.o: ..\BSP\timer.h

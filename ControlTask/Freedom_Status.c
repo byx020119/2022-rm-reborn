@@ -56,11 +56,11 @@ void YawFreeRoation(void)
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.2f;   //p轴标志位1，p轴转向角度+0.2？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.1f;   //p轴标志位1，p轴转向角度+0.2？
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.2f;   //p轴标志位0，p轴转向角度-0.2？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.1f;   //p轴标志位0，p轴转向角度-0.2？
 		}
 		
 		
@@ -68,21 +68,21 @@ void YawFreeRoation(void)
 		
 		if(Freedom_Rotation_flag==0)
 		{
-			if(GMYawEncoder.ecd_angle-2778>=0)//Y在一个范围内不断加减，实现转圈
+			if(GMYawEncoder.ecd_angle-0>=0)//Y在一个范围内不断加减，实现转圈
 			{
 			Yaw_rotate_flag=1;
 			}
-			if(GMYawEncoder.ecd_angle+2778<=0)
+			if(GMYawEncoder.ecd_angle+180<=0)
 			{
 			Yaw_rotate_flag=0;
 			}
 			if(Yaw_rotate_flag==1)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 1;
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.2f;
 			}
 			if(Yaw_rotate_flag==0)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 1;
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.2f;
 			}
    	}
 

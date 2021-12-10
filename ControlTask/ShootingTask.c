@@ -80,7 +80,7 @@ if(friction_wheel_state_flag ==1)
 	{
 //			if(Target_Distance<=30)
 //				{
-				CM3SpeedPID.ref = -Friction_Speed.low_speed ;
+				CM3SpeedPID.ref =  -Friction_Speed.low_speed ;
 			  CM4SpeedPID.ref = Friction_Speed.low_speed ;
 //				}
 //			else

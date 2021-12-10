@@ -2,7 +2,7 @@
 ..\obj\dogetstate.o: ..\ControlTask\DogetState.h
 ..\obj\dogetstate.o: ..\USER\stm32f4xx.h
 ..\obj\dogetstate.o: ..\CORE\core_cm4.h
-..\obj\dogetstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\dogetstate.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\dogetstate.o: ..\CORE\core_cmInstr.h
 ..\obj\dogetstate.o: ..\CORE\core_cmFunc.h
 ..\obj\dogetstate.o: ..\CORE\core_cm4_simd.h
@@ -42,11 +42,11 @@
 ..\obj\dogetstate.o: ..\Common\Ramp.h
 ..\obj\dogetstate.o: ..\ControlTask\GunHeartAndBleed.h
 ..\obj\dogetstate.o: ..\USER\main.h
-..\obj\dogetstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\dogetstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\dogetstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\dogetstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\dogetstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\dogetstate.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\dogetstate.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\dogetstate.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\string.h
+..\obj\dogetstate.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\dogetstate.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\dogetstate.o: ..\BSP\bsp.h
 ..\obj\dogetstate.o: ..\BSP\can1.h
 ..\obj\dogetstate.o: ..\BSP\timer.h

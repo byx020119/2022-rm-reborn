@@ -2,7 +2,7 @@
 ..\obj\crc.o: ..\Common\crc.h
 ..\obj\crc.o: ..\USER\stm32f4xx.h
 ..\obj\crc.o: ..\CORE\core_cm4.h
-..\obj\crc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\crc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\crc.o: ..\CORE\core_cmInstr.h
 ..\obj\crc.o: ..\CORE\core_cmFunc.h
 ..\obj\crc.o: ..\CORE\core_cm4_simd.h
@@ -35,4 +35,4 @@
 ..\obj\crc.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\crc.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\crc.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\crc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\crc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h

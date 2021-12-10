@@ -123,6 +123,7 @@ void GMBrakeControlLoop(void)
 void GMPitchControlLoop(void)
 {
     VAL_LIMIT(GimbalRef.pitch_angle_dynamic_ref , -35, -3);
+
 	  //VAL_LIMIT(ChariotRecognition_pitch , -4, 32)//P轴限位95 145
 	
 	if(GetWorkState() == Dodeg_STATE && CameraDetectTarget_Flag ==1 )
@@ -267,7 +268,7 @@ void GMYawControlLoop(void)
 		GMYPositionPID.ki =	0.01;//0
 		GMYPositionPID.kd = 5;//0
 			
-		GMYSpeedPID.kp = 5;//0
+		GMYSpeedPID.kp = 10;//0
 		GMYSpeedPID.ki = 0;//0
 		GMYSpeedPID.kd = 2;//0
 		
@@ -299,11 +300,11 @@ void GMYawControlLoop(void)
     Last_Dodeg_STATE_Change = Dodeg_STATE_Change;
 		Dodeg_STATE_Change = 0;
 		
-		GMYPositionPID.kp = 100;//60//100
+		GMYPositionPID.kp = 50;//60//100
 		GMYPositionPID.ki =	0.005;//0
 		GMYPositionPID.kd = 0;
 			
-		GMYSpeedPID.kp = 15;//5
+		GMYSpeedPID.kp = 5;//5
 		GMYSpeedPID.ki = 0;//0.005;
 		GMYSpeedPID.kd = 2;
 			
@@ -498,14 +499,14 @@ void ShooterMControlLoop(void)
 		CM7SpeedPID.ref = 250;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
 	}
 //	//放卡弹
-//	if(CM7Encoder.ecd_raw_rate < 10)
-//	{ 
-//		CM7SpeedPID.ref = -500;
-//	}
-//	if(CM7Encoder.ecd_raw_rate < -5 )
-//	{			
-//		CM7SpeedPID.ref = 250;//
-//	}
+	if(CM7Encoder.ecd_raw_rate < 10)
+	{ 
+		CM7SpeedPID.ref = -500;
+	}
+	if(CM7Encoder.ecd_raw_rate < -5 )
+	{			
+		CM7SpeedPID.ref = 250;//
+	}
 ////	if(CM7Encoder.ecd_raw_rate<-5 &&)
 //	{
 //		kadanflag = 0 ;

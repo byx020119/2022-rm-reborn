@@ -2,7 +2,7 @@
 ..\obj\speedtask.o: ..\ControlTask\SpeedTask.h
 ..\obj\speedtask.o: ..\USER\stm32f4xx.h
 ..\obj\speedtask.o: ..\CORE\core_cm4.h
-..\obj\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\speedtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\speedtask.o: ..\CORE\core_cmInstr.h
 ..\obj\speedtask.o: ..\CORE\core_cmFunc.h
 ..\obj\speedtask.o: ..\CORE\core_cm4_simd.h
@@ -43,13 +43,13 @@
 ..\obj\speedtask.o: ..\ControlTask\Phototube.h
 ..\obj\speedtask.o: ..\ControlTask\Freedom_Status.h
 ..\obj\speedtask.o: ..\Common\common.h
-..\obj\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\speedtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\speedtask.o: ..\ControlTask\ShootingTask.h
 ..\obj\speedtask.o: ..\USER\main.h
-..\obj\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\speedtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\speedtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\speedtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\string.h
+..\obj\speedtask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\speedtask.o: ..\BSP\bsp.h
 ..\obj\speedtask.o: ..\BSP\can1.h
 ..\obj\speedtask.o: ..\BSP\timer.h

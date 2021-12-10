@@ -5,7 +5,7 @@
 #include "WorkState.h"
 //每次电机位置调整时必须先调下面pitch_ecd_bias数值
 uint32_t can_count = 0;
-int16_t  pitch_ecd_bias = 6200;//200
+int16_t  pitch_ecd_bias = 4600;//200
 int16_t  yaw_ecd_bias   = 0;
 int16_t  brake_ecd_bias = 0;//有减速比，每次刷新电机圈数清零，无法通过给定值回正，须手动
 
