@@ -180,6 +180,7 @@ void GMPitchControlLoop(void)
 		GMPSpeedPID.kd = 0;//0
 		if(GetWorkState() == PREPARE_STATE||GetWorkState() == STOP_STATE)
 		{
+			
 			GMPPositionPID.ref = 0.0f;   //GMPitchRamp.Calc(&GMPitchRamp);
 			GMPPositionPID.fdb = GMPitchEncoder.ecd_angle* GMPitchRamp.Calc(&GMPitchRamp);
       GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量			
@@ -281,10 +282,10 @@ void GMYawControlLoop(void)
 	if( GetWorkState() == Test_STATE) 
 	{
 		GMYPositionPID.kp = 100;//100//50;//60
-		GMYPositionPID.ki =	0.05;//0.05;
-		GMYPositionPID.kd = 5;//100;5
+		GMYPositionPID.ki =	0.005;//0.05;//0.005
+		GMYPositionPID.kd = 0;//100;5//0
 			
-		GMYSpeedPID.kp = 5;//10//5
+		GMYSpeedPID.kp = 50;//10//5//50
 		GMYSpeedPID.ki = 0;//5
 		GMYSpeedPID.kd = 2;//2
 	
@@ -300,13 +301,13 @@ void GMYawControlLoop(void)
     Last_Dodeg_STATE_Change = Dodeg_STATE_Change;
 		Dodeg_STATE_Change = 0;
 		
-		GMYPositionPID.kp = 50;//60//100
+		GMYPositionPID.kp = 100;//60//100
 		GMYPositionPID.ki =	0.005;//0
-		GMYPositionPID.kd = 0;
+		GMYPositionPID.kd = 0;//0
 			
-		GMYSpeedPID.kp = 5;//5
+		GMYSpeedPID.kp = 50;//5//50
 		GMYSpeedPID.ki = 0;//0.005;
-		GMYSpeedPID.kd = 2;
+		GMYSpeedPID.kd = 2;//2
 			
 		GMYPositionPID.ref = GimbalRef.yaw_angle_dynamic_ref;
 		GMYPositionPID.fdb = GMYawEncoder.ecd_angle;   

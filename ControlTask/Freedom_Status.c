@@ -72,7 +72,7 @@ void YawFreeRoation(void)
 			{
 			Yaw_rotate_flag=1;
 			}
-			if(GMYawEncoder.ecd_angle+180<=0)
+			if(GMYawEncoder.ecd_angle+200<=0)
 			{
 			Yaw_rotate_flag=0;
 			}
