@@ -2,7 +2,7 @@
 ..\obj\encoder.o: ..\USER\main.h
 ..\obj\encoder.o: ..\USER\stm32f4xx.h
 ..\obj\encoder.o: ..\CORE\core_cm4.h
-..\obj\encoder.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\encoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\encoder.o: ..\CORE\core_cmInstr.h
 ..\obj\encoder.o: ..\CORE\core_cmFunc.h
 ..\obj\encoder.o: ..\CORE\core_cm4_simd.h
@@ -35,11 +35,11 @@
 ..\obj\encoder.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\encoder.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\encoder.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\encoder.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\encoder.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\encoder.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\string.h
-..\obj\encoder.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\encoder.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\math.h
+..\obj\encoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\encoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\encoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\encoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\encoder.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\encoder.o: ..\BSP\bsp.h
 ..\obj\encoder.o: ..\BSP\can1.h
 ..\obj\encoder.o: ..\BSP\timer.h

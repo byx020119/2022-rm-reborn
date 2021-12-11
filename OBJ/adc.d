@@ -2,7 +2,7 @@
 ..\obj\adc.o: ..\BSP\adc.h
 ..\obj\adc.o: ..\USER\stm32f4xx.h
 ..\obj\adc.o: ..\CORE\core_cm4.h
-..\obj\adc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\adc.o: ..\CORE\core_cmInstr.h
 ..\obj\adc.o: ..\CORE\core_cmFunc.h
 ..\obj\adc.o: ..\CORE\core_cm4_simd.h
@@ -36,11 +36,11 @@
 ..\obj\adc.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\adc.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\adc.o: ..\USER\main.h
-..\obj\adc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\adc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\adc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\string.h
-..\obj\adc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\adc.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\math.h
+..\obj\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\adc.o: ..\BSP\bsp.h
 ..\obj\adc.o: ..\BSP\can1.h
 ..\obj\adc.o: ..\BSP\timer.h

@@ -37,6 +37,9 @@ int32_t time_track_left_max = 0;
 int32_t time_track_right = 0;  //跑导轨计时
 int32_t time_track_right_max = 0;
 
+double yaw_ecd_angle_flag =0;             //2022加  自由模式y轴一侧限位值
+double yaw_ecd_angle_flag1 =200;          //2022加  自由模式y轴另一侧限位值
+
 
 /***
 函数：YawFreeRoation()
@@ -56,11 +59,11 @@ void YawFreeRoation(void)
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.1f;   //p轴标志位1，p轴转向角度+0.2？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.1f;   //p轴标志位1，p轴转向角度+0.1？
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.1f;   //p轴标志位0，p轴转向角度-0.2？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.1f;   //p轴标志位0，p轴转向角度-0.1？
 		}
 		
 		
@@ -68,21 +71,21 @@ void YawFreeRoation(void)
 		
 		if(Freedom_Rotation_flag==0)
 		{
-			if(GMYawEncoder.ecd_angle-0>=0)//Y在一个范围内不断加减，实现转圈
+			if(GMYawEncoder.ecd_angle-yaw_ecd_angle_flag>=0)//Y在一个范围内不断加减，实现转圈 半圈
 			{
 			Yaw_rotate_flag=1;
 			}
-			if(GMYawEncoder.ecd_angle+200<=0)
+			if(GMYawEncoder.ecd_angle+yaw_ecd_angle_flag1<=0)
 			{
 			Yaw_rotate_flag=0;
 			}
 			if(Yaw_rotate_flag==1)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.2f;
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.2f;//0.2//1
 			}
 			if(Yaw_rotate_flag==0)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.2f;
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.2f;//0.2//1
 			}
    	}
 

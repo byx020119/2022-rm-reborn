@@ -40,9 +40,9 @@ int Phototube_brake1=0;
 函数：Phototube_Configuration()
 功能：光电管IO初始化
 备注：
-		 PI7：左侧光电管
+		 PC6：右侧光电管
 		 PA1：中间光电管//已拆卸
-		 PI6：右侧光电管
+		 PI7：左侧光电管
 ***/
 
 void Phototube_Configuration(void)
@@ -90,7 +90,7 @@ void Phototube_Handle(void)
 功能：光电管赋值，检测光电管状态，修改底盘换向标志
 备注：先检测PI7电平值，如果是高电平到低电平，则认为是检测到柱子，修改标志，初始化计时。
 ***/
-/***左侧光电管**/
+/***右侧光电管**/
 	//PI7见背面丝印
 
 	  PI7_Level = PCin(6);
@@ -126,7 +126,7 @@ void Phototube_Handle(void)
 功能：光电管赋值
 备注：无
 ***/
-/**右侧光电管**/
+/**左侧光电管**/
 		//PI6见背面丝印
 		PI6_Level = PIin(7);  //本次PI7电平值
 		if(lastPI6_Level==1 && PI6_Level==0)
