@@ -5,7 +5,6 @@
 #include "GunHeartAndBleed.h"
 #include "JudgingSystemTask.h"
 
-
 int Doget_Change_Flag=0;             // 位置可变躲避状态标志
 int Destination_Flag = 0;            //是否到达两端标志
 int16_t last_Random_MotionRange = 0; //底盘上一次随机数位置
@@ -48,11 +47,11 @@ void YawFreeRoation_Doget(void)
 		//固定摄像头未识别时，云台波浪式旋转
 		if(Freedom_Rotation_flag==0)
 		{
-			if(-GMYawEncoder.ecd_angle-2778>0)
+			if(-GMYawEncoder.ecd_angle-0>0)
 			{
 			Yaw_rotate_flag=1;
 			}
-			if(-GMYawEncoder.ecd_angle+2778<0)
+			if(-GMYawEncoder.ecd_angle+200<0)
 			{
 			Yaw_rotate_flag=0;
 			}
@@ -659,6 +658,3 @@ void getRandom_MotionRange(void)
 	    }
   }
 }
-
-
-

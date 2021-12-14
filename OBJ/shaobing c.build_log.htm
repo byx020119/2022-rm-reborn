@@ -3,40 +3,57 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.14.0.0
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: °×ÓîÏé °×Óð, HP Inc., LIC=FQQMA-1V64I-680FC-7M5CG-DKADN-1BBAF
+IDE-Version: ¦ÌVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Louise Yukina, ustb, LIC=1WSKC-73G66-PHZ89-4WQSS-P31TS-VRMYL
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
-Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.05 update 1 (build 106)
-Assembler:       Armasm.exe V5.05 update 1 (build 106)
-Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
-Library Manager: ArmAr.exe V5.05 update 1 (build 106)
-Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
-CPU DLL:         SARMCM3.DLL V5.14.0.0
-Dialog DLL:      DCM.DLL V1.13.1.0
+Toolchain:       MDK-ARM Professional  Version: 5.36.0.0
+Toolchain Path:  D:\App\Deil\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
 Target DLL:      Segger\JL2CM3.dll V2.99.13.0
-Dialog DLL:      TCM.DLL V1.14.4.0
+Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\Users\°×Óð\Desktop\RM\use\-2022- - ¸±±¾\USER\shaobing c.uvprojx
-Project File Date:  12/11/2021
+D:\Robo\1\-2022-rm-test---\USER\shaobing c.uvprojx
+Project File Date:  12/14/2021
 
 <h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\App\Deil\ARM\ARMCC\Bin'
 Build target 'shaobing c'
-compiling SpeedTask.c...
+compiling ControlTask.c...
+..\ControlTask\BrakeTask.h(4): warning:  #1295-D: Deprecated declaration Brake_Handle - give arg types
+  extern void Brake_Handle();
+..\ControlTask\ControlTask.c(40): warning:  #223-D: function "HeatControl_Task" declared implicitly
+  	HeatControl_Task();
+..\ControlTask\ControlTask.c(41): warning:  #223-D: function "FrictionWheelControl" declared implicitly
+    FrictionWheelControl();             //Ä¦²ÁÂÖ²¦µ¯µç»ú¿ØÖÆÈÎÎñ
+..\ControlTask\ControlTask.c(42): warning:  #223-D: function "BoLunMotorControl" declared implicitly
+  	BoLunMotorControl();
+..\ControlTask\ControlTask.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=33004 RO-data=1332 RW-data=3060 ZI-data=4252  
+Program Size: Code=33196 RO-data=1332 RW-data=3100 ZI-data=4252  
 FromELF: creating hex file...
-"..\OBJ\shaobing c.axf" - 0 Error(s), 0 Warning(s).
+"..\OBJ\shaobing c.axf" - 0 Error(s), 4 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.11.0.pack
+                Keil.STM32F4xx_DFP.2.11.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\°×Óð\Desktop\RM\use\-2022- - ¸±±¾\USER\RTE
-  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0
+  D:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

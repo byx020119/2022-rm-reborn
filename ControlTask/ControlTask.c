@@ -8,6 +8,7 @@
 #include "Freedom_Status.h"
 #include "DogetState.h"
 #include "BrakeTask.h"
+#include "ShootingTask.h"
 
 uint32_t time_tick_2ms = 0;     //2ms刷新一次，初值为0
 u16 adc_Value = 0;

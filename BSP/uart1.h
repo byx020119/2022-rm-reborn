@@ -1,3 +1,5 @@
+#include "stdint.h"
+
 #ifndef UART1_H
 #define UART1_H
 //#include "main.h"
@@ -5,8 +7,8 @@
 #define USART1_MAX_SEND_LEN		400					//最大发送缓存字节数
 	  	
 			
-extern u8  USART1_RX_BUF[USART1_MAX_RECV_LEN]; //接收缓冲,最大USART_REC_LEN个字节.末字节为换行符 
-extern u16 USART1_RX_STA;
+extern uint8_t  USART1_RX_BUF[USART1_MAX_RECV_LEN]; //接收缓冲,最大USART_REC_LEN个字节.末字节为换行符 
+extern uint16_t USART1_RX_STA;
 extern int Armor_R_Flag_Before;
 extern int Armor_R_Flag_Behind;
 
@@ -47,20 +49,20 @@ extern float ChariotRecognition_yaw;
 extern uint16_t last_Target_Distance;
 extern uint16_t Target_Distance;
 extern uint16_t Distance_Buf[Dis_buf_Size];
-extern u8 Dis_Buf_Index;
-extern u8 Pitch_Add_Angle;
+extern uint8_t Dis_Buf_Index;
+extern uint8_t Pitch_Add_Angle;
 extern CRringBuffer_t CR_ringBuffer;
 extern int  GM_Rotete_flag_Before;
 extern int  GM_Rotete_flag_Behind;
 extern int camere_count;
 
 extern float CR_yaw_Angle[20];
-extern u8 CR_yaw_Angle_Index;
-extern u8 CR_yaw_Angle_CNT;
+extern uint8_t CR_yaw_Angle_Index;
+extern uint8_t CR_yaw_Angle_CNT;
 extern int Last_CameraDetectTarget_Flag;
 
 void Sendtosightway(int value);
-void usart1_Init(u32 bound);
+void usart1_Init(uint32_t bound);
 void ChariotRecognition_Mes_Process(uint8_t *p);
 uint16_t filter(uint16_t *distance_buf);
 

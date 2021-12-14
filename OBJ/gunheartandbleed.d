@@ -2,7 +2,7 @@
 ..\obj\gunheartandbleed.o: ..\USER\main.h
 ..\obj\gunheartandbleed.o: ..\USER\stm32f4xx.h
 ..\obj\gunheartandbleed.o: ..\CORE\core_cm4.h
-..\obj\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\gunheartandbleed.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\gunheartandbleed.o: ..\CORE\core_cmInstr.h
 ..\obj\gunheartandbleed.o: ..\CORE\core_cmFunc.h
 ..\obj\gunheartandbleed.o: ..\CORE\core_cm4_simd.h
@@ -35,11 +35,11 @@
 ..\obj\gunheartandbleed.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\gunheartandbleed.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\gunheartandbleed.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\gunheartandbleed.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\gunheartandbleed.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\gunheartandbleed.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\string.h
+..\obj\gunheartandbleed.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\gunheartandbleed.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\gunheartandbleed.o: ..\BSP\bsp.h
 ..\obj\gunheartandbleed.o: ..\BSP\can1.h
 ..\obj\gunheartandbleed.o: ..\BSP\timer.h

@@ -88,9 +88,13 @@ float E_TEST3=0;
 int camere_count=0;
 int colorflag = 0;
 
+double Yawangle = 0.0f;
+int Yawsent = 0;
+double t =0.0f;
+double z =0.0f;
 /***
 函数：usart1_Init(bound)
-功能：配置USART3，接收妙算数据
+功能：配置USART1，接收妙算数据
 备注：USART1_TX--->PA9
       USART1_RX--->PB7
       可向外打印数据
@@ -174,7 +178,7 @@ void usart1_Init(u32 bound)
 	/* -------------- Configure NVIC ----------------------------------------*/
 	{
 		NVIC_InitTypeDef nvic;
-		//Usart3 NVIC 配置
+		//串口1 NVIC 配置
 		nvic.NVIC_IRQChannel = USART1_IRQn;//串口1中断通道
 		nvic.NVIC_IRQChannelPreemptionPriority=2;//抢占优先级0
 		nvic.NVIC_IRQChannelSubPriority =2;		//子优先级0
@@ -200,7 +204,7 @@ void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize)
 }
 
 
-void USART1_IRQHandler(void)                	//串口3中断服务程序
+void USART1_IRQHandler(void)  	//串口1中断服务程序
 {
 	if(USART_GetITStatus(USART1, USART_IT_IDLE) != RESET)      //接收到数据
 	{
@@ -244,8 +248,13 @@ State_distance state_distacne=closedistance;
 void Sendtosightway(int value)//与视觉商定
 {
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
-	int GMYawtemp_Eular;//=(-Angles+180)*10;
-	int GMPitchtemp_Encoder;//=(-Eular[0]+90)*10;
+	
+	t= (  ( (int)GMYawEncoder.ecd_angle % 1300 )+1300 ) % 1300; //每一圈里的码盘数值，保证是正的
+	z =t/1300*360;  //角度
+	int Yawsent =  (int)z % 360 ;
+	
+  int GMYawtemp_Eular=(Yawsent)*10;    //-180，精确度到小数点后一位，乘10，发送四位
+	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90)*10;	
 	
 //  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
 //	{
@@ -256,31 +265,32 @@ void Sendtosightway(int value)//与视觉商定
 //	Sendtosight[0]='R';	
 //	}
 	
-	colorflag=PCin(6);
-//没有的时候：利用开关
-	if( PCin(6) == 1 )
-	{
-		Sendtosight[0] ='B';	
-	}
-	if( PCin(6) == 0)
-	{
-		Sendtosight[0]='R';	
-	}
+//	colorflag=PCin(6);
+////没有的时候：利用开关
+//	if( PCin(6) == 1 )
+//	{
+//		Sendtosight[0] ='B';	
+//	}
+//	if( PCin(6) == 0)
+//	{
+//		Sendtosight[0]='R';	
+//	}
 
+	Sendtosight[0]='R';	
 	
 	Sendtosight[1]='M';//开始发送
 	Sendtosight[2]='N';
 	Sendtosight[3]='L';
 	
-	Sendtosight[4]=(uint8_t)(GMYawtemp_Eular/1000+48);//baiwei
-	Sendtosight[5]=(uint8_t)(GMYawtemp_Eular%1000/100+48);
-	Sendtosight[6]=(uint8_t)(GMYawtemp_Eular%100/10+48);
-	Sendtosight[7]=(uint8_t)(GMYawtemp_Eular%10+48);
+	Sendtosight[4]=(uint8_t)(GMYawtemp_Eular/1000+48);			 //千位
+	Sendtosight[5]=(uint8_t)(GMYawtemp_Eular%1000/100+48);	 //百位
+	Sendtosight[6]=(uint8_t)(GMYawtemp_Eular%100/10+48);		 //十位
+	Sendtosight[7]=(uint8_t)(GMYawtemp_Eular%10+48);				 //个位
 	
-	Sendtosight[8]=(uint8_t)(GMPitchtemp_Encoder/1000+48);//千位
+	Sendtosight[8]=(uint8_t)(GMPitchtemp_Encoder/1000+48);		//千位
 	Sendtosight[9]=(uint8_t)(GMPitchtemp_Encoder%1000/100+48);//百位
-	Sendtosight[10]=(uint8_t)(GMPitchtemp_Encoder%100/10+48);//十位
-	Sendtosight[11]=(uint8_t)(GMPitchtemp_Encoder%10+48);//个位
+	Sendtosight[10]=(uint8_t)(GMPitchtemp_Encoder%100/10+48);	//十位
+	Sendtosight[11]=(uint8_t)(GMPitchtemp_Encoder%10+48);			//个位
 	
   while(count_Sendtosight<value)
   {
@@ -301,9 +311,9 @@ void Sendtosightway(int value)//与视觉商定
 ***/
 void ChariotRecognition_Mes_Process(uint8_t *p)
 {
-	  ChariotRecognitionTemp[0] = ((p[3]<<8) | p[4]);
-		ChariotRecognitionTemp[1] = ((p[5]<<8) | p[6]);
-		ChariotRecognitionTemp[2] =  p[7];
+	  ChariotRecognitionTemp[0] = ((p[3]<<8) | p[2]);
+		ChariotRecognitionTemp[1] = ((p[5]<<8) | p[4]);
+		ChariotRecognitionTemp[2] =  p[6];
 	  ChariotRecognitionDirection[0]= p[7];
 	  ChariotRecognitionDirection[1]= p[8];
 	  Chariot_Rec_Dir_rotate[0]= p[9];
@@ -411,6 +421,13 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		TempShootingFlag = 0;
 		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
 	}
+	
+	if(GetWorkState()== ChariotRecognition_STATE && RC_CtrlData.rc.s1==2)//识别状态下，将左拨杆放到最下仍无法关闭摩擦轮  //5/2
+	{
+		TempShootingFlag = 0;//关拨轮
+		friction_wheel_state_flag = 0;//关摩擦轮
+	}
+
 }
 
 
