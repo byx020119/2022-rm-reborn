@@ -10,6 +10,8 @@
 
 float YawCurrentPositionSave   = 0.0f;   //保存当前Yaw轴位置
 float PitchCurrentPositionSave = 0.0f;   //保存当前Pitch轴位置
+float YawInitPositionSave = 0.0f;
+
 uint8_t DetectTargetFinish_Flag = 0;          //自由状态下，yaw看到目标一闪而过时，在该位置附近巡逻标志
 uint8_t RotationDir_Flag=0;                   //精巡逻过程中的旋转方向标志
 uint8_t Chassis_Change_Dir_Flag = 0;          //底盘换向标志

@@ -122,12 +122,16 @@ void WorkStateFSM(void)
 		{	
       if(DodgeTarget_Flag == 0)		//躲避结束，变为自由状态
 			{
-				 //workState = Freedom_STATE;  
+				 workState = Freedom_STATE;  
 			}				
-			if(RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
+			if(RemoteTest_Flag == 2)   //进入测试状态
 			{
 				workState = Test_STATE;	
 			}
+			if(RemoteTest_Flag == 0)   //遥控器停止测试
+			{
+				workState = STOP_STATE;
+			}	
 		}break;
 		
 		
@@ -162,6 +166,7 @@ void WorkStateSwitchProcess(void)
 	if((lastWorkState != PREPARE_STATE) && (workState == PREPARE_STATE))  
 	{
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
+		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变
 		ControtLoopTaskInit();//重新初始化控制环
 	}
 	/***

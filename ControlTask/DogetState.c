@@ -15,43 +15,44 @@ int Random_change__flag_2=0;            //随机数产生函数变化标志
 int Doget_rego_flag=0;
 int test_ecd=0;
 
-
 void YawFreeRoation_Doget(void)
 {
   if( GetWorkState()==Dodeg_STATE  )
 	{
 		
-		if(Last_CameraDetectTarget_Flag==1&&CameraDetectTarget_Flag==0)
+		if(Last_CameraDetectTarget_Flag==1 && CameraDetectTarget_Flag==0)
 		{
 		   YawCurrentPositionSave = -GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
 		   GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
 		}
 		
-		if(GMPitchEncoder.ecd_angle-20>0)
+	//慢慢点头
+		if(GMPitchEncoder.ecd_angle-30>0)
 		{
 		pitch_rotate_flag=1;
 		}
-		if(GMPitchEncoder.ecd_angle+20<0)
+		if(GMPitchEncoder.ecd_angle+3<0)
 		{
 		pitch_rotate_flag=0;
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.05f;
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.1f;
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.05f;
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.1f;
 		}
 	
-		//固定摄像头未识别时，云台波浪式旋转
+
+		//固定摄像头未识别
 		if(Freedom_Rotation_flag==0)
 		{
-			if(-GMYawEncoder.ecd_angle-0>0)
+			if(GMYawEncoder.ecd_angle-0>0)
 			{
 			Yaw_rotate_flag=1;
 			}
-			if(-GMYawEncoder.ecd_angle+200<0)
+			if(GMYawEncoder.ecd_angle+200<0)
 			{
 			Yaw_rotate_flag=0;
 			}
@@ -207,7 +208,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
 				{
 					case 0:
 					{
-						Chassis_Position_Ref = 5000;
+						Chassis_Position_Ref = 10000;
 						Dir_Change_Flag=0;
 					};break;
 					case 1:
@@ -218,14 +219,14 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
 				}
 			}
 			//依靠码盘进行换向
-			test_ecd=abs(Chassis_Position_Ref - CM1Encoder.ecd_angle);
-				if(abs(Chassis_Position_Ref - CM1Encoder.ecd_angle)<5)
+			test_ecd=fabs(Chassis_Position_Ref - CM1Encoder.ecd_angle);
+				if((fabs(Chassis_Position_Ref - CM1Encoder.ecd_angle)<5)&((Chassis_Position_Ref - CM1Encoder.ecd_angle)>-5))
 			{
 				switch(Chassis_Freedom_i)
 				{
 					case 0:
 					{
-						Chassis_Position_Ref = 5000;
+						Chassis_Position_Ref = 10000;
 					};break;
 					case 1:
 					{
@@ -248,11 +249,11 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
 	     {
 				if(Chassis_Position_Ref <CM1Encoder.ecd_angle)
 				{
-					Chassis_Temp_Speed = -600;
+					Chassis_Temp_Speed = -800;
 				}
 				else if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
 				{	
-					Chassis_Temp_Speed = 600;
+					Chassis_Temp_Speed = 800;
 				}
 		 	}
 				
@@ -266,43 +267,84 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
 	//未被飞行器攻击时的躲避
 if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)   
 	{
-		//被英雄大弹丸攻击，进入躲避状态
 		
-		if(Amor_ID==0&&Doget_Change_Flag==1)
-		{
-		  Chassis_Position_Ref = -10000;     //触发右侧光电管
-			Doget_Change_Flag = 0;
-			Destination_Flag = 0;
-//			Attacked_Flag=0;
-		}
-		
-		if(Amor_ID==1&&Doget_Change_Flag==1) 
-		{
-		  Chassis_Position_Ref = 10000;       //触发左侧光电管
-			Doget_Change_Flag = 0;
-			Destination_Flag = 0;
-//			Attacked_Flag=0;
-		}
-	 
+		if(Random_change__flag_2==1)                    //躲避模式被攻击换向的标志位
+			{				
+			int tt2=0;//自增变量，每被打到，就进行换向					
+			tt2++;
+			if(tt2>=0&&tt2<=10)	//位置0l'ji环ref只赋值一次  //notice
+			{
+		      if( fabs(Chassis_Position_Ref - CM1Encoder.ecd_angle ) < 400 ) //跑一段距离再换向，原地换向慢
+			  {
+		       Chassis_Position_Ref = Chassis_Position_Ref;
+				  Destination_Flag =1;
+			   //当前位置变向要给当前一个位置ref，但是由于延迟，往往CM1会剧烈转动到ref位置
+			  }
+			   else
+			  {				
+			   Chassis_Position_Ref = ( Chassis_Position_Ref - CM1Encoder.ecd_angle ) * 0.005  + CM1Encoder.ecd_angle;
+				  Destination_Flag=1;
+			  }	  
+			}	
+              //last_Chassis_Temp_Speed = Chassis_Temp_Speed;	//前后速度不同会换向
+             Random_change__flag_2 = 0;	//避免重复换向	
+			}	
 			
-		//固定摄像头辅助躲避
-		if(Doget_rego_flag==1)
-		{
-		  Chassis_Position_Ref = -10000;     //触发右侧光电管
-			Doget_Change_Flag = 0;
-			Destination_Flag = 0;
-			Doget_rego_flag=0;
-//			Attacked_Flag=0;
-		}
-		
-		if(Doget_rego_flag==2)
-		{
-		  Chassis_Position_Ref = 10000;       //触发左侧光电管
-			Doget_Change_Flag = 0;
-			Destination_Flag = 0;
-			Doget_rego_flag=0;
-//			Attacked_Flag=0;
-		}
+			//	英雄打，换向+随机位置
+			if(Random_change__flag_2==2)                               //被英雄攻击，进入躲避状态,给一个随机位置
+			{
+			getRandom_MotionRange();
+		    Chassis_Position_Ref = Random_MotionRange;
+		       switch(Chassis_Freedom_i)
+				  {
+				  	 case 0:
+					  {
+					  Chassis_Position_Ref = abs(Random_MotionRange);
+					  };break;
+					 case 1:
+				  	  {
+				  	   Chassis_Position_Ref = -abs(Random_MotionRange); 
+				      };break;
+			      }	
+               Random_change__flag_2 = 0;	//避免重复换向				  
+		   }
+		//被英雄大弹丸攻击，进入躲避状态
+//		
+//		if(Amor_ID==0&&Doget_Change_Flag==1)
+//		{
+//		  Chassis_Position_Ref = -10000;     //触发右侧光电管
+//			Doget_Change_Flag = 0;
+//			Destination_Flag = 0;
+////			Attacked_Flag=0;
+//		}
+//		
+//		if(Amor_ID==1&&Doget_Change_Flag==1) 
+//		{
+//		  Chassis_Position_Ref = 10000;       //触发左侧光电管
+//			Doget_Change_Flag = 0;
+//			Destination_Flag = 0;
+////			Attacked_Flag=0;
+//		}
+//	 
+//			
+//		//固定摄像头辅助躲避
+//		if(Doget_rego_flag==1)
+//		{
+//		  Chassis_Position_Ref = -10000;     //触发右侧光电管
+//			Doget_Change_Flag = 0;
+//			Destination_Flag = 0;
+//			Doget_rego_flag=0;
+////			Attacked_Flag=0;
+//		}
+//		
+//		if(Doget_rego_flag==2)
+//		{
+//		  Chassis_Position_Ref = 10000;       //触发左侧光电管
+//			Doget_Change_Flag = 0;
+//			Destination_Flag = 0;
+//			Doget_rego_flag=0;
+////			Attacked_Flag=0;
+//		}
 		
 		
 		if(Chassis_Power_On_Flag == 1)  //底盘已经上电
@@ -314,24 +356,24 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 			if(Dir_Change_Flag==1)                         
 			{
 			  getRandom_MotionRange();
-					switch(Chassis_Freedom_i)
+				switch(Chassis_Freedom_i)
 				{
 					case 0:
 					{
-						Chassis_Position_Ref = fabs(Random_MotionRange);
+						Chassis_Position_Ref = abs(Random_MotionRange);
 						Dir_Change_Flag=0;
 					};break;
 					case 1:
 					{
-						Chassis_Position_Ref = -fabs(Random_MotionRange); 
+						Chassis_Position_Ref = -abs(Random_MotionRange); 
 						Dir_Change_Flag=0;
 					};break;
 				}		
 			}
 			//固定摄像头辅助进行躲避
-			if(RobotHP>=120&&Big_armor_recognition_flag==1)
+		 if(RobotHP>=120&&Big_armor_recognition_flag==1)
 				{
-				  if(Dodeg_Delay_Count<5000)
+				 if(Dodeg_Delay_Count<5000)
 			    	{
 					   if((Armor_R_Flag_Before=='R'||Armor_R_Flag_Before=='L')&&Destination_Flag==1)   
 						 { 
@@ -365,7 +407,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 							 Dodeg_Delay_Count=0;
 						 }
 			    	}
-				 if(Dodeg_Delay_Count>5000&Dodeg_Delay_Count<16000)
+				 if(Dodeg_Delay_Count>5000 & Dodeg_Delay_Count<16000)
 				 {
            if(Armor_R_Flag_Before=='R')         //相当于大弹丸正面攻击
 						 {
@@ -442,7 +484,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 				 }
 				}
 				
-			if(abs(Chassis_Position_Ref - CM1Encoder.ecd_angle)<5)    //计算目标位置
+			if(fabs(Chassis_Position_Ref - CM1Encoder.ecd_angle)<5)    //计算目标位置
 			{
 			
 				if(RobotHP>=120)
@@ -461,11 +503,11 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 				   {
 				  	case 0:
 					  {
-					  	Chassis_Position_Ref = fabs(Random_MotionRange);
+					  	Chassis_Position_Ref = abs(Random_MotionRange);
 					  };break;
 					  case 1:
 				  	{
-				  		Chassis_Position_Ref = -fabs(Random_MotionRange); 
+				  		Chassis_Position_Ref = -abs(Random_MotionRange); 
 				   	};break;
 			     }		
 					}
@@ -503,11 +545,11 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 				   {
 				  	case 0:
 					  {
-					  	Chassis_Position_Ref = fabs(Random_MotionRange);
+					  	Chassis_Position_Ref = abs(Random_MotionRange);
 					  };break;
 					  case 1:
 				  	{
-				  		Chassis_Position_Ref = -fabs(Random_MotionRange); 
+				  		Chassis_Position_Ref = -abs(Random_MotionRange); 
 				   	};break;
 			     }		
           }
@@ -521,7 +563,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 				
 				if(Chassis_Position_Ref <CM1Encoder.ecd_angle)
 				{
-					if(abs(Chassis_Position_Ref - CM1Encoder.ecd_angle)>500)
+					if(fabs(Chassis_Position_Ref - CM1Encoder.ecd_angle)>500)
 					{
 						if(RobotHP>=120)
 						{
@@ -546,7 +588,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 				}
 				else if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
 				{
-					if(abs(Chassis_Position_Ref - CM1Encoder.ecd_angle)>500)
+					if(fabs(Chassis_Position_Ref - CM1Encoder.ecd_angle)>500)
 					{
 						if(RobotHP>=120)
 						{
@@ -617,9 +659,9 @@ void getRandom_MotionRange(void)
 	    {
 	      Random_MotionRange = rand()%2500;//1000~2500
 	
-	      if(fabs(Random_MotionRange)<1000)
+	      if(abs(Random_MotionRange)<1000)
 	        {
-	          Random_MotionRange = Random_MotionRange+Random_MotionRange/fabs(Random_MotionRange)*1000;//>1000
+	          Random_MotionRange = Random_MotionRange+Random_MotionRange/abs(Random_MotionRange)*1000;//>1000
 	        }
        }
 	
@@ -643,17 +685,17 @@ void getRandom_MotionRange(void)
 		if(Random_change__flag_2==0)            //进行全场躲避至少20s
 	  	{
 	      Random_MotionRange = rand()%8000;//2000~8000
-	      if(fabs(Random_MotionRange)<2000)
+	      if(abs(Random_MotionRange)<2000)
 	        {
-	          Random_MotionRange = Random_MotionRange+Random_MotionRange/fabs(Random_MotionRange)*2000;
+	          Random_MotionRange = Random_MotionRange+Random_MotionRange/abs(Random_MotionRange)*2000;
 	        }
 	    }
 		if(Random_change__flag_2==1)          //被攻击时，躲避到两边段10s 
 		  {
 	      Random_MotionRange = rand()%2500;//1000~2500
-	      if(fabs(Random_MotionRange)<1000)
+	      if(abs(Random_MotionRange)<1000)
 	      {
-	          Random_MotionRange = Random_MotionRange+Random_MotionRange/fabs(Random_MotionRange)*1000;
+	          Random_MotionRange = Random_MotionRange+Random_MotionRange/abs(Random_MotionRange)*1000;
 	      }
 	    }
   }

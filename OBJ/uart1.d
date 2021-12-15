@@ -63,4 +63,5 @@
 ..\obj\uart1.o: ..\Common\kalman.h
 ..\obj\uart1.o: ..\USER\main.h
 ..\obj\uart1.o: ..\ControlTask\ShootingTask.h
+..\obj\uart1.o: ..\BSP\uart1.h
 ..\obj\uart1.o: ..\ControlTask\JudgingSystemTask.h

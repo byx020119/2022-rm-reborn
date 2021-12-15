@@ -81,7 +81,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -93,7 +93,7 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
@@ -1413,7 +1413,7 @@ I (D:\App\Deil\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
 I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
@@ -1423,13 +1423,13 @@ I (..\ControlTask\SpeedTask.h)(0x61B412E9)
 I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
 I (..\Common\crc.h)(0x61AE16B1)
 I (..\Common\kalman.h)(0x61AE16B1)
-F (..\BSP\bsp.c)(0x61AE16B1)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\bsp.o --omf_browse ..\obj\bsp.crf --depend ..\obj\bsp.d)
+F (..\BSP\bsp.c)(0x61B9D46A)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\bsp.o --omf_browse ..\obj\bsp.crf --depend ..\obj\bsp.d)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
 I (..\CORE\core_cm4.h)(0x61AE16B1)
@@ -1470,6 +1470,29 @@ I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\can2.h)(0x61AE16B1)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
+I (..\BSP\usart2.h)(0x61AE16B1)
+I (..\USER\main.h)(0x61AE16B2)
+I (D:\App\Deil\ARM\ARMCC\include\stdarg.h)(0x60252376)
+I (D:\App\Deil\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (D:\App\Deil\ARM\ARMCC\include\string.h)(0x6025237E)
+I (D:\App\Deil\ARM\ARMCC\include\stdlib.h)(0x60252374)
+I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
+I (..\BSP\gun.h)(0x61AE16B1)
+I (..\BSP\adc.h)(0x61AE16B1)
+I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
+I (..\CanBusTask\encoder.h)(0x61AE16B1)
+I (..\ControlTask\ControlTask.h)(0x61AE16B1)
+I (..\ControlTask\SpeedTask.h)(0x61B412E9)
+I (..\Common\pid.h)(0x61AE16B1)
+I (..\Common\Ramp.h)(0x61AE16B1)
+I (..\ControlTask\WorkState.h)(0x61AE16B1)
+I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
+I (..\ControlTask\DogetState.h)(0x61AE16B1)
+I (..\Common\common.h)(0x61AE16B1)
+I (..\Common\crc.h)(0x61AE16B1)
+I (..\Common\kalman.h)(0x61AE16B1)
 F (..\BSP\can1.c)(0x61AE16B1)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\can1.o --omf_browse ..\obj\can1.crf --depend ..\obj\can1.d)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
@@ -1589,7 +1612,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
@@ -1600,13 +1623,13 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
 I (..\Common\crc.h)(0x61AE16B1)
 I (..\Common\kalman.h)(0x61AE16B1)
-F (..\BSP\uart1.c)(0x61B862EF)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\uart1.o --omf_browse ..\obj\uart1.crf --depend ..\obj\uart1.d)
+F (..\BSP\uart1.c)(0x61B8854C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\uart1.o --omf_browse ..\obj\uart1.crf --depend ..\obj\uart1.d)
 I (..\USER\main.h)(0x61AE16B2)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
 I (..\CORE\core_cm4.h)(0x61AE16B1)
@@ -1650,7 +1673,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -1662,7 +1685,7 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
@@ -1670,7 +1693,7 @@ I (..\Common\crc.h)(0x61AE16B1)
 I (..\Common\kalman.h)(0x61AE16B1)
 I (..\ControlTask\ShootingTask.h)(0x61AE16B1)
 I (..\ControlTask\JudgingSystemTask.h)(0x61AE16B1)
-F (..\BSP\usart2.c)(0x61AE16B1)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usart2.o --omf_browse ..\obj\usart2.crf --depend ..\obj\usart2.d)
+F (..\BSP\usart2.c)(0x61B9D483)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\usart2.o --omf_browse ..\obj\usart2.crf --depend ..\obj\usart2.d)
 I (..\USER\main.h)(0x61AE16B2)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
 I (..\CORE\core_cm4.h)(0x61AE16B1)
@@ -1714,7 +1737,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -1726,7 +1749,7 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
@@ -1821,14 +1844,14 @@ I (D:\App\Deil\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
 I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
 I (..\CanBusTask\encoder.h)(0x61AE16B1)
 I (..\ControlTask\ControlTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
@@ -1878,7 +1901,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -1890,14 +1913,14 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
 I (..\Common\crc.h)(0x61AE16B1)
 I (..\Common\kalman.h)(0x61AE16B1)
 I (..\ControlTask\ShootingTask.h)(0x61AE16B1)
-F (..\ControlTask\ControlTask.c)(0x61B86656)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\controltask.o --omf_browse ..\obj\controltask.crf --depend ..\obj\controltask.d)
+F (..\ControlTask\ControlTask.c)(0x61B8823E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\controltask.o --omf_browse ..\obj\controltask.crf --depend ..\obj\controltask.d)
 I (..\ControlTask\ControlTask.h)(0x61AE16B1)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
 I (..\CORE\core_cm4.h)(0x61AE16B1)
@@ -1939,10 +1962,29 @@ I (..\ControlTask\SpeedTask.h)(0x61B412E9)
 I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\ControlTask\BrakeTask.h)(0x61AE16B1)
-F (..\ControlTask\DogetState.c)(0x61B74C77)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\dogetstate.o --omf_browse ..\obj\dogetstate.crf --depend ..\obj\dogetstate.d)
+I (..\ControlTask\ShootingTask.h)(0x61AE16B1)
+I (..\USER\main.h)(0x61AE16B2)
+I (D:\App\Deil\ARM\ARMCC\include\stdarg.h)(0x60252376)
+I (D:\App\Deil\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (D:\App\Deil\ARM\ARMCC\include\string.h)(0x6025237E)
+I (D:\App\Deil\ARM\ARMCC\include\stdlib.h)(0x60252374)
+I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
+I (..\BSP\bsp.h)(0x61AE16B1)
+I (..\BSP\can1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
+I (..\BSP\usart3.h)(0x61AE16B1)
+I (..\BSP\gun.h)(0x61AE16B1)
+I (..\BSP\adc.h)(0x61AE16B1)
+I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
+I (..\CanBusTask\encoder.h)(0x61AE16B1)
+I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
+I (..\Common\common.h)(0x61AE16B1)
+I (..\Common\crc.h)(0x61AE16B1)
+I (..\Common\kalman.h)(0x61AE16B1)
+F (..\ControlTask\DogetState.c)(0x61B9E0A9)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\dogetstate.o --omf_browse ..\obj\dogetstate.crf --depend ..\obj\dogetstate.d)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
 I (..\CORE\core_cm4.h)(0x61AE16B1)
@@ -1978,7 +2020,7 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x61AE16B1)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x61AE16B1)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x61AE16B1)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\SpeedTask.h)(0x61B412E9)
 I (..\Common\pid.h)(0x61AE16B1)
@@ -1993,7 +2035,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -2006,8 +2048,8 @@ I (..\Common\common.h)(0x61AE16B1)
 I (..\Common\crc.h)(0x61AE16B1)
 I (..\Common\kalman.h)(0x61AE16B1)
 I (..\ControlTask\JudgingSystemTask.h)(0x61AE16B1)
-F (..\ControlTask\Freedom_Status.c)(0x61B74856)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freedom_status.o --omf_browse ..\obj\freedom_status.crf --depend ..\obj\freedom_status.d)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+F (..\ControlTask\Freedom_Status.c)(0x61B9DB15)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freedom_status.o --omf_browse ..\obj\freedom_status.crf --depend ..\obj\freedom_status.d)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
 I (..\CORE\core_cm4.h)(0x61AE16B1)
 I (D:\App\Deil\ARM\ARMCC\include\stdint.h)(0x6025237E)
@@ -2090,7 +2132,7 @@ I (..\CanBusTask\encoder.h)(0x61AE16B1)
 I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
 I (..\ControlTask\ControlTask.h)(0x61AE16B1)
 I (D:\App\Deil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\ControlTask\FreeDom_Status.h)(0x61AE16B1)
+I (..\ControlTask\FreeDom_Status.h)(0x61B9D653)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (D:\App\Deil\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (..\Common\common.h)(0x61AE16B1)
@@ -2136,7 +2178,7 @@ I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\CanBusTask\encoder.h)(0x61AE16B1)
 I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\Common\common.h)(0x61AE16B1)
 I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\ControlTask\ShootingTask.h)(0x61AE16B1)
@@ -2148,7 +2190,7 @@ I (D:\App\Deil\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -2157,7 +2199,7 @@ I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\crc.h)(0x61AE16B1)
 I (..\Common\kalman.h)(0x61AE16B1)
-F (..\ControlTask\WorkState.c)(0x61AE16B1)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\workstate.o --omf_browse ..\obj\workstate.crf --depend ..\obj\workstate.d)
+F (..\ControlTask\WorkState.c)(0x61B9D67E)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\workstate.o --omf_browse ..\obj\workstate.crf --depend ..\obj\workstate.d)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
 I (..\CORE\core_cm4.h)(0x61AE16B1)
@@ -2199,8 +2241,8 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\CanBusTask\CanBusTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
+I (..\BSP\uart1.h)(0x61B882F6)
 F (..\ControlTask\GunHeartAndBleed.c)(0x61AE16B1)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\USER -I ..\FWLIB\inc -I ..\BSP -I ..\ControlTask -I ..\Common -I ..\CanBusTask-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\Deil\Keil\STM32F4xx_DFP\2.11.0-D__UVISION_VERSION="536" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\gunheartandbleed.o --omf_browse ..\obj\gunheartandbleed.crf --depend ..\obj\gunheartandbleed.d)
 I (..\USER\main.h)(0x61AE16B2)
 I (..\USER\stm32f4xx.h)(0x61AE16B2)
@@ -2245,7 +2287,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -2257,7 +2299,7 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
@@ -2310,7 +2352,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -2322,7 +2364,7 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
@@ -2380,7 +2422,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -2389,7 +2431,7 @@ I (..\CanBusTask\encoder.h)(0x61AE16B1)
 I (..\ControlTask\ControlTask.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
 I (..\Common\crc.h)(0x61AE16B1)
@@ -2478,7 +2520,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -2490,7 +2532,7 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)
@@ -2650,7 +2692,7 @@ I (D:\App\Deil\ARM\ARMCC\include\math.h)(0x60252378)
 I (..\BSP\bsp.h)(0x61AE16B1)
 I (..\BSP\can1.h)(0x61AE16B1)
 I (..\BSP\timer.h)(0x61AE16B1)
-I (..\BSP\uart1.h)(0x61AE16B1)
+I (..\BSP\uart1.h)(0x61B882F6)
 I (..\BSP\usart3.h)(0x61AE16B1)
 I (..\BSP\gun.h)(0x61AE16B1)
 I (..\BSP\adc.h)(0x61AE16B1)
@@ -2662,7 +2704,7 @@ I (..\Common\pid.h)(0x61AE16B1)
 I (..\Common\Ramp.h)(0x61AE16B1)
 I (..\ControlTask\WorkState.h)(0x61AE16B1)
 I (..\ControlTask\RemoteTask.h)(0x61AE16B1)
-I (..\ControlTask\Freedom_Status.h)(0x61AE16B1)
+I (..\ControlTask\Freedom_Status.h)(0x61B9D653)
 I (..\ControlTask\Phototube.h)(0x61AE16B1)
 I (..\ControlTask\DogetState.h)(0x61AE16B1)
 I (..\Common\common.h)(0x61AE16B1)

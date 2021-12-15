@@ -4,6 +4,8 @@
 #include "can2.h"
 #include "usart3.h"
 #include "Phototube.h"
+#include "uart1.h"
+#include "usart2.h"
 void BSP_Init(void)
 {
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//中断优先级设置为2组
