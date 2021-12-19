@@ -27,11 +27,11 @@ void YawFreeRoation_Doget(void)
 		}
 		
 	//ÂýÂýµãÍ·
-		if(GMPitchEncoder.ecd_angle-30>0)
+		if(GMPitchEncoder.ecd_angle-35>0)
 		{
 		pitch_rotate_flag=1;
 		}
-		if(GMPitchEncoder.ecd_angle+3<0)
+		if(GMPitchEncoder.ecd_angle-3<0)
 		{
 		pitch_rotate_flag=0;
 		}
@@ -58,11 +58,11 @@ void YawFreeRoation_Doget(void)
 			}
 			if(Yaw_rotate_flag==1)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.5f;
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.2f;
 			}
 			if(Yaw_rotate_flag==0)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.5f;
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.2f;
 			}
    	}
 		

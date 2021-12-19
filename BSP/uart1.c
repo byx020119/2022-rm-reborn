@@ -249,9 +249,8 @@ void Sendtosightway(int value)//与视觉商定
 {
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
 	
-	t= (  ( (int)GMYawEncoder.ecd_angle % 1300 )+1300 ) % 1300; //每一圈里的码盘数值，保证是正的
-	z =t/1300*360;  //角度
-	int Yawsent =  (int)z % 360 ;
+	t= (  ( (int)GMYawEncoder.ecd_angle % 360 )+360 ) % 360; //每一圈里的码盘数值，保证是正的
+	int Yawsent =  (int)t % 360 ;
 	
   int GMYawtemp_Eular=(Yawsent)*10;    //-180，精确度到小数点后一位，乘10，发送四位
 	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90)*10;	
@@ -400,6 +399,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
       E_TEST1=0;
 		
 		CR_ringBuffer.lost_COUNT++;
+		
 		if(CR_ringBuffer.lost_COUNT>=35)//如果改这个数据一定要全改，很容易卡在识别模式里
 		{
 			CR_ringBuffer.lost_COUNT = 35;
@@ -422,6 +422,11 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
 	}
 	
+		if(  RC_CtrlData.rc.s1== 3) //&& gameState.game_progress == 4游戏开始
+	{
+		friction_wheel_state_flag = 1; //游戏开始，s1 放到中间，摩擦轮就开
+	}
+
 	if(GetWorkState()== ChariotRecognition_STATE && RC_CtrlData.rc.s1==2)//识别状态下，将左拨杆放到最下仍无法关闭摩擦轮  //5/2
 	{
 		TempShootingFlag = 0;//关拨轮

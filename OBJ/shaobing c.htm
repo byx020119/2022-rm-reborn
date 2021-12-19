@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\shaobing c.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\shaobing c.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Dec 15 21:26:41 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sun Dec 19 13:12:00 2021
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -834,7 +834,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_RX0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[b8]"></a>ChariotRecognition_Mes_Process</STRONG> (Thumb, 926 bytes, Stack size 32 bytes, uart1.o(i.ChariotRecognition_Mes_Process))
+<P><STRONG><a name="[b8]"></a>ChariotRecognition_Mes_Process</STRONG> (Thumb, 940 bytes, Stack size 32 bytes, uart1.o(i.ChariotRecognition_Mes_Process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = ChariotRecognition_Mes_Process &rArr; __aeabi_ddiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
@@ -1297,7 +1297,7 @@ Global Symbols
 <P><STRONG><a name="[11]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[d2]"></a>Sendtosightway</STRONG> (Thumb, 404 bytes, Stack size 40 bytes, uart1.o(i.Sendtosightway))
+<P><STRONG><a name="[d2]"></a>Sendtosightway</STRONG> (Thumb, 366 bytes, Stack size 40 bytes, uart1.o(i.Sendtosightway))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Sendtosightway &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
@@ -1305,7 +1305,6 @@ Global Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1588,7 +1587,7 @@ Global Symbols
 <P><STRONG><a name="[10]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[c0]"></a>WorkStateFSM</STRONG> (Thumb, 280 bytes, Stack size 0 bytes, workstate.o(i.WorkStateFSM))
+<P><STRONG><a name="[c0]"></a>WorkStateFSM</STRONG> (Thumb, 304 bytes, Stack size 0 bytes, workstate.o(i.WorkStateFSM))
 <BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
 
@@ -1621,7 +1620,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
 
-<P><STRONG><a name="[c4]"></a>YawFreeRoation_Doget</STRONG> (Thumb, 1280 bytes, Stack size 32 bytes, dogetstate.o(i.YawFreeRoation_Doget))
+<P><STRONG><a name="[c4]"></a>YawFreeRoation_Doget</STRONG> (Thumb, 1268 bytes, Stack size 32 bytes, dogetstate.o(i.YawFreeRoation_Doget))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = YawFreeRoation_Doget &rArr; __aeabi_cdcmple
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
@@ -1949,8 +1948,7 @@ Global Symbols
 <P><STRONG><a name="[ba]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sendtosightway
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateSwitchProcess
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateSwitchProcess
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMYawControlLoop
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChariotRecognition_Mes_Process
