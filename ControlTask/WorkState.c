@@ -89,6 +89,7 @@ void WorkStateFSM(void)
 				workState = Dodeg_STATE;  
 			}	
 		}break;
+		
 		case Test_STATE:    //遥控器测试状态
 		{
 			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
@@ -109,7 +110,7 @@ void WorkStateFSM(void)
 			}	
 			 if(CameraDetectTarget_Flag == 0)   //摄像头未识别到目标，进入自由状态
 			{
-				workState = Test_STATE;
+				workState = Freedom_STATE;
 			}	
 			 if(DodgeTarget_Flag == 1)		//血量减少太快，变为躲避状态
 			{
