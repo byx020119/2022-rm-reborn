@@ -5,6 +5,7 @@
 #include "RemoteTask.h"
 #include "Freedom_Status.h"
 #include "JudgingSystemTask.h"
+#include "usart6.h"
 
 /***
 下列程序用于UART1打印数据，视觉，印的UART2
@@ -249,11 +250,11 @@ void Sendtosightway(int value)//与视觉商定
 {
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
 	
-	t= (  ( (int)GMYawEncoder.ecd_angle % 360 )+360 ) % 360; //每一圈里的码盘数值，保证是正的
-	int Yawsent =  (int)t % 360 ;
-	
-  int GMYawtemp_Eular=(Yawsent)*10;    //-180，精确度到小数点后一位，乘10，发送四位
-	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90)*10;	
+//	t= (  ( (int)GMYawEncoder.ecd_angle % 360 )+360 ) % 360; //每一圈里的码盘数值，保证是正的
+//	int Yawsent =  (int)t % 360 ;
+//	
+//  int GMYawtemp_Eular=(Yawsent)*10;    //-180，精确度到小数点后一位，乘10，发送四位
+//	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90)*10;	
 	
 //  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
 //	{
@@ -274,6 +275,8 @@ void Sendtosightway(int value)//与视觉商定
 //	{
 //		Sendtosight[0]='R';	
 //	}
+	int GMYawtemp_Eular=(Angles+180)*10;
+	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
 
 	Sendtosight[0]='R';	
 	

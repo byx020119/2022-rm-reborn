@@ -1210,8 +1210,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\BSP\usart2.c</PathWithFileName>
-      <FilenameWithoutPath>usart2.c</FilenameWithoutPath>
+      <PathWithFileName>..\BSP\can2.c</PathWithFileName>
+      <FilenameWithoutPath>can2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1222,8 +1222,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\BSP\can2.c</PathWithFileName>
-      <FilenameWithoutPath>can2.c</FilenameWithoutPath>
+      <PathWithFileName>..\BSP\usart6.c</PathWithFileName>
+      <FilenameWithoutPath>usart6.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

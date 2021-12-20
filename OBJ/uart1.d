@@ -65,3 +65,4 @@
 ..\obj\uart1.o: ..\ControlTask\ShootingTask.h
 ..\obj\uart1.o: ..\BSP\uart1.h
 ..\obj\uart1.o: ..\ControlTask\JudgingSystemTask.h
+..\obj\uart1.o: ..\BSP\usart6.h

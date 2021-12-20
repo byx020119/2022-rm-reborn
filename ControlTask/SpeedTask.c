@@ -31,9 +31,6 @@ PID_Regulator CM6SpeedPID    = CM6_SPEED_PID_DEFAULT;//2022加
 PID_Regulator CM7PositionPID = CM7_POSITION_PID_DEFAULT;
 PID_Regulator CM7SpeedPID    = CM7_SPEED_PID_DEFAULT;
 
-int16_t Gyro[3];//暂时补充，不报错用
-
-
 //pitch,yaw斜坡结构体初始化
 RampGen_t GMPitchRamp = RAMP_GEN_DAFAULT;
 RampGen_t GMYawRamp   = RAMP_GEN_DAFAULT;
