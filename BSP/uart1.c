@@ -353,12 +353,12 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		//停止，准备，测试和躲避状态不识别，如果识别到之后变为躲避模式，不接受视觉发来的数据，故云台保持识别的数据，要在状态里手动关闭摩擦轮
 		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE)
 		{
-			ChariotRecognition_yaw=GMYawEncoder.ecd_angle;
+			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
 			ChariotRecognition_pitch= GMPitchEncoder.ecd_angle;
 		}
 		else  //自由、识别、精巡逻和躲避状态
 		{
-			ChariotRecognition_yaw   = GMYawEncoder.ecd_angle+ChariotRecognitionTemp[0]/100.0 ;//接收浮点数
+			ChariotRecognition_yaw  = ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
 
 //			if(ChariotRecognition_yaw==0)//滤掉视觉发来的所有0，0附近的数就可以保持平衡
 //			{
@@ -386,7 +386,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 			Target_Distance = filter(Distance_buf);
 
 			// Eular[0]+
-			ChariotRecognition_pitch =GMPitchEncoder.ecd_angle+ChariotRecognitionTemp[1]/100.0;//(0.0088*Target_Distance+1.9604);
+			ChariotRecognition_pitch = ChariotRecognitionTemp[1]/100.0;//(0.0088*Target_Distance+1.9604);//GMPitchEncoder.ecd_angle + ChariotRecognitionTemp[1]/100.0;
 
 			
 			last_ChariotRecognition_yaw   = ChariotRecognition_yaw;

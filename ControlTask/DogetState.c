@@ -27,7 +27,7 @@ void YawFreeRoation_Doget(void)
 		}
 		
 	//ÂýÂýµãÍ·
-		if(GMPitchEncoder.ecd_angle-35>0)
+		if(GMPitchEncoder.ecd_angle-37>0)
 		{
 		pitch_rotate_flag=1;
 		}

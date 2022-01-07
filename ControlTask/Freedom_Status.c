@@ -51,7 +51,7 @@ void YawFreeRoation(void)
 {
 	if(GetWorkState()==Freedom_STATE)//粗巡逻状态 自由状态
 	{
-		if(GMPitchEncoder.ecd_angle-35>=0)   //38//35//30
+		if(GMPitchEncoder.ecd_angle-37>=0)   //38//35//30
 		{
 		pitch_rotate_flag = 1;   //转向在某个位置，p轴转向标志位1？
 		}
@@ -61,11 +61,11 @@ void YawFreeRoation(void)
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.09f;   //p轴标志位1，p轴转向角度+0.1？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.08f;   //p轴标志位1，p轴转向角度+0.1？
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.09f;   //p轴标志位0，p轴转向角度-0.1？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.08f;   //p轴标志位0，p轴转向角度-0.1？
 		}
 		
 		
@@ -119,11 +119,11 @@ void YawFreeRoation(void)
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.05f;//点头慢点
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.07f;//点头慢点
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.05f;
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.07f;
 		}
 		
 		

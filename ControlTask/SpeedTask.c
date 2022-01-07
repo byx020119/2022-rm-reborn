@@ -119,7 +119,7 @@ void GMBrakeControlLoop(void)
 ***/
 void GMPitchControlLoop(void)
 {
-    VAL_LIMIT(GimbalRef.pitch_angle_dynamic_ref , -35, -3);
+    VAL_LIMIT(GimbalRef.pitch_angle_dynamic_ref , -37, -3);
 
 	  //VAL_LIMIT(ChariotRecognition_pitch , -4, 32)//P轴限位95 145
 	
@@ -172,7 +172,7 @@ void GMPitchControlLoop(void)
 		GMPPositionPID.ki = 1;//0.03
 		GMPPositionPID.kd = 0;//0//2
 			
-		GMPSpeedPID.kp = 20;//3 30//20
+		GMPSpeedPID.kp = 30;//3 30//20
 		GMPSpeedPID.ki = 0;//0.002
 		GMPSpeedPID.kd = 0;//0
 		if(GetWorkState() == PREPARE_STATE||GetWorkState() == STOP_STATE)
@@ -278,13 +278,13 @@ void GMYawControlLoop(void)
 	//测试状态
 	if( GetWorkState() == Test_STATE) 
 	{
-		GMYPositionPID.kp = 100;//100//50;//60
+		GMYPositionPID.kp = 90;//50;//60;//100
 		GMYPositionPID.ki =	0.005;//0.05;//0.005
-		GMYPositionPID.kd = 0;//100;5//0
+		GMYPositionPID.kd = 15;//100;5//0
 			
 		GMYSpeedPID.kp = 50;//10//5//50
 		GMYSpeedPID.ki = 0;//5
-		GMYSpeedPID.kd = 2;//2
+		GMYSpeedPID.kd = 5;//2
 	
 		GMYPositionPID.ref = GimbalRef.yaw_angle_dynamic_ref;
 		GMYPositionPID.fdb = GMYawEncoder.ecd_angle;	
@@ -311,8 +311,8 @@ void GMYawControlLoop(void)
 		GMYPositionPID.Calc(&GMYPositionPID); 
 	}
 	
-	GMYSpeedPID.ref = GMYPositionPID.output*0.5;//这个0.5应该可以去掉
-	GMYSpeedPID.fdb = GMYawEncoder.filter_rate;
+	GMYSpeedPID.ref = GMYPositionPID.output*0.5;//这个0.5应该可以去掉？
+	GMYSpeedPID.fdb = GMYawEncoder.filter_rate;//是否要换成陀螺仪值 -Gyro[2]？
 	GMYSpeedPID.Calc(&GMYSpeedPID);
 //		
 }
@@ -373,7 +373,7 @@ void CMControlLoop(void)
 	    
 
 //CM3、4摩擦轮
-	  CM3SpeedPID.kp = CM4SpeedPID.kp =60 ;//40
+	  CM3SpeedPID.kp = CM4SpeedPID.kp = 60 ;//40
 		CM3SpeedPID.ki = CM4SpeedPID.ki = 0.5;//0.5
 		CM3SpeedPID.kd = CM4SpeedPID.kd = 10;  //20
 	

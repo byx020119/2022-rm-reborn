@@ -16,11 +16,11 @@
 	0,\
 	0,\
 	0,\
-	4900,\
+	8000,\
 	1000,\
 	1500,\
 	0,\
-	4900,\
+	8000,\
 	&PID_Calc,\
 	&PID_Reset,\
 	0,\
@@ -44,7 +44,7 @@
 	3500,\
 	1500,\
 	0,\
-	30000,\
+	25000,\
 	&PID_Calc,\
 	&PID_Reset,\
 	0,\
@@ -52,7 +52,7 @@
 	0,\
 }\
 
-//yaw位置环结构体初始化
+//yaw位置环结构体初始化20000
 #define GIMBAL_MOTOR_YAW_POSITION_PID_DEFAULT \
 {\
 	0,\
@@ -76,7 +76,7 @@
 	1,\
 }\
 
-//yaw速度环结构体初始化
+//yaw速度环结构体初始化20000
 #define GIMBAL_MOTOR_YAW_SPEED_PID_DEFAULT \
 {\
 	0,\
