@@ -193,7 +193,7 @@ void WorkStateSwitchProcess(void)
 	***/
 	if((lastWorkState == ChariotRecognition_STATE) && (workState == Freedom_STATE))  
 	{
-		YawCurrentPositionSave = -GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
+		YawCurrentPositionSave = GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
 		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
 		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
 		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
@@ -217,8 +217,8 @@ void WorkStateSwitchProcess(void)
 	{
 		GMYawRamp.SetScale(&GMYawRamp, 20); //50
 		GMYawRamp.ResetCounter(&GMYawRamp);
-		YawCurrentPositionSave = -GMYawEncoder.ecd_angle;
-		PitchCurrentPositionSave = GMPitchEncoder.ecd_angle;
+		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
+		PitchCurrentPositionSave = - GMPitchEncoder.ecd_angle;
 	}
 
 	

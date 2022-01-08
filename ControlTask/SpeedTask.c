@@ -170,7 +170,7 @@ void GMPitchControlLoop(void)
 	//准备状态、自由状态、测试状态、被攻击状态和躲避状态
 	if(GetWorkState() == PREPARE_STATE || GetWorkState() == Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE  || Dodeg_STATE_Change == 2 )
 	{	
-		GMPPositionPID.kp = 60;//40//60//80
+		GMPPositionPID.kp = 80;//40//60//80
 		GMPPositionPID.ki = 1;//0.03
 		GMPPositionPID.kd = 0;//0//2
 			
@@ -242,27 +242,20 @@ void GMYawControlLoop(void)
 //		
 //	   if(fabs(ChariotRecognition_yaw)<1.2)
 	
-	//① tly换为ecd_angle
-//			if (ChariotRecognition_yaw>0)
-//				sbyaw = -ChariotRecognition_yaw + 100;
+	//调参待测
+//		GMYPositionPID.ref = (1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw);//-CR_yaw_increment ;
+//		GMYPositionPID.fdb = -(1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw)*GMYawRamp.Calc(&GMYawRamp);	
+	
+  	GMYPositionPID.ref = -ChariotRecognition_yaw;//-CR_yaw_increment ;
+		GMYPositionPID.fdb = -Angles;//GMYawEncoder.ecd_angle;	
 
-//		else
-//				sbyaw=-ChariotRecognition_yaw - 260;
-		
-//		GMYPositionPID.ref = sbyaw;//-ChariotRecognition_yaw;//-CR_yaw_increment ;
-//		GMYPositionPID.fdb = -Angles;//GMYawEncoder.ecd_angle;	
-		
-	//② 待测
-		GMYPositionPID.ref = (1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw);//-CR_yaw_increment ;
-		GMYPositionPID.fdb = -(1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw)*GMYawRamp.Calc(&GMYawRamp);	
-
-		GMYPositionPID.kp = 80+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//130+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
-		GMYPositionPID.ki =	0.1;//0.005;//0.001*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
+		GMYPositionPID.kp = 150+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//130+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
+		GMYPositionPID.ki =	0.001*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.001*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
 		GMYPositionPID.kd = 3;//10;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3
 		
 		GMYSpeedPID.kp = 10;//10//15
 		GMYSpeedPID.ki = 0.005;
-		GMYSpeedPID.kd = 2;//1//2//5
+		GMYSpeedPID.kd = 3;//1//2//5
 		
 		GMYPositionPID.Calc(&GMYPositionPID);    //得到yaw轴位置环输出控制量
 		

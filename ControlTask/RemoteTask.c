@@ -152,9 +152,9 @@ void RemoteDataPrcess(uint8_t *pData)
  {
  	 if(RC_CtrlData.rc.s1== 2)
 	 {
-	 Attacked_Flag = 0;
-   CameraDetectTarget_Flag = 0;
-	 DodgeTarget_Flag = 0;
+//	 Attacked_Flag = 0;
+//   CameraDetectTarget_Flag = 0;
+//	 DodgeTarget_Flag = 0;
 	 }
 	 
  }
