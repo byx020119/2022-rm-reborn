@@ -595,6 +595,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>Angles</ItemText>
         </Ww>
+        <Ww>
+          <count>88</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ChariotRecognition_yaw</ItemText>
+        </Ww>
+        <Ww>
+          <count>89</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>GMYPositionPID</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>

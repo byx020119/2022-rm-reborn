@@ -63,3 +63,4 @@
 ..\obj\speedtask.o: ..\Common\crc.h
 ..\obj\speedtask.o: ..\Common\kalman.h
 ..\obj\speedtask.o: ..\USER\main.h
+..\obj\speedtask.o: ..\BSP\usart6.h

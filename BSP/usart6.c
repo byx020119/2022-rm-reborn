@@ -124,9 +124,9 @@ void usart6_Init(u32 bound)
 //	  USART_SendData(USART6,b);
 //}
 
+	int i,j;
 void USART6_IRQHandler(void)
 {
-	int i,j;
 	if(USART_GetITStatus(USART6, USART_IT_IDLE) != RESET)       //USART的IDLE中断;IDLE是空闲中断
 	{
 		//clear the idle pending flag                             //清空IDLE标志位

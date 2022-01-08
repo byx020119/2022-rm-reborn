@@ -3,9 +3,9 @@
 <title>Static Call Graph - [..\OBJ\shaobing c.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\shaobing c.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Jan 07 15:10:06 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Jan 08 21:24:19 2022
 <BR><P>
-<H3>Maximum Stack Usage =        200 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        224 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 TIM6_DAC_IRQHandler &rArr; Control_Task &rArr; GMYawControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
 <P>
@@ -778,7 +778,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_RX0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[a7]"></a>ChariotRecognition_Mes_Process</STRONG> (Thumb, 880 bytes, Stack size 24 bytes, uart1.o(i.ChariotRecognition_Mes_Process))
+<P><STRONG><a name="[a7]"></a>ChariotRecognition_Mes_Process</STRONG> (Thumb, 888 bytes, Stack size 24 bytes, uart1.o(i.ChariotRecognition_Mes_Process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ChariotRecognition_Mes_Process &rArr; __aeabi_ddiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
@@ -823,7 +823,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b7]"></a>Control_Task</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, controltask.o(i.Control_Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = Control_Task &rArr; GMYawControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = Control_Task &rArr; GMYawControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation_Doget
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation
@@ -945,8 +945,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
 
-<P><STRONG><a name="[bd]"></a>GMYawControlLoop</STRONG> (Thumb, 754 bytes, Stack size 56 bytes, speedtask.o(i.GMYawControlLoop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = GMYawControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
+<P><STRONG><a name="[bd]"></a>GMYawControlLoop</STRONG> (Thumb, 994 bytes, Stack size 80 bytes, speedtask.o(i.GMYawControlLoop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = GMYawControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
@@ -959,6 +959,7 @@ Global Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
@@ -1015,7 +1016,7 @@ Global Symbols
 <P><STRONG><a name="[8f]"></a>Get_Time_Micros</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.Get_Time_Micros))
 <BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Brake_Handle
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BoLunMotorControl
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUDataProcess
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUDataProcess
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChariotRecognition_Mes_Process
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteDataPrcess
@@ -1036,7 +1037,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
 
-<P><STRONG><a name="[c8]"></a>IMUDataProcess</STRONG> (Thumb, 490 bytes, Stack size 8 bytes, usart6.o(i.IMUDataProcess))
+<P><STRONG><a name="[c9]"></a>IMUDataProcess</STRONG> (Thumb, 490 bytes, Stack size 8 bytes, usart6.o(i.IMUDataProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = IMUDataProcess
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Time_Micros
@@ -1108,7 +1109,7 @@ Global Symbols
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmpeq
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> speedtask.o(.data)
 </UL>
@@ -1294,7 +1295,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[4b]"></a>TIM6_DAC_IRQHandler</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, timer.o(i.TIM6_DAC_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = TIM6_DAC_IRQHandler &rArr; Control_Task &rArr; GMYawControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = TIM6_DAC_IRQHandler &rArr; Control_Task &rArr; GMYawControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
@@ -1402,7 +1403,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetCurrentMemoryTarget
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_GetCurrDataCounter
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUDataProcess
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUDataProcess
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
@@ -1482,7 +1483,7 @@ Global Symbols
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
@@ -1497,7 +1498,7 @@ Global Symbols
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
@@ -1513,7 +1514,7 @@ Global Symbols
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
@@ -1693,10 +1694,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_Init
 </UL>
 
-<P><STRONG><a name="[c9]"></a>__aeabi_dneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic))
+<P><STRONG><a name="[c8]"></a>__aeabi_dneg</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, basic.o(x$fpl$basic))
 <BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation_Doget
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateSwitchProcess
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMYawControlLoop
 <LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calc
 </UL>
 

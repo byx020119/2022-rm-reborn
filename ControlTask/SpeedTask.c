@@ -9,6 +9,7 @@
 #include "math.h"
 #include "ShootingTask.h"
 #include "timer.h"
+#include "usart6.h"
 
 //调参这里PID
 //PID结构体初始化
@@ -59,6 +60,7 @@ float  CR_Pitch_Symbol=0;
 float  CR_Pitch_increment=0;
 int    Dodeg_STATE_Change = 0;
 int    Last_Dodeg_STATE_Change=0;
+float  sbyaw=0;
 /***
 函数：GMBrakeControlLoop()
 功能：利用PID计算出brake电机的输出量
@@ -168,7 +170,7 @@ void GMPitchControlLoop(void)
 	//准备状态、自由状态、测试状态、被攻击状态和躲避状态
 	if(GetWorkState() == PREPARE_STATE || GetWorkState() == Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE  || Dodeg_STATE_Change == 2 )
 	{	
-		GMPPositionPID.kp = 80;//40//60//80
+		GMPPositionPID.kp = 60;//40//60//80
 		GMPPositionPID.ki = 1;//0.03
 		GMPPositionPID.kd = 0;//0//2
 			
@@ -239,12 +241,22 @@ void GMYawControlLoop(void)
 //		}
 //		
 //	   if(fabs(ChariotRecognition_yaw)<1.2)
-		{
-		GMYPositionPID.ref = ChariotRecognition_yaw;//-CR_yaw_increment ;
-		GMYPositionPID.fdb = GMYawEncoder.ecd_angle;	
-		}
+	
+	//① tly换为ecd_angle
+//			if (ChariotRecognition_yaw>0)
+//				sbyaw = -ChariotRecognition_yaw + 100;
+
+//		else
+//				sbyaw=-ChariotRecognition_yaw - 260;
 		
-		GMYPositionPID.kp = 130+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//130+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
+//		GMYPositionPID.ref = sbyaw;//-ChariotRecognition_yaw;//-CR_yaw_increment ;
+//		GMYPositionPID.fdb = -Angles;//GMYawEncoder.ecd_angle;	
+		
+	//② 待测
+		GMYPositionPID.ref = (1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw);//-CR_yaw_increment ;
+		GMYPositionPID.fdb = -(1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw)*GMYawRamp.Calc(&GMYawRamp);	
+
+		GMYPositionPID.kp = 80+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//130+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
 		GMYPositionPID.ki =	0.1;//0.005;//0.001*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
 		GMYPositionPID.kd = 3;//10;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3
 		
@@ -312,7 +324,7 @@ void GMYawControlLoop(void)
 	}
 	
 	GMYSpeedPID.ref = GMYPositionPID.output*0.5;//这个0.5应该可以去掉？
-	GMYSpeedPID.fdb = GMYawEncoder.filter_rate;//是否要换成陀螺仪值 -Gyro[2]？
+	GMYSpeedPID.fdb = -Gyro[2];//GMYawEncoder.filter_rate;
 	GMYSpeedPID.Calc(&GMYSpeedPID);
 //		
 }

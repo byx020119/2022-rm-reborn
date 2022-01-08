@@ -73,7 +73,7 @@ int8_t loop_j;
 
 char Sendtosight[12];///发送给视觉
 static int count_Sendtosight=0;
-void USART1_DMA_TX_config();
+void USART1_DMA_TX_config(void);
 void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize);
 int friction_wheel_count = 0;
 float kalman_yaw = 0;
@@ -351,12 +351,12 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		if(enter_CNT >30) enter_CNT = 30;
 		
 		//停止，准备，测试和躲避状态不识别，如果识别到之后变为躲避模式，不接受视觉发来的数据，故云台保持识别的数据，要在状态里手动关闭摩擦轮
-		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE)
+		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE || GetWorkState() == Freedom_STATE)
 		{
 			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
 			ChariotRecognition_pitch= GMPitchEncoder.ecd_angle;
 		}
-		else  //自由、识别、精巡逻和躲避状态
+		else  //识别、精巡逻和躲避状态
 		{
 			ChariotRecognition_yaw  = ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
 

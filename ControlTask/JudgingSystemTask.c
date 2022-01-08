@@ -93,8 +93,8 @@ void getRobotPowerHeat(uint8_t *powerHeartData)
 //	robotPowerHeat.shooter_17_Heat= powerHeartData[23]|(powerHeartData[24]<<8);
 //	chassisPowerError = robotPowerHeat.ChassisPower - lastChassisPower;
 	
-if(ChassisPower_buffer<=100)
-{
+	if(ChassisPower_buffer<=100)
+	{
 	Speed_Offset.kp = 8;
 	Speed_Offset.kd = 2;
 	
@@ -102,15 +102,13 @@ if(ChassisPower_buffer<=100)
 	Speed_Offset.fdb = ChassisPower_buffer;
 	Speed_Offset.Calc(&Speed_Offset);
 	Speed_Offset.output = -Speed_Offset.output;      //应该是负的关系
-}
-if(ChassisPower_buffer>100)
-{
+	}
+	if(ChassisPower_buffer>100)
+	{
   Speed_Offset.output =0.00000001;
-}
+	}
 	
 }
-
-
 
 
 /***

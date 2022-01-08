@@ -9,7 +9,7 @@ int change_brake=0;
 功能：刹车电机赋值，检测底盘电机状态，修改刹车电机位置标志
 备注：无
 ***/
-void Brake_Handle()
+void Brake_Handle(void)
 {
 	//通过上一次的ref值及本次ref值判断是否刹车
 	if(RC_CtrlData.rc.s2!=1&&RC_CtrlData.rc.s2!=2)//测试以及停止状态下不进此函数
