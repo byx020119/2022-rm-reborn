@@ -4,21 +4,70 @@
 #include "ShootingTask.h"
 
 extGameRobotState_t robotState;
+ext_game_status_t   gameState;
 extRobotHurt_t      robotHurt;
 extPowerHeatData_t  robotPowerHeat;
 extShootData_t      robotShootData;
-
+ext_event_data_t    eventState;  //前哨战是否被击毁类型和句柄声明
+ext_bullet_remaining_t remainBullet;
 ringBuffer_t buffer;
 
 uint32_t ChassisPower_temp;
 uint32_t ChassisPower_buffer;
 float chassisPowerBuffer = 0;//功率缓冲
 float Parameter_Transformation(int32_t data);
-int  Yaw_encoder=0;
+//int  Yaw_encoder=0;
+float Yaw_encoder=0.0f;
 int  Yaw_encoder_s=0;
 float test_power=0;
-	
-	
+
+uint8_t Qianshao_state = 0;
+uint8_t Shooter_17_Heat1 = 0;
+uint8_t Shooter_17_Heat2 = 0; 
+
+
+/***
+函数：void getGameState(uint8_t *stateData)
+功能：从裁判系统读取游戏状态
+备注：ID：0x0001
+      共11个数据，下标11，12为当前血量数据
+***/
+void getGameState(uint8_t *stateData)
+{
+	int tempGameData[12],i,tempTime=0,Game_state;
+	for(i=0;i<11;i++)
+	{
+		tempGameData[i]=stateData[i];
+	}
+  /***比赛状态***/
+	Game_state=tempGameData[7];
+	gameState.game_type=(Game_state & 0x0F);
+	gameState.game_progress=(Game_state & 0xF0)>>4;
+	/***剩余时间***/
+	tempTime=tempGameData[8]|tempGameData[9]<<8;
+	gameState.stage_remain_time = Transform_Hex_To_Oct(tempTime,16);
+}
+
+/***
+函数：void getEventData(uint8_t *eventData)
+功能：读取己方前哨站的状态 0为被击毁，1为存活
+备注：共32个数据，第11位(下标为10为所需数据）
+***/
+void getEventData(uint8_t *eventData)
+{
+	int tempGameData[32],i=0,Event_state;  //不用管检验CRC有几位，直接在文档里看有几位bit
+    //读11位，第11位	 1：己方前哨战存活，0：己方前哨站被击毁 
+	for(i=0;i<32;i++)
+	{
+		tempGameData[i]=eventData[i];   //存储前11位的数据
+	}
+	Event_state = tempGameData[8]; //第二个八位数，显示形式为16进制
+	//Event_state为中间变量，tempGameData[0]是0x00A5的数，函数以八进制为一个大小标准，【7】是文档里第一个有效的八位bit，即第二栏写的大小为1
+	Qianshao_state = (Event_state & 0x04);   
+	//与二进制大小为0000 0100，即十六进制为0x04按位与得到第11bit的数据
+	//传输顺序是从低位到高位(例如剩余血量是一个2大小，即16位bit的数，那么要将【9】先左移8位，再和【9】按位与)
+}
+
 /***
 函数：void getRobotState(uint8_t *stateData)
 功能：从裁判系统读取机器人状态(当前血量)
@@ -60,7 +109,7 @@ void getRobotHurt(uint8_t *hurtData)
 	robotHurt.armorType = hurtInfo & 0x0F;      //被攻击的装甲ID
 	robotHurt.hurtType  = (hurtInfo & 0xF0)>>4; //伤害类型
 	
-	Attacked_Monitor();
+	Attacked_Monitor();//5/9   这个是裁判系统传输数据之后才会进入这个函数，如果有延迟的话，应该会对被攻击状态有影响
 
 }
 
@@ -72,46 +121,20 @@ void getRobotHurt(uint8_t *hurtData)
 ***/
 void getRobotPowerHeat(uint8_t *powerHeartData)
 {
-	int tempPowerHeatData[21],i,temp_17_heat;
+	int tempPowerHeatData[21],i,temp_17_heat_1,temp_17_heat_2;
 	for(i=0;i<21;i++)
 	{
-		tempPowerHeatData[i]=powerHeartData[i];
+	  tempPowerHeatData[i]=powerHeartData[i];
 	}
-	temp_17_heat=tempPowerHeatData[17]|tempPowerHeatData[18]<<8;
-	robotPowerHeat.shooter_17_Heat = Transform_Hex_To_Oct(temp_17_heat,16);
-  Shooter_17_Heat =robotPowerHeat.shooter_17_Heat;
+	temp_17_heat_1=tempPowerHeatData[17]|tempPowerHeatData[18]<<8;  //1号
+	temp_17_heat_2=tempPowerHeatData[19]|tempPowerHeatData[20]<<8;  //2号
 	
-
-	ChassisPower_temp = powerHeartData[11]|(powerHeartData[12]<<8)|(powerHeartData[13]<<16)|(powerHeartData[14]<<24);
-	robotPowerHeat.ChassisPower = Parameter_Transformation(ChassisPower_temp);//功率
-	test_power = robotPowerHeat.ChassisPower;
+	robotPowerHeat.shooter_17_Heat_1 = Transform_Hex_To_Oct(temp_17_heat_1,16);
+	robotPowerHeat.shooter_17_Heat_2 = Transform_Hex_To_Oct(temp_17_heat_2,16);
 	
-	ChassisPower_buffer = powerHeartData[15]|(powerHeartData[16]<<8);//|(powerHeartData[21]<<16)|(powerHeartData[22]<<24);
-//	chassisPowerBuffer = Parameter_Transformation(ChassisPower_buffer); //缓冲功率
-	robotPowerHeat.ChassisPowerBuffer = Parameter_Transformation(ChassisPower_buffer); //缓冲功率
-	
-//	robotPowerHeat.shooter_17_Heat= powerHeartData[23]|(powerHeartData[24]<<8);
-//	chassisPowerError = robotPowerHeat.ChassisPower - lastChassisPower;
-	
-if(ChassisPower_buffer<=100)
-{
-	Speed_Offset.kp = 8;
-	Speed_Offset.kd = 2;
-	
-	Speed_Offset.ref = 100;
-	Speed_Offset.fdb = ChassisPower_buffer;
-	Speed_Offset.Calc(&Speed_Offset);
-	Speed_Offset.output = -Speed_Offset.output;      //应该是负的关系
+  Shooter_17_Heat1 =robotPowerHeat.shooter_17_Heat_1;
+  Shooter_17_Heat2 =robotPowerHeat.shooter_17_Heat_2;
 }
-if(ChassisPower_buffer>100)
-{
-  Speed_Offset.output =0.00000001;
-}
-	
-}
-
-
-
 
 /***
 函数：void getRobotShootData(uint8_t *shootData)
@@ -146,10 +169,29 @@ void getRobotShootData(uint8_t *shootData)
 	
 	Bullet_17_real_Speed = robotShootData.bulletSpeed;
 	
-	BulletSpeed_Monitor();
+	//BulletSpeed_Monitor();
 	
 }
 
+/***
+函数：void getRobotState(uint8_t *stateData)
+功能：从裁判系统读取机器人剩余弹量
+备注：ID：0x0208
+      共个数据，下标为当前数据
+***/
+void getRemainBulletData(uint8_t *bulletData)
+{
+	int tempBulletData[12],i,tempBullet=0,remain_Bullet;
+	for(i=0;i<11;i++)  //多取几位也没事
+	{
+		tempBulletData[i]=bulletData[i];
+	}
+  /***读取当前机器人剩余弹量***/
+	remain_Bullet= tempBulletData[7] | (tempBulletData[8]<<8);//tempBulletData[7]是第七位，是第一个有效位，为8bit，一个大小
+	remainBullet.bullet_remaining_num_17mm=remain_Bullet;  //remainBullet是句柄名字，bullet_remaining_num_17mm是结构体里的一个参量
+//	remainBullet.bullet_remaining_num_17mm = Transform_Hex_To_Oct(remain_Bullet,16);	//转换成10进制，只在这里debug检验是否正确而已，板间通讯仍用16进制取传输
+    
+}
 
 
 

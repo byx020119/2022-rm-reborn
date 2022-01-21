@@ -2,7 +2,7 @@
 ..\obj\pid.o: ..\Common\pid.h
 ..\obj\pid.o: ..\USER\stm32f4xx.h
 ..\obj\pid.o: ..\CORE\core_cm4.h
-..\obj\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\pid.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\pid.o: ..\CORE\core_cmInstr.h
 ..\obj\pid.o: ..\CORE\core_cmFunc.h
 ..\obj\pid.o: ..\CORE\core_cm4_simd.h

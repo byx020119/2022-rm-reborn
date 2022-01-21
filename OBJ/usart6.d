@@ -2,7 +2,7 @@
 ..\obj\usart6.o: ..\USER\main.h
 ..\obj\usart6.o: ..\USER\stm32f4xx.h
 ..\obj\usart6.o: ..\CORE\core_cm4.h
-..\obj\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\usart6.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\usart6.o: ..\CORE\core_cmInstr.h
 ..\obj\usart6.o: ..\CORE\core_cmFunc.h
 ..\obj\usart6.o: ..\CORE\core_cm4_simd.h
@@ -35,11 +35,11 @@
 ..\obj\usart6.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\usart6.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\usart6.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\usart6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\usart6.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\usart6.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\usart6.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
+..\obj\usart6.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\usart6.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\usart6.o: ..\BSP\bsp.h
 ..\obj\usart6.o: ..\BSP\can1.h
 ..\obj\usart6.o: ..\BSP\timer.h

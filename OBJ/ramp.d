@@ -2,7 +2,7 @@
 ..\obj\ramp.o: ..\Common\Ramp.h
 ..\obj\ramp.o: ..\USER\stm32f4xx.h
 ..\obj\ramp.o: ..\CORE\core_cm4.h
-..\obj\ramp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\ramp.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\ramp.o: ..\CORE\core_cmInstr.h
 ..\obj\ramp.o: ..\CORE\core_cmFunc.h
 ..\obj\ramp.o: ..\CORE\core_cm4_simd.h

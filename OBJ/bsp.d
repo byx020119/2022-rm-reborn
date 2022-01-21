@@ -2,7 +2,7 @@
 ..\obj\bsp.o: ..\BSP\bsp.h
 ..\obj\bsp.o: ..\USER\stm32f4xx.h
 ..\obj\bsp.o: ..\CORE\core_cm4.h
-..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\bsp.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\bsp.o: ..\CORE\core_cmInstr.h
 ..\obj\bsp.o: ..\CORE\core_cmFunc.h
 ..\obj\bsp.o: ..\CORE\core_cm4_simd.h
@@ -43,11 +43,11 @@
 ..\obj\bsp.o: ..\BSP\uart1.h
 ..\obj\bsp.o: ..\BSP\usart2.h
 ..\obj\bsp.o: ..\USER\main.h
-..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\bsp.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\bsp.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\bsp.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
+..\obj\bsp.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\bsp.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\bsp.o: ..\BSP\usart3.h
 ..\obj\bsp.o: ..\BSP\gun.h
 ..\obj\bsp.o: ..\BSP\adc.h

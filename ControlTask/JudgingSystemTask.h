@@ -2,6 +2,8 @@
 #define JudgingSystemTask_H
 #include <main.h>
 
+extern uint8_t Qianshao_state ;
+
 #define SolveFloatValueStr_Init \
 {\
 	{0,0,0,0},\
@@ -13,6 +15,28 @@
 	&FloatValueSolveFunction,\
 	&solve_chengfang,\
 } \
+
+typedef __packed struct
+{
+ uint8_t game_type : 4;
+ uint8_t game_progress : 4;
+ uint16_t stage_remain_time;
+ uint64_t SyncTimeStamp;
+}ext_game_status_t;
+
+//定义一种类型为ext_event_data_t，这个按照裁判系统官方手册来写
+typedef __packed struct
+{
+  uint32_t event_type;
+}ext_event_data_t;
+
+
+typedef __packed struct    //当前哨兵剩余弹量
+{
+  uint16_t bullet_remaining_num_17mm;
+  uint16_t bullet_remaining_num_42mm; 
+  uint16_t coin_remaining_num;
+} ext_bullet_remaining_t;
 
 typedef __packed struct
 {
@@ -51,7 +75,8 @@ typedef __packed struct
 	float ChassisCurrent;     //底盘输出电流
 	float ChassisPower;       //底盘输出功率
 	float ChassisPowerBuffer; //底盘功率缓冲
-	uint16_t shooter_17_Heat;   //17mm枪口热量
+	uint16_t shooter_17_Heat_1;   //1号枪管17mm枪口热量
+	uint16_t shooter_17_Heat_2;   //2号枪管17mm枪口热量	
 	uint16_t shooter_42_Heat;   //42mm枪口热量
 }extPowerHeatData_t;  //实时功率热量数据
 
@@ -109,24 +134,33 @@ typedef __packed struct
 	uint8_t ringBuf[BUFFER_MAX];
 }ringBuffer_t;
 
-
+extern ext_game_status_t   gameState;
 extern extGameRobotState_t robotState;
 extern extRobotHurt_t      robotHurt;
 extern extPowerHeatData_t  robotPowerHeat;
 extern extShootData_t      robotShootData;
+extern ext_event_data_t  eventState;  //ext_event_data_t的句柄为eventState
+extern ext_bullet_remaining_t remainBullet; 
+
 extern ringBuffer_t buffer;
-extern  int Yaw_encoder;
-extern  int Yaw_encoder_s;
+extern  int Yaw_encoder_s;   
+extern float Yaw_encoder;
+
+extern uint8_t Shooter_17_Heat1;
+extern uint8_t Shooter_17_Heat2;
 
 float FloatValueSolveFunction(struct GetFloatValueStrcut *date);
 float solve_chengfang(float x,int n);
 int Transform_Hex_To_Oct(int data,int len);
 
 void getRobotState(uint8_t *stateData);
+void getGameState(uint8_t *stateData);
 void getRobotHurt(uint8_t *hurtData);
 void getRobotPowerHeat(uint8_t *powerHeartData);
 void getRobotShootData(uint8_t *shootData);
-
+void getEventData(uint8_t *eventData);
+void getRemainBulletData(uint8_t *bulletData);
 void RingBuffer_Write(uint8_t data);
 uint8_t   RingBuffer_Read(uint8_t *pdata);
+
 #endif

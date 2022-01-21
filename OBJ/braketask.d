@@ -3,7 +3,7 @@
 ..\obj\braketask.o: ..\ControlTask\Phototube.h
 ..\obj\braketask.o: ..\USER\stm32f4xx.h
 ..\obj\braketask.o: ..\CORE\core_cm4.h
-..\obj\braketask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\braketask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\braketask.o: ..\CORE\core_cmInstr.h
 ..\obj\braketask.o: ..\CORE\core_cmFunc.h
 ..\obj\braketask.o: ..\CORE\core_cm4_simd.h
@@ -40,11 +40,11 @@
 ..\obj\braketask.o: ..\Common\pid.h
 ..\obj\braketask.o: ..\Common\Ramp.h
 ..\obj\braketask.o: ..\USER\main.h
-..\obj\braketask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\braketask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\braketask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\braketask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\braketask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\braketask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\braketask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\braketask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
+..\obj\braketask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\braketask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\braketask.o: ..\BSP\bsp.h
 ..\obj\braketask.o: ..\BSP\can1.h
 ..\obj\braketask.o: ..\BSP\timer.h

@@ -2,7 +2,7 @@
 ..\obj\canbustask.o: ..\CanBusTask\CanBusTask.h
 ..\obj\canbustask.o: ..\USER\stm32f4xx.h
 ..\obj\canbustask.o: ..\CORE\core_cm4.h
-..\obj\canbustask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\canbustask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\canbustask.o: ..\CORE\core_cmInstr.h
 ..\obj\canbustask.o: ..\CORE\core_cmFunc.h
 ..\obj\canbustask.o: ..\CORE\core_cm4_simd.h
