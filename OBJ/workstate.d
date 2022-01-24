@@ -2,7 +2,7 @@
 ..\obj\workstate.o: ..\ControlTask\WorkState.h
 ..\obj\workstate.o: ..\USER\stm32f4xx.h
 ..\obj\workstate.o: ..\CORE\core_cm4.h
-..\obj\workstate.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\workstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\workstate.o: ..\CORE\core_cmInstr.h
 ..\obj\workstate.o: ..\CORE\core_cmFunc.h
 ..\obj\workstate.o: ..\CORE\core_cm4_simd.h
@@ -39,7 +39,7 @@
 ..\obj\workstate.o: ..\ControlTask\SpeedTask.h
 ..\obj\workstate.o: ..\Common\pid.h
 ..\obj\workstate.o: ..\Common\Ramp.h
-..\obj\workstate.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
+..\obj\workstate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\workstate.o: ..\CanBusTask\CanBusTask.h
 ..\obj\workstate.o: ..\ControlTask\Freedom_Status.h
 ..\obj\workstate.o: ..\BSP\uart1.h

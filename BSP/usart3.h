@@ -64,6 +64,7 @@ extern int Last_CameraDetectTarget_Flag;
 void Sendtosightway(int value);
 void usart3_Init(uint32_t bound);
 void ChariotRecognition_Mes_Process(uint8_t *p);
+void Message_Handle();
 uint16_t filter(uint16_t *distance_buf);
 
 

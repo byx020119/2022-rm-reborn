@@ -87,12 +87,19 @@ float E_TEST1=0;
 float E_TEST2=0;
 float E_TEST3=0;
 int camere_count=0;
-int colorflag = 0;
+//int colorflag = 0;//2022改
 
 double Yawangle = 0.0f;
 int Yawsent = 0;
 double t =0.0f;
 double z =0.0f;
+
+//板间通信的标志位 2022加
+uint8_t colorflag = 0;      //颜色标志位
+uint8_t onerecogflag = 0;  //识别状态
+uint8_t qianshaoflag = 0;  //前哨战状态
+uint8_t danliangflag = 0;  //弹量标志位
+uint8_t dogetflag = 0; // 躲避状态标志位
 
 /***
 C 板
@@ -242,6 +249,49 @@ void USART3_IRQHandler(void)  	//串口1中断服务程序
 		}
 	}
 } 
+
+
+///////////////////////////////////////////////////////////
+void Message_Handle()   //板间通信函数
+{
+	if(robotState.robot_id>=1&&robotState.robot_id<=9 )//判断敌方我方 ，1-9为red，101-109为blue（己方机器人）
+	{
+	 colorflag = 0 ; // 0给视觉发B
+	}
+	if(robotState.robot_id>=101&&robotState.robot_id<=109)	
+	{	
+	  colorflag = 1;
+	}
+	
+	if(Qianshao_state == 1) //前哨战存活 
+	{
+	  qianshaoflag = 1;
+	}		
+	if(Qianshao_state == 0) //前哨战死亡
+	{
+	  qianshaoflag = 0;
+	}
+	
+//	if(remainBullet.bullet_remaining_num_17mm  > 0)  //弹量大于一定的数值，转换成10进制的时候可以使用此判读条按
+//	{
+//		danliangflag = 1;//无弹
+//	}
+//	else if(remainBullet.bullet_remaining_num_17mm  <=0 )
+//	{
+//		danliangflag = 0;//有弹
+//	}
+//	Send_Up_to_Mid_Message(colorflag, qianshaoflag ,onerecogflag,danliangflag); 
+	
+	if(robotState.remainHP < 100)
+	{
+		dogetflag = 1;
+	}
+	else if(robotState.remainHP >100)
+	{
+		dogetflag = 0;
+	}
+	Send_Up_to_Down_Message(CAN2,colorflag, qianshaoflag ,onerecogflag,remainBullet.bullet_remaining_num_17mm,dogetflag); 
+}
 
 
 /////////////////////////////////////////

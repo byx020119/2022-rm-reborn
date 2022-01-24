@@ -2,7 +2,7 @@
 ..\obj\phototube.o: ..\ControlTask\Phototube.h
 ..\obj\phototube.o: ..\USER\stm32f4xx.h
 ..\obj\phototube.o: ..\CORE\core_cm4.h
-..\obj\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\phototube.o: ..\CORE\core_cmInstr.h
 ..\obj\phototube.o: ..\CORE\core_cmFunc.h
 ..\obj\phototube.o: ..\CORE\core_cm4_simd.h
@@ -38,8 +38,8 @@
 ..\obj\phototube.o: ..\CanBusTask\encoder.h
 ..\obj\phototube.o: ..\CanBusTask\CanBusTask.h
 ..\obj\phototube.o: ..\ControlTask\ControlTask.h
-..\obj\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\phototube.o: ..\ControlTask\FreeDom_Status.h
 ..\obj\phototube.o: ..\ControlTask\DogetState.h
-..\obj\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\phototube.o: ..\Common\common.h

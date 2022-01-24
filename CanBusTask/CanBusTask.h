@@ -56,6 +56,6 @@ void Set_CM_Speed(CAN_TypeDef *CANx, int16_t cm1_iq, int16_t cm2_iq,int16_t cm3_
 void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq, int16_t gimbal_pitch_iq);
 void Set_Gimbal_Current1(CAN_TypeDef *CANx, int16_t cm6_iq, int16_t cm7_iq);
 void Set_Gimbal_CALI_STATE(CAN_TypeDef *CANx);
-void Send_Up_to_Down_Message(CAN_TypeDef *CANx);
+void Send_Up_to_Down_Message(CAN_TypeDef *CANx,int8_t color_iq, int8_t qianshao_iq ,int8_t recog_iq,int16_t danliang_iq,int8_t doget_iq);
 
 #endif

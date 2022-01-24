@@ -23,6 +23,7 @@ void Control_Task(void)
 	time_tick_2ms += 2;								//记录运行时间
 	WorkStateFSM();										//工作状态选择
 	WorkStateSwitchProcess();					//检测工作状态切换
+  Message_Handle();                 //板间通信发送函数
 	
 	
 	/***刹车控制任务***/
