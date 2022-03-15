@@ -11,7 +11,7 @@ int main()
 	TIM6_Start();//й╠жс
 	while(1)
 	{
-	Sendtosightway(12);	//йс╬У
+//	Sendtosightway(12);	//йс╬У
 	delay_us(200);
 	}
 }

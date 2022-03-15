@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp.sp
+--cpu=Cortex-M4.fp
 "..\obj\system_stm32f4xx.o"
 "..\obj\main.o"
 "..\obj\stm32f4xx_it.o"
@@ -45,7 +45,7 @@
 "..\obj\adc.o"
 "..\obj\uart1.o"
 "..\obj\can2.o"
-"..\obj\usart6.o"
+"..\obj\usart2.o"
 "..\obj\remotetask.o"
 "..\obj\shootingtask.o"
 "..\obj\controltask.o"
@@ -65,6 +65,6 @@
 "..\obj\canbustask.o"
 "..\obj\encoder.o"
 --strict --scatter "..\OBJ\shaobing c.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\shaobing c.map" -o "..\OBJ\shaobing c.axf"

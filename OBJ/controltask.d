@@ -2,7 +2,7 @@
 ..\obj\controltask.o: ..\ControlTask\ControlTask.h
 ..\obj\controltask.o: ..\USER\stm32f4xx.h
 ..\obj\controltask.o: ..\CORE\core_cm4.h
-..\obj\controltask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\controltask.o: ..\CORE\core_cmInstr.h
 ..\obj\controltask.o: ..\CORE\core_cmFunc.h
 ..\obj\controltask.o: ..\CORE\core_cm4_simd.h
@@ -46,16 +46,18 @@
 ..\obj\controltask.o: ..\ControlTask\BrakeTask.h
 ..\obj\controltask.o: ..\ControlTask\ShootingTask.h
 ..\obj\controltask.o: ..\USER\main.h
-..\obj\controltask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdarg.h
-..\obj\controltask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\controltask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\string.h
-..\obj\controltask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\stdlib.h
-..\obj\controltask.o: D:\App\Deil\ARM\ARMCC\Bin\..\include\math.h
+..\obj\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+..\obj\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
+..\obj\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\controltask.o: ..\BSP\bsp.h
 ..\obj\controltask.o: ..\BSP\can1.h
 ..\obj\controltask.o: ..\BSP\uart1.h
 ..\obj\controltask.o: ..\BSP\usart3.h
 ..\obj\controltask.o: ..\BSP\gun.h
+..\obj\controltask.o: ..\BSP\usart2.h
+..\obj\controltask.o: ..\USER\main.h
 ..\obj\controltask.o: ..\BSP\adc.h
 ..\obj\controltask.o: ..\CanBusTask\CanBusTask.h
 ..\obj\controltask.o: ..\CanBusTask\encoder.h
@@ -63,4 +65,3 @@
 ..\obj\controltask.o: ..\Common\common.h
 ..\obj\controltask.o: ..\Common\crc.h
 ..\obj\controltask.o: ..\Common\kalman.h
-..\obj\controltask.o: ..\USER\main.h

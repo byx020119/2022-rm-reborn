@@ -5,7 +5,6 @@
 #include "RemoteTask.h"
 #include "Freedom_Status.h"
 #include "JudgingSystemTask.h"
-#include "usart6.h"
 
 /***
 下列程序用于UART1打印数据，视觉，印的UART2
@@ -71,8 +70,8 @@ u8 CR_yaw_Angle_Index = 0;
 u8 CR_yaw_Angle_CNT   = 0;
 int8_t loop_j;
 
-char Sendtosight[12];///发送给视觉
-static int count_Sendtosight=0;
+//char Sendtosight[12];///发送给视觉
+//static int count_Sendtosight=0;
 void USART1_DMA_TX_config(void);
 void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize);
 int friction_wheel_count = 0;
@@ -188,66 +187,66 @@ void usart1_Init(u32 bound)
 	}
 }
 
-////////////////////////usart2 DMA send,
-/*1，和接受使用了不同的DMA通道，所以需要重新配，参考技术手册，找到外设对应映射的数据流和通道
-2， 
-*/
+//////////////////////////usart2 DMA send,
+///*1，和接受使用了不同的DMA通道，所以需要重新配，参考技术手册，找到外设对应映射的数据流和通道
+//2， 
+//*/
 
-void USART1_DMA_TX_config()
-{
-
-
-}
-///////不同于上面的初始化函数，这个函数只有在需要发数的时候才调用//
-void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize)
-{
-
-}
+//void USART1_DMA_TX_config()
+//{
 
 
-void USART1_IRQHandler(void)  	//串口1中断服务程序
-{
-	if(USART_GetITStatus(USART1, USART_IT_IDLE) != RESET)      //接收到数据
-	{
-//		//clear the idle pending flag 清除闲置待定标志
-		(void)USART1->SR;
-		(void)USART1->DR;
+//}
+/////////不同于上面的初始化函数，这个函数只有在需要发数的时候才调用//
+//void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize)
+//{
 
-		//Target is Memory0目标是内存0
-		if(DMA_GetCurrentMemoryTarget(DMA2_Stream5) == 0)
-		{
-			DMA_Cmd(DMA2_Stream5, DISABLE);
-			usart1_this_time_rx_len = ChariotRecognition_data_dma_buf_len - DMA_GetCurrDataCounter(DMA2_Stream5);
-			DMA2_Stream5->NDTR = (uint16_t)ChariotRecognition_data_dma_buf_len;     //relocate the dma memory pointer to the beginning position将dma内存指点移到始置位置
-			DMA2_Stream5->CR |= (uint32_t)(DMA_SxCR_CT);                  //enable the current selected memory is Memory 1启用当前选定内存是内存1
-			DMA_Cmd(DMA2_Stream5, ENABLE);
-      if(usart1_this_time_rx_len == ChariotRecognition_data_len)
-			{
-				ChariotRecognition_Mes_Process(ChariotRecognition_data[0]);
-			}
-		}
-		else //Target is Memory1目标是内存1
-		{
-			DMA_Cmd(DMA2_Stream5, DISABLE);
-			usart1_this_time_rx_len = ChariotRecognition_data_dma_buf_len - DMA_GetCurrDataCounter(DMA2_Stream5);
-			DMA2_Stream5->NDTR = (uint16_t)ChariotRecognition_data_dma_buf_len;      //relocate the dma memory pointer to the beginning position将dma内存指点移到始置位
-			DMA2_Stream5->CR &= ~(uint32_t)(DMA_SxCR_CT);                  //enable the current selected memory is Memory 0启用当前选定内存是内存1
-			DMA_Cmd(DMA2_Stream5, ENABLE);
-      if(usart1_this_time_rx_len == ChariotRecognition_data_len)
-			{
-				ChariotRecognition_Mes_Process(ChariotRecognition_data[1]);
-			}
-		}
-	}
-} 
+//}
 
 
-/////////////////////////////////////////
-State_distance state_distacne=closedistance;
+//void USART1_IRQHandler(void)  	//串口1中断服务程序
+//{
+//	if(USART_GetITStatus(USART1, USART_IT_IDLE) != RESET)      //接收到数据
+//	{
+////		//clear the idle pending flag 清除闲置待定标志
+//		(void)USART1->SR;
+//		(void)USART1->DR;
+
+//		//Target is Memory0目标是内存0
+//		if(DMA_GetCurrentMemoryTarget(DMA2_Stream5) == 0)
+//		{
+//			DMA_Cmd(DMA2_Stream5, DISABLE);
+//			usart1_this_time_rx_len = ChariotRecognition_data_dma_buf_len - DMA_GetCurrDataCounter(DMA2_Stream5);
+//			DMA2_Stream5->NDTR = (uint16_t)ChariotRecognition_data_dma_buf_len;     //relocate the dma memory pointer to the beginning position将dma内存指点移到始置位置
+//			DMA2_Stream5->CR |= (uint32_t)(DMA_SxCR_CT);                  //enable the current selected memory is Memory 1启用当前选定内存是内存1
+//			DMA_Cmd(DMA2_Stream5, ENABLE);
+//      if(usart1_this_time_rx_len == ChariotRecognition_data_len)
+//			{
+//				ChariotRecognition_Mes_Process(ChariotRecognition_data[0]);
+//			}
+//		}
+//		else //Target is Memory1目标是内存1
+//		{
+//			DMA_Cmd(DMA2_Stream5, DISABLE);
+//			usart1_this_time_rx_len = ChariotRecognition_data_dma_buf_len - DMA_GetCurrDataCounter(DMA2_Stream5);
+//			DMA2_Stream5->NDTR = (uint16_t)ChariotRecognition_data_dma_buf_len;      //relocate the dma memory pointer to the beginning position将dma内存指点移到始置位
+//			DMA2_Stream5->CR &= ~(uint32_t)(DMA_SxCR_CT);                  //enable the current selected memory is Memory 0启用当前选定内存是内存1
+//			DMA_Cmd(DMA2_Stream5, ENABLE);
+//      if(usart1_this_time_rx_len == ChariotRecognition_data_len)
+//			{
+//				ChariotRecognition_Mes_Process(ChariotRecognition_data[1]);
+//			}
+//		}
+//	}
+//} 
 
 
-void Sendtosightway(int value)//与视觉商定
-{
+///////////////////////////////////////////
+//State_distance state_distacne=closedistance;
+
+
+//void Sendtosightway(int value)//与视觉商定
+//{
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
 	
 //	t= (  ( (int)GMYawEncoder.ecd_angle % 360 )+360 ) % 360; //每一圈里的码盘数值，保证是正的
@@ -275,185 +274,185 @@ void Sendtosightway(int value)//与视觉商定
 //	{
 //		Sendtosight[0]='R';	
 //	}
-	int GMYawtemp_Eular=(Angles+180)*10;
-	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
+//	int GMYawtemp_Eular=(Angles+180)*10;
+//	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
 
-	Sendtosight[0]='R';	
-	
-	Sendtosight[1]='M';//开始发送
-	Sendtosight[2]='N';
-	Sendtosight[3]='L';
-	
-	Sendtosight[4]=(uint8_t)(GMYawtemp_Eular/1000+48);			 //千位
-	Sendtosight[5]=(uint8_t)(GMYawtemp_Eular%1000/100+48);	 //百位
-	Sendtosight[6]=(uint8_t)(GMYawtemp_Eular%100/10+48);		 //十位
-	Sendtosight[7]=(uint8_t)(GMYawtemp_Eular%10+48);				 //个位
-	
-	Sendtosight[8]=(uint8_t)(GMPitchtemp_Encoder/1000+48);		//千位
-	Sendtosight[9]=(uint8_t)(GMPitchtemp_Encoder%1000/100+48);//百位
-	Sendtosight[10]=(uint8_t)(GMPitchtemp_Encoder%100/10+48);	//十位
-	Sendtosight[11]=(uint8_t)(GMPitchtemp_Encoder%10+48);			//个位
-	
-  while(count_Sendtosight<value)
-  {
-	  USART_SendData(USART1, Sendtosight[count_Sendtosight]);
-	  count_Sendtosight++;
-	  delay_us(150);
-  }
- 
-  {
-		count_Sendtosight=0;
-  }
-}
+//	Sendtosight[0]='R';	
+//	
+//	Sendtosight[1]='M';//开始发送
+//	Sendtosight[2]='N';
+//	Sendtosight[3]='L';
+//	
+//	Sendtosight[4]=(uint8_t)(GMYawtemp_Eular/1000+48);			 //千位
+//	Sendtosight[5]=(uint8_t)(GMYawtemp_Eular%1000/100+48);	 //百位
+//	Sendtosight[6]=(uint8_t)(GMYawtemp_Eular%100/10+48);		 //十位
+//	Sendtosight[7]=(uint8_t)(GMYawtemp_Eular%10+48);				 //个位
+//	
+//	Sendtosight[8]=(uint8_t)(GMPitchtemp_Encoder/1000+48);		//千位
+//	Sendtosight[9]=(uint8_t)(GMPitchtemp_Encoder%1000/100+48);//百位
+//	Sendtosight[10]=(uint8_t)(GMPitchtemp_Encoder%100/10+48);	//十位
+//	Sendtosight[11]=(uint8_t)(GMPitchtemp_Encoder%10+48);			//个位
+//	
+//  while(count_Sendtosight<value)
+//  {
+//	  USART_SendData(USART1, Sendtosight[count_Sendtosight]);
+//	  count_Sendtosight++;
+//	  delay_us(150);
+//  }
+// 
+//  {
+//		count_Sendtosight=0;
+//  }
+//}
 
 /***
 函数：ChariotRecognition_Mes_Process(p)
 功能：妙算数据处理
 备注：无
 ***/
-void ChariotRecognition_Mes_Process(uint8_t *p)
-{
-	  ChariotRecognitionTemp[0] = ((p[3]<<8) | p[2]);
-		ChariotRecognitionTemp[1] = ((p[5]<<8) | p[4]);
-		ChariotRecognitionTemp[2] =  p[6];
-	  ChariotRecognitionDirection[0]= p[7];
-	  ChariotRecognitionDirection[1]= p[8];
-	  Chariot_Rec_Dir_rotate[0]= p[9];
-	  Chariot_Rec_Dir_rotate[1]= p[10];
-	
-	Last_CameraDetectTarget_Flag=CameraDetectTarget_Flag;
-	
-	if(p[0]=='R'&&p[1]=='M'&&p[2]!='A')    //能识别到
-	{
-	 E_TEST3++;
-	 E_TEST=ChariotRecognitionTemp[0];
-	 E_TEST1 =ChariotRecognitionTemp[1];	
-		
-  	//UART1收到数据时，摄像头发现目标标志变为1。
-	  CameraDetectTarget_Flag =1;	
-		CR_ringBuffer.lost_COUNT =0;	
-		
-	  if(RC_CtrlData.rc.s1==3)//  if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4游戏开始，且识别到，开波轮
-	  {
-		  TempShootingFlag=1;//发弹标志位
-	  }
-		
-		usart1_microsecond.time_now = Get_Time_Micros();//本次收到数据的时刻
-		usart1_microsecond.time_error = usart1_microsecond.time_now - usart1_microsecond.time_last;//计算相邻两次的时间
-		
-		enter_CNT++;
-		if(enter_CNT == 1)
-		{
-			YawCurrentPositionSave = GMYawEncoder.ecd_angle;
-			PitchCurrentPositionSave = GMPitchEncoder.ecd_angle;
-		}
-		
-		if(enter_CNT >30) enter_CNT = 30;
-		
-		//停止，准备，测试和躲避状态不识别，如果识别到之后变为躲避模式，不接受视觉发来的数据，故云台保持识别的数据，要在状态里手动关闭摩擦轮
-		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE || GetWorkState() == Freedom_STATE)
-		{
-			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
-			ChariotRecognition_pitch= GMPitchEncoder.ecd_angle;
-		}
-		else  //识别、精巡逻和躲避状态
-		{
-			ChariotRecognition_yaw  = ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
+//void ChariotRecognition_Mes_Process(uint8_t *p)
+//{
+//	  ChariotRecognitionTemp[0] = ((p[3]<<8) | p[2]);
+//		ChariotRecognitionTemp[1] = ((p[5]<<8) | p[4]);
+//		ChariotRecognitionTemp[2] =  p[6];
+//	  ChariotRecognitionDirection[0]= p[7];
+//	  ChariotRecognitionDirection[1]= p[8];
+//	  Chariot_Rec_Dir_rotate[0]= p[9];
+//	  Chariot_Rec_Dir_rotate[1]= p[10];
+//	
+//	Last_CameraDetectTarget_Flag=CameraDetectTarget_Flag;
+//	
+//	if(p[0]=='R'&&p[1]=='M'&&p[2]!='A')    //能识别到
+//	{
+//	 E_TEST3++;
+//	 E_TEST=ChariotRecognitionTemp[0];
+//	 E_TEST1 =ChariotRecognitionTemp[1];	
+//		
+//  	//UART1收到数据时，摄像头发现目标标志变为1。
+//	  CameraDetectTarget_Flag =1;	
+//		CR_ringBuffer.lost_COUNT =0;	
+//		
+//	  if(RC_CtrlData.rc.s1==3)//  if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4游戏开始，且识别到，开波轮
+//	  {
+//		  TempShootingFlag=1;//发弹标志位
+//	  }
+//		
+//		usart1_microsecond.time_now = Get_Time_Micros();//本次收到数据的时刻
+//		usart1_microsecond.time_error = usart1_microsecond.time_now - usart1_microsecond.time_last;//计算相邻两次的时间
+//		
+//		enter_CNT++;
+//		if(enter_CNT == 1)
+//		{
+//			YawCurrentPositionSave = GMYawEncoder.ecd_angle;
+//			PitchCurrentPositionSave = GMPitchEncoder.ecd_angle;
+//		}
+//		
+//		if(enter_CNT >30) enter_CNT = 30;
+//		
+//		//停止，准备，测试和躲避状态不识别，如果识别到之后变为躲避模式，不接受视觉发来的数据，故云台保持识别的数据，要在状态里手动关闭摩擦轮
+//		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE || GetWorkState() == Freedom_STATE)
+//		{
+//			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
+//			ChariotRecognition_pitch= GMPitchEncoder.ecd_angle;
+//		}
+//		else  //识别、精巡逻和躲避状态
+//		{
+//			ChariotRecognition_yaw  = ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
 
-//			if(ChariotRecognition_yaw==0)//滤掉视觉发来的所有0，0附近的数就可以保持平衡
+////			if(ChariotRecognition_yaw==0)//滤掉视觉发来的所有0，0附近的数就可以保持平衡
+////			{
+////				ChariotRecognition_yaw = last_ChariotRecognition_yaw;
+////			}
+//			
+//			if(CR_ringBuffer.lost_COUNT<35)  
 //			{
-//				ChariotRecognition_yaw = last_ChariotRecognition_yaw;
+//				CR_ringBuffer.ringBuf[CR_ringBuffer.tailPosition++] = ChariotRecognition_yaw;//yaw角度入列
+//				if(CR_ringBuffer.tailPosition >= BUFFER_SIZE) CR_ringBuffer.tailPosition = 0;//形成环形队列
+//				CR_ringBuffer.lost_COUNT = 0;//丢失目标次数清零
 //			}
-			
-			if(CR_ringBuffer.lost_COUNT<35)  
-			{
-				CR_ringBuffer.ringBuf[CR_ringBuffer.tailPosition++] = ChariotRecognition_yaw;//yaw角度入列
-				if(CR_ringBuffer.tailPosition >= BUFFER_SIZE) CR_ringBuffer.tailPosition = 0;//形成环形队列
-				CR_ringBuffer.lost_COUNT = 0;//丢失目标次数清零
-			}
-			else //如果很多次没识别到，突然识别到一次，不往环形队列中存储该值，并将环形队列清零，尾指针清零
-			{
-				for(u8 loop_i = 0;loop_i<5;loop_i++)
-				{
-				  CR_ringBuffer.ringBuf[loop_i] = 0;
-				}
-				CR_ringBuffer.tailPosition = 0;
-				CR_ringBuffer.lost_COUNT = 0;
-			}
-			
-			Distance_buf[Dis_Buf_Index++] = ChariotRecognitionTemp[2];
-			if(Dis_Buf_Index >= Dis_buf_Size) Dis_Buf_Index = 0;  //索引循环
-			Target_Distance = filter(Distance_buf);
+//			else //如果很多次没识别到，突然识别到一次，不往环形队列中存储该值，并将环形队列清零，尾指针清零
+//			{
+//				for(u8 loop_i = 0;loop_i<5;loop_i++)
+//				{
+//				  CR_ringBuffer.ringBuf[loop_i] = 0;
+//				}
+//				CR_ringBuffer.tailPosition = 0;
+//				CR_ringBuffer.lost_COUNT = 0;
+//			}
+//			
+//			Distance_buf[Dis_Buf_Index++] = ChariotRecognitionTemp[2];
+//			if(Dis_Buf_Index >= Dis_buf_Size) Dis_Buf_Index = 0;  //索引循环
+//			Target_Distance = filter(Distance_buf);
 
-			// Eular[0]+
-			ChariotRecognition_pitch = ChariotRecognitionTemp[1]/100.0;//(0.0088*Target_Distance+1.9604);//GMPitchEncoder.ecd_angle + ChariotRecognitionTemp[1]/100.0;
+//			// Eular[0]+
+//			ChariotRecognition_pitch = ChariotRecognitionTemp[1]/100.0;//(0.0088*Target_Distance+1.9604);//GMPitchEncoder.ecd_angle + ChariotRecognitionTemp[1]/100.0;
 
-			
-			last_ChariotRecognition_yaw   = ChariotRecognition_yaw;
-			last_ChariotRecognition_pitch = ChariotRecognition_pitch;
-		}
-		usart1_microsecond.time_last = Get_Time_Micros();//记录上一次收到数据的时刻
-	}
-	
-	if(p[0]=='R'&&p[1]=='M'&&p[2]=='A'&&p[3]=='A'&&p[4]=='A')//识别不到
-	{
-		
-			E_TEST=0;
-      E_TEST1=0;
-		
-		CR_ringBuffer.lost_COUNT++;
-		
-		if(CR_ringBuffer.lost_COUNT>=35)//如果改这个数据一定要全改，很容易卡在识别模式里
-		{
-			CR_ringBuffer.lost_COUNT = 35;
-		}
-		
-		if(CR_ringBuffer.lost_COUNT<=35)//连续丢失目标的次数小于3次，进行预测
-		{
+//			
+//			last_ChariotRecognition_yaw   = ChariotRecognition_yaw;
+//			last_ChariotRecognition_pitch = ChariotRecognition_pitch;
+//		}
+//		usart1_microsecond.time_last = Get_Time_Micros();//记录上一次收到数据的时刻
+//	}
+//	
+//	if(p[0]=='R'&&p[1]=='M'&&p[2]=='A'&&p[3]=='A'&&p[4]=='A')//识别不到
+//	{
+//		
+//			E_TEST=0;
+//      E_TEST1=0;
+//		
+//		CR_ringBuffer.lost_COUNT++;
+//		
+//		if(CR_ringBuffer.lost_COUNT>=35)//如果改这个数据一定要全改，很容易卡在识别模式里
+//		{
+//			CR_ringBuffer.lost_COUNT = 35;
+//		}
+//		
+//		if(CR_ringBuffer.lost_COUNT<=35)//连续丢失目标的次数小于3次，进行预测
+//		{
 
-			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
-			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;			
-   	}	
-	}
-	
-	if(CR_ringBuffer.lost_COUNT>=35)
-	{
-		enter_CNT = 0;
-		ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
-		ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;
-		TempShootingFlag = 0;
-		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
-	}
-	
-		if(  RC_CtrlData.rc.s1== 3) //&& gameState.game_progress == 4游戏开始
-	{
-		friction_wheel_state_flag = 1; //游戏开始，s1 放到中间，摩擦轮就开
-	}
+//			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
+//			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;			
+//   	}	
+//	}
+//	
+//	if(CR_ringBuffer.lost_COUNT>=35)
+//	{
+//		enter_CNT = 0;
+//		ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
+//		ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;
+//		TempShootingFlag = 0;
+//		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
+//	}
+//	
+//		if(  RC_CtrlData.rc.s1== 3) //&& gameState.game_progress == 4游戏开始
+//	{
+//		friction_wheel_state_flag = 1; //游戏开始，s1 放到中间，摩擦轮就开
+//	}
 
-	if(GetWorkState()== ChariotRecognition_STATE && RC_CtrlData.rc.s1==2)//识别状态下，将左拨杆放到最下仍无法关闭摩擦轮  //5/2
-	{
-		TempShootingFlag = 0;//关拨轮
-		friction_wheel_state_flag = 0;//关摩擦轮
-	}
+//	if(GetWorkState()== ChariotRecognition_STATE && RC_CtrlData.rc.s1==2)//识别状态下，将左拨杆放到最下仍无法关闭摩擦轮  //5/2
+//	{
+//		TempShootingFlag = 0;//关拨轮
+//		friction_wheel_state_flag = 0;//关摩擦轮
+//	}
 
-}
+//}
 
 
-uint16_t filter(uint16_t *distance_buf)//滤波其实视觉做了
-{
-	int i,j,t;
-	for(i=0;i<Dis_buf_Size-1;i++)
-	{
-		for(j=0;j<Dis_buf_Size-i-1;j++)
-		{
-			if(distance_buf[j]>distance_buf[j+1])
-			{
-				t = distance_buf[j+1];
-				distance_buf[j+1] = distance_buf[j];
-				distance_buf[j] = t;
-			}
-		}
-	}
-	
-	return (int)(distance_buf[Dis_buf_Size/2]);
-}
+//uint16_t filter(uint16_t *distance_buf)//滤波其实视觉做了
+//{
+//	int i,j,t;
+//	for(i=0;i<Dis_buf_Size-1;i++)
+//	{
+//		for(j=0;j<Dis_buf_Size-i-1;j++)
+//		{
+//			if(distance_buf[j]>distance_buf[j+1])
+//			{
+//				t = distance_buf[j+1];
+//				distance_buf[j+1] = distance_buf[j];
+//				distance_buf[j] = t;
+//			}
+//		}
+//	}
+//	
+//	return (int)(distance_buf[Dis_buf_Size/2]);
+//}

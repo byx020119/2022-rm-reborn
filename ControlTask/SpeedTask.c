@@ -9,7 +9,6 @@
 #include "math.h"
 #include "ShootingTask.h"
 #include "timer.h"
-#include "usart6.h"
 
 //调参这里PID
 //PID结构体初始化
@@ -246,8 +245,8 @@ void GMYawControlLoop(void)
 //		GMYPositionPID.ref = (1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw);//-CR_yaw_increment ;
 //		GMYPositionPID.fdb = -(1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw)*GMYawRamp.Calc(&GMYawRamp);	
 	
-  	GMYPositionPID.ref = -ChariotRecognition_yaw;//-CR_yaw_increment ;
-		GMYPositionPID.fdb = -Angles;//GMYawEncoder.ecd_angle;	
+  	GMYPositionPID.ref = -CR_yaw_increment ;
+		GMYPositionPID.fdb = GMYawEncoder.ecd_angle;	
 
 		GMYPositionPID.kp = 150+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//130+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
 		GMYPositionPID.ki =	0.001*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.001*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
@@ -317,7 +316,7 @@ void GMYawControlLoop(void)
 	}
 	
 	GMYSpeedPID.ref = GMYPositionPID.output*0.5;//这个0.5应该可以去掉？
-	GMYSpeedPID.fdb = -Gyro[2];//GMYawEncoder.filter_rate;
+	GMYSpeedPID.fdb = GMYawEncoder.filter_rate;
 	GMYSpeedPID.Calc(&GMYSpeedPID);
 //		
 }

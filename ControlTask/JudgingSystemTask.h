@@ -1,6 +1,6 @@
 #ifndef JudgingSystemTask_H
 #define JudgingSystemTask_H
-#include <main.h>
+#include "main.h"
 
 #define SolveFloatValueStr_Init \
 {\
@@ -13,6 +13,21 @@
 	&FloatValueSolveFunction,\
 	&solve_chengfang,\
 } \
+
+typedef __packed struct
+{
+ uint8_t game_type : 4;
+ uint8_t game_progress : 4;
+ uint16_t stage_remain_time;
+ uint64_t SyncTimeStamp;
+} ext_game_status_t;
+
+//定义一种类型为ext_event_data_t
+//数据32位，第11位为己方前哨战的状态
+typedef __packed struct    
+{
+	uint16_t qianshao : 11 ; //当前己方前哨战的状态 
+}ext_event_data_t;
 
 typedef __packed struct
 {
@@ -109,19 +124,22 @@ typedef __packed struct
 	uint8_t ringBuf[BUFFER_MAX];
 }ringBuffer_t;
 
-
+extern ext_game_status_t   gameState;
+extern ext_event_data_t    eventState;  //ext_event_data_t的句柄为eventState
 extern extGameRobotState_t robotState;
 extern extRobotHurt_t      robotHurt;
 extern extPowerHeatData_t  robotPowerHeat;
 extern extShootData_t      robotShootData;
 extern ringBuffer_t buffer;
-extern  int Yaw_encoder;
+extern  float Yaw_encoder;
 extern  int Yaw_encoder_s;
 
 float FloatValueSolveFunction(struct GetFloatValueStrcut *date);
 float solve_chengfang(float x,int n);
 int Transform_Hex_To_Oct(int data,int len);
 
+void getGameState(uint8_t *stateData);
+void getEventData(uint8_t *eventData);//
 void getRobotState(uint8_t *stateData);
 void getRobotHurt(uint8_t *hurtData);
 void getRobotPowerHeat(uint8_t *powerHeartData);

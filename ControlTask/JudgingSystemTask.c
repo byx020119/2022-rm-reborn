@@ -4,9 +4,11 @@
 #include "ShootingTask.h"
 
 extGameRobotState_t robotState;
+ext_game_status_t   gameState;
 extRobotHurt_t      robotHurt;
 extPowerHeatData_t  robotPowerHeat;
 extShootData_t      robotShootData;
+ext_event_data_t  eventState;  //前哨战是否被击毁类型和句柄声明
 
 ringBuffer_t buffer;
 
@@ -14,11 +16,50 @@ uint32_t ChassisPower_temp;
 uint32_t ChassisPower_buffer;
 float chassisPowerBuffer = 0;//功率缓冲
 float Parameter_Transformation(int32_t data);
-int  Yaw_encoder=0;
+float  Yaw_encoder=0.0f;
 int  Yaw_encoder_s=0;
 float test_power=0;
 	
 	
+/***
+函数：void getGameState(uint8_t *stateData)
+功能：从裁判系统读取游戏状态
+备注：ID：0x0001
+      共11个数据，下标11，12为当前血量数据
+***/
+void getGameState(uint8_t *stateData)
+{
+	int tempGameData[12],i,tempTime=0,Game_state;
+	for(i=0;i<11;i++)
+	{
+		tempGameData[i]=stateData[i];
+	}
+  /***比赛状态***/
+	Game_state=tempGameData[7];
+	gameState.game_type=(Game_state & 0x0F);
+	gameState.game_progress=(Game_state & 0xF0)>>4;
+	/***剩余时间***/
+	tempTime=tempGameData[8]|tempGameData[9]<<8;
+	gameState.stage_remain_time = Transform_Hex_To_Oct(tempTime,16);
+}
+/***
+函数：void getEventData(uint8_t *eventData)
+功能：读取己方前哨站的状态 0为被击毁，1为存活
+备注：共32个数据，第11位(下标为10为所需数据）
+***/
+void getEventData(uint8_t *eventData)
+{
+	int tempGameData[12],i=0,Event_state;
+    //读11位，第11位	 1：己方前哨战存活，0：己方前哨站被击毁 
+	for(i=0;i<12;i++)
+	{
+		tempGameData[i]=eventData[i];   //存储前11位的数据
+	}
+	Event_state = tempGameData[11];  //Event_state为中间变量
+	eventState.qianshao =  (Event_state & 0x01);   //得到第11位数据  eventState为定义的结构体的句柄  
+
+}
+
 /***
 函数：void getRobotState(uint8_t *stateData)
 功能：从裁判系统读取机器人状态(当前血量)
@@ -93,8 +134,8 @@ void getRobotPowerHeat(uint8_t *powerHeartData)
 //	robotPowerHeat.shooter_17_Heat= powerHeartData[23]|(powerHeartData[24]<<8);
 //	chassisPowerError = robotPowerHeat.ChassisPower - lastChassisPower;
 	
-	if(ChassisPower_buffer<=100)
-	{
+if(ChassisPower_buffer<=100)
+{
 	Speed_Offset.kp = 8;
 	Speed_Offset.kd = 2;
 	
@@ -102,13 +143,15 @@ void getRobotPowerHeat(uint8_t *powerHeartData)
 	Speed_Offset.fdb = ChassisPower_buffer;
 	Speed_Offset.Calc(&Speed_Offset);
 	Speed_Offset.output = -Speed_Offset.output;      //应该是负的关系
-	}
-	if(ChassisPower_buffer>100)
-	{
+}
+if(ChassisPower_buffer>100)
+{
   Speed_Offset.output =0.00000001;
-	}
+}
 	
 }
+
+
 
 
 /***

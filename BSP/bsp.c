@@ -5,8 +5,7 @@
 #include "usart3.h"
 #include "Phototube.h"
 #include "uart1.h"
-//#include "usart2.h"
-#include "usart6.h"
+#include "usart2.h"
 
 void BSP_Init(void)
 {
@@ -18,7 +17,7 @@ void BSP_Init(void)
 	USART3_Configuration();         //遥控器初始化
 	usart1_Init(115200);            //接收妙算传来的数据19200
 //  USART6_Configuration();         //接收九轴传来的数据
-	usart6_Init(115200);            //接收陀螺仪
+	usart2_Init(115200);            //接收陀螺仪
 //	PWM_Configuration();            //摩擦轮
 	Phototube_Configuration();
 }
