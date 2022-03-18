@@ -50,7 +50,7 @@ void Control_Task(void)
   Chassis_Motion_Switch_Doget();//躲避状态，底盘运动到边界后，换向
 	GraduallyChangeCMSpeed();     //底盘电机速度平滑换向
 	CMControlLoop();							//底盘控制任务 发送底盘电机输出量
-  Phototube_Handle();           //光电管控制任务	
+  //Phototube_Handle();           //光电管控制任务	
 	
 
 

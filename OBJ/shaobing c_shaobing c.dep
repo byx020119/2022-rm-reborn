@@ -1925,7 +1925,7 @@ I (..\Common\common.h)(0x6233EB67)
 I (..\Common\crc.h)(0x6233EB67)
 I (..\Common\kalman.h)(0x6233EB67)
 I (..\ControlTask\ShootingTask.h)(0x6233EB67)
-F (..\ControlTask\ControlTask.c)(0x6233ED63)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\USER -I..\FWLIB\inc -I..\BSP -I..\ControlTask -I..\Common -I..\CanBusTask-I C:\Users\byx20\Desktop\RM\use\-2022-rm-test---\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\controltask.o --omf_browse ..\obj\controltask.crf --depend ..\obj\controltask.d)
+F (..\ControlTask\ControlTask.c)(0x6233EE56)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\USER -I..\FWLIB\inc -I..\BSP -I..\ControlTask -I..\Common -I..\CanBusTask-I C:\Users\byx20\Desktop\RM\use\-2022-rm-test---\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\controltask.o --omf_browse ..\obj\controltask.crf --depend ..\obj\controltask.d)
 I (..\ControlTask\ControlTask.h)(0x6233EB67)
 I (..\USER\stm32f4xx.h)(0x6233EB68)
 I (..\CORE\core_cm4.h)(0x6233EB67)
@@ -2055,7 +2055,7 @@ I (..\Common\common.h)(0x6233EB67)
 I (..\Common\crc.h)(0x6233EB67)
 I (..\Common\kalman.h)(0x6233EB67)
 I (..\ControlTask\JudgingSystemTask.h)(0x6233EB67)
-F (..\ControlTask\Freedom_Status.c)(0x6233ECD0)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\USER -I..\FWLIB\inc -I..\BSP -I..\ControlTask -I..\Common -I..\CanBusTask-I C:\Users\byx20\Desktop\RM\use\-2022-rm-test---\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freedom_status.o --omf_browse ..\obj\freedom_status.crf --depend ..\obj\freedom_status.d)
+F (..\ControlTask\Freedom_Status.c)(0x6233F065)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\CORE -I..\USER -I..\FWLIB\inc -I..\BSP -I..\ControlTask -I..\Common -I..\CanBusTask-I C:\Users\byx20\Desktop\RM\use\-2022-rm-test---\USER\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\freedom_status.o --omf_browse ..\obj\freedom_status.crf --depend ..\obj\freedom_status.d)
 I (..\ControlTask\Freedom_Status.h)(0x6233EB67)
 I (..\USER\stm32f4xx.h)(0x6233EB68)
 I (..\CORE\core_cm4.h)(0x6233EB67)

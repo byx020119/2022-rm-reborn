@@ -42,7 +42,7 @@ int32_t time_track_right_max = 0;
 double yaw_ecd_angle_flag =0;             //2022加  自由模式y轴一侧限位值
 double yaw_ecd_angle_flag1 =200;          //2022加  自由模式y轴另一侧限位值
 const float Chassis_speed=200;						//2022加  底盘电机速度常量
-
+const float Chassis_Position=2000;        //2022加  底盘电机位置常量
 /***
 函数：YawFreeRoation()
 功能：自由状态时YAW自由旋转
@@ -185,14 +185,14 @@ void Chassis_Motion_Switch(void)
 				{
 					case 0:
 					{
-						Chassis_Position_Ref = 10000;//底盘位置赋值
+						Chassis_Position_Ref = Chassis_Position;//底盘位置赋值
 						time_track_left++;
 						time_track_right_max = time_track_right;
 						Dir_Change_Flag=0;//避免刷新时重复换向
 					};break;
 					case 1:
 					{
-						Chassis_Position_Ref = -10000;
+						Chassis_Position_Ref = -Chassis_Position;
             time_track_right++;	
             time_track_left_max = time_track_left;						
 						Dir_Change_Flag=0;
@@ -210,11 +210,11 @@ void Chassis_Motion_Switch(void)
 					GimbalRefTest++;//记录什么
 					case 0:
 					{
-						Chassis_Position_Ref = 10000;//底盘位置赋值
+						Chassis_Position_Ref = Chassis_Position;//底盘位置赋值
 					};break;
 					case 1:
 					{
-						Chassis_Position_Ref = -10000; 
+						Chassis_Position_Ref = -Chassis_Position; 
 					};break;
 				}
 				Chassis_Freedom_i++;
