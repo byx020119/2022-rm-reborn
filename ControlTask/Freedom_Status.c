@@ -41,7 +41,7 @@ int32_t time_track_right_max = 0;
 
 double yaw_ecd_angle_flag =0;             //2022加  自由模式y轴一侧限位值
 double yaw_ecd_angle_flag1 =200;          //2022加  自由模式y轴另一侧限位值
-
+const float Chassis_speed=200;						//2022加  底盘电机速度常量
 
 /***
 函数：YawFreeRoation()
@@ -235,22 +235,22 @@ void Chassis_Motion_Switch(void)
 				{
 				 if(Chassis_Position_Ref > CM1Encoder.ecd_angle)//光电管出问题，一直在一个方向上，就反向
 				   {
-					   Chassis_Temp_Speed = -800 ;
+					   Chassis_Temp_Speed = -Chassis_speed ;
 				   }
 				 else if(Chassis_Position_Ref < CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = 800 ;
+					   Chassis_Temp_Speed = Chassis_speed ;
 				   }
 			  }
 				if(Speed_change==1)
 				{
 				 if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = -800 ;
+					   Chassis_Temp_Speed = -Chassis_speed ;
 				   }
 				 else if(Chassis_Position_Ref < CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = 800 ;
+					   Chassis_Temp_Speed = Chassis_speed ;
 				   }
 			  }
 				
