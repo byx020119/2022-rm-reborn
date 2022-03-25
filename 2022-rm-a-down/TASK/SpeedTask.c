@@ -146,7 +146,7 @@ void GMPitchControlLoop(void)
 	}
   //GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量
 	GMPSpeedPID.ref = GMPPositionPID.output;
-	GMPSpeedPID.fdb = GMPitchEncoder.filter_rate;//-Gyro[1]/10;
+	GMPSpeedPID.fdb = 0.1*GMPitchEncoder.filter_rate;//-Gyro[1]/10;                     //p轴抖动修改系数
 	GMPSpeedPID.Calc(&GMPSpeedPID);
 	GMPSpeedPID.output =GMPSpeedPID.output+GMPSpeedPID.output/fabs(GMPSpeedPID.output);
 	
@@ -201,13 +201,13 @@ void GMYawControlLoop(void)
   	GMYPositionPID.ref = -ChariotRecognition_yaw;//-CR_yaw_increment ;
 		GMYPositionPID.fdb = -Angles;//GMYawEncoder.ecd_angle;	
 
-		GMYPositionPID.kp = 60+25*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//160+150*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
-		GMYPositionPID.ki = 0.001*exp(-0.1*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
-		GMYPositionPID.kd = 7;//6;//10;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3;//0;
+		GMYPositionPID.kp = 70+60*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//160+150*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
+		GMYPositionPID.ki = 0.005*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
+		GMYPositionPID.kd = 5;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3;//0;
 		
-		GMYSpeedPID.kp = 48;//10//15
+		GMYSpeedPID.kp = 55;//10//15
 		GMYSpeedPID.ki = 0.001;//0.005;
-		GMYSpeedPID.kd = 0;//1//2//5
+		GMYSpeedPID.kd = 2;//1//2//5
 		
 		GMYPositionPID.Calc(&GMYPositionPID);    //得到yaw轴位置环输出控制量
 		
@@ -268,8 +268,8 @@ void GMYawControlLoop(void)
 		GMYPositionPID.Calc(&GMYPositionPID); 
 	}
 	
-	GMYSpeedPID.ref = GMYPositionPID.output*0.5;//这个0.5应该可以去掉？
-	GMYSpeedPID.fdb = -Gyro[2];//GMYawEncoder.filter_rate;
+	GMYSpeedPID.ref = GMYPositionPID.output*0.3;                            //y轴抖动修改系数
+	GMYSpeedPID.fdb = -Gyro[2]/5;//GMYawEncoder.filter_rate;                //y轴抖动修改系数
 	GMYSpeedPID.Calc(&GMYSpeedPID);
 //		
 }
