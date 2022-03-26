@@ -29,6 +29,9 @@ extern float YawInitPositionSave;
 void YawFreeRoation(void);
 void Chassis_Motion_Switch(void);
 void Chassis_DiffSpeed_Task(void);	
+extern double yaw_ecd_angle_flag;           //2022加  自由模式y轴一侧限位值
+extern double yaw_ecd_angle_flag1 ;          //2022加  自由模式y轴另一侧限位值
+
 
 
 #endif

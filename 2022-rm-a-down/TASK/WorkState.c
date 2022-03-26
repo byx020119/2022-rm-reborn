@@ -53,10 +53,10 @@ void WorkStateFSM(void)
 		
 		case Freedom_STATE:     //自由状态，底盘移动，yaw旋转
 		{	
-      if( utm123[2] == 1 && danliang >0 )//(danliang >= 300) 上枪识别到，进入识别状态
-			{
-				workState = ChariotRecognition_STATE;
-			}
+//      if( utm123[2] == 1 && danliang >0 )//(danliang >= 300) 上枪识别到，进入识别状态
+//			{
+//				workState = ChariotRecognition_STATE;
+//			}
       if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
 			{
 				workState = ChariotRecognition_STATE;

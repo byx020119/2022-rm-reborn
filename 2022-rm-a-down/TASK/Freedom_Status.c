@@ -55,17 +55,17 @@ void YawFreeRoation(void)
 		{
 		pitch_rotate_flag = 1;   //转向在某个位置，p轴转向标志位1？
 		}
-		if(GMPitchEncoder.ecd_angle-2<=0)//-3
+		if(GMPitchEncoder.ecd_angle-8<=0)//-3
 		{
 		pitch_rotate_flag=0;    //转向在某个位置，p轴转向标志位0？
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.12f;   //p轴标志位1，p轴转向角度+0.1？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.08f;   //p轴标志位1，p轴转向角度+0.1？
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.12f;   //p轴标志位0，p轴转向角度-0.1？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.08f;   //p轴标志位0，p轴转向角度-0.1？
 		}
 		
 		
@@ -109,11 +109,11 @@ void YawFreeRoation(void)
 		}
 		
 		
-		if(GMPitchEncoder.ecd_angle-20>0)
+		if(GMPitchEncoder.ecd_angle-30>0)
 		{
 		pitch_rotate_flag=1;
 		}
-		if(GMPitchEncoder.ecd_angle+10<0)
+		if(GMPitchEncoder.ecd_angle-8<0)
 		{
 		pitch_rotate_flag=0;
 		}
@@ -129,6 +129,7 @@ void YawFreeRoation(void)
 		
 			if(Attacked_YAW_Rotation_Dir == 1)
 			{
+				//if(GMYawEncoder.ecd_angle-yaw_ecd_angle_flag<=0)
 				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref+0.8f;//0.4f
 				if(GimbalRef.yaw_angle_dynamic_ref - Attacked_YAW_Pos_Ref>0)
 				{
@@ -139,6 +140,7 @@ void YawFreeRoation(void)
 			}
 			else if(Attacked_YAW_Rotation_Dir == 2)
 			{
+				//if(GMYawEncoder.ecd_angle+yaw_ecd_angle_flag1>=0)
 				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref-0.8f;//0.1f
 				if(GimbalRef.yaw_angle_dynamic_ref - Attacked_YAW_Pos_Ref<0)
 				{
