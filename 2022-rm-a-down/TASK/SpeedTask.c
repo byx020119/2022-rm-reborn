@@ -146,7 +146,7 @@ void GMPitchControlLoop(void)
 	}
   //GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量
 	GMPSpeedPID.ref = GMPPositionPID.output;
-	GMPSpeedPID.fdb = 0.1*GMPitchEncoder.filter_rate;//-Gyro[1]/10;                     //p轴抖动修改系数
+	GMPSpeedPID.fdb = 0.08*GMPitchEncoder.filter_rate;//-Gyro[1]/10;                     //p轴抖动修改系数
 	GMPSpeedPID.Calc(&GMPSpeedPID);
 	GMPSpeedPID.output =GMPSpeedPID.output+GMPSpeedPID.output/fabs(GMPSpeedPID.output);
 	

@@ -34,14 +34,14 @@ uint8_t TempShootingFlag=0;                 //·¢µ¯±êÖ¾,ÐÞ¸Ä¸Ã±êÖ¾£¬¿ÉÑ¡ÔñÊÇ·ñ·¢µ
 //Ä¦²ÁÂÖÈýÖÖ²»Í¬ËÙ¶È½á¹¹Ìå³õÊ¼»¯
 #define FRICTION_SPEED_INIT_DEFAULT \
 {\
-	250,\
-	250,\
+	300,\
+	3,\
 }\
 
 //×Óµ¯3ÖÖ²»Í¬ÉäËÙ»ú¹¹Ìå³õÊ¼»¯
 #define BULLET_SPEED_REF_DEFAULT \
 {\
-	10,\
+	15,\
 	25,\
 }\
 
