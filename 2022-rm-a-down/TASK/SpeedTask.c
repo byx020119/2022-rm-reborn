@@ -295,7 +295,9 @@ void SetGimbalMotorOutput(void)
 	{	
 //		Set_Gimbal_Current(CAN1,2000,3000,(int16_t)(CM7SpeedPID.output));     //yaw + pitch+BoLunMotor	
   		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(GMPSpeedPID.output));     //yaw + pitch	
-//  	  Set_Gimbal_Current(CAN1,0,(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output));    
+		  Set_Gimbal_Current1(CAN2,0,(int16_t)(CM7SpeedPID.output));   //BoLunMotor + Brake
+
+		//  	  Set_Gimbal_Current(CAN1,0,(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output));    
 //   	  Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),0,(int16_t)(CM7SpeedPID.output));
 //		Set_Gimbal_Current(CAN1,0,0,(int16_t)(CM7SpeedPID.output));
 	}

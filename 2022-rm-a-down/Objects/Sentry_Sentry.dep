@@ -361,76 +361,7 @@ I (.\TASK\Doget_state.h)(0x6239D227)
 I (.\COMMON\common.h)(0x59D2FD84)
 I (.\COMMON\crc.h)(0x59E1DEB2)
 I (.\COMMON\kalman.h)(0x5B47898C)
-F (.\BSP\gun.c)(0x5DA479E6)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I .\BSP -I .\COMMON -I .\CORE -I .\STLibraries\inc -I .\TASK -I .\USER-I.\RTE\_Sentry-ID:\App\KEIL\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\KEIL\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\gun.o --omf_browse .\objects\gun.crf --depend .\objects\gun.d)
-I (.\USER\main.h)(0x6239BB69)
-I (.\USER\stm32f4xx.h)(0x5C94EAB8)
-I (.\CORE\core_cm4.h)(0x53C7D532)
-I (D:\App\KEIL\ARM\ARMCC\include\stdint.h)(0x57F606B8)
-I (.\CORE\core_cmInstr.h)(0x53C7D532)
-I (.\CORE\core_cmFunc.h)(0x53C7D532)
-I (.\CORE\core_cm4_simd.h)(0x53C7D532)
-I (.\USER\system_stm32f4xx.h)(0x53DBA49A)
-I (.\USER\stm32f4xx_conf.h)(0x53DBB3CC)
-I (.\STLibraries\inc\stm32f4xx_adc.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_crc.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_dbgmcu.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_dma.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_exti.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_flash.h)(0x53DF9332)
-I (.\STLibraries\inc\stm32f4xx_gpio.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_i2c.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_iwdg.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_pwr.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_rcc.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_rtc.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_sdio.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_spi.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_syscfg.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_tim.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_usart.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_wwdg.h)(0x53DBAFAE)
-I (.\STLibraries\inc\misc.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_cryp.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_hash.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_rng.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_can.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_dac.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_dcmi.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_dma2d.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_fmc.h)(0x53DBAFAE)
-I (.\STLibraries\inc\stm32f4xx_sai.h)(0x53DBAFAE)
-I (D:\App\KEIL\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
-I (D:\App\KEIL\ARM\ARMCC\include\stdio.h)(0x57F606B8)
-I (D:\App\KEIL\ARM\ARMCC\include\string.h)(0x57F606B8)
-I (D:\App\KEIL\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
-I (D:\App\KEIL\ARM\ARMCC\include\math.h)(0x57F606B6)
-I (.\BSP\bsp.h)(0x5ACC8AA6)
-I (.\BSP\can1.h)(0x5ACC8AA6)
-I (.\BSP\can2.h)(0x5ACC8AA6)
-I (.\BSP\timer.h)(0x5C6CCA32)
-I (.\BSP\usart1.h)(0x5C06802E)
-I (.\BSP\usart3.h)(0x623B01C6)
-I (.\BSP\usart6.h)(0x623B01C6)
-I (.\BSP\usart7.h)(0x6239C1E9)
-I (.\BSP\gun.h)(0x5AD1A084)
-I (.\BSP\adc.h)(0x5B3437BC)
-I (.\TASK\CanBusTask.h)(0x6239B2A4)
-I (.\TASK\encoder.h)(0x6239B2A4)
-I (.\TASK\ControlTask.h)(0x623B0250)
-I (.\TASK\SpeedTask.h)(0x623B01C6)
-I (.\COMMON\pid.h)(0x5AE50D5A)
-I (.\COMMON\Ramp.h)(0x58E4EA94)
-I (.\TASK\WorkState.h)(0x5CE14EEE)
-I (.\TASK\RemoteTask.h)(0x623B01C7)
-I (.\TASK\Freedom_Status.h)(0x623E6D1E)
-I (.\TASK\ShootingTask.h)(0x5C8FA020)
-I (.\TASK\JudgingSystemTask.h)(0x6239BB0B)
-I (.\TASK\GunHeartAndBleed.h)(0x623B01C7)
-I (.\TASK\Phototube.h)(0x5CD0360C)
-I (.\TASK\Doget_state.h)(0x6239D227)
-I (.\COMMON\common.h)(0x59D2FD84)
-I (.\COMMON\crc.h)(0x59E1DEB2)
-I (.\COMMON\kalman.h)(0x5B47898C)
+F (.\BSP\gun.c)(0x623EE3EC)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I .\BSP -I .\COMMON -I .\CORE -I .\STLibraries\inc -I .\TASK -I .\USER-I.\RTE\_Sentry-ID:\App\KEIL\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\KEIL\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\gun.o --omf_browse .\objects\gun.crf --depend .\objects\gun.d)
 F (.\BSP\timer.c)(0x5CEBF89C)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I .\BSP -I .\COMMON -I .\CORE -I .\STLibraries\inc -I .\TASK -I .\USER-I.\RTE\_Sentry-ID:\App\KEIL\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\KEIL\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
 I (.\USER\main.h)(0x6239BB69)
 I (.\USER\stm32f4xx.h)(0x5C94EAB8)
@@ -852,7 +783,7 @@ I (.\TASK\Doget_state.h)(0x6239D227)
 I (.\COMMON\common.h)(0x59D2FD84)
 I (.\COMMON\crc.h)(0x59E1DEB2)
 I (.\COMMON\kalman.h)(0x5B47898C)
-F (.\TASK\Freedom_Status.c)(0x623E71E7)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I .\BSP -I .\COMMON -I .\CORE -I .\STLibraries\inc -I .\TASK -I .\USER-I.\RTE\_Sentry-ID:\App\KEIL\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\KEIL\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\freedom_status.o --omf_browse .\objects\freedom_status.crf --depend .\objects\freedom_status.d)
+F (.\TASK\Freedom_Status.c)(0x623EBA95)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I .\BSP -I .\COMMON -I .\CORE -I .\STLibraries\inc -I .\TASK -I .\USER-I.\RTE\_Sentry-ID:\App\KEIL\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\KEIL\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\freedom_status.o --omf_browse .\objects\freedom_status.crf --depend .\objects\freedom_status.d)
 I (TASK\Freedom_Status.h)(0x623E6D1E)
 I (.\USER\stm32f4xx.h)(0x5C94EAB8)
 I (.\CORE\core_cm4.h)(0x53C7D532)
@@ -898,7 +829,7 @@ I (.\COMMON\Ramp.h)(0x58E4EA94)
 I (TASK\encoder.h)(0x6239B2A4)
 I (TASK\CanBusTask.h)(0x6239B2A4)
 I (D:\App\KEIL\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
-F (.\TASK\SpeedTask.c)(0x623E7392)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I .\BSP -I .\COMMON -I .\CORE -I .\STLibraries\inc -I .\TASK -I .\USER-I.\RTE\_Sentry-ID:\App\KEIL\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\KEIL\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\speedtask.o --omf_browse .\objects\speedtask.crf --depend .\objects\speedtask.d)
+F (.\TASK\SpeedTask.c)(0x623EE470)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I .\BSP -I .\COMMON -I .\CORE -I .\STLibraries\inc -I .\TASK -I .\USER-I.\RTE\_Sentry-ID:\App\KEIL\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\App\KEIL\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\speedtask.o --omf_browse .\objects\speedtask.crf --depend .\objects\speedtask.d)
 I (TASK\SpeedTask.h)(0x623B01C6)
 I (.\USER\stm32f4xx.h)(0x5C94EAB8)
 I (.\CORE\core_cm4.h)(0x53C7D532)

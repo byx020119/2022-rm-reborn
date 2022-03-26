@@ -117,6 +117,10 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>CMSIS_AGDI</Key>
           <Name>-X"ATK-HSWL-CMSIS-DAP" -UATK 20190528 -O206 -S8 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO18 -TC10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_2048.FLM -FS08000000 -FL0200000 -FP0($$Device:STM32F427IIHx$CMSIS\Flash\STM32F4xx_2048.FLM)</Name>
         </SetRegEntry>
@@ -296,7 +300,7 @@
         <Ww>
           <count>29</count>
           <WinNumber>1</WinNumber>
-          <ItemText>CM7Encoder</ItemText>
+          <ItemText>CM7Encoder,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>30</count>
@@ -311,7 +315,7 @@
         <Ww>
           <count>32</count>
           <WinNumber>1</WinNumber>
-          <ItemText>CM7Encoder</ItemText>
+          <ItemText>CM7Encoder,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>33</count>
@@ -847,6 +851,21 @@
           <count>139</count>
           <WinNumber>1</WinNumber>
           <ItemText>Attacked_YAW_Rotation_Dir</ItemText>
+        </Ww>
+        <Ww>
+          <count>140</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Attacked_YAW_Pos_Ref,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>141</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>GetWorkState</ItemText>
+        </Ww>
+        <Ww>
+          <count>142</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>workState</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

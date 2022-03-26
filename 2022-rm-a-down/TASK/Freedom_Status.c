@@ -130,7 +130,7 @@ void YawFreeRoation(void)
 			if(Attacked_YAW_Rotation_Dir == 1)
 			{
 				//if(GMYawEncoder.ecd_angle-yaw_ecd_angle_flag<=0)
-				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref+0.8f;//0.4f
+				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref+0.3f;//0.4f
 				if(GimbalRef.yaw_angle_dynamic_ref - Attacked_YAW_Pos_Ref>0)
 				{
 					GimbalRef.yaw_angle_dynamic_ref = Attacked_YAW_Pos_Ref;
@@ -141,7 +141,7 @@ void YawFreeRoation(void)
 			else if(Attacked_YAW_Rotation_Dir == 2)
 			{
 				//if(GMYawEncoder.ecd_angle+yaw_ecd_angle_flag1>=0)
-				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref-0.8f;//0.1f
+				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref-0.3f;//0.1f
 				if(GimbalRef.yaw_angle_dynamic_ref - Attacked_YAW_Pos_Ref<0)
 				{
 					GimbalRef.yaw_angle_dynamic_ref = Attacked_YAW_Pos_Ref;
