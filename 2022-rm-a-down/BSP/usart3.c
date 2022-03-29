@@ -73,7 +73,7 @@ int8_t loop_j;
 
 char Sendtosight[16];///·¢ËÍ¸øÊÓ¾õ
 static int count_Sendtosight=0;
-void USART3_DMA_TX_config();
+void USART3_DMA_TX_config(void);
 void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize);
 int friction_wheel_count = 0;
 float kalman_yaw = 0;
