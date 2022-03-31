@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Mar 29 19:14:57 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Wed Mar 30 22:00:49 2022
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1321,11 +1321,14 @@ Global Symbols
 <P><STRONG><a name="[11]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
-<P><STRONG><a name="[d9]"></a>Sendtosightway</STRONG> (Thumb, 424 bytes, Stack size 24 bytes, usart3.o(i.Sendtosightway))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Sendtosightway &rArr; delay_us
+<P><STRONG><a name="[d9]"></a>Sendtosightway</STRONG> (Thumb, 460 bytes, Stack size 40 bytes, usart3.o(i.Sendtosightway))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Sendtosightway &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1978,6 +1981,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteDataPrcess
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sendtosightway
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation_Doget
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motion_Switch_Doget
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calc
@@ -2043,7 +2047,8 @@ Global Symbols
 <P><STRONG><a name="[ba]"></a>__aeabi_d2iz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfix.o(x$fpl$dfix))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motion_Switch_Doget
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sendtosightway
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motion_Switch_Doget
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetGimbalMotorOutput
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation
@@ -2106,6 +2111,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RemoteDataPrcess
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sendtosightway
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateSwitchProcess
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motion_Switch_Doget
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calc
