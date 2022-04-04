@@ -243,17 +243,17 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
 			last_Chassis_Temp_Speed = Chassis_Temp_Speed;
 		  if(Aerocraft_Phototube_flag==1)
 	      	{
-		       Chassis_Temp_Speed=-800;
+		       Chassis_Temp_Speed=-300;
 	      	}
 			if(Aerocraft_Phototube_flag==0)
 	     {
 				if(Chassis_Position_Ref <CM1Encoder.ecd_angle)
 				{
-					Chassis_Temp_Speed = -800;
+					Chassis_Temp_Speed = -300;
 				}
 				else if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
 				{	
-					Chassis_Temp_Speed = 800;
+					Chassis_Temp_Speed = 300;
 				}
 		 	}
 				
@@ -569,21 +569,21 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 							if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = -750;//-700;
+				          Chassis_Temp_Speed = -300;//-700;	2022 -750
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
-//				          Chassis_Temp_Speed = -600;//-700;
+//				          Chassis_Temp_Speed = -600;// 2022 -700;
 //			      	}
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = -700;//-700;
+						  Chassis_Temp_Speed = -300;//2022 -700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = -600;
+						Chassis_Temp_Speed = -300;//2022 -600
 					}
 				}
 				else if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
@@ -594,7 +594,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 						 if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = 750;//-700;
+				          Chassis_Temp_Speed = 300;//2022 750;
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
@@ -603,12 +603,12 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = 700;//-700;
+						  Chassis_Temp_Speed = 300;//2022 700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = 600;
+						Chassis_Temp_Speed = 300;//2022 600
 					}
 				}
 				

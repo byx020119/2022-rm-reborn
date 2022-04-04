@@ -114,7 +114,7 @@ void GMPitchControlLoop(void)
 
 			
 		GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量
-		GMPPositionPID.output = GMPPositionPID.output - GMPitchEncoder.ecd_angle*5;//- GMPitchEncoder.ecd_angle*10;
+		GMPPositionPID.output = GMPPositionPID.output - GMPitchEncoder.ecd_angle*16;//- GMPitchEncoder.ecd_angle*10;
 				
 	}
 
@@ -205,7 +205,7 @@ void GMYawControlLoop(void)
 		GMYPositionPID.ki = 0.005*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
 		GMYPositionPID.kd = 5;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3;//0;
 		
-		GMYSpeedPID.kp = 55;//10//15
+		GMYSpeedPID.kp = 65;//10//15
 		GMYSpeedPID.ki = 0.001;//0.005;
 		GMYSpeedPID.kd = 2;//1//2//5
 		

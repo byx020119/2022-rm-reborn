@@ -187,14 +187,14 @@ void Chassis_Motion_Switch(void)
 				{
 					case 0:
 					{
-						Chassis_Position_Ref = 4500;//底盘位置赋值
+						Chassis_Position_Ref = 10000;//底盘位置赋值
 						time_track_left++;
 						time_track_right_max = time_track_right;
 						Dir_Change_Flag=0;//避免刷新时重复换向
 					};break;
 					case 1:
 					{
-						Chassis_Position_Ref = -4500;
+						Chassis_Position_Ref = -10000;
             time_track_right++;	
             time_track_left_max = time_track_left;						
 						Dir_Change_Flag=0;
@@ -212,11 +212,11 @@ void Chassis_Motion_Switch(void)
 					GimbalRefTest++;//记录什么
 					case 0:
 					{
-						Chassis_Position_Ref = 4500;//底盘位置赋值
+						Chassis_Position_Ref = 10000;//底盘位置赋值
 					};break;
 					case 1:
 					{
-						Chassis_Position_Ref = -4500; 
+						Chassis_Position_Ref = -10000; 
 					};break;
 				}
 				Chassis_Freedom_i++;
@@ -237,22 +237,22 @@ void Chassis_Motion_Switch(void)
 				{
 				 if(Chassis_Position_Ref > CM1Encoder.ecd_angle)//光电管出问题，一直在一个方向上，就反向
 				   {
-					   Chassis_Temp_Speed = -800 ;
+					   Chassis_Temp_Speed = -200 ;
 				   }
 				 else if(Chassis_Position_Ref < CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = 800 ;
+					   Chassis_Temp_Speed = 200 ;
 				   }
 			  }
 				if(Speed_change==1)
 				{
 				 if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = -800 ;
+					   Chassis_Temp_Speed = -200 ;
 				   }
 				 else if(Chassis_Position_Ref < CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = 800 ;
+					   Chassis_Temp_Speed = 200 ;
 				   }
 			  }
 				

@@ -45,7 +45,7 @@ int Phototube_brake1=0;
 		 PA1：中间光电管//已拆卸
 		 PI7：左侧光电管
  A板
- 		 PI5：右侧光电管
+ 		 PI6：右侧光电管
 		 PA1：中间光电管//已拆卸
 		 PI7：左侧光电管
 ***/
@@ -98,7 +98,7 @@ void Phototube_Handle(void)
 /***右侧光电管**/
 	//PI7见背面丝印
 
-	  PI7_Level = PIin(5);
+	  PI7_Level = PIin(7);
 		if(lastPI7_Level==1 && PI7_Level==0)
 		{
 			Phototube_Left_Flag = 1;//左侧光电管检测到柱子标志
@@ -132,7 +132,7 @@ void Phototube_Handle(void)
 ***/
 /**左侧光电管**/
 		//PI6见背面丝印
-		PI6_Level = PIin(7);  //本次PI7电平值
+		PI6_Level = PIin(6);  //本次PI6电平值 ;  2022A板的PI5有问题，改为PI6
 		if(lastPI6_Level==1 && PI6_Level==0)
 		{
 			Phototube_Right_Flag = 1;//右侧光电管检测到柱子标志1

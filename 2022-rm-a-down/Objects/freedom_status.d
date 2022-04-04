@@ -2,7 +2,7 @@
 .\objects\freedom_status.o: TASK\Freedom_Status.h
 .\objects\freedom_status.o: .\USER\stm32f4xx.h
 .\objects\freedom_status.o: .\CORE\core_cm4.h
-.\objects\freedom_status.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\freedom_status.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\freedom_status.o: .\CORE\core_cmInstr.h
 .\objects\freedom_status.o: .\CORE\core_cmFunc.h
 .\objects\freedom_status.o: .\CORE\core_cm4_simd.h
@@ -44,4 +44,4 @@
 .\objects\freedom_status.o: .\COMMON\Ramp.h
 .\objects\freedom_status.o: TASK\encoder.h
 .\objects\freedom_status.o: TASK\CanBusTask.h
-.\objects\freedom_status.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\freedom_status.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
