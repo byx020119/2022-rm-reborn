@@ -98,6 +98,12 @@ void WorkStateFSM(void)
 			{
 				workState = Dodeg_STATE;  
 			}	
+			if(RemoteTest_Flag == 0)   //Ò£¿ØÆ÷Í£Ö¹²âÊÔ£¬½øÈëÍ£Ö¹×´Ì¬
+			{
+				workState = STOP_STATE;	
+				Attacked_Flag = 0;
+			}
+
 		}break;
 		
 		case Test_STATE:    //Ò£¿ØÆ÷²âÊÔ×´Ì¬
@@ -130,6 +136,11 @@ void WorkStateFSM(void)
 			{
 				workState = Dodeg_STATE;
 			}		
+			if(RemoteTest_Flag == 0)   //Ò£¿ØÆ÷Í£Ö¹²âÊÔ£¬½øÈëÍ£Ö¹×´Ì¬
+			{
+				workState = STOP_STATE;
+        CameraDetectTarget_Flag = 0;				
+			}
 						
 		}break;
 		
@@ -146,6 +157,7 @@ void WorkStateFSM(void)
 			if(RemoteTest_Flag == 0)   //Ò£¿ØÆ÷Í£Ö¹²âÊÔ
 			{
 				workState = STOP_STATE;
+				DodgeTarget_Flag = 0;
 			}	
 		}break;
 		

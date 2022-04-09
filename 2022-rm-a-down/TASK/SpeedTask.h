@@ -298,7 +298,6 @@ typedef struct
 {
   float pitch_angle_dynamic_ref;
   float yaw_angle_dynamic_ref;
-	float brake_angle_dynamic_ref;
 }Gimbal_Ref_t;
 
 typedef struct

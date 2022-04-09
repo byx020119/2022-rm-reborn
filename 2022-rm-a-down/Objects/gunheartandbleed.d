@@ -2,7 +2,7 @@
 .\objects\gunheartandbleed.o: .\USER\main.h
 .\objects\gunheartandbleed.o: .\USER\stm32f4xx.h
 .\objects\gunheartandbleed.o: .\CORE\core_cm4.h
-.\objects\gunheartandbleed.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\gunheartandbleed.o: .\CORE\core_cmInstr.h
 .\objects\gunheartandbleed.o: .\CORE\core_cmFunc.h
 .\objects\gunheartandbleed.o: .\CORE\core_cm4_simd.h
@@ -37,11 +37,11 @@
 .\objects\gunheartandbleed.o: .\STLibraries\inc\stm32f4xx_dma2d.h
 .\objects\gunheartandbleed.o: .\STLibraries\inc\stm32f4xx_fmc.h
 .\objects\gunheartandbleed.o: .\STLibraries\inc\stm32f4xx_sai.h
-.\objects\gunheartandbleed.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\gunheartandbleed.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\gunheartandbleed.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
-.\objects\gunheartandbleed.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\gunheartandbleed.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
+.\objects\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\gunheartandbleed.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\gunheartandbleed.o: .\BSP\bsp.h
 .\objects\gunheartandbleed.o: .\BSP\can1.h
 .\objects\gunheartandbleed.o: .\BSP\can2.h
