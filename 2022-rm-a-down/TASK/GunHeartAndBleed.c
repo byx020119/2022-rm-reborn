@@ -149,53 +149,37 @@ void Attacked_Monitor(void)
 	if(Attacked_Flag == 0)  //在响应当次装甲板攻击时，不会再响应新的伤害，防止疯掉
 	{
 //		Amor_ID = robotHurt.armorType;
-		Yaw_encoder = -GMYawEncoder.ecd_angle-Yaw_encoder_s;
-		YAW_Round_Cnt   = (int)(Yaw_encoder)/1852;
-		YAW_Angle_YuShu = (int)(Yaw_encoder)%1852;
-		if(YAW_Angle_YuShu>=0)
-		{
-			if(Amor_ID == 1) //1号装甲被攻击   前装甲板
+		Yaw_encoder = GMYawEncoder.ecd_angle;//-Yaw_encoder_s;
+		YAW_Round_Cnt   = (int)(Yaw_encoder)/360;
+		YAW_Angle_YuShu = (((int)(Yaw_encoder)%360)+360)%360;
+
+			if(Amor_ID == 0) //0号装甲被攻击 前装甲板
 			{
-				if(YAW_Angle_YuShu<=703)        //926+223=1249   926-223=703  1852-223=1629 1852+223=2085
+
+					
+				if(YAW_Angle_YuShu>=240 && YAW_Angle_YuShu<=335)   //左后半面    
 					{
-						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 -223;
+						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*360+90;//YAW_Round_Cnt*1852 -223;
 					}
-				if(YAW_Angle_YuShu>703)
-				  {
-				    Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 +1629;
-				  }
-				else if(YAW_Angle_YuShu>=703&&YAW_Angle_YuShu<=1629)
-					{
-						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 + 1629;
-					}
+				else if(YAW_Angle_YuShu>=155&& YAW_Angle_YuShu<=240)   //右后半面    
+				   {
+						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*360+180;//YAW_Round_Cnt*1852 -223;
+				   }
+
 			}
-			else if(Amor_ID == 0) //0号装甲被攻击
+			else if(Amor_ID == 1) //1号装甲被攻击
 			{
-	  			Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 + 703;
+				if(YAW_Angle_YuShu>=335&& YAW_Angle_YuShu<=60)   //左前半面    
+					{
+						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*360-90;//YAW_Round_Cnt*1852 -223;
+					}
+				else if(YAW_Angle_YuShu>=60&& YAW_Angle_YuShu<=155)   //右前半面   
+				   {
+						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*360-180;//YAW_Round_Cnt*1852 -223;
+				   }
+
 			}
-		}
-		else
-		{
-			if(Amor_ID == 1) //1号装甲被攻击
-			{
-	  		if(YAW_Angle_YuShu>=-1249)
-					{
-						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 -223;
-					}
-				if(YAW_Angle_YuShu<-1249)
-				 {
-				  Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 -2085;
-				 }
-				else if (YAW_Angle_YuShu<=-703&&YAW_Angle_YuShu>=-1629)
-					{
-			  		 Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 - 2085;
-					}
-	  	}
-			else if(Amor_ID == 0) //0号装甲被攻击
-				{
-					Attacked_YAW_Pos_Ref = YAW_Round_Cnt*1852 - 1249;
-				}
-		}
+		
 		if(Attacked_YAW_Pos_Ref+Yaw_encoder_s - (-GMYawEncoder.ecd_angle)>=0)
 			{
 				Attacked_YAW_Rotation_Dir = 1;   //向位置环参考值增大的方向转
