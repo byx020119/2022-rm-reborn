@@ -38,21 +38,21 @@ void Bleed_Monitor(void)
 		  	{
 		  	  HP_error__time[HP__error_count++]=HP__error_time_count;
 		  		Doget_HP_Flag=1;
-					Aerocraft_flag=1;
+					//Aerocraft_flag=1;
 		  	}
 			 //若0.6秒内被攻击超过五次，迁且摄像头未识别到步兵，则进入躲避飞行器模式?
-				if(HP__error_count>=5&&Aerocraft_flag==1)
-		  	{  time_test=HP_error__time[HP__error_count-1]-HP_error__time[HP__error_count-5];
-		     	if((HP_error__time[HP__error_count-1]-HP_error__time[HP__error_count-5]<6)&&GM_Rotete_flag_Before!='X')//&&(CM1Encoder.ecd_angle>-2500&&CM1Encoder.ecd_angle<500))
-		    	{
-						Dodeg_Delay_Count = 0; //躲避计数清零
-						Aerocraft_doget_count_delay = 0;
-			    	DodgeTarget_Flag = 1;
-				  	Aerocraft_flag=0;
-						Aerocraft_attack_flag=1;
-						Aerocraft_Phototube_flag=1;
-			    }
-		    }
+//				if(HP__error_count>=5&&Aerocraft_flag==1)
+//		  	{  time_test=HP_error__time[HP__error_count-1]-HP_error__time[HP__error_count-5];
+//		     	if((HP_error__time[HP__error_count-1]-HP_error__time[HP__error_count-5]<6)&&GM_Rotete_flag_Before!='X')//&&(CM1Encoder.ecd_angle>-2500&&CM1Encoder.ecd_angle<500))
+//		    	{
+//						Dodeg_Delay_Count = 0; //躲避计数清零
+//						Aerocraft_doget_count_delay = 0;
+//			    	DodgeTarget_Flag = 1;
+//				  	Aerocraft_flag=0;
+//						Aerocraft_attack_flag=1;
+//						Aerocraft_Phototube_flag=1;
+//			    }
+//		    }
 			if(RobotHP>120)  
 			{
 					//若5秒钟内被攻击15次，进入躲避状态

@@ -24,6 +24,8 @@ uint8_t Freedom_Flag            = 0;   //自由状态转换标志
 uint16_t Waiting_COUNT = 0;
 int16_t danliang_16 = 0;
 int danliang = 0;
+uint32_t Dodge_time_count = 0;         //2022加躲避模式计时
+
 
 /***
 函数：WorkStateFSM()
@@ -101,7 +103,6 @@ void WorkStateFSM(void)
 			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
-				Attacked_Flag = 0;
 			}
 
 		}break;
@@ -224,6 +225,15 @@ void WorkStateSwitchProcess(void)
 		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
 		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
 	}
+		/***
+	  状态变化：其他状态变为躲避状态   2022加
+	  操    作：计时标志，到一定时间躲避清零，另一部分在躲避模式
+	  备    注：无
+	***/
+	if((lastWorkState != Dodeg_STATE) && (workState == Dodeg_STATE))  
+	{	
+		Dodge_time_count = time_tick_2ms;
+	}
 	
 	/***
 	  状态变化: 躲避状态变为自由状态
@@ -245,6 +255,21 @@ void WorkStateSwitchProcess(void)
 		GMYawRamp.ResetCounter(&GMYawRamp);
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		PitchCurrentPositionSave = - GMPitchEncoder.ecd_angle;
+	}
+		/***
+	  状态变化：其他状态变为停止状态        2022加
+	  操    作：被攻击标志位，被飞机攻击标志位，躲避标志位清零
+	  备    注：无
+	***/
+	if((lastWorkState != STOP_STATE) && (workState == STOP_STATE))  
+	{
+		Attacked_Flag = 0;
+		DodgeTarget_Flag = 0;
+		Aerocraft_attack_flag = 0;
+		
+		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
+		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变
+		ControtLoopTaskInit();//重新初始化控制环
 	}
 
 	

@@ -59,7 +59,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -132,7 +132,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -241,7 +241,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -350,7 +350,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -421,7 +421,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -491,7 +491,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -561,7 +561,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -632,7 +632,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -702,7 +702,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -772,7 +772,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -783,7 +783,7 @@ I (.\TASK\Doget_state.h)(0x6250D766)
 I (.\COMMON\common.h)(0x6250D765)
 I (.\COMMON\crc.h)(0x6250D765)
 I (.\COMMON\kalman.h)(0x6250D765)
-F (.\TASK\Freedom_Status.c)(0x625125E7)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\freedom_status.o --omf_browse .\objects\freedom_status.crf --depend .\objects\freedom_status.d)
+F (.\TASK\Freedom_Status.c)(0x625A10F6)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\freedom_status.o --omf_browse .\objects\freedom_status.crf --depend .\objects\freedom_status.d)
 I (TASK\Freedom_Status.h)(0x6250D766)
 I (.\USER\stm32f4xx.h)(0x6250D766)
 I (.\CORE\core_cm4.h)(0x6250D765)
@@ -822,7 +822,7 @@ I (.\STLibraries\inc\stm32f4xx_dma2d.h)(0x6250D766)
 I (.\STLibraries\inc\stm32f4xx_fmc.h)(0x6250D766)
 I (.\STLibraries\inc\stm32f4xx_sai.h)(0x6250D766)
 I (TASK\ControlTask.h)(0x6250D766)
-I (TASK\WorkState.h)(0x6250D766)
+I (TASK\WorkState.h)(0x625A1EA5)
 I (TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
@@ -869,7 +869,7 @@ I (.\STLibraries\inc\stm32f4xx_fmc.h)(0x6250D766)
 I (.\STLibraries\inc\stm32f4xx_sai.h)(0x6250D766)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (TASK\WorkState.h)(0x6250D766)
+I (TASK\WorkState.h)(0x625A1EA5)
 I (TASK\encoder.h)(0x6250D766)
 I (TASK\CanBusTask.h)(0x6250D766)
 I (TASK\Phototube.h)(0x6250D766)
@@ -900,7 +900,7 @@ I (.\TASK\Doget_state.h)(0x6250D766)
 I (.\COMMON\common.h)(0x6250D765)
 I (.\COMMON\crc.h)(0x6250D765)
 I (.\COMMON\kalman.h)(0x6250D765)
-F (.\TASK\ControlTask.c)(0x6250D766)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\controltask.o --omf_browse .\objects\controltask.crf --depend .\objects\controltask.d)
+F (.\TASK\ControlTask.c)(0x625A110D)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\controltask.o --omf_browse .\objects\controltask.crf --depend .\objects\controltask.d)
 I (TASK\ControlTask.h)(0x6250D766)
 I (.\USER\stm32f4xx.h)(0x6250D766)
 I (.\CORE\core_cm4.h)(0x6250D765)
@@ -960,7 +960,7 @@ I (.\TASK\encoder.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -971,8 +971,8 @@ I (.\TASK\Doget_state.h)(0x6250D766)
 I (.\COMMON\common.h)(0x6250D765)
 I (.\COMMON\crc.h)(0x6250D765)
 I (.\COMMON\kalman.h)(0x6250D765)
-F (.\TASK\WorkState.c)(0x625123EA)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\workstate.o --omf_browse .\objects\workstate.crf --depend .\objects\workstate.d)
-I (TASK\WorkState.h)(0x6250D766)
+F (.\TASK\WorkState.c)(0x625A2137)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\workstate.o --omf_browse .\objects\workstate.crf --depend .\objects\workstate.d)
+I (TASK\WorkState.h)(0x625A1EA5)
 I (.\USER\stm32f4xx.h)(0x6250D766)
 I (.\CORE\core_cm4.h)(0x6250D765)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
@@ -1101,7 +1101,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1112,7 +1112,7 @@ I (.\TASK\Doget_state.h)(0x6250D766)
 I (.\COMMON\common.h)(0x6250D765)
 I (.\COMMON\crc.h)(0x6250D765)
 I (.\COMMON\kalman.h)(0x6250D765)
-F (.\TASK\GunHeartAndBleed.c)(0x6250D766)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\gunheartandbleed.o --omf_browse .\objects\gunheartandbleed.crf --depend .\objects\gunheartandbleed.d)
+F (.\TASK\GunHeartAndBleed.c)(0x625977A0)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\gunheartandbleed.o --omf_browse .\objects\gunheartandbleed.crf --depend .\objects\gunheartandbleed.d)
 I (.\USER\main.h)(0x6250D766)
 I (.\USER\stm32f4xx.h)(0x6250D766)
 I (.\CORE\core_cm4.h)(0x6250D765)
@@ -1171,7 +1171,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1241,7 +1241,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1312,7 +1312,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1323,7 +1323,7 @@ I (.\TASK\Doget_state.h)(0x6250D766)
 I (.\COMMON\common.h)(0x6250D765)
 I (.\COMMON\crc.h)(0x6250D765)
 I (.\COMMON\kalman.h)(0x6250D765)
-F (.\TASK\Doget_state.c)(0x6250D766)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\doget_state.o --omf_browse .\objects\doget_state.crf --depend .\objects\doget_state.d)
+F (.\TASK\Doget_state.c)(0x625A2205)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\baiyu\Desktop\RM\use\2022-rm-a-down\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\doget_state.o --omf_browse .\objects\doget_state.crf --depend .\objects\doget_state.d)
 I (TASK\Doget_state.h)(0x6250D766)
 I (.\USER\stm32f4xx.h)(0x6250D766)
 I (.\CORE\core_cm4.h)(0x6250D765)
@@ -1362,7 +1362,7 @@ I (.\STLibraries\inc\stm32f4xx_dma2d.h)(0x6250D766)
 I (.\STLibraries\inc\stm32f4xx_fmc.h)(0x6250D766)
 I (.\STLibraries\inc\stm32f4xx_sai.h)(0x6250D766)
 I (TASK\Freedom_Status.h)(0x6250D766)
-I (TASK\WorkState.h)(0x6250D766)
+I (TASK\WorkState.h)(0x625A1EA5)
 I (TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
@@ -1453,7 +1453,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1523,7 +1523,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1577,7 +1577,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (TASK\WorkState.h)(0x6250D766)
+I (TASK\WorkState.h)(0x625A1EA5)
 I (TASK\ShootingTask.h)(0x6250D766)
 I (.\USER\main.h)(0x6250D766)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5475F2FA)
@@ -1664,7 +1664,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1734,7 +1734,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1804,7 +1804,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1874,7 +1874,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
@@ -1944,7 +1944,7 @@ I (.\TASK\ControlTask.h)(0x6250D766)
 I (.\TASK\SpeedTask.h)(0x6250D78F)
 I (.\COMMON\pid.h)(0x6250D765)
 I (.\COMMON\Ramp.h)(0x6250D765)
-I (.\TASK\WorkState.h)(0x6250D766)
+I (.\TASK\WorkState.h)(0x625A1EA5)
 I (.\TASK\RemoteTask.h)(0x6250D766)
 I (.\TASK\Freedom_Status.h)(0x6250D766)
 I (.\TASK\ShootingTask.h)(0x6250D766)
