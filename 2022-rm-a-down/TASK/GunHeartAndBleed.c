@@ -222,16 +222,17 @@ void BulletSpeed_Monitor(void)
 			{
 	 		   Friction_Speed.high_speed = Friction_Speed.high_speed - 10;
 			}
-			else
-			{
-							/***
-							速度超过28m/s一次，三档摩擦轮速度均减去100，保证不超热量
-							***/
-		    	Friction_Speed.low_speed = Friction_Speed.low_speed - 100;
-					Friction_Speed.high_speed = Friction_Speed.high_speed - 100;
-							
-					if(Friction_Speed.low_speed<100) Friction_Speed.low_speed = 100;
-			}
+//暂注 会使摩擦轮ref停在100速度
+//			else
+//			{
+//							/***
+//							速度超过28m/s一次，三档摩擦轮速度均减去100，保证不超热量
+//							***/
+//		    	Friction_Speed.low_speed = Friction_Speed.low_speed - 100;
+//					Friction_Speed.high_speed = Friction_Speed.high_speed - 100;
+//							
+//					if(Friction_Speed.low_speed<100) Friction_Speed.low_speed = 100;
+//			}
 	}
 	else if(Bullet_17_real_Speed - Bullet_Speed_Ref.high_speed<-1) //实际射速小于目标射速
 		{

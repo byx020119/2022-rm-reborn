@@ -147,14 +147,18 @@ void WorkStateFSM(void)
 		
 		case Dodeg_STATE:      //躲避状态
 		{	
-      if(DodgeTarget_Flag == 0)		//躲避结束，变为自由状态
+      if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 0)		//躲避结束，且未识别到目标，进入自由状态
 			{
 				 workState = Freedom_STATE;  
 			}				
+			if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 1)   //进入识别状态
+			{
+				workState = ChariotRecognition_STATE;
+			}
 			if(RemoteTest_Flag == 2)   //进入测试状态
 			{
 				workState = Test_STATE;	
-			}
+			}      
 			if(RemoteTest_Flag == 0)   //遥控器停止测试
 			{
 				workState = STOP_STATE;

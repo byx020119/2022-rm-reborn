@@ -14,161 +14,179 @@ int Random_change_flag=0;            //随机数产生函数变化标志
 int Random_change__flag_2=0;            //随机数产生函数变化标志
 int Doget_rego_flag=0;
 int test_ecd=0;
+int doget_chassis_speed = 300;
 
 void YawFreeRoation_Doget(void)
 {
   if( GetWorkState()==Dodeg_STATE  )
 	{
-		
-		if(Last_CameraDetectTarget_Flag==1 && CameraDetectTarget_Flag==0)
+		if( GetlastWorkState() != Dodeg_STATE && GetWorkState() == Dodeg_STATE ) 		//躲避模式云台不转动
+		//if(Last_CameraDetectTarget_Flag==1 && CameraDetectTarget_Flag==0)
 		{
 		   YawCurrentPositionSave = -GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
 		   GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
 		}
 		
-	//慢慢点头
-		if(GMPitchEncoder.ecd_angle-35>0)
-		{
-		pitch_rotate_flag=1;
-		}
-		if(GMPitchEncoder.ecd_angle-8<0)
-		{
-		pitch_rotate_flag=0;
-		}
-		if(pitch_rotate_flag==1)
-		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.06f;
-		}
-		if(pitch_rotate_flag==0)
-		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.06f;
-		}
-	
 
-		//固定摄像头未识别
-		if(Freedom_Rotation_flag==0)
+		if(RobotHP<120 && GetWorkState() == Dodeg_STATE)  //关闭发射机构，防止乱射
 		{
-			if(GMYawEncoder.ecd_angle-yaw_ecd_angle_flag<=0)
-			{
-			Yaw_rotate_flag=1;
-			}
-			if(GMYawEncoder.ecd_angle+yaw_ecd_angle_flag1>=0)
-			{
-			Yaw_rotate_flag=0;
-			}
-			if(Yaw_rotate_flag==1)
-			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.08f;
-			}
-			if(Yaw_rotate_flag==0)
-			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.08f;
-			}
-   	}
-		
-		
-		if(GM_Rotete_flag_Before=='X'||GM_Rotete_flag_Behind=='X')
-		{
-			Recognition_Delay_count++;
-			if(Recognition_Delay_count>3000)
-			{
-			   Freedom_Rotation_flag=1; //识别一段时间后，固定摄像头识别
-			}
-		}
-		
-   
-	 //固定摄像头识别到敌方装甲板，将云台旋转过去
-	if(Freedom_Rotation_flag==1)
-	{
-		Yaw_encoder = -GMYawEncoder.ecd_angle-Yaw_encoder_s;
-		YAW_Round_Cnt   = (int)(Yaw_encoder)/1852;
-		YAW_Angle_YuShu = (int)(Yaw_encoder)%1852;
-		if(YAW_Angle_YuShu>=0)
-		{
-			if(GM_Rotete_flag_Before=='X') //前固定摄像头识别到目标
-			{
-				if(YAW_Angle_YuShu<=703)        //926+223=1249   926-223=703  1852-223=1629  1852-446=1406 926-446=480 1852+446=2298 1249+223=1472
-					{
-						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -446;
-					}
-				if(YAW_Angle_YuShu>703)
-				  {
-				    Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +1852;
-				  }
+			TempShootingFlag=0;//识别状态且摩擦轮开，则开拨轮的标志位, 当这个值为0，CM7关掉
+			CM7SpeedPID.ref = 0;//先关拨轮
+			CM7SpeedPID.fdb = CM7Encoder.ecd_raw_rate;
+	    CM7SpeedPID.Calc(&CM7SpeedPID);		
+					
+			friction_wheel_state_flag =0 ;//摩擦轮打开的标志位
+			CM3SpeedPID.ref = 0;//再关闭摩擦轮
+			CM3SpeedPID.fdb =  CM3Encoder.filter_rate;
+			CM3SpeedPID.Calc(&CM3SpeedPID);
+			CM4SpeedPID.ref = 0;
+			CM4SpeedPID.fdb = CM4Encoder.filter_rate;
+			CM4SpeedPID.Calc(&CM4SpeedPID);		
+    }
 
-			}
-			else if(GM_Rotete_flag_Behind=='X') //后固定摄像头识别到目标
-			{
-	  		if(YAW_Angle_YuShu<=703)       
-					{
-						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +926;
-					}
-				if(YAW_Angle_YuShu>703)
-				  {
-				    Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +480;
-				  }
-			}
-		}
-		else
-		{
-			if(GM_Rotete_flag_Before=='X') //前固定摄像头识别到目标
-			{
-	  		if(YAW_Angle_YuShu>=-1249)
-					{
-						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +0;
-					}
-				if(YAW_Angle_YuShu<-1249)
-				 {
-				   Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -2298;
-				 }
+//	//慢慢点头
+//		if(GMPitchEncoder.ecd_angle-35>0)
+//		{
+//		pitch_rotate_flag=1;
+//		}
+//		if(GMPitchEncoder.ecd_angle-8<0)
+//		{
+//		pitch_rotate_flag=0;
+//		}
+//		if(pitch_rotate_flag==1)
+//		{
+//	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.06f;
+//		}
+//		if(pitch_rotate_flag==0)
+//		{
+//	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.06f;
+//		}
+//	
 
-	  	}
-			else if(GM_Rotete_flag_Behind=='X') //后固定摄像头识别到目标
-				{
-					if(YAW_Angle_YuShu>=-1249)
-					{
-						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -1472;
-					}
-				if(YAW_Angle_YuShu<-1249)
-				 {
-				   Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -926;
-				 }
-				}
-		}
+//		//固定摄像头未识别
+//		if(Freedom_Rotation_flag==0)
+//		{
+//			if(GMYawEncoder.ecd_angle-yaw_ecd_angle_flag<=0)
+//			{
+//			Yaw_rotate_flag=1;
+//			}
+//			if(GMYawEncoder.ecd_angle+yaw_ecd_angle_flag1>=0)
+//			{
+//			Yaw_rotate_flag=0;
+//			}
+//			if(Yaw_rotate_flag==1)
+//			{
+//			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.08f;
+//			}
+//			if(Yaw_rotate_flag==0)
+//			{
+//			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.08f;
+//			}
+//   	}
 		
-//？？？
-		if(Recognition_YAW_Pos_Ref+Yaw_encoder_s - (-GMYawEncoder.ecd_angle)>=0)
-			{
-				Recognition_YAW_Rotation_Dir = 1;   //向位置环参考值增大的方向转
-			}
-		else
-			{
-				Recognition_YAW_Rotation_Dir = 2;  //向位置环参考值减小的方向转
-			}
-			
-			
-		if(Recognition_YAW_Rotation_Dir == 1)
-			{
-				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref+0.8f;//0.4f
-				if(GimbalRef.yaw_angle_dynamic_ref - Recognition_YAW_Pos_Ref>0)
-				{
-					GimbalRef.yaw_angle_dynamic_ref = Recognition_YAW_Pos_Ref;
-					Recognition_YAW_Rotation_Dir = 0;
-					Freedom_Rotation_flag=0;
-					Recognition_Delay_count=0;
-				}
-			}
-		else if(Recognition_YAW_Rotation_Dir == 2)
-			{
-				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref-0.8f;//0.1f
-				if(GimbalRef.yaw_angle_dynamic_ref - Recognition_YAW_Pos_Ref<0)
-				{
-					GimbalRef.yaw_angle_dynamic_ref = Recognition_YAW_Pos_Ref;
-					Recognition_YAW_Rotation_Dir = 0;
-					Freedom_Rotation_flag=0;
-					Recognition_Delay_count=0;
-				}
-			}
+		
+//		if(GM_Rotete_flag_Before=='X'||GM_Rotete_flag_Behind=='X')
+//		{
+//			Recognition_Delay_count++;
+//			if(Recognition_Delay_count>3000)
+//			{
+//			   Freedom_Rotation_flag=1; //识别一段时间后，固定摄像头识别
+//			}
+//		}
+//		
+//   
+//	 //固定摄像头识别到敌方装甲板，将云台旋转过去
+//	if(Freedom_Rotation_flag==1)
+//	{
+//		Yaw_encoder = -GMYawEncoder.ecd_angle-Yaw_encoder_s;
+//		YAW_Round_Cnt   = (int)(Yaw_encoder)/1852;
+//		YAW_Angle_YuShu = (int)(Yaw_encoder)%1852;
+//		if(YAW_Angle_YuShu>=0)
+//		{
+//			if(GM_Rotete_flag_Before=='X') //前固定摄像头识别到目标
+//			{
+//				if(YAW_Angle_YuShu<=703)        //926+223=1249   926-223=703  1852-223=1629  1852-446=1406 926-446=480 1852+446=2298 1249+223=1472
+//					{
+//						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -446;
+//					}
+//				if(YAW_Angle_YuShu>703)
+//				  {
+//				    Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +1852;
+//				  }
+
+//			}
+//			else if(GM_Rotete_flag_Behind=='X') //后固定摄像头识别到目标
+//			{
+//	  		if(YAW_Angle_YuShu<=703)       
+//					{
+//						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +926;
+//					}
+//				if(YAW_Angle_YuShu>703)
+//				  {
+//				    Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +480;
+//				  }
+//			}
+//		}
+//		else
+//		{
+//			if(GM_Rotete_flag_Before=='X') //前固定摄像头识别到目标
+//			{
+//	  		if(YAW_Angle_YuShu>=-1249)
+//					{
+//						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 +0;
+//					}
+//				if(YAW_Angle_YuShu<-1249)
+//				 {
+//				   Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -2298;
+//				 }
+
+//	  	}
+//			else if(GM_Rotete_flag_Behind=='X') //后固定摄像头识别到目标
+//				{
+//					if(YAW_Angle_YuShu>=-1249)
+//					{
+//						Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -1472;
+//					}
+//				if(YAW_Angle_YuShu<-1249)
+//				 {
+//				   Recognition_YAW_Pos_Ref = YAW_Round_Cnt*1852 -926;
+//				 }
+//				}
+//		}
+//		
+////？？？
+//		if(Recognition_YAW_Pos_Ref+Yaw_encoder_s - (-GMYawEncoder.ecd_angle)>=0)
+//			{
+//				Recognition_YAW_Rotation_Dir = 1;   //向位置环参考值增大的方向转
+//			}
+//		else
+//			{
+//				Recognition_YAW_Rotation_Dir = 2;  //向位置环参考值减小的方向转
+//			}
+//			
+//			
+//		if(Recognition_YAW_Rotation_Dir == 1)
+//			{
+//				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref+0.8f;//0.4f
+//				if(GimbalRef.yaw_angle_dynamic_ref - Recognition_YAW_Pos_Ref>0)
+//				{
+//					GimbalRef.yaw_angle_dynamic_ref = Recognition_YAW_Pos_Ref;
+//					Recognition_YAW_Rotation_Dir = 0;
+//					Freedom_Rotation_flag=0;
+//					Recognition_Delay_count=0;
+//				}
+//			}
+//		else if(Recognition_YAW_Rotation_Dir == 2)
+//			{
+//				GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref-0.8f;//0.1f
+//				if(GimbalRef.yaw_angle_dynamic_ref - Recognition_YAW_Pos_Ref<0)
+//				{
+//					GimbalRef.yaw_angle_dynamic_ref = Recognition_YAW_Pos_Ref;
+//					Recognition_YAW_Rotation_Dir = 0;
+//					Freedom_Rotation_flag=0;
+//					Recognition_Delay_count=0;
+//				}
+//			}
 //		else if(Recognition_YAW_Rotation_Dir == 0)  //参考值到达目标位置后，等待电机到位
 //			{
 //				if(abs(GimbalRef.yaw_angle_dynamic_ref - (-GMYawEncoder.ecd_angle))<1)
@@ -177,13 +195,13 @@ void YawFreeRoation_Doget(void)
 //				}
 //			}
 	  
-		//如果云台在摆向固定摄像头的过程中识别到目标，那么立刻结束该过程，等待进入识别模式
-		if(CameraDetectTarget_Flag ==1)
-		{
-			Recognition_YAW_Rotation_Dir = 0;
-			Freedom_Rotation_flag=0;
-		}
-	}
+//		//如果云台在摆向固定摄像头的过程中识别到目标，那么立刻结束该过程，等待进入识别模式
+//		if(CameraDetectTarget_Flag ==1)
+//		{
+//			Recognition_YAW_Rotation_Dir = 0;
+//			Freedom_Rotation_flag=0;
+//		}
+//	}
 	
 	}
 }
@@ -572,21 +590,21 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 							if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = -300;//-700;	2022 -750
+				          Chassis_Temp_Speed = -doget_chassis_speed;//-750
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
-//				          Chassis_Temp_Speed = -600;// 2022 -700;
+//				          Chassis_Temp_Speed = -600;//-700;
 //			      	}
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = -300;//2022 -700;
+						  Chassis_Temp_Speed = -doget_chassis_speed;// -700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = -300;//2022 -600
+						Chassis_Temp_Speed = -doget_chassis_speed;//-600
 					}
 				}
 				else if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
@@ -597,7 +615,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 						 if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = 300;//2022 750;
+				          Chassis_Temp_Speed = doget_chassis_speed;// 750;
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
@@ -606,12 +624,12 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = 300;//2022 700;
+						  Chassis_Temp_Speed = doget_chassis_speed;// 700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = 300;//2022 600
+						Chassis_Temp_Speed = doget_chassis_speed;// 600
 					}
 				}
 				
