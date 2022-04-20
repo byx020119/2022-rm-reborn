@@ -147,7 +147,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
+          <TargetSelection>12</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -161,7 +161,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>Segger\JL2CM3.dll</Driver>
+            <Driver>BIN\CMSIS_AGDI.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -639,6 +639,11 @@
               <FilePath>..\BSP\timer.c</FilePath>
             </File>
             <File>
+              <FileName>can2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\can2.c</FilePath>
+            </File>
+            <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BSP\adc.c</FilePath>
@@ -647,11 +652,6 @@
               <FileName>uart1.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\BSP\uart1.c</FilePath>
-            </File>
-            <File>
-              <FileName>can2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\BSP\can2.c</FilePath>
             </File>
             <File>
               <FileName>usart2.c</FileName>

@@ -25,9 +25,9 @@ void Control_Task(void)
 	WorkStateSwitchProcess();					//检测工作状态切换
 	
 	
-	/***刹车控制任务***/
- 	Brake_Handle();                   //刹车状态检测
-	GMBrakeControlLoop();             //计算刹车电机输出量
+//	/***刹车控制任务***/
+// 	Brake_Handle();                   //刹车状态检测
+//	GMBrakeControlLoop();             //计算刹车电机输出量
 	
 	
 	/***云台控制任务***/
@@ -50,7 +50,7 @@ void Control_Task(void)
   Chassis_Motion_Switch_Doget();//躲避状态，底盘运动到边界后，换向
 	GraduallyChangeCMSpeed();     //底盘电机速度平滑换向
 	CMControlLoop();							//底盘控制任务 发送底盘电机输出量
-  //Phototube_Handle();           //光电管控制任务	
+  Phototube_Handle();           //光电管控制任务	
 	
 
 

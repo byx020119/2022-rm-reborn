@@ -20,6 +20,7 @@ uint8_t Attacked_Flag           = 0;   //被攻击标志
 uint8_t Freedom_Flag            = 0;   //自由状态转换标志
 
 uint16_t Waiting_COUNT = 0;
+uint32_t Dodge_time_count = 0;         //2022加躲避模式计时
 /***
 函数：WorkStateFSM()
 功能：控制工作模式
@@ -39,7 +40,7 @@ void WorkStateFSM(void)
 		{		
 			if(time_tick_2ms > PREPARE_TIME_TICK_MS)//准备状态维持2s
 			{
-				workState = Freedom_STATE;//测试躲避状态修改此处为： Dodeg_STATE 自由模式 ：Freedom_STATE;
+				workState = Freedom_STATE ;//测试躲避状态修改此处为： Dodeg_STATE 自由模式 ：Freedom_STATE;
 			}
 				
 		}break;
@@ -170,6 +171,15 @@ void WorkStateSwitchProcess(void)
 		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变
 		ControtLoopTaskInit();//重新初始化控制环
 	}
+		/***
+	  状态变化：其他状态变为躲避状态   2022加
+	  操    作：计时标志，到一定时间躲避清零，另一部分在躲避模式
+	  备    注：无
+	***/
+	if((lastWorkState != Dodeg_STATE) && (workState == Dodeg_STATE))  
+	{	
+		Dodge_time_count = time_tick_2ms;
+	}
 	/***
 	  状态变化：准备状态变为自由状态
 	  操    作：开摩擦轮，不发弹
@@ -219,6 +229,21 @@ void WorkStateSwitchProcess(void)
 		GMYawRamp.ResetCounter(&GMYawRamp);
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		PitchCurrentPositionSave = - GMPitchEncoder.ecd_angle;
+	}
+		/***
+	  状态变化：其他状态变为停止状态        2022加
+	  操    作：被攻击标志位，被飞机攻击标志位，躲避标志位清零
+	  备    注：无
+	***/
+	if((lastWorkState != STOP_STATE) && (workState == STOP_STATE))  
+	{
+		Attacked_Flag = 0;
+		DodgeTarget_Flag = 0;
+
+		
+		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
+		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变
+		ControtLoopTaskInit();//重新初始化控制环
 	}
 
 	

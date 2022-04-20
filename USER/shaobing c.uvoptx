@@ -157,7 +157,7 @@
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
-        <nTsel>6</nTsel>
+        <nTsel>12</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -168,18 +168,18 @@
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
         <tIfile></tIfile>
-        <pMon>Segger\JL2CM3.dll</pMon>
+        <pMon>BIN\CMSIS_AGDI.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>d</Name>
+          <Name></Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>CMSIS_AGDI</Key>
-          <Name>-X"Any" -UAny -O206 -S8 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO18 -TC10000000 -TP20 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F407IGHx$CMSIS\Flash\STM32F4xx_1024.FLM)</Name>
+          <Name>-X"ATK-HSWL-CMSIS-DAP" -UATK 20190528 -O206 -S8 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F407IGHx$CMSIS\Flash\STM32F4xx_1024.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -212,452 +212,142 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>RC_CtrlData,0x0A</ItemText>
+          <ItemText>usart3_this_time_rx_len,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>usart3_this_time_rx_len,0x0A</ItemText>
+          <ItemText>RC_FRAME_LENGTH</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>RC_FRAME_LENGTH</ItemText>
+          <ItemText>REMOTE_DMA_RX_BUF_LEN</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>REMOTE_DMA_RX_BUF_LEN</ItemText>
+          <ItemText>\\shaobing_c\CanBusTask.c\CM1Encoder.ecd_angle</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>CM1Encoder,0x0A</ItemText>
+          <ItemText>yaw_angle_dynamic_ref</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>CM1SpeedPID</ItemText>
+          <ItemText>Gyro,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Dir_Change_Flag</ItemText>
+          <ItemText>tx_message.Data[1]</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Chassis_Freedom_i</ItemText>
+          <ItemText>tx_message.Data[0]</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
           <WinNumber>1</WinNumber>
-          <ItemText>workState</ItemText>
+          <ItemText>tx_message.Data[4],0x10</ItemText>
         </Ww>
         <Ww>
           <count>9</count>
           <WinNumber>1</WinNumber>
-          <ItemText>\\shaobing_c\CanBusTask.c\CM1Encoder.ecd_angle</ItemText>
+          <ItemText>tx_message.Data[5],0x10</ItemText>
         </Ww>
         <Ww>
           <count>10</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Chassis_Position_Ref</ItemText>
+          <ItemText>GMYawtemp_Eular</ItemText>
         </Ww>
         <Ww>
           <count>11</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Chassis_Temp_Speed</ItemText>
+          <ItemText>GMPitchtemp_Encoder</ItemText>
         </Ww>
         <Ww>
           <count>12</count>
           <WinNumber>1</WinNumber>
-          <ItemText>PI7_Level</ItemText>
+          <ItemText>p[0]</ItemText>
         </Ww>
         <Ww>
           <count>13</count>
           <WinNumber>1</WinNumber>
-          <ItemText>PC6_Level</ItemText>
+          <ItemText>p[1]</ItemText>
         </Ww>
         <Ww>
           <count>14</count>
           <WinNumber>1</WinNumber>
-          <ItemText>GMYSpeedPID,0x0A</ItemText>
+          <ItemText>p[3],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>15</count>
           <WinNumber>1</WinNumber>
-          <ItemText>GMYPositionPID</ItemText>
+          <ItemText>p[4],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>16</count>
           <WinNumber>1</WinNumber>
-          <ItemText>GMYawEncoder,0x0A</ItemText>
+          <ItemText>p[5],0x10</ItemText>
         </Ww>
         <Ww>
           <count>17</count>
           <WinNumber>1</WinNumber>
-          <ItemText>yaw_angle_dynamic_ref</ItemText>
+          <ItemText>p[6]</ItemText>
         </Ww>
         <Ww>
           <count>18</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Gyro,0x0A</ItemText>
+          <ItemText>p[7]</ItemText>
         </Ww>
         <Ww>
           <count>19</count>
           <WinNumber>1</WinNumber>
-          <ItemText>GMPitchEncoder,0x0A</ItemText>
+          <ItemText>p[8]</ItemText>
         </Ww>
         <Ww>
           <count>20</count>
           <WinNumber>1</WinNumber>
-          <ItemText>GMPSpeedPID</ItemText>
+          <ItemText>p[9]</ItemText>
         </Ww>
         <Ww>
           <count>21</count>
           <WinNumber>1</WinNumber>
-          <ItemText>GMPPositionPID</ItemText>
+          <ItemText>p[10]</ItemText>
         </Ww>
         <Ww>
           <count>22</count>
           <WinNumber>1</WinNumber>
-          <ItemText>CM7SpeedPID</ItemText>
+          <ItemText>p[2],0x10</ItemText>
         </Ww>
         <Ww>
           <count>23</count>
           <WinNumber>1</WinNumber>
-          <ItemText>PI6_Level</ItemText>
+          <ItemText>Angles</ItemText>
         </Ww>
         <Ww>
           <count>24</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ChariotRecognition_data[0],0x0A</ItemText>
+          <ItemText>workState</ItemText>
         </Ww>
         <Ww>
           <count>25</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ChariotRecognition_data[1],0x0A</ItemText>
+          <ItemText>CM1SpeedPID </ItemText>
         </Ww>
         <Ww>
           <count>26</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ChariotRecognitionTemp[1],0x0A</ItemText>
+          <ItemText>PI7_Level</ItemText>
         </Ww>
         <Ww>
           <count>27</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ChariotRecognitionTemp[0],0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>28</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>usart1_this_time_rx_len,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>29</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>\\shaobing_c\../ControlTask/SpeedTask.c\GMYSpeedPID</ItemText>
-        </Ww>
-        <Ww>
-          <count>30</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CameraDetectTarget_Flag</ItemText>
-        </Ww>
-        <Ww>
-          <count>31</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CR_ringBuffer.lost_COUNT,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>32</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Yaw_rotate_flag,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>33</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>pitch_rotate_flag,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>34</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM7Encoder,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>35</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>count_temp,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>36</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM7SpeedPID</ItemText>
-        </Ww>
-        <Ww>
-          <count>37</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM2Ref</ItemText>
-        </Ww>
-        <Ww>
-          <count>38</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>robotState</ItemText>
-        </Ww>
-        <Ww>
-          <count>39</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>robotState</ItemText>
-        </Ww>
-        <Ww>
-          <count>40</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>buffer</ItemText>
-        </Ww>
-        <Ww>
-          <count>41</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Yaw_encoder</ItemText>
-        </Ww>
-        <Ww>
-          <count>42</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>robotPowerHeat</ItemText>
-        </Ww>
-        <Ww>
-          <count>43</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM3Encoder,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>44</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM4Encoder,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>45</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GMPPositionPID,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>46</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GMPSpeedPID.output</ItemText>
-        </Ww>
-        <Ww>
-          <count>47</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GMPSpeedPID.output</ItemText>
-        </Ww>
-        <Ww>
-          <count>48</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GMYSpeedPID</ItemText>
-        </Ww>
-        <Ww>
-          <count>49</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>tx_message.Data[1]</ItemText>
-        </Ww>
-        <Ww>
-          <count>50</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>tx_message.Data[0]</ItemText>
-        </Ww>
-        <Ww>
-          <count>51</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>tx_message.Data[4],0x10</ItemText>
-        </Ww>
-        <Ww>
-          <count>52</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>tx_message.Data[5],0x10</ItemText>
-        </Ww>
-        <Ww>
-          <count>53</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Phototube_Left_Flag</ItemText>
-        </Ww>
-        <Ww>
-          <count>54</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Phototube_Right_Flag</ItemText>
-        </Ww>
-        <Ww>
-          <count>55</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>PI7_Level</ItemText>
-        </Ww>
-        <Ww>
-          <count>56</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>PI6_Level</ItemText>
-        </Ww>
-        <Ww>
-          <count>57</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GimbalRef.pitch_angle_dynamic_ref</ItemText>
-        </Ww>
-        <Ww>
-          <count>58</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>TempShootingFlag</ItemText>
-        </Ww>
-        <Ww>
-          <count>59</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM6PositionPID</ItemText>
-        </Ww>
-        <Ww>
-          <count>60</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM6SpeedPID</ItemText>
-        </Ww>
-        <Ww>
-          <count>61</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Brake_flag</ItemText>
-        </Ww>
-        <Ww>
-          <count>62</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM6Encoder,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>63</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>TempShootingFlag</ItemText>
-        </Ww>
-        <Ww>
-          <count>64</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>friction_wheel_state_flag</ItemText>
-        </Ww>
-        <Ww>
-          <count>65</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Friction_Speed.low_speed</ItemText>
-        </Ww>
-        <Ww>
-          <count>66</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM4SpeedPID,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>67</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM7Encoder,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>68</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>CM3Encoder</ItemText>
-        </Ww>
-        <Ww>
-          <count>69</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>pitch_ecd_bias,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>70</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GMYawtemp_Eular</ItemText>
-        </Ww>
-        <Ww>
-          <count>71</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GMPitchtemp_Encoder</ItemText>
-        </Ww>
-        <Ww>
-          <count>72</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>ChariotRecognitionTemp[0],0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>73</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>ChariotRecognitionTemp[1],0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>74</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[0]</ItemText>
-        </Ww>
-        <Ww>
-          <count>75</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[1]</ItemText>
-        </Ww>
-        <Ww>
-          <count>76</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[3],0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>77</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[4],0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>78</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[5],0x10</ItemText>
-        </Ww>
-        <Ww>
-          <count>79</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[6]</ItemText>
-        </Ww>
-        <Ww>
-          <count>80</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[7]</ItemText>
-        </Ww>
-        <Ww>
-          <count>81</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[8]</ItemText>
-        </Ww>
-        <Ww>
-          <count>82</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[9]</ItemText>
-        </Ww>
-        <Ww>
-          <count>83</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[10]</ItemText>
-        </Ww>
-        <Ww>
-          <count>84</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>p[2],0x10</ItemText>
-        </Ww>
-        <Ww>
-          <count>85</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GimbalRef.yaw_angle_dynamic_ref</ItemText>
-        </Ww>
-        <Ww>
-          <count>86</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>YawCurrentPositionSave</ItemText>
-        </Ww>
-        <Ww>
-          <count>87</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Angles</ItemText>
-        </Ww>
-        <Ww>
-          <count>88</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>ChariotRecognition_yaw</ItemText>
-        </Ww>
-        <Ww>
-          <count>89</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>GMYPositionPID</ItemText>
+          <ItemText>PI6_Level </ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -1297,8 +987,8 @@
       <Focus>1</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\BSP\adc.c</PathWithFileName>
-      <FilenameWithoutPath>adc.c</FilenameWithoutPath>
+      <PathWithFileName>..\BSP\can2.c</PathWithFileName>
+      <FilenameWithoutPath>can2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1310,8 +1000,8 @@
       <Focus>1</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\BSP\uart1.c</PathWithFileName>
-      <FilenameWithoutPath>uart1.c</FilenameWithoutPath>
+      <PathWithFileName>..\BSP\adc.c</PathWithFileName>
+      <FilenameWithoutPath>adc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1323,8 +1013,8 @@
       <Focus>1</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\BSP\can2.c</PathWithFileName>
-      <FilenameWithoutPath>can2.c</FilenameWithoutPath>
+      <PathWithFileName>..\BSP\uart1.c</PathWithFileName>
+      <FilenameWithoutPath>uart1.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

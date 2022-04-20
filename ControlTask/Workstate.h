@@ -31,5 +31,6 @@ extern uint8_t Waiting_Flag;
 extern uint8_t Chassis_Power_On_Flag;
 extern uint8_t Attacked_Flag;
 extern uint8_t Freedom_Flag;
+extern uint32_t Dodge_time_count;
 
 #endif
