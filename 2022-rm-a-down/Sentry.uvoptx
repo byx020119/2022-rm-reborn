@@ -948,6 +948,21 @@
           <WinNumber>1</WinNumber>
           <ItemText>Friction_Speed,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>159</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Amor_ID</ItemText>
+        </Ww>
+        <Ww>
+          <count>160</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>GMYawEncoder,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>161</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Sendtosight,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>

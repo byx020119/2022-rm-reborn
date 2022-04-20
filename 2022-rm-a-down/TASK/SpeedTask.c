@@ -352,12 +352,12 @@ void CMControlLoop(void)
 			if(Speed_change==0)
 				{
 				
-				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
+				CM1SpeedPID.ref = -0.6*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			  }
 			if(Speed_change==1)
 				{
 			 
-				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
+				CM1SpeedPID.ref = -0.6*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
 			  }
 			
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
@@ -451,16 +451,16 @@ void ShooterMControlLoop(void)
 		CM7PositionPID.fdb = CM7Encoder.ecd_angle;
 		CM7PositionPID.Calc(&CM7PositionPID);
 		
-		CM7SpeedPID.ref = 250;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
+		CM7SpeedPID.ref = 300;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
 	}
 //	//放卡弹
 	if(CM7Encoder.ecd_raw_rate < 10)
 	{ 
-		CM7SpeedPID.ref = -500;
+		CM7SpeedPID.ref = -600;
 	}
 	if(CM7Encoder.ecd_raw_rate < -5 )
 	{			
-		CM7SpeedPID.ref = 250;//
+		CM7SpeedPID.ref = 300;//
 	}
 ////	if(CM7Encoder.ecd_raw_rate<-5 &&)
 //	{

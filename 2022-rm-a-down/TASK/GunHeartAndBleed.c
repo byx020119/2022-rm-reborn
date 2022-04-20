@@ -165,9 +165,10 @@ void Attacked_Monitor(void)
 				   {
 						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*360+180;//YAW_Round_Cnt*1852 -223;
 				   }
+				else Attacked_YAW_Pos_Ref =  GMYawEncoder.ecd_angle;
 
 			}
-			else if(Amor_ID == 1) //1号装甲被攻击
+			if(Amor_ID == 1) //1号装甲被攻击
 			{
 				if(YAW_Angle_YuShu>=335&& YAW_Angle_YuShu<=60)   //左前半面    
 					{
@@ -177,14 +178,16 @@ void Attacked_Monitor(void)
 				   {
 						Attacked_YAW_Pos_Ref = YAW_Round_Cnt*360-180;//YAW_Round_Cnt*1852 -223;
 				   }
+			  else Attacked_YAW_Pos_Ref =  GMYawEncoder.ecd_angle;
+
 
 			}
 		
-		if(Attacked_YAW_Pos_Ref+Yaw_encoder_s - (-GMYawEncoder.ecd_angle)>=0)
+		if(Attacked_YAW_Pos_Ref - GMYawEncoder.ecd_angle > 1)
 			{
 				Attacked_YAW_Rotation_Dir = 1;   //向位置环参考值增大的方向转
 			}
-			else
+		else
 			{
 				Attacked_YAW_Rotation_Dir = 2;  //向位置环参考值减小的方向转
 			}
