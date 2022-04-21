@@ -2,7 +2,7 @@
 .\objects\doget_state.o: TASK\Doget_state.h
 .\objects\doget_state.o: .\USER\stm32f4xx.h
 .\objects\doget_state.o: .\CORE\core_cm4.h
-.\objects\doget_state.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\doget_state.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\doget_state.o: .\CORE\core_cmInstr.h
 .\objects\doget_state.o: .\CORE\core_cmFunc.h
 .\objects\doget_state.o: .\CORE\core_cm4_simd.h
@@ -44,11 +44,11 @@
 .\objects\doget_state.o: .\COMMON\Ramp.h
 .\objects\doget_state.o: TASK\GunHeartAndBleed.h
 .\objects\doget_state.o: .\USER\main.h
-.\objects\doget_state.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\doget_state.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\doget_state.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
-.\objects\doget_state.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\doget_state.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
+.\objects\doget_state.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\doget_state.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\doget_state.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\doget_state.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\doget_state.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\doget_state.o: .\BSP\bsp.h
 .\objects\doget_state.o: .\BSP\can1.h
 .\objects\doget_state.o: .\BSP\can2.h

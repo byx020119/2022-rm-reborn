@@ -113,6 +113,10 @@ void WorkStateFSM(void)
 			{
 				workState = STOP_STATE;
 			}		
+			if(RemoteTest_Flag == 1)
+			{
+				workState = PREPARE_STATE; //遥控器停止测试，进入准备状态，进而进自由状态
+			}
       if(CameraDetectTarget_Flag == 1)   //摄像头识别到目标，变为识别状态
 			{
 				workState = ChariotRecognition_STATE;
@@ -270,6 +274,7 @@ void WorkStateSwitchProcess(void)
 		Attacked_Flag = 0;
 		DodgeTarget_Flag = 0;
 		Aerocraft_attack_flag = 0;
+		pitch_err = 0;
 		
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变

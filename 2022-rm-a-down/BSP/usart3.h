@@ -61,6 +61,7 @@ extern uint8_t CR_yaw_Angle_Index;
 extern uint8_t CR_yaw_Angle_CNT;
 extern int Last_CameraDetectTarget_Flag;
 
+
 void Sendtosightway(int value);
 void usart3_Init(uint32_t bound);
 void ChariotRecognition_Mes_Process(uint8_t *p);

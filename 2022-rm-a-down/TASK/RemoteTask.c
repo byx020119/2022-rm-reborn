@@ -7,6 +7,8 @@
 #include "ShootingTask.h"
 
 RC_Ctl_t RC_CtrlData;
+double pitch_err = 0;//2022加，p轴数据修正,传给视觉的
+int pitch_err_flag = 0;//2022加 p轴数据修正标志位，只有标志位为1或-1且ch0为0时，pitch_err值加或减一个单位
 
 /**
 函数：RemoteDataPrcess(pData)
@@ -69,9 +71,27 @@ void RemoteDataPrcess(uint8_t *pData)
 	RC_CtrlData.key.v = ((int16_t)pData[14]) | ((int16_t)pData[15] << 8);//每一位对应一个按键
 	
 	Chassis_Speed_Ref = (RC_CtrlData.rc.ch1-1024);
-
 	GimbalRef.pitch_angle_dynamic_ref +=(RC_CtrlData.rc.ch3-1024)*0.003;//*0.01   /*原0.005*/
 	GimbalRef.yaw_angle_dynamic_ref  +=(RC_CtrlData.rc.ch2-1024)*0.00285;//0.0085
+	
+	/****************修正数据函数************************/
+	if((RC_CtrlData.rc.ch0-1024)>0){
+		pitch_err_flag = 1;
+	}
+	else if((RC_CtrlData.rc.ch0-1024)<0){
+		pitch_err_flag = -1;
+	}
+	if(pitch_err_flag==1&&(RC_CtrlData.rc.ch0-1024)==0){
+		pitch_err_flag=0;
+		pitch_err+=0.5;
+	}
+	else if(pitch_err_flag==-1&&(RC_CtrlData.rc.ch0-1024)==0){
+		pitch_err_flag=0;
+		pitch_err-=0.5;
+	}
+	
+	/****************************************************/
+	
 //	if((RC_CtrlData.rc.s1==2)&&(GetFrictionState()==FRICTION_WHEEL_OFF))//打开摩擦轮
 
 	

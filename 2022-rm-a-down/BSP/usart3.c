@@ -94,6 +94,8 @@ int Yawsent = 0;
 double t =0.0f;
 double z =0.0f;
 
+
+
 /***
 C 板
 函数：usart1_Init(bound)
@@ -252,7 +254,7 @@ void Sendtosightway(int value)//与视觉商定
 {
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
 	int GMYawtemp_Eular=(Angles+180)*10;
-	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90)*10;
+	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90+pitch_err)*10;
 
 //	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
 	int rolltly = (Eular[1]+90)*10;
