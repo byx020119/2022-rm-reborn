@@ -14,7 +14,8 @@ int Random_change_flag=0;            //随机数产生函数变化标志
 int Random_change__flag_2=0;            //随机数产生函数变化标志
 int Doget_rego_flag=0;
 int test_ecd=0;
-int doget_chassis_speed = 300;
+int doget_chassis_speed = 200;
+int speed_rand=0;//2022加随机速度
 
 void YawFreeRoation_Doget(void)
 {
@@ -212,6 +213,9 @@ void Chassis_Motion_Switch_Doget(void)
 {
 	  if(time_tick_2ms-Dodge_time_count>10000){   //2022加 躲避模式持续10s,血量低于120不跳出，因为在循环内部重新赋值
 			DodgeTarget_Flag = 0;
+		}
+		else if((time_tick_2ms-Dodge_time_count)%2500==0){
+			speed_rand=(int)rand()%150;
 		}
 	//被飞行器攻击时的躲避            2022测试时有问题，无法换向
 //if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
@@ -590,7 +594,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 							if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = -doget_chassis_speed;//-750
+				          Chassis_Temp_Speed = -(doget_chassis_speed+speed_rand);//-750
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
@@ -599,12 +603,12 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = -doget_chassis_speed;// -700;
+						  Chassis_Temp_Speed = -(doget_chassis_speed+speed_rand);// -700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = -doget_chassis_speed;//-600
+						Chassis_Temp_Speed = -(doget_chassis_speed+speed_rand);//-600
 					}
 				}
 				else if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
@@ -615,7 +619,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 						 if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = doget_chassis_speed;// 750;
+				          Chassis_Temp_Speed = (doget_chassis_speed+speed_rand);// 750;
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
@@ -624,12 +628,12 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = doget_chassis_speed;// 700;
+						  Chassis_Temp_Speed = (doget_chassis_speed+speed_rand);// 700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = doget_chassis_speed;// 600
+						Chassis_Temp_Speed = (doget_chassis_speed+speed_rand);// 600
 					}
 				}
 				
