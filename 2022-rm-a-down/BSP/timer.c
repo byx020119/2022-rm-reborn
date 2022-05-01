@@ -6,6 +6,7 @@ Time_Count Remote_microsecond     = TIME_COUNT_INIT;   //²âÊÔ×´Ì¬Ïò×¼±¸×´Ì¬ÇÐ»»¿
 Time_Count usart3_microsecond     = TIME_COUNT_INIT;   //ÃîËãÏàÁÚÁ½´Î·¢ÊýÊ±¼ä²î
 Time_Count mpu6050_micrsecond 		= TIME_COUNT_INIT;   //mpu6050¼à¿ØÏµÍ³Ê±¼ä µ¥Î»us
 int time_testtt=0;
+int time_test2=0;
 /***
 º¯Êý£ºTIM2_Configuration()
 ¹¦ÄÜ£ºÊ¹ÄÜTIM2£¬×÷ÎªÏµÍ³Ê±ÖÓ
@@ -93,4 +94,58 @@ void TIM6_DAC_IRQHandler(void)
 		time_testtt++;
 	}
 }
+/***
+º¯Êý£ºTIM3_Configuration()
+¹¦ÄÜ£ºÊ¹ÄÜTIM3£¬×÷ÎªÏµÍ³Ê±ÖÓ
+±¸×¢£ºÎÞ
+***/
+void TIM3_Configuration(void)
+{
+	/* -------------- Enable Module Clock Source ----------------------------*/
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);
+	/* -------------- Configure TIM3 ----------------------------------------*/
+  {
+		TIM_TimeBaseInitTypeDef tim;
+    
+    tim.TIM_Period = 6000-1;
+    tim.TIM_Prescaler = 84 - 1;	 //1M µÄÊ±ÖÓ ;1us¼ÇÒ»¸öÊý
+    tim.TIM_ClockDivision = TIM_CKD_DIV1;	
+    tim.TIM_CounterMode = TIM_CounterMode_Up;  
+    TIM_TimeBaseInit(TIM3, &tim);
+		
+		TIM_ARRPreloadConfig(TIM3,ENABLE);
+    TIM_Cmd(TIM3,ENABLE);	
+	}
+	
+		/* -------------- Configure NVIC ----------------------------------------*/
+	{
+		NVIC_InitTypeDef         nvic;
 
+    nvic.NVIC_IRQChannel = TIM3_IRQn;
+    nvic.NVIC_IRQChannelPreemptionPriority =1;
+    nvic.NVIC_IRQChannelSubPriority = 1;
+    nvic.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&nvic);
+	}
+	
+
+}
+
+void TIM3_Start(void)
+{
+    TIM_Cmd(TIM3, ENABLE);	 
+    TIM_ITConfig(TIM3, TIM_IT_Update,ENABLE);
+    TIM_ClearFlag(TIM3, TIM_FLAG_Update);	
+}
+   
+void TIM3_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM3,TIM_IT_Update)!= RESET) 
+	{
+		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
+		TIM_ClearFlag(TIM3, TIM_FLAG_Update);
+		
+		Sendtosightway(12);	
+		time_test2++;
+	}
+} 

@@ -2,7 +2,7 @@
 .\objects\controltask.o: TASK\ControlTask.h
 .\objects\controltask.o: .\USER\stm32f4xx.h
 .\objects\controltask.o: .\CORE\core_cm4.h
-.\objects\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\controltask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\controltask.o: .\CORE\core_cmInstr.h
 .\objects\controltask.o: .\CORE\core_cmFunc.h
 .\objects\controltask.o: .\CORE\core_cm4_simd.h
@@ -39,11 +39,11 @@
 .\objects\controltask.o: .\STLibraries\inc\stm32f4xx_sai.h
 .\objects\controltask.o: TASK\Phototube.h
 .\objects\controltask.o: .\USER\main.h
-.\objects\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
-.\objects\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\controltask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
+.\objects\controltask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\controltask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\controltask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\controltask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\controltask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\controltask.o: .\BSP\bsp.h
 .\objects\controltask.o: .\BSP\can1.h
 .\objects\controltask.o: .\BSP\can2.h

@@ -29,5 +29,7 @@ void TIM2_Configuration(void);
 uint32_t Get_Time_Micros(void);
 void TIM6_Configuration(void);
 void TIM6_Start(void);
+void TIM3_Start(void);
+void TIM3_Configuration(void);
 
 #endif

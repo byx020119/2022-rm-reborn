@@ -6,10 +6,10 @@ int main()
 	BSP_Init();
   engineerpower_Init();
 	ControtLoopTaskInit();
+	TIM3_Start();
 	TIM6_Start();
 	while(1)
 	{
-	Sendtosightway(12);	
 	delay_us(200);
 	}
 }
