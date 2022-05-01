@@ -2,7 +2,7 @@
 .\objects\pid.o: .\USER\main.h
 .\objects\pid.o: .\USER\stm32f4xx.h
 .\objects\pid.o: .\CORE\core_cm4.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\pid.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\pid.o: .\CORE\core_cmInstr.h
 .\objects\pid.o: .\CORE\core_cmFunc.h
 .\objects\pid.o: .\CORE\core_cm4_simd.h
@@ -37,11 +37,11 @@
 .\objects\pid.o: .\STLibraries\inc\stm32f4xx_dma2d.h
 .\objects\pid.o: .\STLibraries\inc\stm32f4xx_fmc.h
 .\objects\pid.o: .\STLibraries\inc\stm32f4xx_sai.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\pid.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\pid.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\pid.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\pid.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
+.\objects\pid.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\pid.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
 .\objects\pid.o: .\BSP\bsp.h
 .\objects\pid.o: .\BSP\can1.h
 .\objects\pid.o: .\BSP\can2.h

@@ -24,7 +24,7 @@ void YawFreeRoation_Doget(void)
 		if( GetlastWorkState() != Dodeg_STATE && GetWorkState() == Dodeg_STATE ) 		//躲避模式云台不转动
 		//if(Last_CameraDetectTarget_Flag==1 && CameraDetectTarget_Flag==0)
 		{
-		   YawCurrentPositionSave = -GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
+		   YawCurrentPositionSave = GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
 		   GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
 		}
 		

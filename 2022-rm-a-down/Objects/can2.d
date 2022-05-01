@@ -3,7 +3,7 @@
 .\objects\can2.o: .\TASK\CanBusTask.h
 .\objects\can2.o: .\USER\stm32f4xx.h
 .\objects\can2.o: .\CORE\core_cm4.h
-.\objects\can2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\can2.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\can2.o: .\CORE\core_cmInstr.h
 .\objects\can2.o: .\CORE\core_cmFunc.h
 .\objects\can2.o: .\CORE\core_cm4_simd.h
