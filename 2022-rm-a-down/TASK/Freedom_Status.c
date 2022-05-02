@@ -41,7 +41,7 @@ int32_t time_track_right_max = 0;
 
 double yaw_ecd_angle_flag = 10;    //-20;    //2022加  自由模式y轴一侧限位值
 double yaw_ecd_angle_flag1 =-110;  //-150    //2022加  自由模式y轴另一侧限位值
-const int chassis_speed = 300;               //2022加 自由模式底盘速度
+const int chassis_speed = 350;               //2022加 自由模式底盘速度
 
 /***
 函数：YawFreeRoation()

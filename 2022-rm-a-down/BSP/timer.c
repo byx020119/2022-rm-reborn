@@ -96,7 +96,7 @@ void TIM6_DAC_IRQHandler(void)
 }
 /***
 函数：TIM3_Configuration()
-功能：使能TIM3，作为系统时钟
+功能：使能TIM3，作为小电脑通信时钟
 备注：无
 ***/
 void TIM3_Configuration(void)
@@ -107,7 +107,7 @@ void TIM3_Configuration(void)
   {
 		TIM_TimeBaseInitTypeDef tim;
     
-    tim.TIM_Period = 6000-1;
+    tim.TIM_Period = 3000-1;//1ms发送一次
     tim.TIM_Prescaler = 84 - 1;	 //1M 的时钟 ;1us记一个数
     tim.TIM_ClockDivision = TIM_CKD_DIV1;	
     tim.TIM_CounterMode = TIM_CounterMode_Up;  

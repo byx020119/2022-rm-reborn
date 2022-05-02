@@ -211,10 +211,14 @@ void YawFreeRoation_Doget(void)
 
 void Chassis_Motion_Switch_Doget(void)
 {
-	  if(time_tick_2ms-Dodge_time_count>10000){   //2022加 躲避模式持续10s,血量低于120不跳出，因为在循环内部重新赋值
+		
+	  if(time_tick_2ms-Dodge_time_count>1500){   //2022加 躲避模式持续2s,血量低于120不跳出，因为在循环内部重新赋值
 			DodgeTarget_Flag = 0;
 		}
-		else if((time_tick_2ms-Dodge_time_count)%2500==0){
+		else if((time_tick_2ms-Dodge_time_count)>0&&RobotHP>120){
+			speed_rand=500;
+		}
+		else if(((time_tick_2ms-Dodge_time_count)%2500==0)&&RobotHP<120){
 			speed_rand=(int)rand()%150;
 		}
 	//被飞行器攻击时的躲避            2022测试时有问题，无法换向

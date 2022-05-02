@@ -81,11 +81,11 @@ void RemoteDataPrcess(uint8_t *pData)
 	else if((RC_CtrlData.rc.ch0-1024)<0){
 		pitch_err_flag = -1;
 	}
-	if(pitch_err_flag==1&&(RC_CtrlData.rc.ch0-1024)==0){
+	if(pitch_err_flag==1&&(RC_CtrlData.rc.ch0-1024)<=0){
 		pitch_err_flag=0;
 		pitch_err+=0.5;
 	}
-	else if(pitch_err_flag==-1&&(RC_CtrlData.rc.ch0-1024)==0){
+	else if(pitch_err_flag==-1&&(RC_CtrlData.rc.ch0-1024)>=0){
 		pitch_err_flag=0;
 		pitch_err-=0.5;
 	}
