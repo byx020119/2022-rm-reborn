@@ -16,6 +16,8 @@ int Doget_rego_flag=0;
 int test_ecd=0;
 int doget_chassis_speed = 200;
 int speed_rand=0;//2022加随机速度
+int speed_dash_flag=0;//2022加冲刺标志位
+int speed_rand_flag=0;//2022加速度已经赋值标志位
 
 void YawFreeRoation_Doget(void)
 {
@@ -214,11 +216,19 @@ void Chassis_Motion_Switch_Doget(void)
 		
 	  if(time_tick_2ms-Dodge_time_count>1500){   //2022加 躲避模式持续2s,血量低于120不跳出，因为在循环内部重新赋值
 			DodgeTarget_Flag = 0;
+			speed_rand_flag=0;
 		}
-		else if((time_tick_2ms-Dodge_time_count)>0&&RobotHP>120){
-			speed_rand=500;
+		else if((time_tick_2ms-Dodge_time_count)>0&&RobotHP>120&&speed_dash_flag==0&&speed_rand_flag==0){//血量在120之上时冲刺速度
+			speed_rand=200;
+			speed_dash_flag=1;//冲刺切换随机
+			speed_rand_flag=1;//速度已赋值
 		}
-		else if(((time_tick_2ms-Dodge_time_count)%2500==0)&&RobotHP<120){
+		else if((time_tick_2ms-Dodge_time_count)>0&&RobotHP>120&&speed_dash_flag==1&&speed_rand_flag==0){//避免超功率，血量在120之上时随机速度
+			speed_rand=(int)rand()%150;
+			speed_dash_flag=0;//随机切换冲刺
+			speed_rand_flag=1;//速度已赋值
+		}
+		else if(((time_tick_2ms-Dodge_time_count)%2500==0)&&RobotHP<120){//血量在120之下时不断改变速度，为200+random
 			speed_rand=(int)rand()%150;
 		}
 	//被飞行器攻击时的躲避            2022测试时有问题，无法换向

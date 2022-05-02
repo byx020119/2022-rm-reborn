@@ -275,6 +275,7 @@ void WorkStateSwitchProcess(void)
 		DodgeTarget_Flag = 0;
 		Aerocraft_attack_flag = 0;
 		pitch_err = 0;
+		speed_rand_flag=0;
 		
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变
