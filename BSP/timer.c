@@ -1,14 +1,12 @@
-#include "timer.h"
-#include "ControlTask.h"
+#include "main.h"
 
 Time_Count system_micrsecond	 		=	TIME_COUNT_INIT;   //系统时间 单位us
 Time_Count shot_frequency_limt 		= TIME_COUNT_INIT;   //发射机构频率控制时间 单位us
-Time_Count brake_limt             =TIME_COUNT_INIT;    //刹车机构控制时间 单位us
-Time_Count Yaw_Correction 		= TIME_COUNT_INIT;
 Time_Count Remote_microsecond     = TIME_COUNT_INIT;   //测试状态向准备状态切换控制时间
 Time_Count usart3_microsecond     = TIME_COUNT_INIT;   //妙算相邻两次发数时间差
 Time_Count mpu6050_micrsecond 		= TIME_COUNT_INIT;   //mpu6050监控系统时间 单位us
 int time_testtt=0;
+int time_test2=0;
 /***
 函数：TIM2_Configuration()
 功能：使能TIM2，作为系统时钟
@@ -96,4 +94,58 @@ void TIM6_DAC_IRQHandler(void)
 		time_testtt++;
 	}
 }
+/***
+函数：TIM3_Configuration()
+功能：使能TIM3，作为小电脑通信时钟
+备注：无
+***/
+void TIM3_Configuration(void)
+{
+	/* -------------- Enable Module Clock Source ----------------------------*/
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);
+	/* -------------- Configure TIM3 ----------------------------------------*/
+  {
+		TIM_TimeBaseInitTypeDef tim;
+    
+    tim.TIM_Period = 3000-1;//1ms发送一次
+    tim.TIM_Prescaler = 84 - 1;	 //1M 的时钟 ;1us记一个数
+    tim.TIM_ClockDivision = TIM_CKD_DIV1;	
+    tim.TIM_CounterMode = TIM_CounterMode_Up;  
+    TIM_TimeBaseInit(TIM3, &tim);
+		
+		TIM_ARRPreloadConfig(TIM3,ENABLE);
+    TIM_Cmd(TIM3,ENABLE);	
+	}
+	
+		/* -------------- Configure NVIC ----------------------------------------*/
+	{
+		NVIC_InitTypeDef         nvic;
 
+    nvic.NVIC_IRQChannel = TIM3_IRQn;
+    nvic.NVIC_IRQChannelPreemptionPriority =1;
+    nvic.NVIC_IRQChannelSubPriority = 1;
+    nvic.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&nvic);
+	}
+	
+
+}
+
+void TIM3_Start(void)
+{
+    TIM_Cmd(TIM3, ENABLE);	 
+    TIM_ITConfig(TIM3, TIM_IT_Update,ENABLE);
+    TIM_ClearFlag(TIM3, TIM_FLAG_Update);	
+}
+   
+void TIM3_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM3,TIM_IT_Update)!= RESET) 
+	{
+		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
+		TIM_ClearFlag(TIM3, TIM_FLAG_Update);
+		
+		Sendtosightway(12);	
+		time_test2++;
+	}
+} 

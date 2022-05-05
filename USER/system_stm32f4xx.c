@@ -299,7 +299,7 @@
 /* #define USE_HSE_BYPASS */
 
 #if defined (USE_HSE_BYPASS)     
-#define HSE_BYPASS_INPUT_FREQUENCY   12000000
+#define HSE_BYPASS_INPUT_FREQUENCY   8000000
 #endif /* USE_HSE_BYPASS */    
 #endif /* STM32F411xE */
     
@@ -316,7 +316,7 @@
 #define PLL_M      12
 #else /* STM32F411xE */
 #if defined (USE_HSE_BYPASS)
-#define PLL_M      12    
+#define PLL_M      8   
 #else /* STM32F411xE */   
 #define PLL_M      16
 #endif /* USE_HSE_BYPASS */
@@ -332,7 +332,7 @@
 #endif /* STM32F40_41xxx */
 
 #if defined (STM32F427_437xx) || defined (STM32F429_439xx)
-#define PLL_N      360
+#define PLL_N      336//168hz,,360--180hz
 /* SYSCLK = PLL_VCO / PLL_P */
 #define PLL_P      2
 #endif /* STM32F427_437x || STM32F429_439xx */

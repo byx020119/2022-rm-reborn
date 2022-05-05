@@ -1,8 +1,4 @@
-//对号
-
-#include "crc.h"
-#include "stdio.h"
-
+#include "main.h"
 //说明:定位数据单位为米,小数点后两位为有效数据
 typedef __packed struct
 {

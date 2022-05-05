@@ -1,8 +1,5 @@
-//¶ÔºÅ
-
 #ifndef __PID_H__
 #define __PID_H__
-#include "stm32f4xx.h"
 
 typedef struct PID_Regulator
 {

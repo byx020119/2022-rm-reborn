@@ -1,6 +1,4 @@
-//¶ÔºÅ
-
-#include "Ramp.h"
+#include "main.h"
 
 void RampSetScale(struct RampGen_t *ramp, int32_t scale)
 {

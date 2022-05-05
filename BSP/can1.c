@@ -1,12 +1,10 @@
-#include "can1.h"
-#include "CanBusTask.h"
-
+#include "main.h"
 
 /***
 函数：CAN1_Configuration()
-功能：配置CAN1（电机们）
-备注：CAN1_RX--->PD0  A C 板均为此端口
-      CAN1_TX--->PD1  A C 板均为此端口
+功能：配置CAN1
+备注：CAN1_RX--->PB8
+      CAN1_TX--->PB9
 ***/
 void CAN1_Configuration(void)
 {
@@ -100,7 +98,6 @@ void CAN1_RX0_IRQHandler(void)
 		CanReceiveMsgProcess(&rx_message);
 	}
 }
-
 
 
 

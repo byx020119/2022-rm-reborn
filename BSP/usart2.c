@@ -1,15 +1,9 @@
 #include "main.h"
-#include "usart2.h"
 #include "JudgingSystemTask.h"
-//C 板
-//USART6_RX接PG9--->DMA2数据流2通道5  A C板均为此端口
-//USART6_TX-PG14        A C板均为此端口
-//串口6裁判系统
 
-//A 板
-//USART2_RX接PD6--->DMA2数据流2通道5  
-//USART2_TX-PD5        
-//串口二是裁判系统
+//USART2_RX接PA2--->DMA2数据流2通道4
+
+
 #if 1
 #pragma import(__use_no_semihosting)             
 //标准库需要的支持函数                 
@@ -34,7 +28,7 @@ int fputc(int ch, FILE *f)
 #endif
 
 
-uint8_t USART2_DMA1_RX_BUF[2][USART2_DMA1_RX_BUF_LEN]; //2行LEN列
+uint8_t USART2_DMA1_RX_BUF[2][USART2_DMA1_RX_BUF_LEN];
 
 uint8_t CRC8_Ref_Value;
 uint8_t CRC8_Solve_Value;
@@ -167,7 +161,6 @@ void USART2_IRQHandler(void)
 				RingBuffer_Write(USART2_DMA1_RX_BUF[1][i]);
 			}
 		}
-		
 		while(buffer.tailPosition!=buffer.headPosition)
 		{
 			if(buffer.tailPosition-buffer.headPosition>=0) 

@@ -6,7 +6,7 @@
 #include "RemoteTask.h"
 #include "Freedom_Status.h"
 #include "JudgingSystemTask.h"
-
+#include "encoder.h"
 /***
 下列程序用于UART3打印数据，视觉，印的UART2
 ***/
@@ -71,9 +71,9 @@ u8 CR_yaw_Angle_Index = 0;
 u8 CR_yaw_Angle_CNT   = 0;
 int8_t loop_j;
 
-char Sendtosight[12];///发送给视觉
+char Sendtosight[16];///发送给视觉
 static int count_Sendtosight=0;
-void USART3_DMA_TX_config();
+void USART3_DMA_TX_config(void);
 void DMA_TX_cmd(DMA_Stream_TypeDef *DMAx_Streamx,u16 datasize);
 int friction_wheel_count = 0;
 float kalman_yaw = 0;
@@ -87,7 +87,7 @@ float E_TEST1=0;
 float E_TEST2=0;
 float E_TEST3=0;
 int camere_count=0;
-//int colorflag = 0;//2022改
+//int colorflag = 0;
 
 double Yawangle = 0.0f;
 int Yawsent = 0;
@@ -100,6 +100,7 @@ uint8_t onerecogflag = 0;  //识别状态
 uint8_t qianshaoflag = 0;  //前哨战状态
 uint8_t danliangflag = 0;  //弹量标志位
 uint8_t dogetflag = 0; // 躲避状态标志位
+
 
 /***
 C 板
@@ -250,7 +251,6 @@ void USART3_IRQHandler(void)  	//串口1中断服务程序
 	}
 } 
 
-
 ///////////////////////////////////////////////////////////
 void Message_Handle()   //板间通信函数
 {
@@ -301,15 +301,21 @@ State_distance state_distacne=closedistance;
 void Sendtosightway(int value)//与视觉商定
 {
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
-		
-//  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
-//	{
-//	Sendtosight[0]='B';	
-//	}
-//	if(robotState.robot_id>=101&&robotState.robot_id<=109)
-//	{
-//	Sendtosight[0]='R';	
-//	}
+	int GMYawtemp_Eular=(Angles+180)*10;
+	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90+pitch_err)*10;
+
+//	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
+	int rolltly = (Eular[1]+90)*10;
+	
+//有裁判系统串口线的时候：
+  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
+	{
+	Sendtosight[0]='R';	
+	}
+	if(robotState.robot_id>=101&&robotState.robot_id<=109)
+	{
+	Sendtosight[0]='B';	
+	}
 	
 //	colorflag=PCin(6);
 ////没有的时候：利用开关
@@ -321,10 +327,17 @@ void Sendtosightway(int value)//与视觉商定
 //	{
 //		Sendtosight[0]='R';	
 //	}
-	int GMYawtemp_Eular=(Angles+180)*10;
-	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
 
-	Sendtosight[0]='R';	
+//up to down传数：
+//	if(utm123[0] == 0)
+//	{
+//	Sendtosight[0] ='B';//阵营
+//	}
+//	if(utm123[0] == 1)
+//	{
+//	Sendtosight[0] ='R';
+//	}
+//	
 	
 	Sendtosight[1]='M';//开始发送
 	Sendtosight[2]='N';
@@ -339,7 +352,12 @@ void Sendtosightway(int value)//与视觉商定
 	Sendtosight[9]=(uint8_t)(GMPitchtemp_Encoder%1000/100+48);//百位
 	Sendtosight[10]=(uint8_t)(GMPitchtemp_Encoder%100/10+48);	//十位
 	Sendtosight[11]=(uint8_t)(GMPitchtemp_Encoder%10+48);			//个位
-	
+
+	Sendtosight[12]=(uint8_t)(rolltly/1000+48);		//千位
+	Sendtosight[13]=(uint8_t)(rolltly%1000/100+48);//百位
+	Sendtosight[14]=(uint8_t)(rolltly%100/10+48);	//十位
+	Sendtosight[15]=(uint8_t)(rolltly%10+48);			//个位
+
   while(count_Sendtosight<value)
   {
 	  USART_SendData(USART3, Sendtosight[count_Sendtosight]);

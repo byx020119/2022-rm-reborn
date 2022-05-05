@@ -1,5 +1,3 @@
-//对号，表示此文件已配置完毕，不需修改
-
 #ifndef __COMMON_H__
 #define __COMMON_H__
 

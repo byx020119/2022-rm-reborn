@@ -1,5 +1,3 @@
-//¶ÔºÅ
-
 #ifndef _RAMP__H_
 #define _RAMP__H_
 #include <stm32f4xx.h>

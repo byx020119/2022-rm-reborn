@@ -1,11 +1,9 @@
-#include "adc.h"
-#include "stm32f4xx_adc.h"
 #include "main.h"
 
 /***
 函数：void  Adc_Init(void)
 功能：ADC初始化
-备注：PA7--->ADC2_CH7  A C 板一致
+备注：PA7--->ADC2_CH7
 ***/
 void  Adc_Init(void)
 {    
@@ -59,6 +57,4 @@ u16 Get_Adc(void)
 
 	return ADC_GetConversionValue(ADC2);	//返回最近一次ADC2规则组的转换结果
 }
-
-
 

@@ -1,5 +1,3 @@
-//Î´¸Ä
-
 #ifndef TIMER_H
 #define TIMER_H
 #include <stm32f4xx.h>
@@ -23,15 +21,15 @@ typedef __packed struct
 
 extern Time_Count system_micrsecond;
 extern Time_Count shot_frequency_limt;
-extern Time_Count Yaw_Correction;
 extern Time_Count Remote_microsecond;
 extern Time_Count usart3_microsecond;
 extern Time_Count mpu6050_micrsecond;
-extern Time_Count brake_limt ;
+
 void TIM2_Configuration(void);
 uint32_t Get_Time_Micros(void);
 void TIM6_Configuration(void);
 void TIM6_Start(void);
+void TIM3_Start(void);
+void TIM3_Configuration(void);
 
 #endif
-
