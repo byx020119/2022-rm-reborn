@@ -49,7 +49,7 @@
 .\objects\timer.o: .\BSP\usart1.h
 .\objects\timer.o: .\BSP\usart3.h
 .\objects\timer.o: .\BSP\usart6.h
-.\objects\timer.o: .\BSP\usart7.h
+.\objects\timer.o: .\BSP\usart2.h
 .\objects\timer.o: .\BSP\gun.h
 .\objects\timer.o: .\BSP\adc.h
 .\objects\timer.o: .\TASK\CanBusTask.h

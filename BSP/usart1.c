@@ -5,26 +5,26 @@ static uint8_t REMOTE_DMA_RX_BUF[2][REMOTE_DMA_RX_BUF_LEN];
 /***
 函数：USART1_Configuration()
 功能：配置USART1，接收遥控器数据
-备注：USART1_RX--->PB7
+备注：USART1_RX--->PA10 self PB7(A板)
 ***/
 void USART1_Configuration(void)
 {
 	/* -------------- Enable Module Clock Source ----------------------------*/
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE); 
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE); 
 	/* -------------- Configure GPIO & USART1 -------------------------------*/
 	{
 		GPIO_InitTypeDef gpio;
 		USART_InitTypeDef usart;
-		GPIO_PinAFConfig(GPIOB, GPIO_PinSource7, GPIO_AF_USART1);
+		GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_USART1);
 		
 		GPIO_StructInit(&gpio);
-		gpio.GPIO_Pin = GPIO_Pin_7;
+		gpio.GPIO_Pin = GPIO_Pin_10;
 		gpio.GPIO_Mode = GPIO_Mode_AF;
 		gpio.GPIO_Speed = GPIO_Speed_2MHz;
 		gpio.GPIO_PuPd = GPIO_PuPd_UP;
-		GPIO_Init(GPIOB, &gpio);
+		GPIO_Init(GPIOA, &gpio);
 		
 		USART_DeInit(USART1);
 		USART_StructInit(&usart);

@@ -55,7 +55,7 @@
 .\objects\remotetask.o: .\BSP\usart1.h
 .\objects\remotetask.o: .\BSP\usart3.h
 .\objects\remotetask.o: .\BSP\usart6.h
-.\objects\remotetask.o: .\BSP\usart7.h
+.\objects\remotetask.o: .\BSP\usart2.h
 .\objects\remotetask.o: .\BSP\gun.h
 .\objects\remotetask.o: .\BSP\adc.h
 .\objects\remotetask.o: .\TASK\CanBusTask.h

@@ -105,17 +105,17 @@ C 板
       可向外打印数据
 ***/
 /***
-A 板
+
 函数：usart3_Init(bound)
 功能：配置USART3，接收妙算数据
-备注：USART3_TX--->PD9
-      USART3_RX--->PD8
+备注：USART3_TX--->PB10(self) PD9(A)
+      USART3_RX--->PB11(self) PD8(A)
       可向外打印数据
 ***/
 void usart3_Init(u32 bound)
 {
 	/* -------------- Enable Module Clock Source ----------------------------*/
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);	//使能GPIOD时钟
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB,ENABLE);	//使能GPIOB时钟
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);//使能DMA2时钟
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3,ENABLE);//使能USART3时钟
  /* -------------- Configure GPIO & USART3 -------------------------------*/
@@ -123,16 +123,16 @@ void usart3_Init(u32 bound)
 		GPIO_InitTypeDef gpio;
 		USART_InitTypeDef usart;
 		//串口3对应引脚复用映射
-		GPIO_PinAFConfig(GPIOD,GPIO_PinSource8,GPIO_AF_USART3); //GPIOD8复用为USART3
-		GPIO_PinAFConfig(GPIOD,GPIO_PinSource9,GPIO_AF_USART3); //GPIOD9复用为USART3
+		GPIO_PinAFConfig(GPIOB,GPIO_PinSource10,GPIO_AF_USART3); //GPIOB10复用为USART3
+		GPIO_PinAFConfig(GPIOB,GPIO_PinSource11,GPIO_AF_USART3); //GPIOB11复用为USART3
 		
 		//USART3端口配置
-		gpio.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_9; //GPIOD8 9
+		gpio.GPIO_Pin = GPIO_Pin_10|GPIO_Pin_11; //GPIOB10 11
 		gpio.GPIO_Mode = GPIO_Mode_AF;//复用功能
 		gpio.GPIO_Speed = GPIO_Speed_50MHz;	//速度50MHz
 		gpio.GPIO_OType = GPIO_OType_PP; //推挽复用输出
 		gpio.GPIO_PuPd = GPIO_PuPd_UP; //上拉
-		GPIO_Init(GPIOD,&gpio); //初始化，PD8 9
+		GPIO_Init(GPIOB,&gpio); //初始化，PD8 9
 
 
 		//USART3 初始化设置

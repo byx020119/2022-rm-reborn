@@ -50,7 +50,7 @@
 .\objects\phototube.o: .\BSP\usart1.h
 .\objects\phototube.o: .\BSP\usart3.h
 .\objects\phototube.o: .\BSP\usart6.h
-.\objects\phototube.o: .\BSP\usart7.h
+.\objects\phototube.o: .\BSP\usart2.h
 .\objects\phototube.o: .\BSP\gun.h
 .\objects\phototube.o: .\BSP\adc.h
 .\objects\phototube.o: .\TASK\CanBusTask.h

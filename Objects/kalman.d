@@ -49,7 +49,7 @@
 .\objects\kalman.o: .\BSP\usart1.h
 .\objects\kalman.o: .\BSP\usart3.h
 .\objects\kalman.o: .\BSP\usart6.h
-.\objects\kalman.o: .\BSP\usart7.h
+.\objects\kalman.o: .\BSP\usart2.h
 .\objects\kalman.o: .\BSP\gun.h
 .\objects\kalman.o: .\BSP\adc.h
 .\objects\kalman.o: .\TASK\CanBusTask.h

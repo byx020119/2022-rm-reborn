@@ -11,7 +11,7 @@
 ".\objects\usart3.o"
 ".\objects\adc.o"
 ".\objects\usart6.o"
-".\objects\usart7.o"
+".\objects\usart2.o"
 ".\objects\freedom_status.o"
 ".\objects\speedtask.o"
 ".\objects\controltask.o"

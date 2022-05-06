@@ -49,7 +49,7 @@
 .\objects\encoder.o: .\BSP\usart1.h
 .\objects\encoder.o: .\BSP\usart3.h
 .\objects\encoder.o: .\BSP\usart6.h
-.\objects\encoder.o: .\BSP\usart7.h
+.\objects\encoder.o: .\BSP\usart2.h
 .\objects\encoder.o: .\BSP\gun.h
 .\objects\encoder.o: .\BSP\adc.h
 .\objects\encoder.o: .\TASK\CanBusTask.h

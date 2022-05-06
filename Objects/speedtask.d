@@ -56,7 +56,7 @@
 .\objects\speedtask.o: .\BSP\usart1.h
 .\objects\speedtask.o: .\BSP\usart3.h
 .\objects\speedtask.o: .\BSP\usart6.h
-.\objects\speedtask.o: .\BSP\usart7.h
+.\objects\speedtask.o: .\BSP\usart2.h
 .\objects\speedtask.o: .\BSP\gun.h
 .\objects\speedtask.o: .\BSP\adc.h
 .\objects\speedtask.o: .\TASK\ControlTask.h

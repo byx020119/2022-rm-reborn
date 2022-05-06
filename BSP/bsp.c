@@ -11,7 +11,7 @@ void BSP_Init(void)
 	USART1_Configuration();         //遥控器初始化
 	usart3_Init(115200);            //接收妙算传来的数据19200
   USART6_Configuration();
-	usart7_Init(115200);            //接收主控传来的数据
+	usart2_Init(115200);            //接收主控传来的数据
 	//PWM_Configuration();            //摩擦轮
 		Phototube_Configuration();
 

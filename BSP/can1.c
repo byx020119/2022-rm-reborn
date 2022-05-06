@@ -3,13 +3,13 @@
 /***
 函数：CAN1_Configuration()
 功能：配置CAN1
-备注：CAN1_RX--->PB8
-      CAN1_TX--->PB9
+备注：CAN1_RX--->PA11 A/self
+      CAN1_TX--->PA12 A/self
 ***/
 void CAN1_Configuration(void)
 {
 	/* -------------- Enable Module Clock Source ----------------------------*/
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_CAN1, ENABLE);
 	/* -------------- Configure GPIO & CAN1 ---------------------------------*/
 	{
@@ -17,10 +17,10 @@ void CAN1_Configuration(void)
 		CAN_InitTypeDef        can1;
 		CAN_FilterInitTypeDef  can1_filter;
 		
-		GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_CAN1);
-    GPIO_PinAFConfig(GPIOD, GPIO_PinSource1, GPIO_AF_CAN1);
+		GPIO_PinAFConfig(GPIOD, GPIO_PinSource11, GPIO_AF_CAN1);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource12, GPIO_AF_CAN1);
 
-    gpio.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+    gpio.GPIO_Pin = GPIO_Pin_11 | GPIO_Pin_12;
     gpio.GPIO_Mode = GPIO_Mode_AF;
     GPIO_Init(GPIOD, &gpio);
 		

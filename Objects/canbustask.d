@@ -49,7 +49,7 @@
 .\objects\canbustask.o: .\BSP\usart1.h
 .\objects\canbustask.o: .\BSP\usart3.h
 .\objects\canbustask.o: .\BSP\usart6.h
-.\objects\canbustask.o: .\BSP\usart7.h
+.\objects\canbustask.o: .\BSP\usart2.h
 .\objects\canbustask.o: .\BSP\gun.h
 .\objects\canbustask.o: .\BSP\adc.h
 .\objects\canbustask.o: .\TASK\CanBusTask.h

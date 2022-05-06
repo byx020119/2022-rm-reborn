@@ -49,7 +49,7 @@
 .\objects\gunheartandbleed.o: .\BSP\usart1.h
 .\objects\gunheartandbleed.o: .\BSP\usart3.h
 .\objects\gunheartandbleed.o: .\BSP\usart6.h
-.\objects\gunheartandbleed.o: .\BSP\usart7.h
+.\objects\gunheartandbleed.o: .\BSP\usart2.h
 .\objects\gunheartandbleed.o: .\BSP\gun.h
 .\objects\gunheartandbleed.o: .\BSP\adc.h
 .\objects\gunheartandbleed.o: .\TASK\CanBusTask.h

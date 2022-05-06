@@ -58,7 +58,7 @@
 .\objects\workstate.o: .\BSP\timer.h
 .\objects\workstate.o: .\BSP\usart3.h
 .\objects\workstate.o: .\BSP\usart6.h
-.\objects\workstate.o: .\BSP\usart7.h
+.\objects\workstate.o: .\BSP\usart2.h
 .\objects\workstate.o: .\BSP\gun.h
 .\objects\workstate.o: .\BSP\adc.h
 .\objects\workstate.o: .\TASK\RemoteTask.h

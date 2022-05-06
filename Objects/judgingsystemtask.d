@@ -49,7 +49,7 @@
 .\objects\judgingsystemtask.o: .\BSP\usart1.h
 .\objects\judgingsystemtask.o: .\BSP\usart3.h
 .\objects\judgingsystemtask.o: .\BSP\usart6.h
-.\objects\judgingsystemtask.o: .\BSP\usart7.h
+.\objects\judgingsystemtask.o: .\BSP\usart2.h
 .\objects\judgingsystemtask.o: .\BSP\gun.h
 .\objects\judgingsystemtask.o: .\BSP\adc.h
 .\objects\judgingsystemtask.o: .\TASK\CanBusTask.h

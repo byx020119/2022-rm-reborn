@@ -56,7 +56,7 @@
 .\objects\doget_state.o: .\BSP\usart1.h
 .\objects\doget_state.o: .\BSP\usart3.h
 .\objects\doget_state.o: .\BSP\usart6.h
-.\objects\doget_state.o: .\BSP\usart7.h
+.\objects\doget_state.o: .\BSP\usart2.h
 .\objects\doget_state.o: .\BSP\gun.h
 .\objects\doget_state.o: .\BSP\adc.h
 .\objects\doget_state.o: .\TASK\CanBusTask.h

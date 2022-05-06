@@ -1,21 +1,8 @@
 #include "main.h"
 #include "JudgingSystemTask.h"
-#include "stm32f4xx.h"                  // Device header
-#include "usart7.h"
 
-//C 板
-//USART6_RX接PG9--->DMA2数据流2通道5  A C板均为此端口
-//USART6_TX-PG14        A C板均为此端口
-//串口6裁判系统
+//USART2_RX接PA2--->DMA2数据流2通道4
 
-//A 板
-//USART2_RX接PD6--->DMA2数据流2通道5  
-//USART2_TX-PD5        
-//串口二是裁判系统
-
-
-//2022改为串口7-UART7 PE7,PE8
-//
 
 #if 1
 #pragma import(__use_no_semihosting)             
@@ -34,14 +21,14 @@ void _sys_exit(int x)
 //重定义fputc函数 
 int fputc(int ch, FILE *f)
 { 	
-	while((UART7->SR&0X40)==0);//循环发送,直到发送完毕   
-	UART7->DR = (u8) ch;      
+	while((USART2->SR&0X40)==0);//循环发送,直到发送完毕   
+	USART2->DR = (u8) ch;      
 	return ch;
 }
 #endif
 
 
-uint8_t UART7_DMA1_RX_BUF[2][UART7_DMA1_RX_BUF_LEN]; //2行LEN列
+uint8_t USART2_DMA1_RX_BUF[2][USART2_DMA1_RX_BUF_LEN];
 
 uint8_t CRC8_Ref_Value;
 uint8_t CRC8_Solve_Value;
@@ -53,31 +40,31 @@ uint16_t data_Length;
 uint16_t Tail_Over_Zero_Value =0;   //尾指针通过零点
 uint16_t Head_Over_Zero_Value =0;   //头指针通过零点
 
-uint32_t uart7_this_time_rx_len = 0;
+uint32_t usart2_this_time_rx_len = 0;
 
-void usart7_Init(u32 bound)
+void usart2_Init(u32 bound)
 {
 	/* -------------- Enable Module Clock Source ----------------------------*/
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE); 
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE); 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART7, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
 	/* -------------- Configure GPIO & USART2 -------------------------------*/
 	{
 		GPIO_InitTypeDef gpio;
 		USART_InitTypeDef usart;
 		DMA_InitTypeDef dma;
 		
-		GPIO_PinAFConfig(GPIOE, GPIO_PinSource7, GPIO_AF_UART7);
-		GPIO_PinAFConfig(GPIOE, GPIO_PinSource8, GPIO_AF_UART7);
+		GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_USART2);
+		GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_USART2);
 		
 		GPIO_StructInit(&gpio);
-		gpio.GPIO_Pin = GPIO_Pin_7|GPIO_Pin_8;
+		gpio.GPIO_Pin = GPIO_Pin_5|GPIO_Pin_6;
 		gpio.GPIO_Mode = GPIO_Mode_AF;
 		gpio.GPIO_Speed = GPIO_Speed_50MHz;
 		gpio.GPIO_PuPd = GPIO_OType_PP;
-		GPIO_Init(GPIOE, &gpio);
+		GPIO_Init(GPIOD, &gpio);
 		
-		USART_DeInit(UART7);
+		USART_DeInit(USART2);
 		USART_StructInit(&usart);
 		usart.USART_BaudRate =bound;
 		usart.USART_WordLength = USART_WordLength_8b;
@@ -85,24 +72,24 @@ void usart7_Init(u32 bound)
 		usart.USART_Parity = USART_Parity_No;//USART_Parity_Even;
 		usart.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 		usart.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-		USART_Init(UART7, &usart);
+		USART_Init(USART2, &usart);
 		
-		USART_DMACmd(UART7, USART_DMAReq_Rx, ENABLE);
-		USART_ITConfig(UART7, USART_IT_IDLE, ENABLE);        //usart rx idle interrupt  enabled;IDLE是串口空闲中断
+		USART_DMACmd(USART2, USART_DMAReq_Rx, ENABLE);
+		USART_ITConfig(USART2, USART_IT_IDLE, ENABLE);        //usart rx idle interrupt  enabled;IDLE是串口空闲中断
 //		USART_ITConfig(USART2, USART_IT_TC, ENABLE);
-		USART_Cmd(UART7, ENABLE);
+		USART_Cmd(USART2, ENABLE);
 	}
-	/* -------------- Configure DMA1_Stream3_ch4 --------------------------------*/
+	/* -------------- Configure DMA1_Stream5_ch4 --------------------------------*/
 	{
 		DMA_InitTypeDef dma;
 		
-		DMA_DeInit(DMA1_Stream3);
+		DMA_DeInit(DMA1_Stream5);
 		DMA_StructInit(&dma);
-		dma.DMA_Channel = DMA_Channel_5;
-		dma.DMA_PeripheralBaseAddr = (uint32_t)(&UART7->DR);
-		dma.DMA_Memory0BaseAddr = (uint32_t)&UART7_DMA1_RX_BUF[0][0];
+		dma.DMA_Channel = DMA_Channel_4;
+		dma.DMA_PeripheralBaseAddr = (uint32_t)(&USART2->DR);
+		dma.DMA_Memory0BaseAddr = (uint32_t)&USART2_DMA1_RX_BUF[0][0];
 		dma.DMA_DIR = DMA_DIR_PeripheralToMemory;
-		dma.DMA_BufferSize = sizeof(UART7_DMA1_RX_BUF)/2;  //表示这个数组总的大小，除以2表示每次传输的数量是这个数组大小的一半，即USART2_DMA1_RX_BUF[0]或者USART2_DMA1_RX_BUF[1]的大小
+		dma.DMA_BufferSize = sizeof(USART2_DMA1_RX_BUF)/2;  //sizeof(USART2_DMA1_RX_BUF)表示这个数组总的大小，除以2表示每次传输的数量是这个数组大小的一半，即USART2_DMA1_RX_BUF[0]或者USART2_DMA1_RX_BUF[1]的大小
 		                                                    //相当于设置NDTR(每次传输的数据量)的值
 		dma.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
 		dma.DMA_MemoryInc = DMA_MemoryInc_Enable;
@@ -116,19 +103,19 @@ void usart7_Init(u32 bound)
 		dma.DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull;
 		dma.DMA_MemoryBurst = DMA_MemoryBurst_Single;
 		dma.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-		DMA_Init(DMA1_Stream3, &dma);
+		DMA_Init(DMA1_Stream5, &dma);
 		
 		//配置Memory1,Memory0是第一个使用的Memory
 		//下面的两句是开启双缓存模式
-		DMA_DoubleBufferModeConfig(DMA1_Stream3, (uint32_t)&UART7_DMA1_RX_BUF[1][0], DMA_Memory_0);   //first used memory configuration
-		DMA_DoubleBufferModeCmd(DMA1_Stream3, ENABLE);
+		DMA_DoubleBufferModeConfig(DMA1_Stream5, (uint32_t)&USART2_DMA1_RX_BUF[1][0], DMA_Memory_0);   //first used memory configuration
+		DMA_DoubleBufferModeCmd(DMA1_Stream5, ENABLE);
 		
-		DMA_Cmd(DMA1_Stream3, ENABLE);
+		DMA_Cmd(DMA1_Stream5, ENABLE);
 	}
 	/* -------------- Configure NVIC ----------------------------------------*/
 	{
 		NVIC_InitTypeDef nvic;
-		nvic.NVIC_IRQChannel = UART7_IRQn;                          
+		nvic.NVIC_IRQChannel = USART2_IRQn;                          
 		nvic.NVIC_IRQChannelPreemptionPriority = 0;   //pre-emption priority 
 		nvic.NVIC_IRQChannelSubPriority = 3;		    //subpriority 
 		nvic.NVIC_IRQChannelCmd = ENABLE;			
@@ -138,43 +125,42 @@ void usart7_Init(u32 bound)
 
 
 
-void UART7_IRQHandler(void)
+void USART2_IRQHandler(void)
 {
 	int i,j;
-	if(USART_GetITStatus(UART7, USART_IT_IDLE) != RESET)       //USART的IDLE中断;IDLE是空闲中断
+	if(USART_GetITStatus(USART2, USART_IT_IDLE) != RESET)       //USART的IDLE中断;IDLE是空闲中断
 	{
 		//clear the idle pending flag                             //清空IDLE标志位
-		(void)UART7->SR;
-		(void)UART7->DR;
+		(void)USART2->SR;
+		(void)USART2->DR;
 
 		//Target is Memory0
-		if(DMA_GetCurrentMemoryTarget(DMA1_Stream3) == 0)         //DMA_GetCurrentMemoryTarget():得到当前DMA的内存地址是0还是1
+		if(DMA_GetCurrentMemoryTarget(DMA1_Stream5) == 0)         //DMA_GetCurrentMemoryTarget():得到当前DMA的内存地址是0还是1
 		{
-			DMA_Cmd(DMA1_Stream3, DISABLE);
-			uart7_this_time_rx_len = UART7_DMA1_RX_BUF_LEN - DMA_GetCurrDataCounter(DMA1_Stream3);//判断0传输情况，已传输数量
-			DMA1_Stream3->NDTR = (uint16_t)UART7_DMA1_RX_BUF_LEN;         //设定1传输量
-			DMA1_Stream3->CR |= (uint32_t)(DMA_SxCR_CT);                  //使能1传输
-			DMA_Cmd(DMA1_Stream3, ENABLE);
+			DMA_Cmd(DMA1_Stream5, DISABLE);
+			usart2_this_time_rx_len = USART2_DMA1_RX_BUF_LEN - DMA_GetCurrDataCounter(DMA1_Stream5);//判断0传输情况，已传输数量
+			DMA1_Stream5->NDTR = (uint16_t)USART2_DMA1_RX_BUF_LEN;         //设定1传输量
+			DMA1_Stream5->CR |= (uint32_t)(DMA_SxCR_CT);                  //使能1传输
+			DMA_Cmd(DMA1_Stream5, ENABLE);
 			
-			for(i=0;i<uart7_this_time_rx_len;i++)
+			for(i=0;i<usart2_this_time_rx_len;i++)
 			{
-				RingBuffer_Write(UART7_DMA1_RX_BUF[0][i]);
+				RingBuffer_Write(USART2_DMA1_RX_BUF[0][i]);
 			}
 		}
 		else //Target is Memory1
 		{
-			DMA_Cmd(DMA1_Stream3, DISABLE);
-			uart7_this_time_rx_len = UART7_DMA1_RX_BUF_LEN - DMA_GetCurrDataCounter(DMA1_Stream3);
-			DMA1_Stream3->NDTR = (uint16_t)UART7_DMA1_RX_BUF_LEN;      //relocate the dma memory pointer to the beginning position
-			DMA1_Stream3->CR &= ~(uint32_t)(DMA_SxCR_CT);                  //enable the current selected memory is Memory 0
-			DMA_Cmd(DMA1_Stream3, ENABLE);
+			DMA_Cmd(DMA1_Stream5, DISABLE);
+			usart2_this_time_rx_len = USART2_DMA1_RX_BUF_LEN - DMA_GetCurrDataCounter(DMA1_Stream5);
+			DMA1_Stream5->NDTR = (uint16_t)USART2_DMA1_RX_BUF_LEN;      //relocate the dma memory pointer to the beginning position
+			DMA1_Stream5->CR &= ~(uint32_t)(DMA_SxCR_CT);                  //enable the current selected memory is Memory 0
+			DMA_Cmd(DMA1_Stream5, ENABLE);
 			
-			for(i=0;i<uart7_this_time_rx_len;i++)
+			for(i=0;i<usart2_this_time_rx_len;i++)
 			{
-				RingBuffer_Write(UART7_DMA1_RX_BUF[1][i]);
+				RingBuffer_Write(USART2_DMA1_RX_BUF[1][i]);
 			}
 		}
-		
 		while(buffer.tailPosition!=buffer.headPosition)
 		{
 			if(buffer.tailPosition-buffer.headPosition>=0) 

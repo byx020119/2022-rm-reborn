@@ -2,11 +2,21 @@
 #include "usart6.h"
 
 //串口六是陀螺仪
+
+
+/***
+
+函数：usart6_Init(bound)
+功能：配置USART6
+备注：USART6_TX--->PC6(self) 
+      USART6_RX--->PC7(self)
+      可向外打印数据
+***/
 static uint8_t IMU_DMA_RX_BUF[2][IMU_DMA_RX_BUF_LEN];
 void USART6_Configuration(void)
 {
 	/* -------------- Enable Module Clock Source ----------------------------*/
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG,ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC,ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6,ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
 	/* -------------- Configure GPIO & USART6 -------------------------------*/
@@ -14,15 +24,15 @@ void USART6_Configuration(void)
 		GPIO_InitTypeDef  gpio;
     USART_InitTypeDef usart;
 		
-    GPIO_PinAFConfig(GPIOG,GPIO_PinSource9,GPIO_AF_USART6);
-    GPIO_PinAFConfig(GPIOG,GPIO_PinSource7,GPIO_AF_USART6); 
+    GPIO_PinAFConfig(GPIOC,GPIO_PinSource6,GPIO_AF_USART6);
+    GPIO_PinAFConfig(GPIOC,GPIO_PinSource7,GPIO_AF_USART6); 
 	
-    gpio.GPIO_Pin = GPIO_Pin_9;// | GPIO_Pin_7;
+    gpio.GPIO_Pin = GPIO_Pin_7 ;//| GPIO_Pin_6;
     gpio.GPIO_Mode = GPIO_Mode_AF;
     gpio.GPIO_OType = GPIO_OType_PP;
     gpio.GPIO_Speed = GPIO_Speed_100MHz;
     gpio.GPIO_PuPd = GPIO_PuPd_NOPULL;
-    GPIO_Init(GPIOG,&gpio);
+    GPIO_Init(GPIOC,&gpio);
 	
     usart.USART_BaudRate = 115200;
     usart.USART_WordLength = USART_WordLength_8b;

@@ -50,7 +50,7 @@
 .\objects\stm32f4xx_it.o: .\BSP\usart1.h
 .\objects\stm32f4xx_it.o: .\BSP\usart3.h
 .\objects\stm32f4xx_it.o: .\BSP\usart6.h
-.\objects\stm32f4xx_it.o: .\BSP\usart7.h
+.\objects\stm32f4xx_it.o: .\BSP\usart2.h
 .\objects\stm32f4xx_it.o: .\BSP\gun.h
 .\objects\stm32f4xx_it.o: .\BSP\adc.h
 .\objects\stm32f4xx_it.o: .\TASK\CanBusTask.h

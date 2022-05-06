@@ -1,6 +1,7 @@
 #ifndef __USART2_H__
 #define __USART2_H__
-#include "main.h"
+#include <stm32f4xx.h>
+
 #define USART2_MAX_RECV_LEN		400					//最大接收缓存字节数
 #define USART2_MAX_SEND_LEN		400					//最大发送缓存字节数
 

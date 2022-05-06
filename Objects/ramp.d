@@ -49,7 +49,7 @@
 .\objects\ramp.o: .\BSP\usart1.h
 .\objects\ramp.o: .\BSP\usart3.h
 .\objects\ramp.o: .\BSP\usart6.h
-.\objects\ramp.o: .\BSP\usart7.h
+.\objects\ramp.o: .\BSP\usart2.h
 .\objects\ramp.o: .\BSP\gun.h
 .\objects\ramp.o: .\BSP\adc.h
 .\objects\ramp.o: .\TASK\CanBusTask.h

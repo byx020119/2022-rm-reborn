@@ -4,8 +4,8 @@
 /***
 函数：CAN2_Configuration()
 功能：配置CAN2（波轮电机）
-备注：CAN2_RX--->PB12 A 板 C板为PB5
-      CAN2_TX--->PB13  A 板 C板为PB6
+备注：CAN2_RX--->PB12 A 板/self C板为PB5
+      CAN2_TX--->PB13  A 板/self C板为PB6
 ***/
 
 void CAN2_Configuration(void)

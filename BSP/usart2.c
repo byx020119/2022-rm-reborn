@@ -1,8 +1,21 @@
 #include "main.h"
 #include "JudgingSystemTask.h"
+#include "stm32f4xx.h"                  // Device header
+#include "usart2.h"
 
-//USART2_RX接PA2--->DMA2数据流2通道4
+//C 板
+//USART6_RX接PG9--->DMA2数据流2通道5  A C板均为此端口
+//USART6_TX-PG14        A C板均为此端口
+//串口6裁判系统
 
+//A 板
+//USART2_RX接PD6--->DMA2数据流2通道5  
+//USART2_TX-PD5        
+//串口二是裁判系统
+
+
+//2022改为串口7-UART7 PE7,PE8
+//2022改为串口2-USART2 PA2,PA3
 
 #if 1
 #pragma import(__use_no_semihosting)             
@@ -28,7 +41,7 @@ int fputc(int ch, FILE *f)
 #endif
 
 
-uint8_t USART2_DMA1_RX_BUF[2][USART2_DMA1_RX_BUF_LEN];
+uint8_t USART2_DMA1_RX_BUF[2][USART2_DMA1_RX_BUF_LEN]; //2行LEN列
 
 uint8_t CRC8_Ref_Value;
 uint8_t CRC8_Solve_Value;
@@ -45,7 +58,7 @@ uint32_t usart2_this_time_rx_len = 0;
 void usart2_Init(u32 bound)
 {
 	/* -------------- Enable Module Clock Source ----------------------------*/
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE); 
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
 	/* -------------- Configure GPIO & USART2 -------------------------------*/
@@ -54,15 +67,15 @@ void usart2_Init(u32 bound)
 		USART_InitTypeDef usart;
 		DMA_InitTypeDef dma;
 		
-		GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_USART2);
-		GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_USART2);
+		GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
+		GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2);
 		
 		GPIO_StructInit(&gpio);
-		gpio.GPIO_Pin = GPIO_Pin_5|GPIO_Pin_6;
+		gpio.GPIO_Pin = GPIO_Pin_7|GPIO_Pin_8;
 		gpio.GPIO_Mode = GPIO_Mode_AF;
 		gpio.GPIO_Speed = GPIO_Speed_50MHz;
 		gpio.GPIO_PuPd = GPIO_OType_PP;
-		GPIO_Init(GPIOD, &gpio);
+		GPIO_Init(GPIOA, &gpio);
 		
 		USART_DeInit(USART2);
 		USART_StructInit(&usart);
@@ -89,7 +102,7 @@ void usart2_Init(u32 bound)
 		dma.DMA_PeripheralBaseAddr = (uint32_t)(&USART2->DR);
 		dma.DMA_Memory0BaseAddr = (uint32_t)&USART2_DMA1_RX_BUF[0][0];
 		dma.DMA_DIR = DMA_DIR_PeripheralToMemory;
-		dma.DMA_BufferSize = sizeof(USART2_DMA1_RX_BUF)/2;  //sizeof(USART2_DMA1_RX_BUF)表示这个数组总的大小，除以2表示每次传输的数量是这个数组大小的一半，即USART2_DMA1_RX_BUF[0]或者USART2_DMA1_RX_BUF[1]的大小
+		dma.DMA_BufferSize = sizeof(USART2_DMA1_RX_BUF)/2;  //表示这个数组总的大小，除以2表示每次传输的数量是这个数组大小的一半，即USART2_DMA1_RX_BUF[0]或者USART2_DMA1_RX_BUF[1]的大小
 		                                                    //相当于设置NDTR(每次传输的数据量)的值
 		dma.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
 		dma.DMA_MemoryInc = DMA_MemoryInc_Enable;
@@ -161,6 +174,7 @@ void USART2_IRQHandler(void)
 				RingBuffer_Write(USART2_DMA1_RX_BUF[1][i]);
 			}
 		}
+		
 		while(buffer.tailPosition!=buffer.headPosition)
 		{
 			if(buffer.tailPosition-buffer.headPosition>=0) 

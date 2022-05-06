@@ -49,7 +49,7 @@
 .\objects\shootingtask.o: .\BSP\usart1.h
 .\objects\shootingtask.o: .\BSP\usart3.h
 .\objects\shootingtask.o: .\BSP\usart6.h
-.\objects\shootingtask.o: .\BSP\usart7.h
+.\objects\shootingtask.o: .\BSP\usart2.h
 .\objects\shootingtask.o: .\BSP\gun.h
 .\objects\shootingtask.o: .\BSP\adc.h
 .\objects\shootingtask.o: .\TASK\CanBusTask.h
