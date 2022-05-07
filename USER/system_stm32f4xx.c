@@ -313,10 +313,10 @@
 /************************* PLL Parameters *************************************/
 #if defined (STM32F40_41xxx) || defined (STM32F427_437xx) || defined (STM32F429_439xx) || defined (STM32F401xx)
 /* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_M) * PLL_N */
-#define PLL_M      12
+#define PLL_M      8
 #else /* STM32F411xE */
 #if defined (USE_HSE_BYPASS)
-#define PLL_M      8   
+#define PLL_M      8    
 #else /* STM32F411xE */   
 #define PLL_M      16
 #endif /* USE_HSE_BYPASS */
@@ -332,7 +332,7 @@
 #endif /* STM32F40_41xxx */
 
 #if defined (STM32F427_437xx) || defined (STM32F429_439xx)
-#define PLL_N      336//168hz,,360--180hz
+#define PLL_N      360
 /* SYSCLK = PLL_VCO / PLL_P */
 #define PLL_P      2
 #endif /* STM32F427_437x || STM32F429_439xx */
