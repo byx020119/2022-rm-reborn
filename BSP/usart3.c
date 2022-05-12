@@ -96,6 +96,8 @@ double z =0.0f;
 
 
 
+
+
 /***
 C 板
 函数：usart1_Init(bound)
@@ -351,7 +353,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 	  CameraDetectTarget_Flag =1;	
 		CR_ringBuffer.lost_COUNT =0;	
 		
-	  if(RC_CtrlData.rc.s1==3)//  if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4游戏开始，且识别到，开波轮
+	  if(RC_CtrlData.rc.s1==3&&senddata_flag==1)//  if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4游戏开始，且识别到，开波轮
 	  {
 		  TempShootingFlag=1;//发弹标志位
 	  }
@@ -474,4 +476,18 @@ uint16_t filter(uint16_t *distance_buf)//滤波其实视觉做了
 	}
 	
 	return (int)(distance_buf[Dis_buf_Size/2]);
+}
+/***
+函数: senddata_control()
+功能：妙算数据发送控制
+备注：无
+***/
+void senddata_control(int flag){
+	if(flag==0){
+			senddata_flag=0;
+	}
+	else{
+			senddata_flag=1;
+	}
+	
 }

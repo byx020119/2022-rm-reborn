@@ -24,6 +24,7 @@ extern Time_Count shot_frequency_limt;
 extern Time_Count Remote_microsecond;
 extern Time_Count usart3_microsecond;
 extern Time_Count mpu6050_micrsecond;
+extern int senddata_flag;  
 
 void TIM2_Configuration(void);
 uint32_t Get_Time_Micros(void);

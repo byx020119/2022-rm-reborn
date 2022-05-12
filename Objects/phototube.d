@@ -71,3 +71,4 @@
 .\objects\phototube.o: .\COMMON\common.h
 .\objects\phototube.o: .\COMMON\crc.h
 .\objects\phototube.o: .\COMMON\kalman.h
+.\objects\phototube.o: .\BSP\usart3.h

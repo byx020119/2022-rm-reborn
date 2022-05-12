@@ -1,4 +1,5 @@
 #include "main.h"
+#include "WorkState.h"
 
 Time_Count system_micrsecond	 		=	TIME_COUNT_INIT;   //系统时间 单位us
 Time_Count shot_frequency_limt 		= TIME_COUNT_INIT;   //发射机构频率控制时间 单位us
@@ -7,6 +8,8 @@ Time_Count usart3_microsecond     = TIME_COUNT_INIT;   //妙算相邻两次发数时间差
 Time_Count mpu6050_micrsecond 		= TIME_COUNT_INIT;   //mpu6050监控系统时间 单位us
 int time_testtt=0;
 int time_test2=0;
+int senddata_flag=0;                   //2022加 视觉发数标志
+int sendcount=0;
 /***
 函数：TIM2_Configuration()
 功能：使能TIM2，作为系统时钟
@@ -107,7 +110,7 @@ void TIM3_Configuration(void)
   {
 		TIM_TimeBaseInitTypeDef tim;
     
-    tim.TIM_Period = 3000-1;//1ms发送一次
+    tim.TIM_Period = 3000-1;//3ms发送一次
     tim.TIM_Prescaler = 84 - 1;	 //1M 的时钟 ;1us记一个数
     tim.TIM_ClockDivision = TIM_CKD_DIV1;	
     tim.TIM_CounterMode = TIM_CounterMode_Up;  
@@ -145,7 +148,19 @@ void TIM3_IRQHandler(void)
 		TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
 		TIM_ClearFlag(TIM3, TIM_FLAG_Update);
 		
-		Sendtosightway(12);	
-		time_test2++;
+		if(senddata_flag==1){//标志位为0不发数
+			Sendtosightway(12);	
+
+		}
+		else if(senddata_flag==0&&(workState != Dodeg_STATE)){//标志位为0延迟发数
+			sendcount++;
+			if(sendcount==400){
+				senddata_control(1);//恢复发数
+				sendcount=0;
+				time_test2++;//测试变量
+			}
+		}
+		
+		
 	}
 } 

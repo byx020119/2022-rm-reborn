@@ -30,5 +30,6 @@ extern u8 Chassis_Power_On_Flag;
 extern u8 Attacked_Flag;
 extern u8 Freedom_Flag;
 extern uint32_t Dodge_time_count;
+extern WorkState_e workState;
 
 #endif

@@ -1014,6 +1014,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>pitch_err</ItemText>
         </Ww>
+        <Ww>
+          <count>164</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>senddata_flag</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>

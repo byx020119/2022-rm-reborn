@@ -27,6 +27,7 @@ int danliang = 0;
 uint32_t Dodge_time_count = 0;         //2022加躲避模式计时
 
 
+
 /***
 函数：WorkStateFSM()
 功能：控制工作模式
@@ -151,14 +152,15 @@ void WorkStateFSM(void)
 		
 		case Dodeg_STATE:      //躲避状态
 		{	
+	
       if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 0)		//躲避结束，且未识别到目标，进入自由状态
 			{
 				 workState = Freedom_STATE;  
 			}				
-			if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 1)   //进入识别状态
-			{
-				workState = ChariotRecognition_STATE;
-			}
+//			if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 1)   //进入识别状态
+//			{
+//				workState = ChariotRecognition_STATE;
+//			}
 			if(RemoteTest_Flag == 2)   //进入测试状态
 			{
 				workState = Test_STATE;	
@@ -232,14 +234,16 @@ void WorkStateSwitchProcess(void)
 		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
 		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
 		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
+		
 	}
 		/***
 	  状态变化：其他状态变为躲避状态   2022加
-	  操    作：计时标志，到一定时间躲避清零，另一部分在躲避模式
+	  操    作：计时标志，到一定时间躲避清零，另一部分在躲避模式，停止视觉发数
 	  备    注：无
 	***/
 	if((lastWorkState != Dodeg_STATE) && (workState == Dodeg_STATE))  
 	{	
+		senddata_control(0);//停止发数
 		Dodge_time_count = time_tick_2ms;
 	}
 	
@@ -263,6 +267,7 @@ void WorkStateSwitchProcess(void)
 		GMYawRamp.ResetCounter(&GMYawRamp);
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		PitchCurrentPositionSave = - GMPitchEncoder.ecd_angle;
+		
 	}
 		/***
 	  状态变化：其他状态变为停止状态        2022加

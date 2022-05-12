@@ -8,6 +8,7 @@
 #include "Doget_state.h"
 #include "stdlib.h"
 #include "common.h"
+#include "usart3.h"
 
 /***
 光电管的理解
@@ -103,7 +104,12 @@ void Phototube_Handle(void)
 		{
 			Phototube_Left_Flag = 1;//左侧光电管检测到柱子标志
 			Phototube_Time_Count_R=0;
+			senddata_control(0);//换向暂停发数
 		}
+		if(lastPI7_Level==1 && PI7_Level==1){
+			
+		}
+		
 		if(Phototube_Left_Flag == 1)  
 		{
 			Dir_Change_Flag=1;//底盘换向标志
@@ -137,6 +143,10 @@ void Phototube_Handle(void)
 		{
 			Phototube_Right_Flag = 1;//右侧光电管检测到柱子标志1
 			Phototube_Time_Count_L=0;
+			senddata_control(0);//换向暂停发数
+		}
+		if(lastPI6_Level==1 && PI6_Level==1){
+
 		}
 		if(Phototube_Right_Flag == 1)  
 		{

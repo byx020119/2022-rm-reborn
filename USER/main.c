@@ -10,6 +10,6 @@ int main()
 	TIM6_Start();
 	while(1)
 	{
-	delay_us(200);
+		delay_us(200);
 	}
 }

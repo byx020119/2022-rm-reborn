@@ -12,6 +12,7 @@
 uint32_t time_tick_2ms = 0;     //2ms刷新一次，初值为0
 u16 adc_Value = 0;
 
+
 /***
 函数：Control_Task()
 功能：控制环，2ms刷新一次
