@@ -39,9 +39,9 @@ int32_t time_track_left_max = 0;
 int32_t time_track_right = 0;  //跑导轨计时
 int32_t time_track_right_max = 0;
 
-double yaw_ecd_angle_flag = 10;    //-20;    //2022加  自由模式y轴一侧限位值
-double yaw_ecd_angle_flag1 =-110;  //-150    //2022加  自由模式y轴另一侧限位值
-const int chassis_speed = 350;               //2022加 自由模式底盘速度
+double yaw_ecd_angle_flag = -230;    //-20;    //2022加  自由模式y轴一侧限位值
+double yaw_ecd_angle_flag1 = -110;  //-150    //2022加  自由模式y轴另一侧限位值
+const int chassis_speed = 50;               //2022加 自由模式底盘速度
 
 /***
 函数：YawFreeRoation()
@@ -51,11 +51,11 @@ void YawFreeRoation(void)
 {
 	if(GetWorkState()==Freedom_STATE)//粗巡逻状态 自由状态
 	{
-		if(GMPitchEncoder.ecd_angle-30>=0)   //38//35//30
+		if(GMPitchEncoder.ecd_angle - 15 >=0)   //38//35//30
 		{
 		pitch_rotate_flag = 1;   //转向在某个位置，p轴转向标志位1？
 		}
-		if(GMPitchEncoder.ecd_angle-8<=0)//-3
+		if(GMPitchEncoder.ecd_angle + 12 <=0)//-3
 		{
 		pitch_rotate_flag=0;    //转向在某个位置，p轴转向标志位0？
 		}
@@ -73,7 +73,7 @@ void YawFreeRoation(void)
 		
 		if(Freedom_Rotation_flag==0)
 		{
-			if(GMYawEncoder.ecd_angle-yaw_ecd_angle_flag<=0)//Y在一个范围内不断加减，实现转圈 半圈
+			if(GMYawEncoder.ecd_angle+yaw_ecd_angle_flag<=0)//Y在一个范围内不断加减，实现转圈 半圈
 			{
 			Yaw_rotate_flag=1;
 			}
@@ -108,22 +108,21 @@ void YawFreeRoation(void)
 			Attacked_Flag=0;
 		}
 		
-		
-		if(GMPitchEncoder.ecd_angle-30>0)
+		if(GMPitchEncoder.ecd_angle +12 >0)
 		{
 		pitch_rotate_flag=1;
 		}
-		if(GMPitchEncoder.ecd_angle-8<0)
+		if(GMPitchEncoder.ecd_angle - 19<0)
 		{
 		pitch_rotate_flag=0;
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.07f;//点头慢点
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.07f;//点头慢点
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.07f;
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.07f;
 		}
 		
 		

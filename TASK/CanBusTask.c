@@ -2,7 +2,7 @@
 #include "encoder.h"
 
 uint32_t can_count = 0;
-int16_t  pitch_ecd_bias = 1100;//600
+int16_t  pitch_ecd_bias = -3000;//600
 int16_t  yaw_ecd_bias   = 0;
 int16_t  brake_ecd_bias = 0;//有减速比，每次刷新电机圈数清零，无法通过给定值回正，须手动
 
@@ -124,10 +124,12 @@ void CanReceiveMsgProcess(CanRxMsg * msg)
 					Motor_6020_EncoderProcess(&GMPitchEncoder ,msg);
 				}
 			}break;
-			/*case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机
+			
+			case CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID://波轮电机 6
 			{
 				(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
-			}break;*/
+			}break;
+			
 			default:
 			{
 			}
@@ -140,27 +142,27 @@ void CanReceiveMsgProcess1(CanRxMsg * msg)
     can_count++;
 	switch(msg->StdId)
 	{
-		case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机 ID 7
-		{
-			(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
-			break;
-		}
-	  case  CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID://刹车机构 2022加 ID 6
-			{
-				if(can_count<50)
-				{
-					GetEncoderBias(&CM6Encoder ,msg);
-					if(CM6Encoder.ecd_bias-brake_ecd_bias>4096)
-						brake_ecd_bias+=8192;
-					else if(CM6Encoder.ecd_bias-brake_ecd_bias<-4096)
-						brake_ecd_bias-=8192;
-				}
-				else
-				{
-					CM6Encoder.ecd_bias = brake_ecd_bias;
-					Motor_2310_EncoderProcess(&CM6Encoder ,msg);
-				}
-			}break;
+//		case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机 ID 7
+//		{
+//			(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
+//			break;
+//		}
+//	  case  CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID://刹车机构 2022加 ID 6
+//			{
+//				if(can_count<50)
+//				{
+//					GetEncoderBias(&CM6Encoder ,msg);
+//					if(CM6Encoder.ecd_bias-brake_ecd_bias>4096)
+//						brake_ecd_bias+=8192;
+//					else if(CM6Encoder.ecd_bias-brake_ecd_bias<-4096)
+//						brake_ecd_bias-=8192;
+//				}
+//				else
+//				{
+//					CM6Encoder.ecd_bias = brake_ecd_bias;
+//					Motor_2310_EncoderProcess(&CM6Encoder ,msg);
+//				}
+//			}break;
 		case 0x90://板间通信,地址任意,但需要与发送是给定stdid一致
 		{
 			Down_to_Up_Flag(msg);//接受之后对数据的处理
@@ -192,7 +194,7 @@ void Set_CM_Speed(CAN_TypeDef *CANx, int16_t cm1_iq, int16_t cm2_iq,int16_t cm3_
 }
 
 
-void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq,int16_t gimbal_pitch_iq)
+void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq ,int16_t cm7_iq , int16_t gimbal_pitch_iq)
 {
     CanTxMsg tx_message;    
     tx_message.StdId = 0x1FF;
@@ -202,32 +204,32 @@ void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq,int16_t gimbal_
     
     tx_message.Data[0] = (unsigned char)(gimbal_pitch_iq >> 8);
     tx_message.Data[1] = (unsigned char)gimbal_pitch_iq;
-    tx_message.Data[2] = 0xff;
-    tx_message.Data[3] = 0xff;
+    tx_message.Data[2] = (unsigned char)(cm7_iq >> 8);
+    tx_message.Data[3] = (unsigned char)cm7_iq;
     tx_message.Data[4] = (unsigned char)(gimbal_yaw_iq >> 8);//原波轮(unsigned char)(cm7_iq >> 8);
     tx_message.Data[5] = (unsigned char)gimbal_yaw_iq;//原波轮(unsigned char)cm7_iq;
     tx_message.Data[6] = 0xff;
     tx_message.Data[7] = 0xff;
     CAN_Transmit(CANx,&tx_message);
 }
-void Set_Gimbal_Current1(CAN_TypeDef *CANx,int16_t cm6_iq,int16_t cm7_iq)//can2波轮控制
-{
-    CanTxMsg tx_message;    
-    tx_message.StdId = 0x1FF;
-    tx_message.IDE = CAN_Id_Standard;
-    tx_message.RTR = CAN_RTR_Data;
-    tx_message.DLC = 0x08;
-    
-    tx_message.Data[0] = 0xff;
-    tx_message.Data[1] = 0xff;
-    tx_message.Data[2] = (unsigned char)(cm6_iq >> 8);//2022加
-    tx_message.Data[3] = (unsigned char)cm6_iq;//2022加
-    tx_message.Data[4] = (unsigned char)(cm7_iq >> 8);
-    tx_message.Data[5] = (unsigned char)cm7_iq;
-    tx_message.Data[6] = 0xff;
-    tx_message.Data[7] = 0xff;
-    CAN_Transmit(CANx,&tx_message);
-}
+//void Set_Gimbal_Current1(CAN_TypeDef *CANx,int16_t cm7_iq)//can2波轮控制		int16_t cm6_iq,
+//{
+//    CanTxMsg tx_message;    
+//    tx_message.StdId = 0x1FF;
+//    tx_message.IDE = CAN_Id_Standard;
+//    tx_message.RTR = CAN_RTR_Data;
+//    tx_message.DLC = 0x08;
+//    
+//    tx_message.Data[0] = 0xff;
+//    tx_message.Data[1] = 0xff;
+//    tx_message.Data[2] = 0xff;//(unsigned char)(cm6_iq >> 8);//2022加
+//    tx_message.Data[3] = 0xff;//(unsigned char)cm6_iq;//2022加
+//    tx_message.Data[4] = (unsigned char)(cm7_iq >> 8);
+//    tx_message.Data[5] = (unsigned char)cm7_iq;
+//    tx_message.Data[6] = 0xff;
+//    tx_message.Data[7] = 0xff;
+//    CAN_Transmit(CANx,&tx_message);
+//}
 void Set_Gimbal_CALI_STATE(CAN_TypeDef *CANx)
 {
     CanTxMsg tx_message;    

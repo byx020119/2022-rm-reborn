@@ -308,14 +308,14 @@ void Sendtosightway(int value)//与视觉商定
 	int rolltly = (Eular[1]+90)*10;
 	
 //有裁判系统串口线的时候：
-  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
-	{
-	Sendtosight[0]='R';	
-	}
-	if(robotState.robot_id>=101&&robotState.robot_id<=109)
-	{
-	Sendtosight[0]='B';	
-	}
+//  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
+//	{
+//	Sendtosight[0]='R';	
+//	}
+//	if(robotState.robot_id>=101&&robotState.robot_id<=109)
+//	{
+//	Sendtosight[0]='B';	
+//	}
 	
 //	colorflag=PCin(6);
 ////没有的时候：利用开关
@@ -338,7 +338,7 @@ void Sendtosightway(int value)//与视觉商定
 //	Sendtosight[0] ='R';
 //	}
 //	
-	
+	Sendtosight[0]='B';
 	Sendtosight[1]='M';//开始发送
 	Sendtosight[2]='N';
 	Sendtosight[3]='L';

@@ -11,7 +11,6 @@
 /* Gimbal Motor  */
 #define CAN_BUS1_MOTOR5_FEEDBACK_MSG_ID           0x205
 #define CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID           0x206
-
 #define CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID           0x207
 #define RATE_BUF_SIZE 6
 
@@ -52,8 +51,8 @@ extern uint8_t Amor_ID;
 void CanReceiveMsgProcess(CanRxMsg * msg);
 void CanReceiveMsgProcess1(CanRxMsg * msg);
 void Set_CM_Speed(CAN_TypeDef *CANx, int16_t cm1_iq, int16_t cm2_iq,int16_t cm3_iq, int16_t cm4_iq);
-void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq, int16_t gimbal_pitch_iq);
-void Set_Gimbal_Current1(CAN_TypeDef *CANx, int16_t cm6_iq, int16_t cm7_iq);
+void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq,int16_t cm7_iq, int16_t gimbal_pitch_iq );
+//void Set_Gimbal_Current1(CAN_TypeDef *CANx,int16_t cm7_iq);// int16_t cm6_iq, 
 void Set_Gimbal_CALI_STATE(CAN_TypeDef *CANx);
 void Send_Up_to_Down_Message(CAN_TypeDef *CANx,int8_t color_iq, int8_t qianshao_iq ,int8_t recog_iq,int16_t danliang_iq,int8_t doget_iq);
 #endif

@@ -72,7 +72,7 @@ float  sbyaw=0;
 ***/
 void GMPitchControlLoop(void)
 {
-    VAL_LIMIT(GimbalRef.pitch_angle_dynamic_ref , -5, 5);
+    VAL_LIMIT(GimbalRef.pitch_angle_dynamic_ref , -20, 13);
 
 	  //VAL_LIMIT(ChariotRecognition_pitch , -4, 32)//P轴限位95 145
 	
@@ -89,6 +89,7 @@ void GMPitchControlLoop(void)
 	//战车识别状态
   if(GetWorkState() == ChariotRecognition_STATE )
 	{ 
+
 		CR_Pitch_Symbol= ChariotRecognition_pitch/fabs(ChariotRecognition_pitch);
 		
 
@@ -269,7 +270,7 @@ void GMYawControlLoop(void)
 	}
 	
 	GMYSpeedPID.ref = GMYPositionPID.output*0.3;                            //y轴抖动修改系数
-	GMYSpeedPID.fdb = -Gyro[2]/5;//GMYawEncoder.filter_rate;                //y轴抖动修改系数
+	GMYSpeedPID.fdb = -Gyro[2]/5; //GMYawEncoder.filter_rate;               //y轴抖动修改系数
 	GMYSpeedPID.Calc(&GMYSpeedPID);
 //		
 }
@@ -286,7 +287,7 @@ void SetGimbalMotorOutput(void)
 	//云台控制输出								
 	if((GetWorkState() == STOP_STATE))   
 	{
-		Set_Gimbal_Current(CAN1, 0, 0);     //yaw + pitch
+		Set_Gimbal_Current(CAN1, 0, 0, 0);     //yaw + pitch
 	}
 	//识别、躲避
 	
@@ -294,8 +295,8 @@ void SetGimbalMotorOutput(void)
 	else
 	{	
 //		Set_Gimbal_Current(CAN1,2000,3000,(int16_t)(CM7SpeedPID.output));     //yaw + pitch+BoLunMotor	
-  		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(GMPSpeedPID.output));     //yaw + pitch	
-		  Set_Gimbal_Current1(CAN2,0,(int16_t)(CM7SpeedPID.output));   //BoLunMotor + Brake
+  		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(CM7SpeedPID.output), (int16_t)(GMPSpeedPID.output));     //yaw + pitch	
+//		  Set_Gimbal_Current1(CAN2,(int16_t)(CM7SpeedPID.output));   //BoLunMotor + Brake	,0
 
 		//  	  Set_Gimbal_Current(CAN1,0,(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output));    
 //   	  Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),0,(int16_t)(CM7SpeedPID.output));
