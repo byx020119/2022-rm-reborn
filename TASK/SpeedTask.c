@@ -200,7 +200,7 @@ void GMYawControlLoop(void)
 //		GMYPositionPID.fdb = -(1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw)*GMYawRamp.Calc(&GMYawRamp);	
 	
   	GMYPositionPID.ref = -ChariotRecognition_yaw;//-CR_yaw_increment ;
-		GMYPositionPID.fdb = -Angles;//GMYawEncoder.ecd_angle;	
+		GMYPositionPID.fdb = Angles;//GMYawEncoder.ecd_angle;	
 
 		GMYPositionPID.kp = 70+60*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//160+150*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
 		GMYPositionPID.ki = 0.005*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
@@ -270,7 +270,7 @@ void GMYawControlLoop(void)
 	}
 	
 	GMYSpeedPID.ref = GMYPositionPID.output*0.3;                            //y轴抖动修改系数
-	GMYSpeedPID.fdb = -Gyro[2]/5; //GMYawEncoder.filter_rate;               //y轴抖动修改系数
+	GMYSpeedPID.fdb = Gyro[2]/10;//GMYawEncoder.filter_rate;//Gyro[2]/10; //GMYawEncoder.filter_rate;               //y轴抖动修改系数
 	GMYSpeedPID.Calc(&GMYSpeedPID);
 //		
 }

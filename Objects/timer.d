@@ -2,7 +2,7 @@
 .\objects\timer.o: .\USER\main.h
 .\objects\timer.o: .\USER\stm32f4xx.h
 .\objects\timer.o: .\CORE\core_cm4.h
-.\objects\timer.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\timer.o: .\CORE\core_cmInstr.h
 .\objects\timer.o: .\CORE\core_cmFunc.h
 .\objects\timer.o: .\CORE\core_cm4_simd.h
@@ -37,11 +37,11 @@
 .\objects\timer.o: .\STLibraries\inc\stm32f4xx_dma2d.h
 .\objects\timer.o: .\STLibraries\inc\stm32f4xx_fmc.h
 .\objects\timer.o: .\STLibraries\inc\stm32f4xx_sai.h
-.\objects\timer.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\timer.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\timer.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
-.\objects\timer.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\timer.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\timer.o: .\BSP\bsp.h
 .\objects\timer.o: .\BSP\can1.h
 .\objects\timer.o: .\BSP\can2.h
