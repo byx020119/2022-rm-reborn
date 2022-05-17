@@ -36,21 +36,30 @@ void CanReceiveMsgProcess(CanRxMsg * msg)
 				 Chassis_Power_On_Flag = 1;
 				(can_count<=50) ? GetEncoderBias(&CM1Encoder ,msg):Motor_3508_EncoderProcess(&CM1Encoder ,msg);       //获取到编码器的初始偏差值    
 			}break;
+			
 			case CAN_BUS1_MOTOR2_FEEDBACK_MSG_ID:
 			{
 				 Chassis_Power_On_Flag = 1;
 				(can_count<=50) ? GetEncoderBias(&CM2Encoder ,msg):Motor_3508_EncoderProcess(&CM2Encoder ,msg);   //测试用
 			}break;
+			
 			case CAN_BUS1_MOTOR3_FEEDBACK_MSG_ID:
 			{  
 				Chassis_Power_On_Flag = 1;
 				(can_count<=50) ? GetEncoderBias(&CM3Encoder ,msg):Motor_3508_EncoderProcess(&CM3Encoder ,msg);       //获取到编码器的初始偏差值    
 			}break;
+			
 			case CAN_BUS1_MOTOR4_FEEDBACK_MSG_ID:
 			{
 				 Chassis_Power_On_Flag = 1;
 				(can_count<=50) ? GetEncoderBias(&CM4Encoder ,msg):Motor_3508_EncoderProcess(&CM4Encoder ,msg);
 			}break;
+			
+			case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机 ID 7
+			{
+				(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
+				break;
+			}
 			
 			case 0x30:       //左侧光电管数据处理
 		  {
@@ -140,11 +149,11 @@ void CanReceiveMsgProcess1(CanRxMsg * msg)
     can_count++;
 	switch(msg->StdId)
 	{
-		case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机 ID 7
-		{
-			(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
-			break;
-		}
+//		case CAN_BUS1_MOTOR7_FEEDBACK_MSG_ID://波轮电机 ID 7
+//		{
+//			(can_count<=50) ? GetEncoderBias(&CM7Encoder ,msg):Motor_2310_EncoderProcess(&CM7Encoder ,msg);
+//			break;
+//		}
 	  case  CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID://刹车机构 2022加 ID 6
 			{
 				if(can_count<50)
@@ -179,20 +188,20 @@ void Set_CM_Speed(CAN_TypeDef *CANx, int16_t cm1_iq, int16_t cm2_iq,int16_t cm3_
     tx_message.IDE = CAN_Id_Standard;
     tx_message.RTR = CAN_RTR_Data;
     tx_message.DLC = 0x08;
-    
-    tx_message.Data[0] = (uint8_t)(cm1_iq >> 8);
-    tx_message.Data[1] = (uint8_t)cm1_iq;
-    tx_message.Data[2] = (uint8_t)(cm2_iq >> 8);
-    tx_message.Data[3] = (uint8_t)cm2_iq;
-    tx_message.Data[4] = (uint8_t)(cm3_iq >> 8);
-    tx_message.Data[5] = (uint8_t)cm3_iq;
-    tx_message.Data[6] = (uint8_t)(cm4_iq >> 8);
-    tx_message.Data[7] = (uint8_t)cm4_iq;
+    //原本id对位但调飞机时为方便更改
+    tx_message.Data[0] = (uint8_t)(cm3_iq >> 8);//(uint8_t)(cm1_iq >> 8);
+    tx_message.Data[1] = (uint8_t)cm3_iq;//(uint8_t)cm1_iq;
+    tx_message.Data[2] = (uint8_t)(cm4_iq >> 8);//(uint8_t)(cm2_iq >> 8);
+    tx_message.Data[3] = (uint8_t)cm4_iq;//(uint8_t)cm2_iq;
+    tx_message.Data[4] = (uint8_t)(cm1_iq >> 8);//(uint8_t)(cm3_iq >> 8);
+    tx_message.Data[5] = (uint8_t)cm1_iq;//(uint8_t)cm3_iq;
+    tx_message.Data[6] = (uint8_t)(cm2_iq >> 8);//(uint8_t)(cm4_iq >> 8);
+    tx_message.Data[7] = (uint8_t)cm2_iq;//(uint8_t)cm4_iq;
     CAN_Transmit(CANx,&tx_message);
 }
 
 
-void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq,int16_t gimbal_pitch_iq)
+void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq,int16_t gimbal_pitch_iq,int16_t cm7_iq)
 {
     CanTxMsg tx_message;    
     tx_message.StdId = 0x1FF;
@@ -204,8 +213,8 @@ void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq,int16_t gimbal_
     tx_message.Data[1] = (unsigned char)gimbal_pitch_iq;
     tx_message.Data[2] = 0xff;
     tx_message.Data[3] = 0xff;
-    tx_message.Data[4] = 0xff;
-    tx_message.Data[5] = 0xff;
+    tx_message.Data[4] = (unsigned char)(cm7_iq >> 8);//波轮
+    tx_message.Data[5] = (unsigned char)cm7_iq;//波轮
     tx_message.Data[6] = (unsigned char)(gimbal_yaw_iq >> 8);//原波轮(unsigned char)(cm7_iq >> 8);
     tx_message.Data[7] = (unsigned char)gimbal_yaw_iq;//原波轮(unsigned char)cm7_iq;
     CAN_Transmit(CANx,&tx_message);

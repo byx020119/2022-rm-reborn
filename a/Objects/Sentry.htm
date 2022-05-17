@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Sat May 14 17:30:24 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue May 17 20:16:02 2022
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -821,21 +821,22 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
 
-<P><STRONG><a name="[ae]"></a>CanReceiveMsgProcess</STRONG> (Thumb, 438 bytes, Stack size 8 bytes, canbustask.o(i.CanReceiveMsgProcess))
+<P><STRONG><a name="[ae]"></a>CanReceiveMsgProcess</STRONG> (Thumb, 474 bytes, Stack size 8 bytes, canbustask.o(i.CanReceiveMsgProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = CanReceiveMsgProcess &rArr; Motor_6020_EncoderProcess &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_3508_EncoderProcess
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetEncoderBias
 </UL>
 <BR>[Called By]<UL><LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN1_RX0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[af]"></a>CanReceiveMsgProcess1</STRONG> (Thumb, 178 bytes, Stack size 8 bytes, canbustask.o(i.CanReceiveMsgProcess1))
+<P><STRONG><a name="[af]"></a>CanReceiveMsgProcess1</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, canbustask.o(i.CanReceiveMsgProcess1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = CanReceiveMsgProcess1 &rArr; Motor_2310_EncoderProcess &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Up_to_Down_Flag
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetEncoderBias
 </UL>
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_RX0_IRQHandler
@@ -1137,7 +1138,7 @@ Global Symbols
 <P><STRONG><a name="[e]"></a>MemManage_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.MemManage_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
-<P><STRONG><a name="[be]"></a>Motor_2310_EncoderProcess</STRONG> (Thumb, 242 bytes, Stack size 56 bytes, encoder.o(i.Motor_2310_EncoderProcess))
+<P><STRONG><a name="[bd]"></a>Motor_2310_EncoderProcess</STRONG> (Thumb, 242 bytes, Stack size 56 bytes, encoder.o(i.Motor_2310_EncoderProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Motor_2310_EncoderProcess &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1145,7 +1146,8 @@ Global Symbols
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess1
+<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess1
 </UL>
 
 <P><STRONG><a name="[bc]"></a>Motor_3508_EncoderProcess</STRONG> (Thumb, 308 bytes, Stack size 64 bytes, encoder.o(i.Motor_3508_EncoderProcess))
@@ -1160,7 +1162,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CanReceiveMsgProcess
 </UL>
 
-<P><STRONG><a name="[bd]"></a>Motor_6020_EncoderProcess</STRONG> (Thumb, 314 bytes, Stack size 64 bytes, encoder.o(i.Motor_6020_EncoderProcess))
+<P><STRONG><a name="[be]"></a>Motor_6020_EncoderProcess</STRONG> (Thumb, 314 bytes, Stack size 64 bytes, encoder.o(i.Motor_6020_EncoderProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Motor_6020_EncoderProcess &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -1338,7 +1340,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
-<P><STRONG><a name="[d1]"></a>SetGimbalMotorOutput</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, speedtask.o(i.SetGimbalMotorOutput))
+<P><STRONG><a name="[d1]"></a>SetGimbalMotorOutput</STRONG> (Thumb, 144 bytes, Stack size 16 bytes, speedtask.o(i.SetGimbalMotorOutput))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = SetGimbalMotorOutput &rArr; Set_Gimbal_Current1 &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
@@ -1357,7 +1359,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
 </UL>
 
-<P><STRONG><a name="[df]"></a>Set_Gimbal_Current</STRONG> (Thumb, 82 bytes, Stack size 40 bytes, canbustask.o(i.Set_Gimbal_Current))
+<P><STRONG><a name="[df]"></a>Set_Gimbal_Current</STRONG> (Thumb, 92 bytes, Stack size 40 bytes, canbustask.o(i.Set_Gimbal_Current))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Set_Gimbal_Current &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
@@ -2036,9 +2038,9 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_3508_EncoderProcess
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_exp
@@ -2068,9 +2070,9 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateSwitchProcess
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMYawControlLoop
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_3508_EncoderProcess
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_exp
 </UL>
 
@@ -2118,9 +2120,9 @@ Global Symbols
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMYawControlLoop
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_3508_EncoderProcess
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_exp
 </UL>
 
@@ -2164,9 +2166,9 @@ Global Symbols
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMYawControlLoop
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_6020_EncoderProcess
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_3508_EncoderProcess
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_2310_EncoderProcess
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow

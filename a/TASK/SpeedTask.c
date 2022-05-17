@@ -286,7 +286,7 @@ void SetGimbalMotorOutput(void)
 	//云台控制输出								
 	if((GetWorkState() == STOP_STATE))   
 	{
-		Set_Gimbal_Current(CAN1, 0, 0);     //yaw + pitch
+		Set_Gimbal_Current(CAN1, 0, 0, 0);     //yaw + pitch + bolun
 	}
 	//识别、躲避
 	
@@ -294,7 +294,7 @@ void SetGimbalMotorOutput(void)
 	else
 	{	
 //		Set_Gimbal_Current(CAN1,2000,3000,(int16_t)(CM7SpeedPID.output));     //yaw + pitch+BoLunMotor	
-  		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(GMPSpeedPID.output));     //yaw + pitch	
+  		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output));     //yaw + pitch	
 		  Set_Gimbal_Current1(CAN2,0,(int16_t)(CM7SpeedPID.output));   //BoLunMotor + Brake
 
 		//  	  Set_Gimbal_Current(CAN1,0,(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output));    
@@ -419,7 +419,7 @@ void CMControlLoop(void)
 		{ 
 		Set_CM_Speed(CAN1, CM1SpeedPID.output, 0,CM3SpeedPID.output, CM4SpeedPID.output);	
 		}
-		else //自由，测试，躲避，识别，被攻击
+		else  //自由，测试，躲避，识别，被攻击
 		{
 //	Set_CM_Speed(CAN1, 0, 0,CM3SpeedPID.output, CM4SpeedPID.output);		
 		Set_CM_Speed(CAN1, CM1SpeedPID.output, 0,CM3SpeedPID.output, CM4SpeedPID.output);	 		 

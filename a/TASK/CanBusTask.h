@@ -4,10 +4,10 @@
 #include "stm32f4xx_can.h"
 
 /* Chassis Motor */
-#define CAN_BUS1_MOTOR1_FEEDBACK_MSG_ID           0x201
-#define CAN_BUS1_MOTOR2_FEEDBACK_MSG_ID           0x202 
-#define CAN_BUS1_MOTOR3_FEEDBACK_MSG_ID           0x203
-#define CAN_BUS1_MOTOR4_FEEDBACK_MSG_ID           0x204 
+#define CAN_BUS1_MOTOR1_FEEDBACK_MSG_ID           0x203//为飞机更改，调其他时更改回来
+#define CAN_BUS1_MOTOR2_FEEDBACK_MSG_ID           0x204
+#define CAN_BUS1_MOTOR3_FEEDBACK_MSG_ID           0x201//0x203 为飞机更改
+#define CAN_BUS1_MOTOR4_FEEDBACK_MSG_ID           0x202//0x204 为飞机更改
 /* Gimbal Motor  */
 #define CAN_BUS1_MOTOR5_FEEDBACK_MSG_ID           0x205
 #define CAN_BUS1_MOTOR6_FEEDBACK_MSG_ID           0x206
@@ -52,7 +52,7 @@ extern uint8_t Amor_ID;
 void CanReceiveMsgProcess(CanRxMsg * msg);
 void CanReceiveMsgProcess1(CanRxMsg * msg);
 void Set_CM_Speed(CAN_TypeDef *CANx, int16_t cm1_iq, int16_t cm2_iq,int16_t cm3_iq, int16_t cm4_iq);
-void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq, int16_t gimbal_pitch_iq);
+void Set_Gimbal_Current(CAN_TypeDef *CANx, int16_t gimbal_yaw_iq, int16_t gimbal_pitch_iq,int16_t cm7_iq);
 void Set_Gimbal_Current1(CAN_TypeDef *CANx, int16_t cm6_iq, int16_t cm7_iq);
 void Set_Gimbal_CALI_STATE(CAN_TypeDef *CANx);
 void Send_Down_to_Up_Message(CAN_TypeDef *CANx);
