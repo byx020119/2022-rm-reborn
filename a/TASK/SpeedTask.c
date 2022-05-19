@@ -440,27 +440,27 @@ void ShooterMControlLoop(void)
 	CM7PositionPID.ki =	0;//0
 	CM7PositionPID.kd = 0;//0
 	
-	CM7SpeedPID.kp = 60;//50//55//60
+	CM7SpeedPID.kp = 30;//50//55//60
 	CM7SpeedPID.ki = 0;//0
 	CM7SpeedPID.kd = 0;//10//25//20//25
 	
 	//识别模式且s1推到中间打开摩擦轮才会打开波轮
 	if(TempShootingFlag==1)//||(GetWorkState() == ChariotRecognition_STATE&&RC_CtrlData.rc.s1==3))//打开波轮发弹
 	{
-		CM7PositionPID.ref = 60*count_temp;
+		CM7PositionPID.ref = -60*count_temp;
 		CM7PositionPID.fdb = CM7Encoder.ecd_angle;
 		CM7PositionPID.Calc(&CM7PositionPID);
 		
-		CM7SpeedPID.ref = 300;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
+		CM7SpeedPID.ref = -300;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
 	}
 //	//放卡弹
 	if(CM7Encoder.ecd_raw_rate < 10)
 	{ 
-		CM7SpeedPID.ref = -600;
+		CM7SpeedPID.ref = 600;
 	}
 	if(CM7Encoder.ecd_raw_rate < -5 )
 	{			
-		CM7SpeedPID.ref = 300;//
+		CM7SpeedPID.ref = -300;//
 	}
 ////	if(CM7Encoder.ecd_raw_rate<-5 &&)
 //	{
@@ -474,7 +474,7 @@ void ShooterMControlLoop(void)
 		CM7SpeedPID.ref = 0;
 	}
 	
-	CM7SpeedPID.fdb = CM7Encoder.filter_rate;  //CM7SpeedPID.fdb = CM7Encoder.ecd_raw_rate
+	CM7SpeedPID.fdb = CM7Encoder.filter_rate*0.15;  //CM7SpeedPID.fdb = CM7Encoder.ecd_raw_rate
 	CM7SpeedPID.Calc(&CM7SpeedPID);
 	
 //	if(CM7PositionPID.ref-CM7PositionPID.fdb>200)//卡弹反转

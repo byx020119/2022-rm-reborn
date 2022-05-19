@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue May 17 20:16:02 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Thu May 19 09:32:23 2022
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1375,10 +1375,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetGimbalMotorOutput
 </UL>
 
-<P><STRONG><a name="[d0]"></a>ShooterMControlLoop</STRONG> (Thumb, 184 bytes, Stack size 8 bytes, speedtask.o(i.ShooterMControlLoop))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ShooterMControlLoop
+<P><STRONG><a name="[d0]"></a>ShooterMControlLoop</STRONG> (Thumb, 208 bytes, Stack size 16 bytes, speedtask.o(i.ShooterMControlLoop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ShooterMControlLoop &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
@@ -2163,6 +2164,7 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkStateSwitchProcess
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motion_Switch_Doget
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calc
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShooterMControlLoop
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMYawControlLoop
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
