@@ -528,6 +528,11 @@
               <FileType>1</FileType>
               <FilePath>.\TASK\Doget_state.c</FilePath>
             </File>
+            <File>
+              <FileName>RM_Cilent_UI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TASK\RM_Cilent_UI.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -552,6 +557,11 @@
               <FileName>RemoteTask.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\TASK\RemoteTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>InputState.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TASK\InputState.c</FilePath>
             </File>
           </Files>
         </Group>

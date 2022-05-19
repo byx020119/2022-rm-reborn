@@ -5,8 +5,42 @@
 #include "SpeedTask.h"
 #include "WorkState.h"
 #include "ShootingTask.h"
+#include "CanBusTask.h"
+#include "InputState.h"
 
 RC_Ctl_t RC_CtrlData;
+RC_Ctl_t RC_lastCtrlData;
+uint8_t D_Press = 0;
+uint8_t A_Press = 0;
+uint8_t Last_D_Press = 0;
+uint8_t Last_A_Press = 0;
+uint8_t F_Press = 0;
+uint8_t Last_F_Press = 0;
+uint8_t Fric_ON_flag= 0;
+uint8_t Fric_OFF_flag= 0;
+
+uint8_t laser_flag=0;
+uint8_t press_flag=0;
+uint8_t last_press_flag=0;
+uint8_t Auto_Flag=0;
+uint8_t Last_Auto_Flag=0;
+
+double NOW_YAW_ANGLE ;
+double NOW_PITCH_ANGLE ;
+
+double mousexbefore;
+double mousexafter=0;
+double mouseyafter=0;
+#define MOUSE_TO_PITCH_ANGLE_INC_FACT 		0.050f
+#define MOUSE_TO_YAW_ANGLE_INC_FACT 		0.050f
+#define MOUSE_TO_PITCH_SPEED_REF 		5.0f
+#define MOUSE_TO_YAW_SPEED_REF 			5.0f
+
+double MouseKeyX_EncoderFliter(double rawspeed);
+double MouseKeyY_EncoderFliter(double rawspeed);
+static const double fliter_num_10HZ[3] = {1.91119706742607f, -0.914975834801434f, 0.000944691843840151};
+static const double fliter_num_25HZ[3] = {1.77863177782458f, -0.800802646665708f, 0.00554271721028068f};
+static const double fliter_num_50HZ[3] = {1.56101807580072f, -0.641351538057563f, 0.0200833655642112f};
 double pitch_err = 0;//2022加，p轴数据修正,传给视觉的
 int pitch_err_flag = 0;//2022加 p轴数据修正标志位，只有标志位为1或-1且ch0为0时，pitch_err值加或减一个单位
 

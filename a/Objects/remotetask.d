@@ -71,3 +71,4 @@
 .\objects\remotetask.o: .\COMMON\common.h
 .\objects\remotetask.o: .\COMMON\crc.h
 .\objects\remotetask.o: .\COMMON\kalman.h
+.\objects\remotetask.o: TASK\InputState.h
