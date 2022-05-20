@@ -51,6 +51,8 @@
 .\objects\judgingsystemtask.o: .\BSP\usart6.h
 .\objects\judgingsystemtask.o: .\BSP\usart7.h
 .\objects\judgingsystemtask.o: .\BSP\gun.h
+.\objects\judgingsystemtask.o: .\BSP\gpio.h
+.\objects\judgingsystemtask.o: .\USER\main.h
 .\objects\judgingsystemtask.o: .\BSP\adc.h
 .\objects\judgingsystemtask.o: .\TASK\CanBusTask.h
 .\objects\judgingsystemtask.o: .\TASK\encoder.h
@@ -62,7 +64,6 @@
 .\objects\judgingsystemtask.o: .\TASK\RemoteTask.h
 .\objects\judgingsystemtask.o: .\TASK\Freedom_Status.h
 .\objects\judgingsystemtask.o: .\TASK\ShootingTask.h
-.\objects\judgingsystemtask.o: .\USER\main.h
 .\objects\judgingsystemtask.o: .\TASK\JudgingSystemTask.h
 .\objects\judgingsystemtask.o: .\TASK\GunHeartAndBleed.h
 .\objects\judgingsystemtask.o: .\TASK\Phototube.h

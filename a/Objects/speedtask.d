@@ -58,12 +58,13 @@
 .\objects\speedtask.o: .\BSP\usart6.h
 .\objects\speedtask.o: .\BSP\usart7.h
 .\objects\speedtask.o: .\BSP\gun.h
+.\objects\speedtask.o: .\BSP\gpio.h
+.\objects\speedtask.o: .\USER\main.h
 .\objects\speedtask.o: .\BSP\adc.h
 .\objects\speedtask.o: .\TASK\ControlTask.h
 .\objects\speedtask.o: .\TASK\RemoteTask.h
 .\objects\speedtask.o: .\TASK\Freedom_Status.h
 .\objects\speedtask.o: .\TASK\ShootingTask.h
-.\objects\speedtask.o: .\USER\main.h
 .\objects\speedtask.o: .\TASK\JudgingSystemTask.h
 .\objects\speedtask.o: .\TASK\GunHeartAndBleed.h
 .\objects\speedtask.o: .\TASK\Phototube.h

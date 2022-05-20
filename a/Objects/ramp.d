@@ -51,6 +51,8 @@
 .\objects\ramp.o: .\BSP\usart6.h
 .\objects\ramp.o: .\BSP\usart7.h
 .\objects\ramp.o: .\BSP\gun.h
+.\objects\ramp.o: .\BSP\gpio.h
+.\objects\ramp.o: .\USER\main.h
 .\objects\ramp.o: .\BSP\adc.h
 .\objects\ramp.o: .\TASK\CanBusTask.h
 .\objects\ramp.o: .\TASK\encoder.h
@@ -62,7 +64,6 @@
 .\objects\ramp.o: .\TASK\RemoteTask.h
 .\objects\ramp.o: .\TASK\Freedom_Status.h
 .\objects\ramp.o: .\TASK\ShootingTask.h
-.\objects\ramp.o: .\USER\main.h
 .\objects\ramp.o: .\TASK\JudgingSystemTask.h
 .\objects\ramp.o: .\TASK\GunHeartAndBleed.h
 .\objects\ramp.o: .\TASK\Phototube.h

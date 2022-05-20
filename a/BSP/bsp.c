@@ -13,6 +13,7 @@ void BSP_Init(void)
   USART6_Configuration();
 	usart7_Init(115200);            //接收主控传来的数据
 	//PWM_Configuration();            //摩擦轮
-		Phototube_Configuration();
+	Phototube_Configuration();
+	TIM4_PWM_Init();
 
 }

@@ -60,10 +60,11 @@
 .\objects\workstate.o: .\BSP\usart6.h
 .\objects\workstate.o: .\BSP\usart7.h
 .\objects\workstate.o: .\BSP\gun.h
+.\objects\workstate.o: .\BSP\gpio.h
+.\objects\workstate.o: .\USER\main.h
 .\objects\workstate.o: .\BSP\adc.h
 .\objects\workstate.o: .\TASK\RemoteTask.h
 .\objects\workstate.o: .\TASK\ShootingTask.h
-.\objects\workstate.o: .\USER\main.h
 .\objects\workstate.o: .\TASK\JudgingSystemTask.h
 .\objects\workstate.o: .\TASK\GunHeartAndBleed.h
 .\objects\workstate.o: .\TASK\Phototube.h

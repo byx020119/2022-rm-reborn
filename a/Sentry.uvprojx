@@ -444,11 +444,6 @@
               <FilePath>.\BSP\can1.c</FilePath>
             </File>
             <File>
-              <FileName>gun.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\gun.c</FilePath>
-            </File>
-            <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\timer.c</FilePath>
@@ -477,6 +472,11 @@
               <FileName>usart7.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\usart7.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\gpio.c</FilePath>
             </File>
           </Files>
         </Group>

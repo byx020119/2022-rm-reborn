@@ -43,89 +43,114 @@ void WorkStateFSM(void)
 	/////////////////////////////////////
 	
 	lastWorkState = workState;//更新当前工作状态
-	switch(workState)
+		
+//		case Freedom_STATE:     //自由状态，底盘移动，yaw旋转
+//		{	
+////      if( utm123[2] == 1 && danliang >0 )//(danliang >= 300) 上枪识别到，进入识别状态
+////			{
+////				workState = ChariotRecognition_STATE;
+////			}
+//      if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
+//			{
+//				workState = ChariotRecognition_STATE;
+//			}
+//				if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+//			{
+//				workState = STOP_STATE;	
+//			}
+//			if(RemoteTest_Flag == 2)   //遥控器开始测试，进入测试状态
+//			{
+//				workState = Test_STATE;	
+//			}
+//			if(Attacked_Flag == 1)   //巡逻时，装甲被攻击，变为被攻击状态
+//			{
+//				workState = Attacked_STATE;        
+//			}
+//			 if(DodgeTarget_Flag == 1)		//血量减少太快或血量过少，变为躲避状态
+//			{
+//				workState = Dodeg_STATE;  
+//			}			
+//		}break;
+//		
+//		
+//		case Attacked_STATE:    //被攻击状态
+//		{
+//		  if(Attacked_Flag  == 0)		//转向被攻击装甲板过程结束变为自由状态
+//			{
+//				workState = Freedom_STATE;  //自由状态
+//			}		
+//			if(CameraDetectTarget_Flag == 1)   //转向过程中摄像头识别到目标，变为识别状态
+//			{
+//				workState = ChariotRecognition_STATE;
+//			}
+//			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
+//			{
+//				workState = STOP_STATE;
+//			}	
+//			if(DodgeTarget_Flag == 1 || utm123[5] == 1)		//血量减少太快或血量过少，变为躲避状态
+//			{
+//				workState = Dodeg_STATE;  
+//			}	
+//			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+//			{
+//				workState = STOP_STATE;	
+//			}
+
+//		}break;
+		
+	
+		
+//		case Dodeg_STATE:      //躲避状态
+//		{	
+//	
+//      if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 0)		//躲避结束，且未识别到目标，进入自由状态
+//			{
+//				 workState = Freedom_STATE;  
+//			}				
+//			if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 1)   //先进入自由状态恢复发数
+//			{
+//				workState = Freedom_STATE;
+//				CameraDetectTarget_Flag=0;
+//			}
+//			if(RemoteTest_Flag == 2)   //进入测试状态
+//			{
+//				workState = Test_STATE;	
+//			}      
+//			if(RemoteTest_Flag == 0)   //遥控器停止测试
+//			{
+//				workState = STOP_STATE;
+//				DodgeTarget_Flag = 0;
+//			}	
+//		}break;
+			switch(workState)
 	{
 		case PREPARE_STATE://准备状态
 		{		
 			if(time_tick_2ms > PREPARE_TIME_TICK_MS)//准备状态维持2s
 			{
-				workState = Freedom_STATE;//测试躲避状态修改此处为： Dodeg_STATE 自由模式 ：Freedom_STATE;
+				workState = Test_STATE;//测试躲避状态修改此处为： Dodeg_STATE 自由模式 ：Freedom_STATE;
 			}
 				
 		}break;
-		
-		case Freedom_STATE:     //自由状态，底盘移动，yaw旋转
-		{	
-//      if( utm123[2] == 1 && danliang >0 )//(danliang >= 300) 上枪识别到，进入识别状态
-//			{
-//				workState = ChariotRecognition_STATE;
-//			}
-      if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
-			{
-				workState = ChariotRecognition_STATE;
-			}
-				if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
-			{
-				workState = STOP_STATE;	
-			}
-			if(RemoteTest_Flag == 2)   //遥控器开始测试，进入测试状态
-			{
-				workState = Test_STATE;	
-			}
-			if(Attacked_Flag == 1)   //巡逻时，装甲被攻击，变为被攻击状态
-			{
-				workState = Attacked_STATE;        
-			}
-			 if(DodgeTarget_Flag == 1)		//血量减少太快或血量过少，变为躲避状态
-			{
-				workState = Dodeg_STATE;  
-			}			
-		}break;
-		
-		
-		case Attacked_STATE:    //被攻击状态
-		{
-		  if(Attacked_Flag  == 0)		//转向被攻击装甲板过程结束变为自由状态
-			{
-				workState = Freedom_STATE;  //自由状态
-			}		
-			if(CameraDetectTarget_Flag == 1)   //转向过程中摄像头识别到目标，变为识别状态
-			{
-				workState = ChariotRecognition_STATE;
-			}
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
-			{
-				workState = STOP_STATE;
-			}	
-			if(DodgeTarget_Flag == 1 || utm123[5] == 1)		//血量减少太快或血量过少，变为躲避状态
-			{
-				workState = Dodeg_STATE;  
-			}	
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
-			{
-				workState = STOP_STATE;	
-			}
 
-		}break;
-		
-		case Test_STATE:    //遥控器测试状态
+			case Test_STATE:    //遥控器测试状态
 		{
 			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
 			{
 				workState = STOP_STATE;
 			}		
-			if(RemoteTest_Flag == 1)
-			{
-				workState = PREPARE_STATE; //遥控器停止测试，进入准备状态，进而进自由状态
-			}
+//			if(RemoteTest_Flag == 1)
+//			{
+//				workState = PREPARE_STATE; //遥控器停止测试，进入准备状态，进而进自由状态
+//			}
       if(CameraDetectTarget_Flag == 1)   //摄像头识别到目标，变为识别状态
 			{
 				workState = ChariotRecognition_STATE;
 			}			
-			if( (utm123[5] != 1) && (utm123[2] == 1 ) )	// && danliang >= 300
-			{
-				workState = ChariotRecognition_STATE;
-			}	
+//			if( (utm123[5] != 1) && (utm123[2] == 1 ) )	// && danliang >= 300
+//			{
+//				workState = ChariotRecognition_STATE;
+//			}	
 		}break;
 		
 		case ChariotRecognition_STATE:      //战车识别状态
@@ -134,14 +159,14 @@ void WorkStateFSM(void)
 			{
 				workState = STOP_STATE;
 			}	
-			 if(CameraDetectTarget_Flag == 0 && utm123[2] == 0 )   //摄像头未识别到目标，进入自由状态
-			{
-				workState = Freedom_STATE;
-			}	
-			 if(DodgeTarget_Flag == 1)		//血量减少太快，变为躲避状态
-			{
-				workState = Dodeg_STATE;
-			}		
+//			 if(CameraDetectTarget_Flag == 0 && utm123[2] == 0 )   //摄像头未识别到目标，进入自由状态
+//			{
+//				workState = Freedom_STATE;
+//			}	
+//			 if(DodgeTarget_Flag == 1)		//血量减少太快，变为躲避状态
+//			{
+//				workState = Dodeg_STATE;
+//			}		
 			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;
@@ -150,34 +175,9 @@ void WorkStateFSM(void)
 						
 		}break;
 		
-		case Dodeg_STATE:      //躲避状态
-		{	
-	
-      if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 0)		//躲避结束，且未识别到目标，进入自由状态
-			{
-				 workState = Freedom_STATE;  
-			}				
-			if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 1)   //先进入自由状态恢复发数
-			{
-				workState = Freedom_STATE;
-				CameraDetectTarget_Flag=0;
-			}
-			if(RemoteTest_Flag == 2)   //进入测试状态
-			{
-				workState = Test_STATE;	
-			}      
-			if(RemoteTest_Flag == 0)   //遥控器停止测试
-			{
-				workState = STOP_STATE;
-				DodgeTarget_Flag = 0;
-			}	
-		}break;
-		
-		
-		
 		case STOP_STATE:   //停止状态
 		{
-			if(RemoteTest_Flag == 1)
+			if(RemoteTest_Flag == 2)
 			{
 				workState = PREPARE_STATE; 
 			}
@@ -208,55 +208,55 @@ void WorkStateSwitchProcess(void)
 		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变
 		ControtLoopTaskInit();//重新初始化控制环
 	}
-	/***
-	  状态变化：准备状态变为自由状态
-	  操    作：开摩擦轮，不发弹
-	  备    注：无
-	***/
-	if((lastWorkState == PREPARE_STATE) && (workState == Freedom_STATE))  
-	{
-		YawCurrentPositionSave = GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
-		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
-		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
-		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
-		Last_Dodeg_STATE_Change = 0;	
-	}
+//	/***
+//	  状态变化：准备状态变为自由状态
+//	  操    作：开摩擦轮，不发弹
+//	  备    注：无
+//	***/
+//	if((lastWorkState == PREPARE_STATE) && (workState == Freedom_STATE))  
+//	{
+//		YawCurrentPositionSave = GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
+//		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
+//		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
+//		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
+//		Last_Dodeg_STATE_Change = 0;	
+//	}
 	
 
+//	
+//	/***
+//	  状态变化：识别状态变为自由状态
+//	  操    作：
+//	  备    注：无
+//	***/
+//	if((lastWorkState == ChariotRecognition_STATE) && (workState == Freedom_STATE))  
+//	{
+//		YawCurrentPositionSave = GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
+//		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
+//		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
+//		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
+//		
+//	}
+//		/***
+//	  状态变化：其他状态变为躲避状态   2022加
+//	  操    作：计时标志，到一定时间躲避清零，另一部分在躲避模式，停止视觉发数
+//	  备    注：无
+//	***/
+//	if((lastWorkState != Dodeg_STATE) && (workState == Dodeg_STATE))  
+//	{	
+//		senddata_control(0);//停止发数
+//		Dodge_time_count = time_tick_2ms;
+//	}
 	
-	/***
-	  状态变化：识别状态变为自由状态
-	  操    作：
-	  备    注：无
-	***/
-	if((lastWorkState == ChariotRecognition_STATE) && (workState == Freedom_STATE))  
-	{
-		YawCurrentPositionSave = GMYawEncoder.ecd_angle;           //保存当前yaw码盘值
-		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
-		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
-		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
-		
-	}
-		/***
-	  状态变化：其他状态变为躲避状态   2022加
-	  操    作：计时标志，到一定时间躲避清零，另一部分在躲避模式，停止视觉发数
-	  备    注：无
-	***/
-	if((lastWorkState != Dodeg_STATE) && (workState == Dodeg_STATE))  
-	{	
-		senddata_control(0);//停止发数
-		Dodge_time_count = time_tick_2ms;
-	}
-	
-	/***
-	  状态变化: 躲避状态变为自由状态
-	  操    作：
-	  备    注：无
-	***/
-	if((lastWorkState == Dodeg_STATE) && (workState == Freedom_STATE))  
-	{
-		Chassis_Position_Ref = Chassis_Position_Ref/fabs(Chassis_Position_Ref)*10000;
-	}
+//	/***
+//	  状态变化: 躲避状态变为自由状态
+//	  操    作：
+//	  备    注：无
+//	***/
+//	if((lastWorkState == Dodeg_STATE) && (workState == Freedom_STATE))  
+//	{
+//		Chassis_Position_Ref = Chassis_Position_Ref/fabs(Chassis_Position_Ref)*10000;
+//	}
 	/***
 	  状态变化：其他状态变为战车识别状态
 	  操    作：开始发弹，yaw加入斜坡缓慢靠近目标

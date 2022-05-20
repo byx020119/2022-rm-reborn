@@ -57,6 +57,8 @@
 .\objects\remotetask.o: .\BSP\usart6.h
 .\objects\remotetask.o: .\BSP\usart7.h
 .\objects\remotetask.o: .\BSP\gun.h
+.\objects\remotetask.o: .\BSP\gpio.h
+.\objects\remotetask.o: .\USER\main.h
 .\objects\remotetask.o: .\BSP\adc.h
 .\objects\remotetask.o: .\TASK\CanBusTask.h
 .\objects\remotetask.o: .\TASK\encoder.h
@@ -64,7 +66,6 @@
 .\objects\remotetask.o: .\TASK\Freedom_Status.h
 .\objects\remotetask.o: .\TASK\ShootingTask.h
 .\objects\remotetask.o: .\TASK\JudgingSystemTask.h
-.\objects\remotetask.o: .\USER\main.h
 .\objects\remotetask.o: .\TASK\GunHeartAndBleed.h
 .\objects\remotetask.o: .\TASK\Phototube.h
 .\objects\remotetask.o: .\TASK\Doget_state.h

@@ -51,6 +51,8 @@
 .\objects\can1.o: .\BSP\usart6.h
 .\objects\can1.o: .\BSP\usart7.h
 .\objects\can1.o: .\BSP\gun.h
+.\objects\can1.o: .\BSP\gpio.h
+.\objects\can1.o: .\USER\main.h
 .\objects\can1.o: .\BSP\adc.h
 .\objects\can1.o: .\TASK\CanBusTask.h
 .\objects\can1.o: .\TASK\encoder.h
@@ -62,7 +64,6 @@
 .\objects\can1.o: .\TASK\RemoteTask.h
 .\objects\can1.o: .\TASK\Freedom_Status.h
 .\objects\can1.o: .\TASK\ShootingTask.h
-.\objects\can1.o: .\USER\main.h
 .\objects\can1.o: .\TASK\JudgingSystemTask.h
 .\objects\can1.o: .\TASK\GunHeartAndBleed.h
 .\objects\can1.o: .\TASK\Phototube.h

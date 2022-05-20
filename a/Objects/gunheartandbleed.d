@@ -51,6 +51,8 @@
 .\objects\gunheartandbleed.o: .\BSP\usart6.h
 .\objects\gunheartandbleed.o: .\BSP\usart7.h
 .\objects\gunheartandbleed.o: .\BSP\gun.h
+.\objects\gunheartandbleed.o: .\BSP\gpio.h
+.\objects\gunheartandbleed.o: .\USER\main.h
 .\objects\gunheartandbleed.o: .\BSP\adc.h
 .\objects\gunheartandbleed.o: .\TASK\CanBusTask.h
 .\objects\gunheartandbleed.o: .\TASK\encoder.h
@@ -62,7 +64,6 @@
 .\objects\gunheartandbleed.o: .\TASK\RemoteTask.h
 .\objects\gunheartandbleed.o: .\TASK\Freedom_Status.h
 .\objects\gunheartandbleed.o: .\TASK\ShootingTask.h
-.\objects\gunheartandbleed.o: .\USER\main.h
 .\objects\gunheartandbleed.o: .\TASK\JudgingSystemTask.h
 .\objects\gunheartandbleed.o: .\TASK\GunHeartAndBleed.h
 .\objects\gunheartandbleed.o: .\TASK\Phototube.h

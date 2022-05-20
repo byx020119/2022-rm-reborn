@@ -52,6 +52,8 @@
 .\objects\stm32f4xx_it.o: .\BSP\usart6.h
 .\objects\stm32f4xx_it.o: .\BSP\usart7.h
 .\objects\stm32f4xx_it.o: .\BSP\gun.h
+.\objects\stm32f4xx_it.o: .\BSP\gpio.h
+.\objects\stm32f4xx_it.o: .\USER\main.h
 .\objects\stm32f4xx_it.o: .\BSP\adc.h
 .\objects\stm32f4xx_it.o: .\TASK\CanBusTask.h
 .\objects\stm32f4xx_it.o: .\TASK\encoder.h
@@ -63,7 +65,6 @@
 .\objects\stm32f4xx_it.o: .\TASK\RemoteTask.h
 .\objects\stm32f4xx_it.o: .\TASK\Freedom_Status.h
 .\objects\stm32f4xx_it.o: .\TASK\ShootingTask.h
-.\objects\stm32f4xx_it.o: .\USER\main.h
 .\objects\stm32f4xx_it.o: .\TASK\JudgingSystemTask.h
 .\objects\stm32f4xx_it.o: .\TASK\GunHeartAndBleed.h
 .\objects\stm32f4xx_it.o: .\TASK\Phototube.h

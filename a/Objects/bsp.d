@@ -51,6 +51,8 @@
 .\objects\bsp.o: .\BSP\usart6.h
 .\objects\bsp.o: .\BSP\usart7.h
 .\objects\bsp.o: .\BSP\gun.h
+.\objects\bsp.o: .\BSP\gpio.h
+.\objects\bsp.o: .\USER\main.h
 .\objects\bsp.o: .\BSP\adc.h
 .\objects\bsp.o: .\TASK\CanBusTask.h
 .\objects\bsp.o: .\TASK\encoder.h
@@ -62,7 +64,6 @@
 .\objects\bsp.o: .\TASK\RemoteTask.h
 .\objects\bsp.o: .\TASK\Freedom_Status.h
 .\objects\bsp.o: .\TASK\ShootingTask.h
-.\objects\bsp.o: .\USER\main.h
 .\objects\bsp.o: .\TASK\JudgingSystemTask.h
 .\objects\bsp.o: .\TASK\GunHeartAndBleed.h
 .\objects\bsp.o: .\TASK\Phototube.h

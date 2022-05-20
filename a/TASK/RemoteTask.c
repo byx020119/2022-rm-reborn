@@ -136,82 +136,204 @@ void RemoteDataPrcess(uint8_t *pData)
 //		count_temp++;
 //	}
 //	RC_CtrlData.mouse.last_press_l = RC_CtrlData.mouse.press_l;
+	SetInputMode(&RC_CtrlData.rc);
 	
 	if(RC_CtrlData.rc.s2==1)
 	{
 		RemoteTest_Flag = 2;//遥控器S2拨杆拨到1位置时，遥控器标志变为2，与工作状态对应
 	}
 	
-	if(RC_CtrlData.rc.s2==3)
+	if(RC_CtrlData.rc.s2==3)//改为飞机后标志位1用来进入测试状态，故改为2
 	{
-		RemoteTest_Flag = 1;//遥控器打开时，遥控器测试标志变为1。拨杆拨到中间位置
+		RemoteTest_Flag = 2;//遥控器打开时，遥控器测试标志变为2。拨杆拨到中间位置
 	}
 	
 	if(RC_CtrlData.rc.s2==2)
 	{
 		RemoteTest_Flag = 0;//遥控器关闭时，遥控器测试状态变为0。拨杆拨到最下面
-		Brake_flag=0;//刹车回正
+//		Brake_flag=0;//刹车回正
 	}
 
-	
-	
- if(RC_CtrlData.rc.s2==1)//测试状态中，拨杆拨到最上面
- {
+		 //遥控器模式
+	if(GetInputMode() == REMOTE_INPUT ){
 	 
-	 if(RC_CtrlData.rc.s1==3|| RC_CtrlData.rc.s1==1)//打开摩擦轮，1.3
-	 {
+		if(RC_CtrlData.rc.s1==3|| RC_CtrlData.rc.s1==1)//打开摩擦轮，1.3
+		{
 			friction_wheel_state_flag = 1;
-	 }
+		}
 	
 	
- 	 if(RC_CtrlData.rc.s1==2)  //关闭摩擦轮 2 刹车模块置于平衡
-	 {
+		if(RC_CtrlData.rc.s1==2)  //关闭摩擦轮 2 刹车模块置于平衡
+		{
 			friction_wheel_state_flag = 0;
 		  
-	 }  
+		}  
 	
-	 if(RC_CtrlData.rc.s1==1)//打开波轮 1
-	 {
+		if(RC_CtrlData.rc.s1==1)//打开波轮 1
+		{
 			TempShootingFlag=1;
-	 }
+		}
 	
 
-	 if(RC_CtrlData.rc.s1==2||RC_CtrlData.rc.s1==3)//关闭波轮 2.3
-	 {
+		if(RC_CtrlData.rc.s1==2||RC_CtrlData.rc.s1==3)//关闭波轮 2.3
+		{
 		  TempShootingFlag=0;
-	 }
-	 switch(RC_CtrlData.rc.s1)//刹车模块位置测试（方向从板子方向向电池方向看）
-	 {
-		 case 2://(中间)
-		 { 
-			 Brake_flag=0;
-			 break;
-		 }
-		 case 3://（左面）
-		 {			
-			 Brake_flag=-1;
-			 break;
-		 }
-		 case 1://(最右面)
-		 {
-			 Brake_flag=1;
-			 break;
-		 }
-	 }
-	 
-	
+		}
+//	 switch(RC_CtrlData.rc.s1)//刹车模块位置测试（方向从板子方向向电池方向看）
+//	 {
+//		 case 2://(中间)
+//		 { 
+//			 Brake_flag=0;
+//			 break;
+//		 }
+//		 case 3://（左面）
+//		 {			
+//			 Brake_flag=-1;
+//			 break;
+//		 }
+//		 case 1://(最右面)
+//		 {
+//			 Brake_flag=1;
+//			 break;
+//		 }
+//	 }
 }	
- 
- if(RC_CtrlData.rc.s2==3)//准备->自由，之后可进行模式的转换  左边3是自由状态
- {
- 	 if(RC_CtrlData.rc.s1== 2)
-	 {
-//	 Attacked_Flag = 0;
-//   CameraDetectTarget_Flag = 0;
-//	 DodgeTarget_Flag = 0;
-	 }
-	 
- }
+ //键鼠模式
+	else if( GetInputMode() == KEY_MOUSE_INPUT )
+	{
+		//Gun
+		///////////////////////////////////发射///////////////////////////////////////////////////
+//		if(RC_CtrlData.rc.s1==2)  //关闭摩擦轮 2
+//		{
+//				friction_wheel_state_flag = 0;
+//			  TempShootingFlag=0;
+//		}
+//		else 	
+		{
+		//Friction			
+			friction_wheel_state_flag = 1;			
+		 //SHOOTING
+			TempShootingFlag=1;
+	  }
+		 ///////////////////////////////////发射///////////////////////////////////////////////////			
+		//Gimbal
+		///////////////////////////////////云台///////////////////////////////////////////////////
+	{
+		if((RC_CtrlData.key.v & 0x0001)||(RC_CtrlData.key.v & 0x0002))
+		{
+			if(RC_CtrlData.key.v & 0x0001)//定住YAW轴 W
+			{
+			GimbalRef.yaw_angle_dynamic_ref  += 0;
+			GimbalRef.pitch_angle_dynamic_ref += RC_CtrlData.mouse.y* MOUSE_TO_PITCH_ANGLE_INC_FACT;	
+			}
+			
+			if(RC_CtrlData.key.v & 0x0002)//定住PITCH轴 S
+			{
+				GimbalRef.yaw_angle_dynamic_ref  += RC_CtrlData.mouse.x* MOUSE_TO_YAW_ANGLE_INC_FACT;			
+				GimbalRef.pitch_angle_dynamic_ref += 0;
+			}
+		}
+		else
+		{
+			GimbalRef.yaw_angle_dynamic_ref  += RC_CtrlData.mouse.x* MOUSE_TO_YAW_ANGLE_INC_FACT;				
+			GimbalRef.pitch_angle_dynamic_ref += RC_CtrlData.mouse.y* MOUSE_TO_PITCH_ANGLE_INC_FACT;			
+		}
+		
+//		else
+//		{			
+//			mousexbefore=RC_CtrlData.mouse.x;
+//			mousexafter=MouseKeyX_EncoderFliter(RC_CtrlData.mouse.x );
+//			GimbalRef.yaw_angle_dynamic_ref  += mousexafter* MOUSE_TO_YAW_ANGLE_INC_FACT;
+//			
+//			mouseyafter=MouseKeyY_EncoderFliter(RC_CtrlData.mouse.y);
+//			GimbalRef.pitch_angle_dynamic_ref += mouseyafter* MOUSE_TO_PITCH_ANGLE_INC_FACT;		
+//			
+//			NOW_YAW_ANGLE = GMYawEncoder.ecd_angle;
+//			NOW_PITCH_ANGLE = GMPitchEncoder.ecd_angle;
+//		}
+		
+		//自瞄
+		
+		if(RC_CtrlData.mouse.press_r)
+		{
+			Auto_Flag = 1;
+		}
+		else
+		{
+			Auto_Flag = 0;
+		}		
+		Last_Auto_Flag = Auto_Flag;
+	}
+		///////////////////////////////////云台///////////////////////////////////////////////////
+		//激光
+		///////////////////////////////////激光///////////////////////////////////////////////////
+		{
+			if(RC_CtrlData.key.v & 0x0100)//key: r 激光
+			{	
+				press_flag=1;
+			}
+			else 
+			{
+				press_flag=0;
+			}
+			if(press_flag==0 && last_press_flag==1)
+			{
+				if(laser_flag==0)
+				{
+					laser_flag = 1;
+				}
+				else if(laser_flag==1)
+				{
+					laser_flag = 0;
+				}
+			}
+		
+			if(laser_flag == 1)
+			{
+				laser_on();
+			}
+			else if(laser_flag == 0)
+			{
+				laser_off();
+			}
+	
+			last_press_flag = press_flag;
+		}
+		///////////////////////////////////激光///////////////////////////////////////////////////
+	}	
+	//RC_lastCtrlData.mouse.press_r = RC_CtrlData.mouse.press_r;
+}
 
- }
+double MouseKeyX_EncoderFliter(double rawspeed)
+{
+		static double Input3510[3] = {0.0f,0.0f,0.0f};
+		static double Output3510[3] = {0.0f,0.0f,0.0f};
+		
+		Input3510[0] = Input3510[1]; 
+		Input3510[1] = Input3510[2]; 
+		Input3510[2] = rawspeed * fliter_num_50HZ[2];
+		Output3510[0] = Output3510[1]; 
+		Output3510[1] = Output3510[2]; 
+		Output3510[2] = (Input3510[0] + Input3510[2]) + 2 * Input3510[1] + (fliter_num_50HZ[1] * Output3510[0]) + (fliter_num_50HZ[0] * Output3510[1]);
+		return Output3510[2];
+}
+
+double MouseKeyY_EncoderFliter(double rawspeed)
+{
+		static double Input3510[3] = {0.0f,0.0f,0.0f};
+		static double Output3510[3] = {0.0f,0.0f,0.0f};
+		
+		Input3510[0] = Input3510[1]; 
+		Input3510[1] = Input3510[2]; 
+		Input3510[2] = rawspeed * fliter_num_50HZ[2];
+		Output3510[0] = Output3510[1]; 
+		Output3510[1] = Output3510[2]; 
+		Output3510[2] = (Input3510[0] + Input3510[2]) + 2 * Input3510[1] + (fliter_num_50HZ[1] * Output3510[0]) + (fliter_num_50HZ[0] * Output3510[1]);
+		return Output3510[2];
+}
+
+
+ 
+
+ 
  

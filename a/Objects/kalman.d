@@ -51,6 +51,8 @@
 .\objects\kalman.o: .\BSP\usart6.h
 .\objects\kalman.o: .\BSP\usart7.h
 .\objects\kalman.o: .\BSP\gun.h
+.\objects\kalman.o: .\BSP\gpio.h
+.\objects\kalman.o: .\USER\main.h
 .\objects\kalman.o: .\BSP\adc.h
 .\objects\kalman.o: .\TASK\CanBusTask.h
 .\objects\kalman.o: .\TASK\encoder.h
@@ -62,7 +64,6 @@
 .\objects\kalman.o: .\TASK\RemoteTask.h
 .\objects\kalman.o: .\TASK\Freedom_Status.h
 .\objects\kalman.o: .\TASK\ShootingTask.h
-.\objects\kalman.o: .\USER\main.h
 .\objects\kalman.o: .\TASK\JudgingSystemTask.h
 .\objects\kalman.o: .\TASK\GunHeartAndBleed.h
 .\objects\kalman.o: .\TASK\Phototube.h

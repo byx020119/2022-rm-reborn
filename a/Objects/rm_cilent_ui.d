@@ -53,6 +53,8 @@
 .\objects\rm_cilent_ui.o: .\BSP\usart6.h
 .\objects\rm_cilent_ui.o: .\BSP\usart7.h
 .\objects\rm_cilent_ui.o: .\BSP\gun.h
+.\objects\rm_cilent_ui.o: .\BSP\gpio.h
+.\objects\rm_cilent_ui.o: .\USER\main.h
 .\objects\rm_cilent_ui.o: .\BSP\adc.h
 .\objects\rm_cilent_ui.o: .\TASK\CanBusTask.h
 .\objects\rm_cilent_ui.o: .\TASK\encoder.h
@@ -64,7 +66,6 @@
 .\objects\rm_cilent_ui.o: .\TASK\RemoteTask.h
 .\objects\rm_cilent_ui.o: .\TASK\Freedom_Status.h
 .\objects\rm_cilent_ui.o: .\TASK\ShootingTask.h
-.\objects\rm_cilent_ui.o: .\USER\main.h
 .\objects\rm_cilent_ui.o: .\TASK\JudgingSystemTask.h
 .\objects\rm_cilent_ui.o: .\TASK\GunHeartAndBleed.h
 .\objects\rm_cilent_ui.o: .\TASK\Phototube.h

@@ -19,7 +19,7 @@
 #include "usart6.h"
 #include "usart7.h"
 #include "gun.h"
-//#include "usart2.h"
+#include "gpio.h"
 #include "adc.h"
 
 /********TASK*********/

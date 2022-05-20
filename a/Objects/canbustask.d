@@ -51,6 +51,8 @@
 .\objects\canbustask.o: .\BSP\usart6.h
 .\objects\canbustask.o: .\BSP\usart7.h
 .\objects\canbustask.o: .\BSP\gun.h
+.\objects\canbustask.o: .\BSP\gpio.h
+.\objects\canbustask.o: .\USER\main.h
 .\objects\canbustask.o: .\BSP\adc.h
 .\objects\canbustask.o: .\TASK\CanBusTask.h
 .\objects\canbustask.o: .\TASK\encoder.h
@@ -62,7 +64,6 @@
 .\objects\canbustask.o: .\TASK\RemoteTask.h
 .\objects\canbustask.o: .\TASK\Freedom_Status.h
 .\objects\canbustask.o: .\TASK\ShootingTask.h
-.\objects\canbustask.o: .\USER\main.h
 .\objects\canbustask.o: .\TASK\JudgingSystemTask.h
 .\objects\canbustask.o: .\TASK\GunHeartAndBleed.h
 .\objects\canbustask.o: .\TASK\Phototube.h

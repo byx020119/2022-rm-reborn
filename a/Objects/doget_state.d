@@ -58,13 +58,14 @@
 .\objects\doget_state.o: .\BSP\usart6.h
 .\objects\doget_state.o: .\BSP\usart7.h
 .\objects\doget_state.o: .\BSP\gun.h
+.\objects\doget_state.o: .\BSP\gpio.h
+.\objects\doget_state.o: .\USER\main.h
 .\objects\doget_state.o: .\BSP\adc.h
 .\objects\doget_state.o: .\TASK\CanBusTask.h
 .\objects\doget_state.o: .\TASK\encoder.h
 .\objects\doget_state.o: .\TASK\ControlTask.h
 .\objects\doget_state.o: .\TASK\RemoteTask.h
 .\objects\doget_state.o: .\TASK\ShootingTask.h
-.\objects\doget_state.o: .\USER\main.h
 .\objects\doget_state.o: .\TASK\JudgingSystemTask.h
 .\objects\doget_state.o: .\TASK\GunHeartAndBleed.h
 .\objects\doget_state.o: .\TASK\Phototube.h
