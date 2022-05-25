@@ -254,6 +254,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>RC_CtrlData,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>GMYPositionPID</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
