@@ -2,7 +2,7 @@
 .\objects\shootingtask.o: .\USER\main.h
 .\objects\shootingtask.o: .\USER\stm32f4xx.h
 .\objects\shootingtask.o: .\CORE\core_cm4.h
-.\objects\shootingtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\shootingtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\shootingtask.o: .\CORE\core_cmInstr.h
 .\objects\shootingtask.o: .\CORE\core_cmFunc.h
 .\objects\shootingtask.o: .\CORE\core_cm4_simd.h
@@ -37,11 +37,11 @@
 .\objects\shootingtask.o: .\STLibraries\inc\stm32f4xx_dma2d.h
 .\objects\shootingtask.o: .\STLibraries\inc\stm32f4xx_fmc.h
 .\objects\shootingtask.o: .\STLibraries\inc\stm32f4xx_sai.h
-.\objects\shootingtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\shootingtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\shootingtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\shootingtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\shootingtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\shootingtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\shootingtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\shootingtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
+.\objects\shootingtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\shootingtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
 .\objects\shootingtask.o: .\BSP\bsp.h
 .\objects\shootingtask.o: .\BSP\can1.h
 .\objects\shootingtask.o: .\BSP\can2.h

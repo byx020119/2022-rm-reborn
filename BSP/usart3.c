@@ -302,7 +302,7 @@ void Sendtosightway(int value)//与视觉商定
 {
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
 	int GMYawtemp_Eular=(Angles+180)*10;
-	int GMPitchtemp_Encoder=(GMPitchEncoder.ecd_angle+90+pitch_err)*10;
+	int GMPitchtemp_Encoder=(-GMPitchEncoder.ecd_angle+90+pitch_err)*10;
 
 //	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
 	int rolltly = (Eular[1]+90)*10;
@@ -424,7 +424,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		}
 		else  //识别、精巡逻和躲避状态
 		{
-			ChariotRecognition_yaw  = -ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
+			ChariotRecognition_yaw  = ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
 
 //			if(ChariotRecognition_yaw==0)//滤掉视觉发来的所有0，0附近的数就可以保持平衡
 //			{
@@ -467,6 +467,8 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 			E_TEST=0;
       E_TEST1=0;
 		
+		VAL_LIMIT(GimbalRef.pitch_angle_dynamic_ref , -20, 13);
+
 		CR_ringBuffer.lost_COUNT++;
 		
 		if(CR_ringBuffer.lost_COUNT>=35)//如果改这个数据一定要全改，很容易卡在识别模式里
@@ -478,7 +480,9 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		{
 
 			ChariotRecognition_yaw = Angles;//GMYawEncoder.ecd_angle;
-		//	ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;			
+//			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;		
+			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle; //last_ChariotRecognition_pitch;// GMPitchEncoder.ecd_angle;			
+			
    	}	
 	}
 	

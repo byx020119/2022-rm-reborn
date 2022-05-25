@@ -101,21 +101,21 @@ void GMPitchControlLoop(void)
 //		
 //	if(fabs(ChariotRecognition_pitch)<1.5)
 	{
-		GMPPositionPID.ref = ChariotRecognition_pitch;
+		GMPPositionPID.ref = -ChariotRecognition_pitch;	//
 		GMPPositionPID.fdb = GMPitchEncoder.ecd_angle;
 	}
 	
-		GMPPositionPID.kp = 60+30*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)));//100+120*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)))
+		GMPPositionPID.kp = 60+20*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)));//100+120*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)))
 		GMPPositionPID.ki = 0.001;//0.001;//0.05//0.02//0.1;//0.001;
-		GMPPositionPID.kd = 6;//0//6
+		GMPPositionPID.kd = 0;//6;//0//6
 						
-		GMPSpeedPID.kp = 40;//1;//2.5//30
+		GMPSpeedPID.kp = 40;//40;//1;//2.5//30
 		GMPSpeedPID.ki = 0;
-		GMPSpeedPID.kd = 2;//0//2
+		GMPSpeedPID.kd = 0;//2;//0//2
 
 			
 		GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量
-		GMPPositionPID.output = GMPPositionPID.output - GMPitchEncoder.ecd_angle*6;//- GMPitchEncoder.ecd_angle*10;
+		GMPPositionPID.output = GMPPositionPID.output;// - GMPitchEncoder.ecd_angle*6;//- GMPitchEncoder.ecd_angle*10;
 				
 	}
 
@@ -123,7 +123,7 @@ void GMPitchControlLoop(void)
 	//准备状态、自由状态、测试状态、被攻击状态和躲避状态
 	if(GetWorkState() == PREPARE_STATE || GetWorkState() == Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE  || Dodeg_STATE_Change == 2 )
 	{	
-		GMPPositionPID.kp = 80;//100;//40//60//80
+		GMPPositionPID.kp = 40;//100;//40//60//80
 		GMPPositionPID.ki = 0.01;//0.03
 		GMPPositionPID.kd = 2;//0//2
 			
@@ -147,7 +147,7 @@ void GMPitchControlLoop(void)
 	}
   //GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量
 	GMPSpeedPID.ref = GMPPositionPID.output;
-	GMPSpeedPID.fdb = 0.10*GMPitchEncoder.filter_rate;//-Gyro[1]/10;                     //p轴抖动修改系数
+	GMPSpeedPID.fdb = 0.010*GMPitchEncoder.filter_rate;//-Gyro[1]/10;                     //p轴抖动修改系数
 	GMPSpeedPID.Calc(&GMPSpeedPID);
 	GMPSpeedPID.output =GMPSpeedPID.output+GMPSpeedPID.output/fabs(GMPSpeedPID.output);
 	
@@ -199,16 +199,16 @@ void GMYawControlLoop(void)
 //		GMYPositionPID.ref = (1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw);//-CR_yaw_increment ;
 //		GMYPositionPID.fdb = -(1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw)*GMYawRamp.Calc(&GMYawRamp);	
 	
-  	GMYPositionPID.ref = -ChariotRecognition_yaw;//-CR_yaw_increment ;
+  	GMYPositionPID.ref = ChariotRecognition_yaw;//-CR_yaw_increment ;
 		GMYPositionPID.fdb = Angles;//GMYawEncoder.ecd_angle;	
 
-		GMYPositionPID.kp = 70+60*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//160+150*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
-		GMYPositionPID.ki = 0.005*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
-		GMYPositionPID.kd = 5;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3;//0;
+		GMYPositionPID.kp = 30+40*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//160+150*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
+		GMYPositionPID.ki = 0.003*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
+		GMYPositionPID.kd = 0;//5;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3;//0;
 		
-		GMYSpeedPID.kp = 65;//10//15
-		GMYSpeedPID.ki = 0.001;//0.005;
-		GMYSpeedPID.kd = 2;//1//2//5
+		GMYSpeedPID.kp = 50;//65;//10//15
+		GMYSpeedPID.ki = 0;// 0.001;//0.005;
+		GMYSpeedPID.kd = 0;// 2;//1//2//5
 		
 		GMYPositionPID.Calc(&GMYPositionPID);    //得到yaw轴位置环输出控制量
 		
@@ -220,13 +220,13 @@ void GMYawControlLoop(void)
 	//准备状态
 	if(GetWorkState() == PREPARE_STATE ||GetWorkState() == STOP_STATE  ) 
 	{	
-		GMYPositionPID.kp = 100;//0
+		GMYPositionPID.kp = 80;//0
 		GMYPositionPID.ki =	0.01;//0
 		GMYPositionPID.kd = 5;//0
 			
 		GMYSpeedPID.kp = 10;//0
 		GMYSpeedPID.ki = 0;//0
-		GMYSpeedPID.kd = 2;//0
+		GMYSpeedPID.kd = 0;//0
 		
 		GMYPositionPID.ref = GMYawEncoder.ecd_angle ;
 		GMYPositionPID.fdb = GMYawEncoder.ecd_angle;   
@@ -236,13 +236,13 @@ void GMYawControlLoop(void)
 	//测试状态
 	if( GetWorkState() == Test_STATE) 
 	{
-		GMYPositionPID.kp = 100;//50;//60;//100
+		GMYPositionPID.kp = 80;//50;//60;//100
 		GMYPositionPID.ki =	0.005;//0.05;//0.005
 		GMYPositionPID.kd = 5;//100;5//0
 			
 		GMYSpeedPID.kp = 25;//10//5//50（会抖）
 		GMYSpeedPID.ki = 0;//5
-		GMYSpeedPID.kd = 2;//2
+		GMYSpeedPID.kd = 0;//2
 	
 		GMYPositionPID.ref = GimbalRef.yaw_angle_dynamic_ref;
 		GMYPositionPID.fdb = GMYawEncoder.ecd_angle;	
@@ -256,13 +256,13 @@ void GMYawControlLoop(void)
     Last_Dodeg_STATE_Change = Dodeg_STATE_Change;
 		Dodeg_STATE_Change = 0;
 		
-		GMYPositionPID.kp = 100;//60//100
+		GMYPositionPID.kp = 80;//60//100
 		GMYPositionPID.ki =	0.005;//0
 		GMYPositionPID.kd = 0;//0
 			
 		GMYSpeedPID.kp = 30;//5//50
 		GMYSpeedPID.ki = 0;//0.005;
-		GMYSpeedPID.kd = 2;//2
+		GMYSpeedPID.kd = 0;//2
 			
 		GMYPositionPID.ref = GimbalRef.yaw_angle_dynamic_ref;
 		GMYPositionPID.fdb = GMYawEncoder.ecd_angle;   
@@ -270,7 +270,7 @@ void GMYawControlLoop(void)
 	}
 	
 	GMYSpeedPID.ref = GMYPositionPID.output*0.3;                            //y轴抖动修改系数
-	GMYSpeedPID.fdb = Gyro[2]/10;//GMYawEncoder.filter_rate;//Gyro[2]/10; //GMYawEncoder.filter_rate;               //y轴抖动修改系数
+	GMYSpeedPID.fdb = Gyro[2]/5;	//Gyro[2]/5; //GMYawEncoder.filter_rate;               //y轴抖动修改系数
 	GMYSpeedPID.Calc(&GMYSpeedPID);
 //		
 }
@@ -353,12 +353,12 @@ void CMControlLoop(void)
 			if(Speed_change==0)
 				{
 				
-				CM1SpeedPID.ref = -0.1*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
+				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			  }
 			if(Speed_change==1)
 				{
 			 
-				CM1SpeedPID.ref = -0.1*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
+				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
 			  }
 			
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
@@ -452,16 +452,16 @@ void ShooterMControlLoop(void)
 		CM7PositionPID.fdb = CM7Encoder.ecd_angle;
 		CM7PositionPID.Calc(&CM7PositionPID);
 		
-		CM7SpeedPID.ref = 300;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
+		CM7SpeedPID.ref = 600;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
 	}
 //	//放卡弹
 	if(CM7Encoder.ecd_raw_rate < 10)
 	{ 
-		CM7SpeedPID.ref = -600;
+		CM7SpeedPID.ref = -900;
 	}
 	if(CM7Encoder.ecd_raw_rate < -5 )
 	{			
-		CM7SpeedPID.ref = 300;//
+		CM7SpeedPID.ref = 600;//
 	}
 ////	if(CM7Encoder.ecd_raw_rate<-5 &&)
 //	{

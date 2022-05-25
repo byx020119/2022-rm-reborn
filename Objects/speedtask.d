@@ -2,7 +2,7 @@
 .\objects\speedtask.o: TASK\SpeedTask.h
 .\objects\speedtask.o: .\USER\stm32f4xx.h
 .\objects\speedtask.o: .\CORE\core_cm4.h
-.\objects\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\speedtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\speedtask.o: .\CORE\core_cmInstr.h
 .\objects\speedtask.o: .\CORE\core_cmFunc.h
 .\objects\speedtask.o: .\CORE\core_cm4_simd.h
@@ -44,11 +44,11 @@
 .\objects\speedtask.o: TASK\CanBusTask.h
 .\objects\speedtask.o: TASK\Phototube.h
 .\objects\speedtask.o: .\USER\main.h
-.\objects\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\speedtask.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\speedtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\speedtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\speedtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
+.\objects\speedtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\speedtask.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
 .\objects\speedtask.o: .\BSP\bsp.h
 .\objects\speedtask.o: .\BSP\can1.h
 .\objects\speedtask.o: .\BSP\can2.h

@@ -25,6 +25,7 @@ extern int32_t Recognition_YAW_Pos_Ref;
 extern int32_t Recognition_Delay_count;
 extern int Freedom_Rotation_flag;
 extern float YawInitPositionSave; 
+extern int chassis_speed; 
 
 void YawFreeRoation(void);
 void Chassis_Motion_Switch(void);

@@ -41,7 +41,7 @@ int32_t time_track_right_max = 0;
 
 double yaw_ecd_angle_flag = -230;    //-20;    //2022加  自由模式y轴一侧限位值
 double yaw_ecd_angle_flag1 = -110;  //-150    //2022加  自由模式y轴另一侧限位值
-const int chassis_speed = 50;               //2022加 自由模式底盘速度
+int chassis_speed = 250;               //2022加 自由模式底盘速度
 
 /***
 函数：YawFreeRoation()
@@ -83,11 +83,11 @@ void YawFreeRoation(void)
 			}
 			if(Yaw_rotate_flag==1)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.12f;//0.2//1
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref + 0.1f;//0.2//1
 			}
 			if(Yaw_rotate_flag==0)
 			{
-			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.12f;//0.2//1
+			GimbalRef.yaw_angle_dynamic_ref=GimbalRef.yaw_angle_dynamic_ref - 0.1f;//0.2//1
 			}
    	}
 
@@ -108,21 +108,21 @@ void YawFreeRoation(void)
 			Attacked_Flag=0;
 		}
 		
-		if(GMPitchEncoder.ecd_angle +12 >0)
+		if(GMPitchEncoder.ecd_angle -15 >0)
 		{
 		pitch_rotate_flag=1;
 		}
-		if(GMPitchEncoder.ecd_angle - 19<0)
+		if(GMPitchEncoder.ecd_angle +12 <0)
 		{
 		pitch_rotate_flag=0;
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.07f;//点头慢点
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.07f;//点头慢点
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.07f;
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.07f;
 		}
 		
 		
