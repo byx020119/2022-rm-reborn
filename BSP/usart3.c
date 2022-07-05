@@ -87,15 +87,16 @@ float E_TEST1=0;
 float E_TEST2=0;
 float E_TEST3=0;
 int camere_count=0;
-int colorflag = 0;
+
 
 double Yawangle = 0.0f;
 int Yawsent = 0;
 double t =0.0f;
 double z =0.0f;
 
-
-
+int8_t colorflag = 0;   //板间通信的标志位
+int8_t onerecogflag = 0; 
+int8_t qianshaoflag = 0;
 
 
 /***
@@ -251,7 +252,6 @@ void USART3_IRQHandler(void)  	//串口1中断服务程序
 /////////////////////////////////////////
 State_distance state_distacne=closedistance;
 
-
 void Sendtosightway(int value)//与视觉商定
 {
 	//对于陀螺仪值，取到小数点后一位，故抬高十倍，将四位数拆分0-9间逐一以字符形式发送，故在数值基础上+48（0的ASCII码）
@@ -264,12 +264,15 @@ void Sendtosightway(int value)//与视觉商定
 //有裁判系统串口线的时候：
   if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue
 	{
-	Sendtosight[0]='R';	
+		Sendtosight[0]='R';	
+		colorflag=1;//1发送R
 	}
 	if(robotState.robot_id>=101&&robotState.robot_id<=109)
 	{
-	Sendtosight[0]='B';	
+		Sendtosight[0]='B';	
+		colorflag=0;//0发送B
 	}
+	Send_Down_to_Up_Message(CAN2,(int8_t)colorflag);//板间发数
 	
 //	colorflag=PCin(6);
 ////没有的时候：利用开关
