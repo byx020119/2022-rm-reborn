@@ -3,7 +3,7 @@
 .\objects\phototube.o: .\USER\main.h
 .\objects\phototube.o: .\USER\stm32f4xx.h
 .\objects\phototube.o: .\CORE\core_cm4.h
-.\objects\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\phototube.o: .\CORE\core_cmInstr.h
 .\objects\phototube.o: .\CORE\core_cmFunc.h
 .\objects\phototube.o: .\CORE\core_cm4_simd.h
@@ -38,11 +38,11 @@
 .\objects\phototube.o: .\STLibraries\inc\stm32f4xx_dma2d.h
 .\objects\phototube.o: .\STLibraries\inc\stm32f4xx_fmc.h
 .\objects\phototube.o: .\STLibraries\inc\stm32f4xx_sai.h
-.\objects\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\string.h
-.\objects\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\phototube.o: D:\App\KEIL\ARM\ARMCC\Bin\..\include\math.h
+.\objects\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\phototube.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\phototube.o: .\BSP\bsp.h
 .\objects\phototube.o: .\BSP\can1.h
 .\objects\phototube.o: .\BSP\can2.h

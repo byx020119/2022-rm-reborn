@@ -218,15 +218,15 @@ void Motor_3508_EncoderProcess(volatile Encoder *v, CanRxMsg * msg)
 
 
 //2022加 板间通信 Down to Up接受
-//数据具体意义暂时未定
+//
 
 void Down_to_Up_Flag(CanRxMsg * msg)
 {
-	dtm123[0]=msg->Data[0];
-	dtm123[1]=msg->Data[1];
-	dtm123[2]=msg->Data[2];
-	dtm123[3]=msg->Data[3];
-	dtm123[4]=msg->Data[4];
-	dtm123[5]=msg->Data[5];
+	dtm123[0]=msg->Data[0];//颜色信息 0给视觉发B，1给视觉发R
+//	dtm123[1]=msg->Data[1];//前哨站信息 ，1为存活，0为摧毁
+//	dtm123[2]=msg->Data[2];//识别状态信息，1为识别到，0为没识别到
+//	dtm123[3]=msg->Data[3];//躲避状态信息，1为躲避，0为非躲避
+//	dtm123[4]=msg->Data[4];//弹量高八位
+//	dtm123[5]=msg->Data[5];//弹量低八位
 }
 

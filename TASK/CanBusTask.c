@@ -249,6 +249,7 @@ void Set_Gimbal_CALI_STATE(CAN_TypeDef *CANx)
     CAN_Transmit(CANx,&tx_message);
 }
 //2022加 板间数据交换函数 Up to Down  引用位置暂时未安排，暂时无数据发送 参数可根据需求扩展
+//未使用
 void Send_Up_to_Down_Message(CAN_TypeDef *CANx,int8_t color_iq, int8_t qianshao_iq ,int8_t recog_iq,int16_t danliang_iq,int8_t doget_iq)
 {
     CanTxMsg tx_message;    

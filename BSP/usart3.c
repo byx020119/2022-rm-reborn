@@ -338,7 +338,16 @@ void Sendtosightway(int value)//与视觉商定
 //	Sendtosight[0] ='R';
 //	}
 //	
-	Sendtosight[0]='B';
+//down to up传数：
+	if(dtm123[0] == 0)
+	{
+	Sendtosight[0] ='B';
+	}
+	if(dtm123[0] == 1)
+	{
+	Sendtosight[0] ='R';
+	}
+
 	Sendtosight[1]='M';//开始发送
 	Sendtosight[2]='N';
 	Sendtosight[3]='L';
