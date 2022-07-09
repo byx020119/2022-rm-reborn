@@ -489,8 +489,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		{
 
 			ChariotRecognition_yaw = Angles;//GMYawEncoder.ecd_angle;
-//			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;		
-			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle; //last_ChariotRecognition_pitch;// GMPitchEncoder.ecd_angle;			
+//			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;				
 			
    	}	
 	}

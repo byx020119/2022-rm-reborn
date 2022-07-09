@@ -105,13 +105,13 @@ void GMPitchControlLoop(void)
 		GMPPositionPID.fdb = GMPitchEncoder.ecd_angle;
 	}
 	
-		GMPPositionPID.kp = 60+20*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)));//100+120*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)))
+		GMPPositionPID.kp = 60+30*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)));//100+120*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)))
 		GMPPositionPID.ki = 0.001;//0.001;//0.05//0.02//0.1;//0.001;
-		GMPPositionPID.kd = 0;//6;//0//6
+		GMPPositionPID.kd = 6;//6;//0//6
 						
-		GMPSpeedPID.kp = 40;//40;//1;//2.5//30
+		GMPSpeedPID.kp = 20;//40;//1;//2.5//30
 		GMPSpeedPID.ki = 0;
-		GMPSpeedPID.kd = 0;//2;//0//2
+		GMPSpeedPID.kd = 2;//2;//0//2
 
 			
 		GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量
@@ -147,7 +147,7 @@ void GMPitchControlLoop(void)
 	}
   //GMPPositionPID.Calc(&GMPPositionPID);   //得到pitch轴位置环输出控制量
 	GMPSpeedPID.ref = GMPPositionPID.output;
-	GMPSpeedPID.fdb = 0.010*GMPitchEncoder.filter_rate;//-Gyro[1]/10;                     //p轴抖动修改系数
+	GMPSpeedPID.fdb = 0.02*GMPitchEncoder.filter_rate;//-Gyro[1]/10;                     //p轴抖动修改系数
 	GMPSpeedPID.Calc(&GMPSpeedPID);
 	GMPSpeedPID.output =GMPSpeedPID.output+GMPSpeedPID.output/fabs(GMPSpeedPID.output);
 	
