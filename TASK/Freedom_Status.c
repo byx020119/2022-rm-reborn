@@ -61,11 +61,11 @@ void YawFreeRoation(void)
 		}
 		if(pitch_rotate_flag==1)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.1f;   //p轴标志位1，p轴转向角度+0.1？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref + 0.07f;   //p轴标志位1，p轴转向角度+0.1？
 		}
 		if(pitch_rotate_flag==0)
 		{
-	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.1f;   //p轴标志位0，p轴转向角度-0.1？
+	  GimbalRef.pitch_angle_dynamic_ref=GimbalRef.pitch_angle_dynamic_ref - 0.07f;   //p轴标志位0，p轴转向角度-0.1？
 		}
 		
 		
