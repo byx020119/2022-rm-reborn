@@ -290,7 +290,7 @@ void Message_Handle()   //板间通信函数
 	{
 		dogetflag = 0;
 	}
-	Send_Up_to_Down_Message(CAN2,colorflag, qianshaoflag ,onerecogflag,remainBullet.bullet_remaining_num_17mm,dogetflag); 
+	Send_Up_to_Down_Message(CAN2 ,onerecogflag); 
 }
 
 
@@ -434,7 +434,13 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		else  //识别、精巡逻和躲避状态
 		{
 			ChariotRecognition_yaw  = ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
-
+//			if(ChariotRecognition_yaw<-200){
+//				ChariotRecognition_yaw +=360;
+//			}
+//			else if(ChariotRecognition_yaw>200){
+//				ChariotRecognition_yaw -=360;
+//			}
+			
 //			if(ChariotRecognition_yaw==0)//滤掉视觉发来的所有0，0附近的数就可以保持平衡
 //			{
 //				ChariotRecognition_yaw = last_ChariotRecognition_yaw;
