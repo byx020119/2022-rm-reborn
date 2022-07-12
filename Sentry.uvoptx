@@ -159,7 +159,6 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name></Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -1028,6 +1027,11 @@
           <count>166</count>
           <WinNumber>1</WinNumber>
           <ItemText>GMPPositionPID</ItemText>
+        </Ww>
+        <Ww>
+          <count>167</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>utm123,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

@@ -48,7 +48,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -121,7 +121,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -230,7 +230,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -339,7 +339,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -410,7 +410,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -480,7 +480,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -502,7 +502,7 @@ I (.\TASK\Doget_state.h)(0x626F43B5)
 I (.\COMMON\common.h)(0x626E8146)
 I (.\COMMON\crc.h)(0x626E8146)
 I (.\COMMON\kalman.h)(0x626E8146)
-F (.\BSP\usart3.c)(0x62C6DCF8)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
+F (.\BSP\usart3.c)(0x62CC31F1)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
 I (.\USER\main.h)(0x626E814A)
 I (.\USER\stm32f4xx.h)(0x626E814A)
 I (.\CORE\core_cm4.h)(0x626E8146)
@@ -550,7 +550,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -572,7 +572,7 @@ I (.\TASK\Doget_state.h)(0x626F43B5)
 I (.\COMMON\common.h)(0x626E8146)
 I (.\COMMON\crc.h)(0x626E8146)
 I (.\COMMON\kalman.h)(0x626E8146)
-I (BSP\usart3.h)(0x62C2D86C)
+I (BSP\usart3.h)(0x62CC31F1)
 F (.\BSP\adc.c)(0x626E8146)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
 I (.\USER\main.h)(0x626E814A)
 I (.\USER\stm32f4xx.h)(0x626E814A)
@@ -621,7 +621,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -691,7 +691,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -761,7 +761,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -783,7 +783,7 @@ I (.\TASK\Doget_state.h)(0x626F43B5)
 I (.\COMMON\common.h)(0x626E8146)
 I (.\COMMON\crc.h)(0x626E8146)
 I (.\COMMON\kalman.h)(0x626E8146)
-F (.\TASK\Freedom_Status.c)(0x62CAD162)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\freedom_status.o --omf_browse .\objects\freedom_status.crf --depend .\objects\freedom_status.d)
+F (.\TASK\Freedom_Status.c)(0x62CD75E4)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\freedom_status.o --omf_browse .\objects\freedom_status.crf --depend .\objects\freedom_status.d)
 I (TASK\Freedom_Status.h)(0x626E8149)
 I (.\USER\stm32f4xx.h)(0x626E814A)
 I (.\CORE\core_cm4.h)(0x626E8146)
@@ -829,7 +829,7 @@ I (.\COMMON\Ramp.h)(0x626E8146)
 I (TASK\encoder.h)(0x626E8149)
 I (TASK\CanBusTask.h)(0x62C42A8C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
-F (.\TASK\SpeedTask.c)(0x62C2D86C)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\speedtask.o --omf_browse .\objects\speedtask.crf --depend .\objects\speedtask.d)
+F (.\TASK\SpeedTask.c)(0x62CD75E4)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\speedtask.o --omf_browse .\objects\speedtask.crf --depend .\objects\speedtask.d)
 I (TASK\SpeedTask.h)(0x626E8149)
 I (.\USER\stm32f4xx.h)(0x626E814A)
 I (.\CORE\core_cm4.h)(0x626E8146)
@@ -884,7 +884,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -900,7 +900,7 @@ I (.\TASK\Doget_state.h)(0x626F43B5)
 I (.\COMMON\common.h)(0x626E8146)
 I (.\COMMON\crc.h)(0x626E8146)
 I (.\COMMON\kalman.h)(0x626E8146)
-F (.\TASK\ControlTask.c)(0x62CBD3F8)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\controltask.o --omf_browse .\objects\controltask.crf --depend .\objects\controltask.d)
+F (.\TASK\ControlTask.c)(0x62CD7016)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\controltask.o --omf_browse .\objects\controltask.crf --depend .\objects\controltask.d)
 I (TASK\ControlTask.h)(0x626E8149)
 I (.\USER\stm32f4xx.h)(0x626E814A)
 I (.\CORE\core_cm4.h)(0x626E8146)
@@ -950,7 +950,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -971,7 +971,7 @@ I (.\TASK\Doget_state.h)(0x626F43B5)
 I (.\COMMON\common.h)(0x626E8146)
 I (.\COMMON\crc.h)(0x626E8146)
 I (.\COMMON\kalman.h)(0x626E8146)
-F (.\TASK\WorkState.c)(0x62C2D86C)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\workstate.o --omf_browse .\objects\workstate.crf --depend .\objects\workstate.d)
+F (.\TASK\WorkState.c)(0x62CD754D)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\workstate.o --omf_browse .\objects\workstate.crf --depend .\objects\workstate.d)
 I (TASK\WorkState.h)(0x62C2D86C)
 I (.\USER\stm32f4xx.h)(0x626E814A)
 I (.\CORE\core_cm4.h)(0x626E8146)
@@ -1028,7 +1028,7 @@ I (.\BSP\bsp.h)(0x626E8146)
 I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1090,7 +1090,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1160,7 +1160,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1230,7 +1230,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1301,7 +1301,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1323,7 +1323,7 @@ I (.\TASK\Doget_state.h)(0x626F43B5)
 I (.\COMMON\common.h)(0x626E8146)
 I (.\COMMON\crc.h)(0x626E8146)
 I (.\COMMON\kalman.h)(0x626E8146)
-F (.\TASK\Doget_state.c)(0x62CAD921)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\doget_state.o --omf_browse .\objects\doget_state.crf --depend .\objects\doget_state.d)
+F (.\TASK\Doget_state.c)(0x62CC31F2)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\doget_state.o --omf_browse .\objects\doget_state.crf --depend .\objects\doget_state.d)
 I (TASK\Doget_state.h)(0x626F43B5)
 I (.\USER\stm32f4xx.h)(0x626E814A)
 I (.\CORE\core_cm4.h)(0x626E8146)
@@ -1378,7 +1378,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1442,7 +1442,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1464,7 +1464,7 @@ I (.\TASK\Doget_state.h)(0x626F43B5)
 I (.\COMMON\common.h)(0x626E8146)
 I (.\COMMON\crc.h)(0x626E8146)
 I (.\COMMON\kalman.h)(0x626E8146)
-F (.\TASK\encoder.c)(0x626E8149)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\encoder.o --omf_browse .\objects\encoder.crf --depend .\objects\encoder.d)
+F (.\TASK\encoder.c)(0x62CD68D9)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I.\BSP -I.\COMMON -I.\CORE -I.\STLibraries\inc -I.\TASK -I.\USER-I C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="514" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER-o .\objects\encoder.o --omf_browse .\objects\encoder.crf --depend .\objects\encoder.d)
 I (.\USER\main.h)(0x626E814A)
 I (.\USER\stm32f4xx.h)(0x626E814A)
 I (.\CORE\core_cm4.h)(0x626E8146)
@@ -1512,7 +1512,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1588,7 +1588,7 @@ I (.\BSP\bsp.h)(0x626E8146)
 I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1653,7 +1653,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1723,7 +1723,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1793,7 +1793,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1863,7 +1863,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)
@@ -1933,7 +1933,7 @@ I (.\BSP\can1.h)(0x626E8146)
 I (.\BSP\can2.h)(0x626E8146)
 I (.\BSP\timer.h)(0x62C2D86C)
 I (.\BSP\usart1.h)(0x626E8146)
-I (.\BSP\usart3.h)(0x62C2D86C)
+I (.\BSP\usart3.h)(0x62CC31F1)
 I (.\BSP\usart6.h)(0x626E8146)
 I (.\BSP\usart7.h)(0x626E8146)
 I (.\BSP\gun.h)(0x626E8146)

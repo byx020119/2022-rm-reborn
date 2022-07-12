@@ -220,11 +220,11 @@ void Motor_3508_EncoderProcess(volatile Encoder *v, CanRxMsg * msg)
 
 void Up_to_Down_Flag(CanRxMsg * msg)
 {
-	utm123[0]=msg->Data[0];//颜色信息，0给视觉发B，1给视觉发R
-	utm123[1]=msg->Data[1];//前哨战状态，1为存活，0为摧毁
-	utm123[2]=msg->Data[2]; //上枪识别状态，1为识别到，0为没识别到
-	utm123[3]=msg->Data[3];//弹量16位的高八位
-	utm123[4]=msg->Data[4]; //弹量的低八位
-	utm123[5]=msg->Data[5];//躲避状态的标志位
+	utm123[0]=msg->Data[0];//上枪识别状态，1为识别到，0为没识别到
+//	utm123[1]=msg->Data[1];//前哨战状态，1为存活，0为摧毁
+//	utm123[2]=msg->Data[2]; //颜色信息，0给视觉发B，1给视觉发R
+//	utm123[3]=msg->Data[3];//弹量16位的高八位
+//	utm123[4]=msg->Data[4]; //弹量的低八位
+//	utm123[5]=msg->Data[5];//躲避状态的标志位
 }
 

@@ -60,7 +60,7 @@ void WorkStateFSM(void)
 //			{
 //				workState = ChariotRecognition_STATE;
 //			}
-      if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
+      if(CameraDetectTarget_Flag == 1||utm123[0] == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
 			{
 				workState = ChariotRecognition_STATE;
 			}
@@ -122,7 +122,7 @@ void WorkStateFSM(void)
 			{
 				workState = ChariotRecognition_STATE;
 			}			
-			if( (utm123[5] != 1) && (utm123[2] == 1 ) )	// && danliang >= 300
+			if(utm123[0] == 1)	// && danliang >= 300
 			{
 				workState = ChariotRecognition_STATE;
 			}	
@@ -134,7 +134,7 @@ void WorkStateFSM(void)
 			{
 				workState = STOP_STATE;
 			}	
-			 if(CameraDetectTarget_Flag == 0 && utm123[2] == 0 )   //摄像头未识别到目标，进入自由状态
+			 if(CameraDetectTarget_Flag == 0 && utm123[0] == 0 )   //摄像头未识别到目标，进入自由状态
 			{
 				workState = Freedom_STATE;
 			}	

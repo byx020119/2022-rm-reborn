@@ -32,11 +32,11 @@ void Control_Task(void)
 	
 	
 	/***发弹控制任务***/
-//	HeatControl_Task();
-//  FrictionWheelControl();             //摩擦轮拨弹电机控制任务
-//	BoLunMotorControl();
-//	ShooterMControlLoop();      		  //发射机构控制任务,0x207
-//	SetGimbalMotorOutput();						//将云台、波轮、刹车电机输出量发送
+	HeatControl_Task();
+  FrictionWheelControl();             //摩擦轮拨弹电机控制任务
+	BoLunMotorControl();
+	ShooterMControlLoop();      		  //发射机构控制任务,0x207
+	SetGimbalMotorOutput();						//将云台、波轮、刹车电机输出量发送
 	
 	
   /***底盘控制任务***/
