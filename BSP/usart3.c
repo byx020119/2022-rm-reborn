@@ -66,6 +66,7 @@ int GM_Rotete_flag_Before=0;    //前固定摄像头识别目标
 int GM_Rotete_flag_Behind=0;    //后固定摄像头识别目标
 int Time_count=0;
 
+
 CRringBuffer_t CR_ringBuffer;
 
 float CR_yaw_Angle[20];
@@ -308,6 +309,10 @@ void Sendtosightway(int value)//与视觉商定
 
 //	int GMPitchtemp_Encoder=(Eular[0]+90)*10;
 	int rolltly = (Eular[1]+90)*10;
+	
+	
+	/***up to down***/
+	Send_Up_to_Down_Message(CAN2,(int8_t)onerecogflag);
 	
 //有裁判系统串口线的时候：
 //  if(robotState.robot_id>=1&&robotState.robot_id<=9)//判断敌方我方 ，1-9为red，101-109为blue

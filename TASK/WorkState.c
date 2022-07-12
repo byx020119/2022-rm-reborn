@@ -129,20 +129,25 @@ void WorkStateFSM(void)
 		
 		case ChariotRecognition_STATE:      //战车识别状态
 		{	
+			onerecogflag = 1;//up to down标志位
 			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
 			{
 				workState = STOP_STATE;
+				onerecogflag = 0;
 			}	
 			 if(CameraDetectTarget_Flag == 0)   //摄像头未识别到目标，进入自由状态 && utm123[2] == 0 
 			{
 				workState = Freedom_STATE;
+				onerecogflag = 0;
 			}	
 			 if(DodgeTarget_Flag == 1)		//血量减少太快，变为躲避状态
 			{
 				workState = Dodeg_STATE;
+				onerecogflag = 0;
 			}		
 			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
 			{
+				onerecogflag = 0;
 				workState = STOP_STATE;
         CameraDetectTarget_Flag = 0;				
 			}

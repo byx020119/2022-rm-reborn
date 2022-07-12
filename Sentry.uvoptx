@@ -1094,6 +1094,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>ChariotRecognitionTemp,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>180</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>onerecogflag,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
