@@ -199,16 +199,16 @@ void GMYawControlLoop(void)
 //		GMYPositionPID.ref = (1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw);//-CR_yaw_increment ;
 //		GMYPositionPID.fdb = -(1-exp(-fabs(ChariotRecognition_yaw)))*(ChariotRecognition_yaw)*GMYawRamp.Calc(&GMYawRamp);	
 	
-  	GMYPositionPID.ref = ChariotRecognition_yaw;//-CR_yaw_increment ;
-		GMYPositionPID.fdb = Angles;//GMYawEncoder.ecd_angle;	
+  	GMYPositionPID.ref = Eular[2]+ camera;//-CR_yaw_increment ;
+		GMYPositionPID.fdb = Eular[2];//GMYawEncoder.ecd_angle;	
 
 		GMYPositionPID.kp = 70+60*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//60+30//160+150*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)))
-		GMYPositionPID.ki = 0.005*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
-		GMYPositionPID.kd = 5;//5;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3;//0;
+		GMYPositionPID.ki = 0*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1;//0.005;//0.01*exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb));//0.1//5
+		GMYPositionPID.kd = 0;//5;//-5*(1-exp(-0.3*fabs(GMYPositionPID.ref - GMYPositionPID.fdb)));//10-5//3;//0;
 		
 		GMYSpeedPID.kp = 65;//65;//10//15
 		GMYSpeedPID.ki = 0;// 0.001;//0.005;
-		GMYSpeedPID.kd = 2;// 2;//1//2//5
+		GMYSpeedPID.kd = 0;// 2;//1//2//5
 		
 		GMYPositionPID.Calc(&GMYPositionPID);    //得到yaw轴位置环输出控制量
 		

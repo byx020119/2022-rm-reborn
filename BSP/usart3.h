@@ -45,6 +45,8 @@ extern float last_ChariotRecognition_pitch;
 extern float ChariotRecognition_pitch;
 extern float last_ChariotRecognition_yaw;
 extern float ChariotRecognition_yaw;
+extern float camera ;                                                      //识别到的与angles的角度差
+extern float camera_last ;                                                 //识别到的与angles的角度差缓冲
 
 extern uint16_t last_Target_Distance;
 extern uint16_t Target_Distance;

@@ -53,6 +53,8 @@ float last_ChariotRecognition_pitch = 0.0f;
 float ChariotRecognition_pitch = 0.0f;                                   //pitch角度值
 float last_ChariotRecognition_yaw = 0.0f;
 float ChariotRecognition_yaw = 0.0f;                                     //yaw角度值
+float camera = 0.0f;                                                      //识别到的与angles的角度差
+float camera_last = 0.0f;                                                 //识别到的与angles的角度差缓冲
 uint16_t last_Target_Distance = 0;
 uint16_t Target_Distance = 150;                                       //摄像头与目标的距离
 uint16_t Distance_buf[10];
@@ -434,12 +436,14 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		else  //识别、精巡逻和躲避状态
 		{
 			ChariotRecognition_yaw  = ChariotRecognitionTemp[0]/100.0 ;//接收浮点数  // GMYawEncoder.ecd_angle + ChariotRecognitionTemp[0]/100.0 
-//			if(ChariotRecognition_yaw<-200){
-//				ChariotRecognition_yaw +=360;
-//			}
-//			else if(ChariotRecognition_yaw>200){
-//				ChariotRecognition_yaw -=360;
-//			}
+			camera = ChariotRecognition_yaw-Angles;
+			
+			if(camera<-200){
+				camera +=360;
+			}
+			else if(camera>200){
+				camera -=360;
+			}
 			
 //			if(ChariotRecognition_yaw==0)//滤掉视觉发来的所有0，0附近的数就可以保持平衡
 //			{
@@ -494,7 +498,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		if(CR_ringBuffer.lost_COUNT<=35)//连续丢失目标的次数小于35次，进行预测
 		{
 
-			ChariotRecognition_yaw = Angles;//GMYawEncoder.ecd_angle;
+			camera = 0;//ChariotRecognition_yaw = Angles;//GMYawEncoder.ecd_angle;
 //			ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;				
 			
    	}	
@@ -503,7 +507,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 	if(CR_ringBuffer.lost_COUNT>=35)
 	{
 		enter_CNT = 0;
-		ChariotRecognition_yaw = Angles;
+		camera = 0;
 		ChariotRecognition_pitch = GMPitchEncoder.ecd_angle;
 		TempShootingFlag = 0;
 		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
