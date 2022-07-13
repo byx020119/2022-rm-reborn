@@ -159,7 +159,6 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name></Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -1098,6 +1097,31 @@
           <count>180</count>
           <WinNumber>1</WinNumber>
           <ItemText>onerecogflag,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>181</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Bullet_17_real_Speed,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>182</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>robotHurt</ItemText>
+        </Ww>
+        <Ww>
+          <count>183</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>robotState,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>184</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>RobotHP,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>185</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Target_Distance,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

@@ -34,8 +34,8 @@ uint8_t TempShootingFlag=0;                 //·¢µ¯±êÖ¾,ÐÞ¸Ä¸Ã±êÖ¾£¬¿ÉÑ¡ÔñÊÇ·ñ·¢µ
 //Ä¦²ÁÂÖÈýÖÖ²»Í¬ËÙ¶È½á¹¹Ìå³õÊ¼»¯
 #define FRICTION_SPEED_INIT_DEFAULT \
 {\
-	300,\
-	300,\
+	450,\
+	450,\
 }\
 
 //×Óµ¯3ÖÖ²»Í¬ÉäËÙ»ú¹¹Ìå³õÊ¼»¯

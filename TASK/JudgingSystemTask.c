@@ -154,7 +154,7 @@ void getRobotShootData(uint8_t *shootData)
 //	shoot_17_frequency = tempShootData[8];
 	for(i=0;i<4;i++)
 	{
-		shoot_17_Speed.Temp_Array[i] = tempShootData[i+9];
+		shoot_17_Speed.Temp_Array[i] = tempShootData[i+10];
 	}
 	robotShootData.bulletType = tempShootData[7];
 	if (robotShootData.bulletType==1)
