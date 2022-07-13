@@ -352,12 +352,12 @@ void CMControlLoop(void)
 			if(Speed_change==0)
 				{
 				
-				CM1SpeedPID.ref = -0.5*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
+				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			  }
 			if(Speed_change==1)
 				{
 			 
-				CM1SpeedPID.ref = -0.5*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
+				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
 			  }
 			
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;

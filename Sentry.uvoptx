@@ -1033,6 +1033,21 @@
           <WinNumber>1</WinNumber>
           <ItemText>utm123,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>168</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>robotState,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>169</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Bullet_17_real_Speed,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>170</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>robotHurt,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
