@@ -60,11 +60,21 @@ void WorkStateFSM(void)
 //			{
 //				workState = ChariotRecognition_STATE;
 //			}
-      if(CameraDetectTarget_Flag == 1||utm123[0] == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
-			{
-				workState = ChariotRecognition_STATE;
-			}
-				if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			{ //顺序不可变 可改写嵌套形式
+				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
+				{
+					workState = ChariotRecognition_STATE;
+				}
+				if(utm123[0] == 1)//其他摄像头识别到目标
+				{
+					workState = Other_ChariotRecognition_STATE;
+				}
+				if(CameraDetectTarget_Flag == 1&&utm123[0] == 1)   //双枪识别到目标
+				{
+					workState = ChariotRecognition_STATE;
+				}
+		  }
+			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
 			}
@@ -89,10 +99,20 @@ void WorkStateFSM(void)
 			{
 				workState = Freedom_STATE;  //自由状态
 			}		
-			if(CameraDetectTarget_Flag == 1)   //转向过程中摄像头识别到目标，变为识别状态
-			{
-				workState = ChariotRecognition_STATE;
-			}
+			{ //顺序不可变
+				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
+				{
+					workState = ChariotRecognition_STATE;
+				}
+				if(utm123[0] == 1)//其他摄像头识别到目标
+				{
+					workState = Other_ChariotRecognition_STATE;
+				}
+				if(CameraDetectTarget_Flag == 1&&utm123[0] == 1)   //双枪识别到目标
+				{
+					workState = ChariotRecognition_STATE;
+				}
+		  }
 			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
 			{
 				workState = STOP_STATE;
@@ -118,25 +138,33 @@ void WorkStateFSM(void)
 			{
 				workState = PREPARE_STATE; //遥控器停止测试，进入准备状态，进而进自由状态
 			}
-      if(CameraDetectTarget_Flag == 1)   //摄像头识别到目标，变为识别状态
-			{
-				workState = ChariotRecognition_STATE;
-			}			
-			if(utm123[0] == 1)	// && danliang >= 300
-			{
-				workState = ChariotRecognition_STATE;
-			}	
+			{ //顺序不可变
+				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
+				{
+					workState = ChariotRecognition_STATE;
+				}
+				if(utm123[0] == 1)//其他摄像头识别到目标
+				{
+					workState = Other_ChariotRecognition_STATE;
+				}
+				if(CameraDetectTarget_Flag == 1&&utm123[0] == 1)   //双枪识别到目标
+				{
+					workState = ChariotRecognition_STATE;
+				}
+		  }
 		}break;
 		
 		case ChariotRecognition_STATE:      //战车识别状态
 		{	
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
+			 if(CameraDetectTarget_Flag == 0)   //摄像头未识别到目标，进入自由状态
 			{
-				workState = STOP_STATE;
-			}	
-			 if(CameraDetectTarget_Flag == 0 && utm123[0] == 0 )   //摄像头未识别到目标，进入自由状态
-			{
-				workState = Freedom_STATE;
+				if(utm123[0] == 0)
+				{
+					workState = Freedom_STATE;
+				}
+				else{
+					workState = Other_ChariotRecognition_STATE;
+				}
 			}	
 			 if(DodgeTarget_Flag == 1)		//血量减少太快，变为躲避状态
 			{
@@ -148,6 +176,31 @@ void WorkStateFSM(void)
         CameraDetectTarget_Flag = 0;				
 			}
 						
+		}break;
+			case Other_ChariotRecognition_STATE:   //其他枪识别状态
+		{
+			 if(utm123[0] == 0)   //摄像头未识别到目标，进入自由状态
+			{
+				if(CameraDetectTarget_Flag == 0)
+				{
+					workState = Freedom_STATE;
+				}
+				else{
+					workState = ChariotRecognition_STATE;
+				}
+			}	
+			 if(DodgeTarget_Flag == 1)		//血量减少太快，变为躲避状态
+			{
+				workState = Dodeg_STATE;
+			}		
+			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			{
+				workState = STOP_STATE;
+        utm123[0] = 0;				
+			}
+			if(CameraDetectTarget_Flag == 1 &&utm123[0] == 1){
+				workState = ChariotRecognition_STATE;
+			}
 		}break;
 		
 		case Dodeg_STATE:      //躲避状态
@@ -171,9 +224,7 @@ void WorkStateFSM(void)
 				DodgeTarget_Flag = 0;
 			}	
 		}break;
-		
-		
-		
+	
 		case STOP_STATE:   //停止状态
 		{
 			if(RemoteTest_Flag == 1)

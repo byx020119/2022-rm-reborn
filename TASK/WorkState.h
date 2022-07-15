@@ -13,6 +13,7 @@ typedef enum
 	  Test_STATE,                 //Ò£¿ØÆ÷²âÊÔ×´Ì¬
 	  STOP_STATE,        		      //Í£Ö¹×´Ì¬
 	  Attacked_STATE,             //±»¹¥»÷×´Ì¬
+	  Other_ChariotRecognition_STATE,//ÆäËûÇ¹Ê¶±ð×´Ì¬
 }WorkState_e;
 
 

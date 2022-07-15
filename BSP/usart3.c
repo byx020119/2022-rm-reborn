@@ -284,17 +284,6 @@ void Sendtosightway(int value)//与视觉商定
 //	{
 //		Sendtosight[0]='R';	
 //	}
-
-//up to down传数：
-//	if(utm123[0] == 0)
-//	{
-//	Sendtosight[0] ='B';//阵营
-//	}
-//	if(utm123[0] == 1)
-//	{
-//	Sendtosight[0] ='R';
-//	}
-//	
 	
 	Sendtosight[1]='M';//开始发送
 	Sendtosight[2]='N';
@@ -374,7 +363,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		if(enter_CNT >30) enter_CNT = 30;
 		
 		//停止，准备，测试和躲避状态不识别，如果识别到之后变为躲避模式，不接受视觉发来的数据，故云台保持识别的数据，要在状态里手动关闭摩擦轮
-		if(GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE || GetWorkState() == Freedom_STATE)
+		if(GetWorkState()== Other_ChariotRecognition_STATE||GetWorkState() == STOP_STATE || GetWorkState() == PREPARE_STATE || GetWorkState() == Test_STATE|| GetWorkState() == Dodeg_STATE || GetWorkState() == Freedom_STATE)
 		{
 			ChariotRecognition_yaw = GMYawEncoder.ecd_angle;
 			ChariotRecognition_pitch= GMPitchEncoder.ecd_angle;

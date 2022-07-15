@@ -1059,6 +1059,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>tx_message</ItemText>
         </Ww>
+        <Ww>
+          <count>173</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Chassis_Speed_Ref</ItemText>
+        </Ww>
+        <Ww>
+          <count>174</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>chassis_speed,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>

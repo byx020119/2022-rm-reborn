@@ -49,13 +49,13 @@ const int chassis_speed = 350;               //2022加 自由模式底盘速度
 ***/
 void YawFreeRoation(void)
 {
-	if(GetWorkState()==Freedom_STATE)//粗巡逻状态 自由状态
+	if(GetWorkState()== Other_ChariotRecognition_STATE||GetWorkState()==Freedom_STATE)//粗巡逻状态 自由状态
 	{
-		if(GMPitchEncoder.ecd_angle-30>=0)   //38//35//30
+		if(GMPitchEncoder.ecd_angle-25>=0)   //限位（0，30）大于30会卡
 		{
 		pitch_rotate_flag = 1;   //转向在某个位置，p轴转向标志位1？
 		}
-		if(GMPitchEncoder.ecd_angle-8<=0)//-3
+		if(GMPitchEncoder.ecd_angle-3<=0)//限位（0，30）小于0会卡
 		{
 		pitch_rotate_flag=0;    //转向在某个位置，p轴转向标志位0？
 		}
@@ -176,7 +176,7 @@ void YawFreeRoation(void)
 ***/
 void Chassis_Motion_Switch(void)
 {
-	if(GetWorkState()== Freedom_STATE||GetWorkState()== ChariotRecognition_STATE||GetWorkState()== Attacked_STATE)   
+	if(GetWorkState()== Other_ChariotRecognition_STATE||GetWorkState()== Freedom_STATE||GetWorkState()== ChariotRecognition_STATE||GetWorkState()== Attacked_STATE)   
 	{
 		if(Chassis_Power_On_Flag == 1)  //底盘已经上电
 		{

@@ -87,7 +87,7 @@ void GMPitchControlLoop(void)
 
 
 	//战车识别状态
-  if(GetWorkState() == ChariotRecognition_STATE )
+  if(GetWorkState() == ChariotRecognition_STATE)
 	{ 
 		CR_Pitch_Symbol= ChariotRecognition_pitch/fabs(ChariotRecognition_pitch);
 		
@@ -120,7 +120,7 @@ void GMPitchControlLoop(void)
 
 
 	//准备状态、自由状态、测试状态、被攻击状态和躲避状态
-	if(GetWorkState() == PREPARE_STATE || GetWorkState() == Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE  || Dodeg_STATE_Change == 2 )
+	if(GetWorkState() == Other_ChariotRecognition_STATE||GetWorkState() == PREPARE_STATE || GetWorkState() == Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE  || Dodeg_STATE_Change == 2 )
 	{	
 		GMPPositionPID.kp = 80;//100;//40//60//80
 		GMPPositionPID.ki = 0.01;//0.03
@@ -250,7 +250,7 @@ void GMYawControlLoop(void)
 	}
 	
 	//自由状态、被攻击状态、准备状态
-	if(GetWorkState() ==Freedom_STATE || GetWorkState() ==Attacked_STATE ||Dodeg_STATE_Change ==2) 
+	if(GetWorkState() == Other_ChariotRecognition_STATE||GetWorkState() ==Freedom_STATE || GetWorkState() ==Attacked_STATE ||Dodeg_STATE_Change ==2) 
 	{
     Last_Dodeg_STATE_Change = Dodeg_STATE_Change;
 		Dodeg_STATE_Change = 0;
@@ -346,7 +346,7 @@ void CMControlLoop(void)
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;//0;
 			CM1SpeedPID.Calc(&CM1SpeedPID);
 		}
-		//识别
+		//本枪识别
 		if(GetWorkState()==ChariotRecognition_STATE)
 		{
 			if(Speed_change==0)
@@ -370,6 +370,25 @@ void CMControlLoop(void)
 
 			CM4SpeedPID.fdb = CM4Encoder.filter_rate;
 			CM4SpeedPID.Calc(&CM4SpeedPID);
+			
+		}
+		//其他枪识别
+		if(GetWorkState()== Other_ChariotRecognition_STATE)
+		{
+			if(Speed_change==0)
+				{
+				
+				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref ;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
+			  }
+			if(Speed_change==1)
+				{
+			 
+				CM1SpeedPID.ref = -0.3*Chassis_Speed_Ref;//- Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref);
+			  }
+			
+			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
+			CM1SpeedPID.Calc(&CM1SpeedPID);
+
 			
 		}
 		//自由状态、测试状态、被攻击状态
@@ -415,7 +434,7 @@ void CMControlLoop(void)
 			else
 			  Set_CM_Speed(CAN1, CM1SpeedPID.output,0,0,0);
 		}
-		else if(GetWorkState()==ChariotRecognition_STATE)
+		else if(GetWorkState()==ChariotRecognition_STATE||GetWorkState()== Other_ChariotRecognition_STATE)
 		{ 
 		Set_CM_Speed(CAN1, CM1SpeedPID.output, 0,CM3SpeedPID.output, CM4SpeedPID.output);	
 		}
@@ -489,7 +508,7 @@ void ShooterMControlLoop(void)
 ***/
 void GraduallyChangeCMSpeed(void)
 {
-	if(GetWorkState()== Freedom_STATE || GetWorkState()== Dodeg_STATE||GetWorkState()== ChariotRecognition_STATE||GetWorkState()== Attacked_STATE) //自由状态和躲避状态
+	if(GetWorkState()== Other_ChariotRecognition_STATE||GetWorkState()== Freedom_STATE || GetWorkState()== Dodeg_STATE||GetWorkState()== ChariotRecognition_STATE||GetWorkState()== Attacked_STATE) //自由状态和躲避状态
 	{
 		if(Chassis_Change_Dir_Flag==1) //1->0，速度逐渐减小
 		{
