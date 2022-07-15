@@ -61,15 +61,15 @@ void WorkStateFSM(void)
 //				workState = ChariotRecognition_STATE;
 //			}
 			{ //顺序不可变 可改写嵌套形式
-				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
+				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//本摄像头识别，进入识别状态
 				{
 					workState = ChariotRecognition_STATE;
 				}
-				if(utm123[0] == 1)//其他摄像头识别到目标
+				if(utm123[0] == 1)//其他摄像头识别到目标，确保底盘进入识别状态
 				{
 					workState = Other_ChariotRecognition_STATE;
 				}
-				if(CameraDetectTarget_Flag == 1&&utm123[0] == 1)   //双枪识别到目标
+				if(CameraDetectTarget_Flag == 1&&utm123[0] == 1)   //双枪识别到目标，进入识别状态
 				{
 					workState = ChariotRecognition_STATE;
 				}
@@ -99,8 +99,8 @@ void WorkStateFSM(void)
 			{
 				workState = Freedom_STATE;  //自由状态
 			}		
-			{ //顺序不可变
-				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
+			{ //顺序不可变，可更改为嵌套
+				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//本摄像头识别，进入识别状态
 				{
 					workState = ChariotRecognition_STATE;
 				}
@@ -138,7 +138,7 @@ void WorkStateFSM(void)
 			{
 				workState = PREPARE_STATE; //遥控器停止测试，进入准备状态，进而进自由状态
 			}
-			{ //顺序不可变
+			{ //顺序不可变，可更改为嵌套
 				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//摄像头识别，进入识别状态
 				{
 					workState = ChariotRecognition_STATE;
@@ -177,9 +177,16 @@ void WorkStateFSM(void)
 			}
 						
 		}break;
+		/*
+		添加这个状态主要是因为需要在底盘进入识别的情况下，
+		本枪仍处于自由状态，即识别状态ChariotRecognition_STATE仅说明本枪处于识别状态，且本逻辑仅生效于
+		底盘与本代码绑定，仅有一个其他枪
+		
+		最终本逻辑的效果是使任何双枪的任何一者进入识别状态即让底盘进入识别状态，而没有进入识别状态的枪保持自由状态
+		*/
 			case Other_ChariotRecognition_STATE:   //其他枪识别状态
 		{
-			 if(utm123[0] == 0)   //摄像头未识别到目标，进入自由状态
+			 if(utm123[0] == 0)   //摄像头未识别到目标，确定所有枪处于未识别状态
 			{
 				if(CameraDetectTarget_Flag == 0)
 				{
@@ -198,7 +205,7 @@ void WorkStateFSM(void)
 				workState = STOP_STATE;
         utm123[0] = 0;				
 			}
-			if(CameraDetectTarget_Flag == 1 &&utm123[0] == 1){
+			if(CameraDetectTarget_Flag == 1 &&utm123[0] == 1){//绑定底盘的本枪与其他枪都处于识别状态，将状态切换为绑定底盘的本枪的识别状态
 				workState = ChariotRecognition_STATE;
 			}
 		}break;
