@@ -105,7 +105,7 @@ void GMPitchControlLoop(void)
 		GMPPositionPID.fdb = GMPitchEncoder.ecd_angle;
 	}
 	
-		GMPPositionPID.kp = 60+30*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)));//100+120*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)))
+		GMPPositionPID.kp = 70+60*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)));//100+120*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)))
 		GMPPositionPID.ki = 0.001;//0.001;//0.05//0.02//0.1;//0.001;
 		GMPPositionPID.kd = 6;//6;//0//6
 						
