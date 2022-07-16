@@ -470,16 +470,16 @@ void ShooterMControlLoop(void)
 		CM7PositionPID.fdb = CM7Encoder.ecd_angle;
 		CM7PositionPID.Calc(&CM7PositionPID);
 		
-		CM7SpeedPID.ref = 300;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
+		CM7SpeedPID.ref = 500;//CM7PositionPID.output;//CM7SpeedPID.ref = 40;均匀转动，但是没劲//400//250
 	}
-//	//放卡弹
+//	//防卡弹
 	if(CM7Encoder.ecd_raw_rate < 10)
 	{ 
 		CM7SpeedPID.ref = -600;
 	}
 	if(CM7Encoder.ecd_raw_rate < -5 )
 	{			
-		CM7SpeedPID.ref = 300;//
+		CM7SpeedPID.ref = 500;//
 	}
 ////	if(CM7Encoder.ecd_raw_rate<-5 &&)
 //	{
