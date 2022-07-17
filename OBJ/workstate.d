@@ -43,3 +43,4 @@
 ..\obj\workstate.o: ..\CanBusTask\CanBusTask.h
 ..\obj\workstate.o: ..\ControlTask\Freedom_Status.h
 ..\obj\workstate.o: ..\BSP\uart1.h
+..\obj\workstate.o: ..\ControlTask\DogetState.h

@@ -7,6 +7,7 @@
 #include "CanBusTask.h"
 #include "Freedom_Status.h"
 #include "uart1.h"
+#include "DogetState.h"
 
 WorkState_e lastWorkState = STOP_STATE;   //枚举变量初始化
 WorkState_e workState = STOP_STATE;       //枚举变量初始化，可以写在函数的外边
@@ -239,7 +240,7 @@ void WorkStateSwitchProcess(void)
 	{
 		Attacked_Flag = 0;
 		DodgeTarget_Flag = 0;
-
+		speed_rand_flag=0;
 		
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变

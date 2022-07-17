@@ -12,6 +12,7 @@ extern int16_t last_Random_MotionRange;
 extern int Doget_twice;
 extern int Random_change_flag;
 extern int Random_change__flag_2;
+extern int speed_rand_flag;
 
 void YawFreeRoation_Doget(void);
 void Chassis_Motion_Switch_Doget(void);
