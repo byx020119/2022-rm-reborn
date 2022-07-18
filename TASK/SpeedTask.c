@@ -293,24 +293,11 @@ void SetGimbalMotorOutput(void)
 		//自由,测试
 	else
 	{	
-//		Set_Gimbal_Current(CAN1,2000,3000,(int16_t)(CM7SpeedPID.output));     //yaw + pitch+BoLunMotor	
   		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(GMPSpeedPID.output));     //yaw + pitch	
 		  Set_Gimbal_Current1(CAN2,0,(int16_t)(CM7SpeedPID.output));   //BoLunMotor + Brake
 
-		//  	  Set_Gimbal_Current(CAN1,0,(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output));    
-//   	  Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),0,(int16_t)(CM7SpeedPID.output));
-//		Set_Gimbal_Current(CAN1,0,0,(int16_t)(CM7SpeedPID.output));
 	}
 	
-/**scc 因为没有陀螺仪，暂时注掉了识别和躲避
-	else if(GetWorkState() == ChariotRecognition_STATE || GetWorkState() == Dodeg_STATE)   
-	{
-		
-		Set_Gimbal_Current(CAN1,(int16_t)(GMYSpeedPID.output),(int16_t)(GMPSpeedPID.output),(int16_t)(CM7SpeedPID.output)); 	
-	}
-		
-	 
-**/
 
 
 }
