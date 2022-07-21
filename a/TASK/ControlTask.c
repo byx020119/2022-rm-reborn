@@ -36,14 +36,14 @@ void Control_Task(void)
   FrictionWheelControl();             //摩擦轮拨弹电机控制任务
 	BoLunMotorControl();
 	ShooterMControlLoop();      		  //发射机构控制任务,0x207
-	//SetGimbalMotorOutput();						//将云台、波轮、刹车电机输出量发送
+	SetGimbalMotorOutput();						//将云台、波轮、刹车电机输出量发送
 	
 	
   /***底盘控制任务***/
   Chassis_Motion_Switch();      //自由状态，底盘运动到边界后，换向(正交编码器)
   Chassis_Motion_Switch_Doget();//躲避状态，底盘运动到边界后，换向
 	GraduallyChangeCMSpeed();     //底盘电机速度平滑换向
-	//CMControlLoop();							//底盘控制任务 发送底盘电机输出量
+	CMControlLoop();							//底盘控制任务 发送底盘电机输出量
   Phototube_Handle();           //光电管控制任务	
 	
 
