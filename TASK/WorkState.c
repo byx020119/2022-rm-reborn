@@ -139,6 +139,7 @@ void WorkStateFSM(void)
 			{
 				workState = Freedom_STATE;
 				onerecogflag = 0;
+				pitchRefFdbErrorFlag = 0;
 			}	
 			 if(DodgeTarget_Flag == 1)		//血量减少太快，变为躲避状态
 			{
@@ -237,6 +238,7 @@ void WorkStateSwitchProcess(void)
 		GimbalRef.yaw_angle_dynamic_ref = YawCurrentPositionSave;
 		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
 		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
+		
 	}
 		/***
 	  状态变化：其他状态变为躲避状态   2022加

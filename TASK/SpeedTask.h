@@ -321,6 +321,7 @@ extern float Yaw_FeedForward;
 extern int   Dodeg_STATE_Change;
 extern int   Last_Dodeg_STATE_Change;
 extern int   Brake_flag; 
+extern int pitchRefFdbErrorFlag;
 
 
 void GMPitchControlLoop(void);

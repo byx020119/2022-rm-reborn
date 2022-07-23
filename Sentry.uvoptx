@@ -1124,6 +1124,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>Target_Distance,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>186</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pitchRefFdbErrorFlag,0x0A</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>

@@ -58,6 +58,8 @@ float  CR_Pitch_increment=0;
 int    Dodeg_STATE_Change = 0;
 int    Last_Dodeg_STATE_Change=0;
 float  sbyaw=0;
+
+int pitchRefFdbErrorFlag = 0;//      识别模式下p轴错位度数标志
 /***
 函数：GMBrakeControlLoop()
 功能：利用PID计算出brake电机的输出量
@@ -103,6 +105,13 @@ void GMPitchControlLoop(void)
 	{
 		GMPPositionPID.ref = -ChariotRecognition_pitch;	//
 		GMPPositionPID.fdb = GMPitchEncoder.ecd_angle;
+		//是否错位判断
+		if(abs(GMPPositionPID.ref-GMPPositionPID.fdb>5)){
+			pitchRefFdbErrorFlag = 1;
+		}
+		else{
+			pitchRefFdbErrorFlag = 0;
+		}
 	}
 	
 		GMPPositionPID.kp = 80+3*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)));//100+120*(1-exp(-0.1*fabs(GMPPositionPID.ref - GMPPositionPID.fdb)))

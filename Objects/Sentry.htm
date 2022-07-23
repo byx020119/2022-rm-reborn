@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Thu Jul 21 15:09:41 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Sat Jul 23 16:39:28 2022
 <BR><P>
 <H3>Maximum Stack Usage =        216 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -835,7 +835,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN2_RX0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[c0]"></a>ChariotRecognition_Mes_Process</STRONG> (Thumb, 982 bytes, Stack size 24 bytes, usart3.o(i.ChariotRecognition_Mes_Process))
+<P><STRONG><a name="[c0]"></a>ChariotRecognition_Mes_Process</STRONG> (Thumb, 1172 bytes, Stack size 24 bytes, usart3.o(i.ChariotRecognition_Mes_Process))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ChariotRecognition_Mes_Process &rArr; __aeabi_ddiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
@@ -993,13 +993,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
 
-<P><STRONG><a name="[cd]"></a>GMPitchControlLoop</STRONG> (Thumb, 848 bytes, Stack size 56 bytes, speedtask.o(i.GMPitchControlLoop))
+<P><STRONG><a name="[cd]"></a>GMPitchControlLoop</STRONG> (Thumb, 926 bytes, Stack size 56 bytes, speedtask.o(i.GMPitchControlLoop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = GMPitchControlLoop &rArr; __hardfp_exp &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetWorkState
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_exp
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
@@ -1262,28 +1263,28 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6]"></a>RampCalc</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ramp.o(i.RampCalc))
-<BR>[Address Reference Count : 2]<UL><LI> speedtask.o(.data)
-<LI> shootingtask.o(.data)
+<BR>[Address Reference Count : 2]<UL><LI> shootingtask.o(.data)
+<LI> speedtask.o(.data)
 </UL>
 <P><STRONG><a name="[5]"></a>RampInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, ramp.o(i.RampInit))
-<BR>[Address Reference Count : 2]<UL><LI> speedtask.o(.data)
-<LI> shootingtask.o(.data)
+<BR>[Address Reference Count : 2]<UL><LI> shootingtask.o(.data)
+<LI> speedtask.o(.data)
 </UL>
 <P><STRONG><a name="[a]"></a>RampIsOverflow</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, ramp.o(i.RampIsOverflow))
-<BR>[Address Reference Count : 2]<UL><LI> speedtask.o(.data)
-<LI> shootingtask.o(.data)
+<BR>[Address Reference Count : 2]<UL><LI> shootingtask.o(.data)
+<LI> speedtask.o(.data)
 </UL>
 <P><STRONG><a name="[8]"></a>RampResetCounter</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ramp.o(i.RampResetCounter))
-<BR>[Address Reference Count : 2]<UL><LI> speedtask.o(.data)
-<LI> shootingtask.o(.data)
+<BR>[Address Reference Count : 2]<UL><LI> shootingtask.o(.data)
+<LI> speedtask.o(.data)
 </UL>
 <P><STRONG><a name="[7]"></a>RampSetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, ramp.o(i.RampSetCounter))
-<BR>[Address Reference Count : 2]<UL><LI> speedtask.o(.data)
-<LI> shootingtask.o(.data)
+<BR>[Address Reference Count : 2]<UL><LI> shootingtask.o(.data)
+<LI> speedtask.o(.data)
 </UL>
 <P><STRONG><a name="[9]"></a>RampSetScale</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, ramp.o(i.RampSetScale))
-<BR>[Address Reference Count : 2]<UL><LI> speedtask.o(.data)
-<LI> shootingtask.o(.data)
+<BR>[Address Reference Count : 2]<UL><LI> shootingtask.o(.data)
+<LI> speedtask.o(.data)
 </UL>
 <P><STRONG><a name="[d8]"></a>RemoteDataPrcess</STRONG> (Thumb, 688 bytes, Stack size 40 bytes, remotetask.o(i.RemoteDataPrcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = RemoteDataPrcess &rArr; __aeabi_dmul
@@ -1679,7 +1680,7 @@ Global Symbols
 <P><STRONG><a name="[10]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
-<P><STRONG><a name="[c8]"></a>WorkStateFSM</STRONG> (Thumb, 412 bytes, Stack size 0 bytes, workstate.o(i.WorkStateFSM))
+<P><STRONG><a name="[c8]"></a>WorkStateFSM</STRONG> (Thumb, 416 bytes, Stack size 0 bytes, workstate.o(i.WorkStateFSM))
 <BR><BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Task
 </UL>
 
@@ -2143,6 +2144,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Attacked_Monitor
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motion_Switch_Doget
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Calc
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GMPitchControlLoop
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMControlLoop
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawFreeRoation
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Chassis_Motion_Switch

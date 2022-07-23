@@ -66,6 +66,8 @@ int GM_Rotete_flag_Before=0;    //前固定摄像头识别目标
 int GM_Rotete_flag_Behind=0;    //后固定摄像头识别目标
 int Time_count=0;
 
+uint32_t error_count = 0;       //p轴错位时间计数，时间长则退出识别
+
 
 CRringBuffer_t CR_ringBuffer;
 
@@ -527,6 +529,16 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 	{
 		TempShootingFlag = 0;//关拨轮
 		friction_wheel_state_flag = 0;//关摩擦轮
+	}
+	
+	//p轴错位时间持续2.5秒则退出识别 意味着跟随的目标在死角，有机械限位，所以退出识别减小p轴压力
+	if(pitchRefFdbErrorFlag == 0){
+		error_count = time_tick_2ms;
+	}
+	else{
+		if(time_tick_2ms-error_count > 2500){
+			CameraDetectTarget_Flag = 0;
+		}
 	}
 
 }
