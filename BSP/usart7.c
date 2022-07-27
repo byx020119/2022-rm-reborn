@@ -206,26 +206,30 @@ void UART7_IRQHandler(void)
 					}
 					CRC16_Ref_Value   = Save_Element_Array[5+2+data_Length+2-2]|Save_Element_Array[5+2+data_Length+2-1]<<8;
 					CRC16_Solve_Value = Get_CRC16_Check_Sum(Save_Element_Array,7+data_Length+2-2,0xffff);
-					if(CRC16_Ref_Value == CRC16_Solve_Value)  //通过CRC16校验
+					if(CRC16_Ref_Value == CRC16_Solve_Value)  //通过CRC16校验  
 					{
-						if(Save_Element_Array[5]==0x01&&Save_Element_Array[6]==0x02)
+						if(Save_Element_Array[5]==0x01&&Save_Element_Array[6]==0x02)  //对应裁判系统 0x0201
 						{
 							getRobotState(Save_Element_Array);//读取机器人血量值
 						}
 						
-						if(Save_Element_Array[5]==0x06&&Save_Element_Array[6]==0x02)
+						if(Save_Element_Array[5]==0x06&&Save_Element_Array[6]==0x02)//对应裁判系统 0x0206
 						{
 							getRobotHurt(Save_Element_Array);
 						}
 						
-						if(Save_Element_Array[5]==0x07&&Save_Element_Array[6]==0x02)
+						if(Save_Element_Array[5]==0x07&&Save_Element_Array[6]==0x02)//对应裁判系统 0x0207
 						{
 							getRobotShootData(Save_Element_Array);
 						}
 						
-						if(Save_Element_Array[5]==0x02&&Save_Element_Array[6]==0x02)
+						if(Save_Element_Array[5]==0x02&&Save_Element_Array[6]==0x02)//对应裁判系统 0x0202
 						{
 							getRobotPowerHeat(Save_Element_Array);//读取17mm弹丸枪口热量
+						}
+						if(Save_Element_Array[5]==0x01&&Save_Element_Array[6]==0x00)//对应裁判系统 0x0001
+						{
+							getGameState(Save_Element_Array);
 						}
 					}
 				}

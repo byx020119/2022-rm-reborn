@@ -40,7 +40,7 @@ void getGameState(uint8_t *stateData)
 	gameState.stage_remain_time = Transform_Hex_To_Oct(tempTime,16);
 }
 /***
-函数：void getEventData(uint8_t *eventData)
+函数：void getEventData(uint8_t *eventData)  数据未读
 功能：读取己方前哨站的状态 0为被击毁，1为存活
 备注：共32个数据，第11位(下标为10为所需数据）
 ***/
@@ -58,9 +58,9 @@ void getEventData(uint8_t *eventData)
 }
 
 /***
-函数：void getRobotState(uint8_t *stateData)
+函数：void getRobotState(uint8_t *stateData) 数据可读已使用
 功能：从裁判系统读取机器人状态(当前血量)
-备注：ID：0x0001
+备注：ID：0x0201
       共17个数据，下标11，12为当前血量数据
 ***/
 void getRobotState(uint8_t *stateData)
@@ -82,9 +82,9 @@ void getRobotState(uint8_t *stateData)
 }
 
 /***
-函数：void getRobotHurt(uint8_t *hurtData)
+函数：void getRobotHurt(uint8_t *hurtData) 数据可读已使用
 功能：从裁判系统读取伤害数据
-备注：ID：0x0002
+备注：ID：0x0206
       共10个数据，下标7为伤害数据
 ***/
 void getRobotHurt(uint8_t *hurtData)
@@ -103,9 +103,9 @@ void getRobotHurt(uint8_t *hurtData)
 }
 
 /***
-函数：void getRobotPowerHeat(uint8_t *powerHeartData)
+函数：void getRobotPowerHeat(uint8_t *powerHeartData) 数据可读未使用
 功能：从裁判系统读取实时功率热量数据
-备注：ID：0x0004   50Hz频率周期发送
+备注：ID：0x0202   50Hz频率周期发送
       共29个数据，下标23，24为17mm弹丸枪口热量数据
 ***/
 void getRobotPowerHeat(uint8_t *powerHeartData)
@@ -152,7 +152,7 @@ if(ChassisPower_buffer>100)
 
 
 /***
-函数：void getRobotShootData(uint8_t *shootData)
+函数：void getRobotShootData(uint8_t *shootData) 数据可读已使用
 功能：从裁判系统读取实时射击信息
 备注：ID：0x0003
       共15个数据，下标9，10，11，12为弹丸射速数据

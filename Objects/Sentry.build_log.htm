@@ -26,7 +26,25 @@ Project File Date:  07/07/2022
 
 <h2>Output:</h2>
 Build target 'Sentry'
-".\Objects\Sentry.axf" - 0 Error(s), 0 Warning(s).
+compiling usart7.c...
+BSP\usart7.c(77): warning:  #188-D: enumerated type mixed with another type
+                gpio.GPIO_PuPd = GPIO_OType_PP;
+BSP\usart7.c(68): warning:  #177-D: variable "dma" was declared but never referenced
+                DMA_InitTypeDef dma;
+BSP\usart7.c(195): warning:  #223-D: function "Get_CRC8_Check_Sum" declared implicitly
+                        CRC8_Solve_Value = Get_CRC8_Check_Sum(Save_Element_Array,4,0xff);
+BSP\usart7.c(208): warning:  #223-D: function "Get_CRC16_Check_Sum" declared implicitly
+                                        CRC16_Solve_Value = Get_CRC16_Check_Sum(Save_Element_Array,7+data_Length+2-2,0xffff);
+BSP\usart7.c: 4 warnings, 0 errors
+compiling SpeedTask.c...
+compiling JudgingSystemTask.c...
+TASK\JudgingSystemTask.c(162): warning:  #177-D: variable "shoot_17_frequency" was declared but never referenced
+        int shoot_17_frequency = 0;
+TASK\JudgingSystemTask.c: 1 warning, 0 errors
+linking...
+Program Size: Code=33432 RO-data=1368 RW-data=2876 ZI-data=8228  
+FromELF: creating hex file...
+".\Objects\Sentry.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE
