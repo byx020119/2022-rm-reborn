@@ -26,25 +26,18 @@ Project File Date:  07/07/2022
 
 <h2>Output:</h2>
 Build target 'Sentry'
-compiling usart7.c...
-BSP\usart7.c(77): warning:  #188-D: enumerated type mixed with another type
-                gpio.GPIO_PuPd = GPIO_OType_PP;
-BSP\usart7.c(68): warning:  #177-D: variable "dma" was declared but never referenced
-                DMA_InitTypeDef dma;
-BSP\usart7.c(195): warning:  #223-D: function "Get_CRC8_Check_Sum" declared implicitly
-                        CRC8_Solve_Value = Get_CRC8_Check_Sum(Save_Element_Array,4,0xff);
-BSP\usart7.c(208): warning:  #223-D: function "Get_CRC16_Check_Sum" declared implicitly
-                                        CRC16_Solve_Value = Get_CRC16_Check_Sum(Save_Element_Array,7+data_Length+2-2,0xffff);
-BSP\usart7.c: 4 warnings, 0 errors
-compiling SpeedTask.c...
-compiling JudgingSystemTask.c...
-TASK\JudgingSystemTask.c(162): warning:  #177-D: variable "shoot_17_frequency" was declared but never referenced
-        int shoot_17_frequency = 0;
-TASK\JudgingSystemTask.c: 1 warning, 0 errors
+compiling usart3.c...
+BSP\usart3.c(445): warning:  #188-D: enumerated type mixed with another type
+                friction_wheel_state_flag = 1; //游戏开始，s1 放到中间，摩擦轮就开
+BSP\usart3.c(451): warning:  #188-D: enumerated type mixed with another type
+                friction_wheel_state_flag = 0;//关摩擦轮
+BSP\usart3.c(488): warning:  #1-D: last line of file ends without a newline
+  }
+BSP\usart3.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=33432 RO-data=1368 RW-data=2876 ZI-data=8228  
+Program Size: Code=33472 RO-data=1368 RW-data=2876 ZI-data=8228  
 FromELF: creating hex file...
-".\Objects\Sentry.axf" - 0 Error(s), 5 Warning(s).
+".\Objects\Sentry.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\byx20\Desktop\use\2022-rm-a-down\RTE
