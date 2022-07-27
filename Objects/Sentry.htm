@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Jul 27 15:48:45 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Jul 27 16:01:04 2022
 <BR><P>
 <H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1327,16 +1327,16 @@ Global Symbols
 <P><STRONG><a name="[11]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
-<P><STRONG><a name="[dc]"></a>Send_Down_to_Up_Message</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, canbustask.o(i.Send_Down_to_Up_Message))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Send_Down_to_Up_Message &rArr; CAN_Transmit
+<P><STRONG><a name="[dc]"></a>Send_Down_to_Up_Message</STRONG> (Thumb, 78 bytes, Stack size 40 bytes, canbustask.o(i.Send_Down_to_Up_Message))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Send_Down_to_Up_Message &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sendtosightway
 </UL>
 
-<P><STRONG><a name="[de]"></a>Sendtosightway</STRONG> (Thumb, 506 bytes, Stack size 48 bytes, usart3.o(i.Sendtosightway))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Sendtosightway &rArr; Send_Down_to_Up_Message &rArr; CAN_Transmit
+<P><STRONG><a name="[de]"></a>Sendtosightway</STRONG> (Thumb, 512 bytes, Stack size 48 bytes, usart3.o(i.Sendtosightway))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Sendtosightway &rArr; Send_Down_to_Up_Message &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Send_Down_to_Up_Message
@@ -1434,7 +1434,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[32]"></a>TIM3_IRQHandler</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, timer.o(i.TIM3_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = TIM3_IRQHandler &rArr; Sendtosightway &rArr; Send_Down_to_Up_Message &rArr; CAN_Transmit
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = TIM3_IRQHandler &rArr; Sendtosightway &rArr; Send_Down_to_Up_Message &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;senddata_control
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus

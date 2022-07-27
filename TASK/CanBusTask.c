@@ -247,7 +247,7 @@ void Set_Gimbal_CALI_STATE(CAN_TypeDef *CANx)
     CAN_Transmit(CANx,&tx_message);
 }
 //2022加 板间数据交换函数 Down to Up 
-void Send_Down_to_Up_Message(CAN_TypeDef *CANx, int8_t color_iq)//(CAN_TypeDef *CANx, int8_t color_iq, int8_t qianshao_iq ,int8_t recog_iq,int16_t danliang_iq,int8_t doget_iq)
+void Send_Down_to_Up_Message(CAN_TypeDef *CANx, int8_t color_iq,int8_t game_progress)//(CAN_TypeDef *CANx, int8_t color_iq, int8_t qianshao_iq ,int8_t recog_iq,int16_t danliang_iq,int8_t doget_iq)
 {
     CanTxMsg tx_message;    
     tx_message.StdId = 0x90;
@@ -256,12 +256,12 @@ void Send_Down_to_Up_Message(CAN_TypeDef *CANx, int8_t color_iq)//(CAN_TypeDef *
     tx_message.DLC = 0x08;
     
     tx_message.Data[0] = (uint8_t)color_iq;//颜色信息 0给视觉发B，1给视觉发R
-    tx_message.Data[1] = 0x00;//(uint8_t)qianshao_iq;//前哨站信息 ，1为存活，0为摧毁
+    tx_message.Data[1] = (uint8_t)game_progress;//比赛状态信息 4为比赛中，0为未开始
     tx_message.Data[2] = 0x00;//(uint8_t)recog_iq;//识别状态信息，1为识别到，0为没识别到
     tx_message.Data[3] = 0x00;//(uint8_t)doget_iq;//躲避状态信息，1为躲避，0为非躲避
     tx_message.Data[4] = 0x00;//(uint8_t)(danliang_iq>>8);//弹量高八位
     tx_message.Data[5] = 0x00;//(uint8_t)danliang_iq;//弹量低八位
-    tx_message.Data[6] = 0x00;
+    tx_message.Data[6] = 0x00;//(uint8_t)qianshao_iq;//前哨站信息 ，1为存活，0为摧毁
     tx_message.Data[7] = 0x00;
     CAN_Transmit(CANx,&tx_message);
 }

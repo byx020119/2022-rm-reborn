@@ -272,7 +272,7 @@ void Sendtosightway(int value)//与视觉商定
 		Sendtosight[0]='B';	
 		colorflag=0;//0发送B
 	}
-	Send_Down_to_Up_Message(CAN2,(int8_t)colorflag);//板间发数
+	Send_Down_to_Up_Message(CAN2,(int8_t)colorflag,(int8_t)gameState.game_progress);//板间发数
 	
 //	colorflag=PCin(6);
 ////没有的时候：利用开关
