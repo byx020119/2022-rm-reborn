@@ -417,9 +417,12 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 	  CameraDetectTarget_Flag =1;	
 		CR_ringBuffer.lost_COUNT =0;	
 		
-	  if(RC_CtrlData.rc.s1==3)//  if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4游戏开始，且识别到，开波轮
+	  if(RC_CtrlData.rc.s1==3)  //if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4)//游戏开始，且识别到，开波轮
 	  {
-		  TempShootingFlag=1;//发弹标志位
+			if(RC_CtrlData.rc.s1==3 && dtm123[1] == 4)//游戏开始，且识别到，开波轮
+			{
+				TempShootingFlag=1;//发弹标志位
+			}
 	  }
 		
 		usart3_microsecond.time_now = Get_Time_Micros();//本次收到数据的时刻
@@ -520,7 +523,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
 	}
 	
-		if(  RC_CtrlData.rc.s1== 3) //&& gameState.game_progress == 4游戏开始
+		if(RC_CtrlData.rc.s1 == 3 && dtm123[1] == 4) //&& gameState.game_progress == 4游戏开始
 	{
 		friction_wheel_state_flag = 1; //游戏开始，s1 放到中间，摩擦轮就开
 	}
