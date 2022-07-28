@@ -215,12 +215,12 @@ void Chassis_Motion_Switch_Doget(void)
 {
 	  int flag = 0;//速度切换标志位
 		//冲刺一次，随机两次
-	  if(time_tick_2ms-Dodge_time_count>2500){   //2022加 躲避模式持续2s,血量低于120不跳出，因为在循环内部重新赋值
+	  if(time_tick_2ms-Dodge_time_count>2000){   //2022加 躲避模式持续2s,血量低于120不跳出，因为在循环内部重新赋值
 			DodgeTarget_Flag = 0;
 			speed_rand_flag=0;
 		}
 		else if((time_tick_2ms-Dodge_time_count)>0&&RobotHP>120&&speed_dash_flag==0&&speed_rand_flag==0){//血量在120之上时冲刺速度
-			speed_rand=200;
+			speed_rand=900;
 			flag++;
 			speed_dash_flag=1;//冲刺切换随机
 			speed_rand_flag=1;//随机速度已赋值
@@ -234,7 +234,7 @@ void Chassis_Motion_Switch_Doget(void)
 			speed_rand_flag=1;//速度已赋值
 		}
 		else if(((time_tick_2ms-Dodge_time_count)%2500==0)&&RobotHP<120){//血量在120之下时不断改变速度，为200+random
-			speed_rand=(int)rand()%650;
+			speed_rand= -(int)rand()%150;
 		}
 	//被飞行器攻击时的躲避            2022测试时有问题，无法换向
 //if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
