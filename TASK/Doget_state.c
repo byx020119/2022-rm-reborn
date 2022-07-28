@@ -14,7 +14,7 @@ int Random_change_flag=0;            //随机数产生函数变化标志
 int Random_change__flag_2=0;            //随机数产生函数变化标志
 int Doget_rego_flag=0;
 int test_ecd=0;
-int doget_chassis_speed = 240;
+int doget_chassis_speed = 240;//躲避基础速度
 int speed_rand=0;//2022加随机速度
 int speed_dash_flag=0;//2022加冲刺标志位
 int speed_rand_flag=0;//2022加速度已经赋值标志位
@@ -214,8 +214,8 @@ void YawFreeRoation_Doget(void)
 void Chassis_Motion_Switch_Doget(void)
 {
 	  int flag = 0;//速度切换标志位
-		
-	  if(time_tick_2ms-Dodge_time_count>1500){   //2022加 躲避模式持续2s,血量低于120不跳出，因为在循环内部重新赋值
+		//冲刺一次，随机两次
+	  if(time_tick_2ms-Dodge_time_count>2500){   //2022加 躲避模式持续2s,血量低于120不跳出，因为在循环内部重新赋值
 			DodgeTarget_Flag = 0;
 			speed_rand_flag=0;
 		}
@@ -226,7 +226,7 @@ void Chassis_Motion_Switch_Doget(void)
 			speed_rand_flag=1;//随机速度已赋值
 		}
 		else if((time_tick_2ms-Dodge_time_count)>0&&RobotHP>120&&speed_dash_flag==1&&speed_rand_flag==0){//避免超功率，血量在120之上时随机速度
-			speed_rand=(int)rand()%150;
+			speed_rand=(int)rand()%600;
 			if(flag==2){
 				speed_dash_flag=0;//随机切换冲刺
 				flag=0;
@@ -234,7 +234,7 @@ void Chassis_Motion_Switch_Doget(void)
 			speed_rand_flag=1;//速度已赋值
 		}
 		else if(((time_tick_2ms-Dodge_time_count)%2500==0)&&RobotHP<120){//血量在120之下时不断改变速度，为200+random
-			speed_rand=(int)rand()%150;
+			speed_rand=(int)rand()%650;
 		}
 	//被飞行器攻击时的躲避            2022测试时有问题，无法换向
 //if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==1)
@@ -613,7 +613,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 							if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = -(doget_chassis_speed+speed_rand);//-750
+				          Chassis_Temp_Speed = -(doget_chassis_speed-speed_rand);//-750
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
@@ -622,12 +622,12 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = -(doget_chassis_speed+speed_rand);// -700;
+						  Chassis_Temp_Speed = -(doget_chassis_speed-speed_rand);// -700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = -(doget_chassis_speed+speed_rand);//-600
+						Chassis_Temp_Speed = -(doget_chassis_speed-speed_rand);//-600
 					}
 				}
 				else if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
@@ -638,7 +638,7 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						{
 						 if(Dodeg_Delay_Count<=5000)
 			      	{
-				          Chassis_Temp_Speed = (doget_chassis_speed+speed_rand);// 750;
+				          Chassis_Temp_Speed = (doget_chassis_speed-speed_rand);// 750;
 			      	}
 //						  if(Dodeg_Delay_Count>5000&&Dodeg_Delay_Count<16000)
 //			      	{
@@ -647,12 +647,12 @@ if(GetWorkState()== Dodeg_STATE && Aerocraft_attack_flag==0)
 						}
 						if(RobotHP<120)
 						{
-						  Chassis_Temp_Speed = (doget_chassis_speed+speed_rand);// 700;
+						  Chassis_Temp_Speed = (doget_chassis_speed-speed_rand);// 700;
 						}
 					}
 					else
 					{
-						Chassis_Temp_Speed = (doget_chassis_speed+speed_rand);// 600
+						Chassis_Temp_Speed = (doget_chassis_speed-speed_rand);// 600
 					}
 				}
 				
