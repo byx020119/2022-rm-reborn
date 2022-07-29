@@ -56,10 +56,6 @@ void WorkStateFSM(void)
 		
 		case Freedom_STATE:     //自由状态，底盘移动，yaw旋转
 		{	
-//      if( utm123[2] == 1 && danliang >0 )//(danliang >= 300) 上枪识别到，进入识别状态
-//			{
-//				workState = ChariotRecognition_STATE;
-//			}
 			{ //顺序不可变 可改写嵌套形式
 				if(CameraDetectTarget_Flag == 1)   //(CameraDetectTarget_Flag == 1 && danliang > 0 )//本摄像头识别，进入识别状态
 				{
@@ -74,13 +70,9 @@ void WorkStateFSM(void)
 					workState = ChariotRecognition_STATE;
 				}
 		  }
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
-			}
-			if(RemoteTest_Flag == 2)   //遥控器开始测试，进入测试状态
-			{
-				workState = Test_STATE;	
 			}
 			if(Attacked_Flag == 1)   //巡逻时，装甲被攻击，变为被攻击状态
 			{
@@ -113,15 +105,11 @@ void WorkStateFSM(void)
 					workState = ChariotRecognition_STATE;
 				}
 		  }
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
-			{
-				workState = STOP_STATE;
-			}	
 			if(DodgeTarget_Flag == 1 || utm123[5] == 1)		//血量减少太快或血量过少，变为躲避状态
 			{
 				workState = Dodeg_STATE;  
 			}	
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
 			}
@@ -130,11 +118,11 @@ void WorkStateFSM(void)
 		
 		case Test_STATE:    //遥控器测试状态
 		{
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
+			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入自动模式下的停止状态
 			{
 				workState = STOP_STATE;
 			}		
-			if(RemoteTest_Flag == 1)
+			if(gameState.game_progress == 4&&RemoteTest_Flag == 0)
 			{
 				workState = PREPARE_STATE; //遥控器停止测试，进入准备状态，进而进自由状态
 			}
@@ -170,7 +158,7 @@ void WorkStateFSM(void)
 			{
 				workState = Dodeg_STATE;
 			}		
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;
         CameraDetectTarget_Flag = 0;				
@@ -200,7 +188,7 @@ void WorkStateFSM(void)
 			{
 				workState = Dodeg_STATE;
 			}		
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;
         utm123[0] = 0;				
@@ -216,16 +204,8 @@ void WorkStateFSM(void)
       if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 0)		//躲避结束，且未识别到目标，进入自由状态
 			{
 				 workState = Freedom_STATE;  
-			}				
-//			if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 1)   //进入识别状态
-//			{
-//				workState = ChariotRecognition_STATE;
-//			}
-			if(RemoteTest_Flag == 2)   //进入测试状态
-			{
-				workState = Test_STATE;	
-			}      
-			if(RemoteTest_Flag == 0)   //遥控器停止测试
+			}				     
+			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试
 			{
 				workState = STOP_STATE;
 				DodgeTarget_Flag = 0;
@@ -234,9 +214,8 @@ void WorkStateFSM(void)
 	
 		case STOP_STATE:   //停止状态
 		{
-			if(RemoteTest_Flag == 1)
-			{
-				workState = PREPARE_STATE; 
+			if(gameState.game_progress == 4&&RemoteTest_Flag == 0){//服务器开始比赛，进入准备状态
+				workState = PREPARE_STATE;
 			}
 		
 		}break;
