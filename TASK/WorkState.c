@@ -63,13 +63,9 @@ void WorkStateFSM(void)
 			{
 				workState = ChariotRecognition_STATE;
 			}
-				if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+				if(dtm123[1] == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
-			}
-			if(RemoteTest_Flag == 2)   //遥控器开始测试，进入测试状态
-			{
-				workState = Test_STATE;	
 			}
 			if(Attacked_Flag == 1)   //巡逻时，装甲被攻击，变为被攻击状态
 			{
@@ -92,15 +88,11 @@ void WorkStateFSM(void)
 			{
 				workState = ChariotRecognition_STATE;
 			}
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
-			{
-				workState = STOP_STATE;
-			}	
 			if(DodgeTarget_Flag == 1)		//血量减少太快或血量过少，变为躲避状态 || utm123[5] == 1
 			{
 				workState = Dodeg_STATE;  
 			}	
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			if(dtm123[1] == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
 			}
@@ -109,11 +101,11 @@ void WorkStateFSM(void)
 		
 		case Test_STATE:    //遥控器测试状态
 		{
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
+			if(dtm123[1] == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入自动模式下的停止状态
 			{
 				workState = STOP_STATE;
 			}		
-			if(RemoteTest_Flag == 1)
+			if(RemoteTest_Flag == 0&&dtm123[1] == 4)
 			{
 				workState = PREPARE_STATE; //遥控器停止测试，进入准备状态，进而进自由状态
 			}
@@ -130,11 +122,6 @@ void WorkStateFSM(void)
 		case ChariotRecognition_STATE:      //战车识别状态
 		{	
 			onerecogflag = 1;//up to down标志位
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入自动模式下的停止状态
-			{
-				workState = STOP_STATE;
-				onerecogflag = 0;
-			}	
 			 if(CameraDetectTarget_Flag == 0)   //摄像头未识别到目标，进入自由状态 && utm123[2] == 0 
 			{
 				workState = Freedom_STATE;
@@ -146,7 +133,7 @@ void WorkStateFSM(void)
 				workState = Dodeg_STATE;
 				onerecogflag = 0;
 			}		
-			if(RemoteTest_Flag == 0)   //遥控器停止测试，进入停止状态
+			if(dtm123[1] == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				onerecogflag = 0;
 				workState = STOP_STATE;
@@ -164,12 +151,8 @@ void WorkStateFSM(void)
 			if(DodgeTarget_Flag == 0 && CameraDetectTarget_Flag == 1)   //进入识别状态
 			{
 				workState = ChariotRecognition_STATE;
-			}
-			if(RemoteTest_Flag == 2)   //进入测试状态
-			{
-				workState = Test_STATE;	
-			}      
-			if(RemoteTest_Flag == 0)   //遥控器停止测试
+			}     
+			if(dtm123[1] == 0||RemoteTest_Flag == 2)   //遥控器停止测试
 			{
 				workState = STOP_STATE;
 				DodgeTarget_Flag = 0;
@@ -180,7 +163,7 @@ void WorkStateFSM(void)
 		
 		case STOP_STATE:   //停止状态
 		{
-			if(RemoteTest_Flag == 1)
+			if(RemoteTest_Flag == 0&&dtm123[1] == 4)
 			{
 				workState = PREPARE_STATE; 
 			}
