@@ -728,7 +728,7 @@ void getRandom_MotionRange(void)
 		
 		if(Random_change__flag_2==0)            //进行全场躲避至少20s
 	  	{
-	      Random_MotionRange = rand()%8000;//2000~8000
+	      Random_MotionRange = rand()%4000;//2000~8000 8000
 	      if(abs(Random_MotionRange)<2000)
 	        {
 	          Random_MotionRange = Random_MotionRange+Random_MotionRange/abs(Random_MotionRange)*2000;
@@ -736,10 +736,10 @@ void getRandom_MotionRange(void)
 	    }
 		if(Random_change__flag_2==1)          //被攻击时，躲避到两边段10s 
 		  {
-	      Random_MotionRange = rand()%4500;//1000~2500
+	      Random_MotionRange = rand()%3000;//1000~2500 4500
 	      if(abs(Random_MotionRange)<1000)
 	      {
-	          Random_MotionRange = Random_MotionRange+Random_MotionRange/abs(Random_MotionRange)*1000;
+	        Random_MotionRange = Random_MotionRange+Random_MotionRange/abs(Random_MotionRange)*1000;
 	      }
 	    }
   }
