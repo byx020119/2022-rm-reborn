@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="97d7095e-5c35-4990-95d1-8bb91d30f4de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/BSP/usart3.c" beforeDir="false" afterPath="$PROJECT_DIR$/BSP/usart3.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Listings/Sentry.map" beforeDir="false" afterPath="$PROJECT_DIR$/Listings/Sentry.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Listings/startup_stm32f427xx.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Listings/startup_stm32f427xx.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/Sentry.axf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Sentry.axf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/Sentry.build_log.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Sentry.build_log.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/Sentry.hex" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Sentry.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/Sentry.htm" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Sentry.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/Sentry_Sentry.dep" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Sentry_Sentry.dep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/adc.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/adc.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/adc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/adc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/bsp.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/bsp.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/bsp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/bsp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/can1.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/can1.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/can1.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/can1.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/can2.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/can2.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/can2.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/can2.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/canbustask.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/canbustask.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/canbustask.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/canbustask.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/common.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/common.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/common.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/common.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/controltask.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/controltask.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/controltask.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/controltask.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/crc.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/crc.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/crc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/crc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/doget_state.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/doget_state.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/doget_state.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/doget_state.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/encoder.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/encoder.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/encoder.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/encoder.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/freedom_status.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/freedom_status.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/freedom_status.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/freedom_status.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/gun.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/gun.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/gunheartandbleed.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/gunheartandbleed.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/gunheartandbleed.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/gunheartandbleed.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/judgingsystemtask.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/judgingsystemtask.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/judgingsystemtask.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/judgingsystemtask.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/kalman.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/kalman.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/kalman.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/kalman.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/main.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/main.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/misc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/misc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/phototube.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/phototube.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/phototube.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/phototube.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/pid.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/pid.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/pid.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/pid.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/ramp.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/ramp.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/ramp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/ramp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/remotetask.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/remotetask.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/remotetask.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/remotetask.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/shootingtask.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/shootingtask.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/shootingtask.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/shootingtask.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/speedtask.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/speedtask.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/speedtask.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/speedtask.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/startup_stm32f427xx.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/startup_stm32f427xx.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_adc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_adc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_can.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_can.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_crc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_crc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_cryp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_cryp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_dac.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_dac.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_dma.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_dma.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_dma2d.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_dma2d.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_exti.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_exti.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_flash.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_flash.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_fmc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_fmc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_gpio.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_gpio.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_i2c.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_i2c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_it.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_it.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_it.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_it.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_iwdg.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_iwdg.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_ltdc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_ltdc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_pwr.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_pwr.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_rcc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_rcc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_rng.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_rng.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_rtc.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_rtc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_sdio.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_sdio.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_spi.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_spi.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_syscfg.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_syscfg.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_tim.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_tim.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_usart.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_usart.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/stm32f4xx_wwdg.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/stm32f4xx_wwdg.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/system_stm32f4xx.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/system_stm32f4xx.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/timer.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/timer.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/timer.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/timer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart1.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart1.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart1.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart1.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart3.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart3.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart3.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart3.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart6.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart6.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart6.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart6.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart7.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart7.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/usart7.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/usart7.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/workstate.crf" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/workstate.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/workstate.o" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/workstate.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentry.uvguix.byx20" beforeDir="false" afterPath="$PROJECT_DIR$/Sentry.uvguix.byx20" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TASK/ControlTask.c" beforeDir="false" afterPath="$PROJECT_DIR$/TASK/ControlTask.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\Maven_Reps" />
+        <option name="mavenHome" value="D:\apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2CbgAbkZvOA6JrNLAD5CQ9tDcSv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97d7095e-5c35-4990-95d1-8bb91d30f4de" name="Default Changelist" comment="" />
+      <created>1659076557369</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659076557369</updated>
+      <workItem from="1659076559806" duration="2000" />
+    </task>
+    <servers />
+  </component>
+</project>

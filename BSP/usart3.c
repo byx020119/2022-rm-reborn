@@ -347,7 +347,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		
 	  if(RC_CtrlData.rc.s1==3&&senddata_flag==1)
 	  {
-			if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4)//游戏开始，且识别到，开波轮
+			if(RC_CtrlData.rc.s1==3 && gameState.game_progress == 4)//游戏开始，且识别到，开波轮 平时训练记得去掉服务器信息，否则无法在识别下发弹
 			{
 				TempShootingFlag=1;//发弹标志位
 			}
@@ -440,7 +440,7 @@ void ChariotRecognition_Mes_Process(uint8_t *p)
 		CameraDetectTarget_Flag = 0;//如果连续?帧没识别到，则换状态
 	}
 	
-		if(  RC_CtrlData.rc.s1== 3&& gameState.game_progress == 4)//游戏开始且s1在中间，开摩擦轮
+		if(  RC_CtrlData.rc.s1== 3&& gameState.game_progress == 4)//游戏开始且s1在中间，开摩擦轮 平时训练记得去掉服务器信息，否则无法在识别下发弹
 	{
 		friction_wheel_state_flag = 1; //游戏开始，s1 放到中间，摩擦轮就开
 	}

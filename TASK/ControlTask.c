@@ -36,8 +36,9 @@ void Control_Task(void)
   FrictionWheelControl();             //摩擦轮拨弹电机控制任务
 	BoLunMotorControl();
 	ShooterMControlLoop();      		  //发射机构控制任务,0x207
-	SetGimbalMotorOutput();						//将云台、波轮、刹车电机输出量发送
-	
+	if(gameState.game_progress == 4){ //防止训练时p轴过热 没有服务器情况下去掉
+		SetGimbalMotorOutput();						//将云台、波轮、刹车电机输出量发送
+	}
 	
   /***底盘控制任务***/
   Chassis_Motion_Switch();      //自由状态，底盘运动到边界后，换向(正交编码器)
