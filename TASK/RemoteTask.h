@@ -63,4 +63,5 @@ typedef struct
 void RemoteDataPrcess(uint8_t *pData);
 extern  RC_Ctl_t  RC_CtrlData;
 extern double pitch_err; //2022加p轴修正数据
+extern char mini_pc;
 #endif
