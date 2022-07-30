@@ -416,8 +416,7 @@ void CMControlLoop(void)
 		{
 			//1+空+3+4，需要对应，不能把空的删去
 			if((CM1SpeedPID.fdb <= 10)&&(CM1SpeedPID.fdb >= -10))
-
-			Set_CM_Speed(CAN1, 0,0,0,0);
+				Set_CM_Speed(CAN1, 0,0,0,0);
 			else
 			  Set_CM_Speed(CAN1, CM1SpeedPID.output,0,0,0);
 		}
@@ -426,8 +425,7 @@ void CMControlLoop(void)
 		Set_CM_Speed(CAN1, CM1SpeedPID.output, 0,CM3SpeedPID.output, CM4SpeedPID.output);	
 		}
 		else //自由，测试，躲避，识别，被攻击
-		{
-//	Set_CM_Speed(CAN1, 0, 0,CM3SpeedPID.output, CM4SpeedPID.output);		
+		{	
 		Set_CM_Speed(CAN1, CM1SpeedPID.output, 0,CM3SpeedPID.output, CM4SpeedPID.output);	 		 
 		}
 }

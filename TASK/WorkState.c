@@ -73,6 +73,8 @@ void WorkStateFSM(void)
 			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
+				friction_wheel_state_flag = 0;
+		    TempShootingFlag = 0;
 			}
 			if(Attacked_Flag == 1)   //巡逻时，装甲被攻击，变为被攻击状态
 			{
@@ -112,6 +114,8 @@ void WorkStateFSM(void)
 			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
 				workState = STOP_STATE;	
+			  friction_wheel_state_flag = 0;
+		    TempShootingFlag = 0;
 			}
 
 		}break;
@@ -120,7 +124,9 @@ void WorkStateFSM(void)
 		{
 			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入自动模式下的停止状态
 			{
-				workState = STOP_STATE;
+				workState = STOP_STATE;	
+			  friction_wheel_state_flag = 0;
+		    TempShootingFlag = 0;
 			}		
 			if(gameState.game_progress == 4&&RemoteTest_Flag == 0)
 			{
@@ -160,7 +166,10 @@ void WorkStateFSM(void)
 			}		
 			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
-				workState = STOP_STATE;
+				workState = STOP_STATE;	
+			  friction_wheel_state_flag = 0;
+		    TempShootingFlag = 0;
+				
         CameraDetectTarget_Flag = 0;				
 			}
 						
@@ -190,7 +199,10 @@ void WorkStateFSM(void)
 			}		
 			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试，进入停止状态
 			{
-				workState = STOP_STATE;
+				workState = STOP_STATE;	
+			  friction_wheel_state_flag = 0;
+		    TempShootingFlag = 0;
+				
         utm123[0] = 0;				
 			}
 			if(CameraDetectTarget_Flag == 1 &&utm123[0] == 1){//绑定底盘的本枪与其他枪都处于识别状态，将状态切换为绑定底盘的本枪的识别状态
@@ -207,7 +219,10 @@ void WorkStateFSM(void)
 			}				     
 			if(gameState.game_progress == 0||RemoteTest_Flag == 2)   //遥控器停止测试
 			{
-				workState = STOP_STATE;
+				workState = STOP_STATE;	
+			  friction_wheel_state_flag = 0;
+		    TempShootingFlag = 0;
+				
 				DodgeTarget_Flag = 0;
 			}	
 		}break;
@@ -318,6 +333,7 @@ void WorkStateSwitchProcess(void)
 		Aerocraft_attack_flag = 0;
 		pitch_err = 0;
 		speed_rand_flag=0;
+
 		
 		YawCurrentPositionSave = GMYawEncoder.ecd_angle;
 		YawInitPositionSave = GMYawEncoder.ecd_angle;  //Y轴的初始位置，保证自由模式Y轴旋转方向和角度始终不变
