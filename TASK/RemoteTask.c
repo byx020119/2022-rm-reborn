@@ -9,6 +9,7 @@
 RC_Ctl_t RC_CtrlData;
 double pitch_err = 0;//2022加，p轴数据修正,传给视觉的
 int pitch_err_flag = 0;//2022加 p轴数据修正标志位，只有标志位为1或-1且ch0为0时，pitch_err值加或减一个单位
+char mini_pc = 'I';//小电脑开关控制
 
 /**
 函数：RemoteDataPrcess(pData)
@@ -176,8 +177,17 @@ void RemoteDataPrcess(uint8_t *pData)
 //   CameraDetectTarget_Flag = 0;
 //	 DodgeTarget_Flag = 0;
 	 }
+	  if(RC_CtrlData.rc.s2==2){//停止状态下
+	 if(RC_CtrlData.rc.s1== 1){//左拨杆到最上面时关闭小电脑
+		 mini_pc = 'O';
+	 }
+	 else{
+		  mini_pc = 'I';
+	 }
 	 
  }
+ }
+ 
 
  }
  
