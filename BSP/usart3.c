@@ -287,7 +287,13 @@ void Sendtosightway(int value)//与视觉商定
 	
 	Sendtosight[1]='M';//开始发送
 	Sendtosight[2]='N';
-	Sendtosight[3]='L';
+	if(mini_pc == 'O'){//小电脑开关控制，需要与视觉商定 此为2022年方便开关电脑设计，对以后不一定有用
+		Sendtosight[3]='O';
+	}
+	else{
+		Sendtosight[3]='I';
+	}
+	
 	
 	Sendtosight[4]=(uint8_t)(GMYawtemp_Eular/1000+48);			 //千位
 	Sendtosight[5]=(uint8_t)(GMYawtemp_Eular%1000/100+48);	 //百位

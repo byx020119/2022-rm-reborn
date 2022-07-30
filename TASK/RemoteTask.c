@@ -9,7 +9,7 @@
 RC_Ctl_t RC_CtrlData;
 double pitch_err = 0;//2022加，p轴数据修正,传给视觉的
 int pitch_err_flag = 0;//2022加 p轴数据修正标志位，只有标志位为1或-1且ch0为0时，pitch_err值加或减一个单位
-
+char mini_pc = 'I';
 /**
 函数：RemoteDataPrcess(pData)
 功能：对遥控器数据进行处理
@@ -170,14 +170,18 @@ void RemoteDataPrcess(uint8_t *pData)
  
  if(RC_CtrlData.rc.s2==3)//准备->自由，之后可进行模式的转换  左边3是自由状态
  {
- 	 if(RC_CtrlData.rc.s1== 2)
+ 	 if(RC_CtrlData.rc.s1== 3)
 	 {
+		 mini_pc = 'O';
+	 }
+	 else{
+		 mini_pc = 'I';
+	 }
 //	 Attacked_Flag = 0;
 //   CameraDetectTarget_Flag = 0;
 //	 DodgeTarget_Flag = 0;
-	 }
+	}
 	 
- }
 
  }
  
