@@ -64,3 +64,4 @@
 ..\obj\speedtask.o: ..\ControlTask\DogetState.h
 ..\obj\speedtask.o: ..\Common\crc.h
 ..\obj\speedtask.o: ..\Common\kalman.h
+..\obj\speedtask.o: ..\Common\ADRC_sha.h

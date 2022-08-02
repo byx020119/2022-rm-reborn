@@ -748,6 +748,11 @@
               <FileType>1</FileType>
               <FilePath>..\Common\Ramp.c</FilePath>
             </File>
+            <File>
+              <FileName>LADRC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Common\LADRC.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

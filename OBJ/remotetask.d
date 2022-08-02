@@ -64,3 +64,4 @@
 ..\obj\remotetask.o: ..\Common\common.h
 ..\obj\remotetask.o: ..\Common\crc.h
 ..\obj\remotetask.o: ..\Common\kalman.h
+..\obj\remotetask.o: ..\Common\ADRC_sha.h

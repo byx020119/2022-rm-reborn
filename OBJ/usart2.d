@@ -63,4 +63,5 @@
 ..\obj\usart2.o: ..\Common\common.h
 ..\obj\usart2.o: ..\Common\crc.h
 ..\obj\usart2.o: ..\Common\kalman.h
+..\obj\usart2.o: ..\Common\ADRC_sha.h
 ..\obj\usart2.o: ..\ControlTask\JudgingSystemTask.h

@@ -312,12 +312,12 @@ extern CM2_Ref_t CM2Ref;
 extern int16_t count_temp;
 extern float CMSpeedRate;
 
-extern float Chassis_Position_Ref;
-extern float last_Chassis_Temp_Speed;
-extern float Chassis_Temp_Speed;
-extern float last_Chassis_Temp_Speed_Save;
-extern float Chassis_Temp_Speed_Save;
-extern float Chassis_Speed_Ref;
+extern double Chassis_Position_Ref;
+extern double last_Chassis_Temp_Speed;
+extern double Chassis_Temp_Speed;
+extern double last_Chassis_Temp_Speed_Save;
+extern double Chassis_Temp_Speed_Save;
+extern double Chassis_Speed_Ref;
 extern float Yaw_FeedForward;
 extern int   Dodeg_STATE_Change;
 extern int   Last_Dodeg_STATE_Change;

@@ -64,4 +64,5 @@
 ..\obj\dogetstate.o: ..\Common\common.h
 ..\obj\dogetstate.o: ..\Common\crc.h
 ..\obj\dogetstate.o: ..\Common\kalman.h
+..\obj\dogetstate.o: ..\Common\ADRC_sha.h
 ..\obj\dogetstate.o: ..\ControlTask\JudgingSystemTask.h

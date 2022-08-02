@@ -64,3 +64,4 @@
 ..\obj\braketask.o: ..\Common\common.h
 ..\obj\braketask.o: ..\Common\crc.h
 ..\obj\braketask.o: ..\Common\kalman.h
+..\obj\braketask.o: ..\Common\ADRC_sha.h

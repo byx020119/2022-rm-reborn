@@ -6,6 +6,7 @@
 #include "Phototube.h"
 #include "uart1.h"
 #include "usart2.h"
+#include "main.h"
 
 void BSP_Init(void)
 {
@@ -20,5 +21,6 @@ void BSP_Init(void)
 	usart2_Init(115200);            //╫сйумсбщрг
 //	PWM_Configuration();            //д╕╡абж
 	Phototube_Configuration();
+	ADRC_Init_SPEED(&ADRC_SPEED_Controller);
 }
 

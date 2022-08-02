@@ -63,4 +63,5 @@
 ..\obj\shootingtask.o: ..\Common\common.h
 ..\obj\shootingtask.o: ..\Common\crc.h
 ..\obj\shootingtask.o: ..\Common\kalman.h
+..\obj\shootingtask.o: ..\Common\ADRC_sha.h
 ..\obj\shootingtask.o: ..\ControlTask\ShootingTask.h

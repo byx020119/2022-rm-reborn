@@ -65,3 +65,4 @@
 ..\obj\controltask.o: ..\Common\common.h
 ..\obj\controltask.o: ..\Common\crc.h
 ..\obj\controltask.o: ..\Common\kalman.h
+..\obj\controltask.o: ..\Common\ADRC_sha.h

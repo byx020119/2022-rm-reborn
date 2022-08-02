@@ -63,6 +63,7 @@
 ..\obj\judgingsystemtask.o: ..\Common\common.h
 ..\obj\judgingsystemtask.o: ..\Common\crc.h
 ..\obj\judgingsystemtask.o: ..\Common\kalman.h
+..\obj\judgingsystemtask.o: ..\Common\ADRC_sha.h
 ..\obj\judgingsystemtask.o: ..\ControlTask\JudgingSystemTask.h
 ..\obj\judgingsystemtask.o: ..\ControlTask\GunHeartAndBleed.h
 ..\obj\judgingsystemtask.o: ..\ControlTask\ShootingTask.h

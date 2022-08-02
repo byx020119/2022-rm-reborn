@@ -193,6 +193,8 @@ void WorkStateSwitchProcess(void)
 		PitchCurrentPositionSave= -GMPitchEncoder.ecd_angle;           //保存当前pitch码盘值
 		GimbalRef.pitch_angle_dynamic_ref = PitchCurrentPositionSave;
 		Last_Dodeg_STATE_Change = 0;	
+		
+		
 	}
 	
 

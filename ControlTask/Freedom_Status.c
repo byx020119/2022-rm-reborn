@@ -6,7 +6,7 @@
 #include "SpeedTask.h"
 #include "encoder.h"
 #include "stdlib.h"
-
+#include "main.h"
 
 float YawCurrentPositionSave   = 0.0f;   //保存当前Yaw轴位置
 float PitchCurrentPositionSave = 0.0f;   //保存当前Pitch轴位置
@@ -41,8 +41,10 @@ int32_t time_track_right_max = 0;
 
 double yaw_ecd_angle_flag =0;             //2022加  自由模式y轴一侧限位值
 double yaw_ecd_angle_flag1 =200;          //2022加  自由模式y轴另一侧限位值
-const float Chassis_speed=320;						//2022加  底盘电机速度常量
+const float Chassis_speed=0;						//2022加  底盘电机速度常量
 const float Chassis_Position=2000;        //2022加  底盘电机位置常量
+double freedom_randspeed = 0;             //2022加  自由模式曲线变化量,暂时没有用到
+int freedom_randspeed_flag = 0;        //2022加  自由模式曲线变化量标志，暂时没有用到 
 /***
 函数：YawFreeRoation()
 功能：自由状态时YAW自由旋转
@@ -166,6 +168,39 @@ void YawFreeRoation(void)
 	
 	
 }
+/***
+函数：RandSpeed()
+功能：在一个范围内随机给已经赋值的速度添加增量，达到曲线速度行驶
+备注：无 
+***/
+int random_speed = 0;
+int random_time = 0;
+int speed_ref =0;
+
+void RandSpeed(){
+	//另一种曲线速度变化方式
+//	int temp = 0;
+//	temp = (int)rand()%2;
+//	
+//	if(freedom_randspeed > 300 )
+//		freedom_randspeed_flag = 1;
+//	else if (freedom_randspeed <= 0)
+//		freedom_randspeed_flag = 0;
+//	
+//	if(freedom_randspeed_flag == 1)
+//		freedom_randspeed -= temp;
+//  else if(freedom_randspeed_flag == 0)
+//		freedom_randspeed += temp;
+	//ADRC曲线速度变化方式
+	random_time++;
+	if(random_time % 100 == 0)
+	{
+		random_speed = 200 + rand()%121;
+		ADRC_SPEED_Controller.x2 = 0;
+	}
+	ADRC_Control_SPEED(&ADRC_SPEED_Controller,(float)random_speed);
+	speed_ref = ADRC_SPEED_Controller.x1;
+}
 
 /***
 函数：Chassis_Motion_Switch()
@@ -174,6 +209,7 @@ void YawFreeRoation(void)
 ***/
 void Chassis_Motion_Switch(void)
 {
+	RandSpeed();
 	if(GetWorkState()== Freedom_STATE||GetWorkState()== ChariotRecognition_STATE||GetWorkState()== Attacked_STATE)   
 	{
 		if(Chassis_Power_On_Flag == 1)  //底盘已经上电
@@ -235,22 +271,22 @@ void Chassis_Motion_Switch(void)
 				{
 				 if(Chassis_Position_Ref > CM1Encoder.ecd_angle)//光电管出问题，一直在一个方向上，就反向
 				   {
-					   Chassis_Temp_Speed = -Chassis_speed ;
+					   Chassis_Temp_Speed = -speed_ref;//-(Chassis_speed+freedom_randspeed) ;
 				   }
 				 else if(Chassis_Position_Ref < CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = Chassis_speed ;
+					   Chassis_Temp_Speed =  speed_ref;//Chassis_speed+freedom_randspeed ;
 				   }
 			  }
 				if(Speed_change==1)
 				{
 				 if(Chassis_Position_Ref > CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = -Chassis_speed ;
+					   Chassis_Temp_Speed = -speed_ref;//-(Chassis_speed+freedom_randspeed) ;
 				   }
 				 else if(Chassis_Position_Ref < CM1Encoder.ecd_angle)
 				   {
-					   Chassis_Temp_Speed = Chassis_speed ;
+					   Chassis_Temp_Speed = speed_ref;//Chassis_speed+freedom_randspeed ;
 				   }
 			  }
 				

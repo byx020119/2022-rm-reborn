@@ -64,3 +64,4 @@
 ..\obj\kalman.o: ..\Common\common.h
 ..\obj\kalman.o: ..\Common\crc.h
 ..\obj\kalman.o: ..\Common\kalman.h
+..\obj\kalman.o: ..\Common\ADRC_sha.h

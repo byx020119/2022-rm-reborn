@@ -42,12 +42,12 @@ int Brake_flag=0;                   //定义刹车标志位 1为水平时
 
 float CMSpeedRate =1.0f;            //底盘电机速度系数
 float Yaw_FeedForward = 0.0;        //yaw识别补偿值
-float Chassis_Position_Ref = 0;     //底盘位置目标值
-float last_Chassis_Temp_Speed = 0;  //上一次底盘临时速度
-float Chassis_Temp_Speed      = 0;  //本次底盘临时速度
-float last_Chassis_Temp_Speed_Save = 0;
-float Chassis_Temp_Speed_Save = 0;
-float Chassis_Speed_Ref       = 0;  //底盘实际速度参考值
+double Chassis_Position_Ref = 0;     //底盘位置目标值
+double last_Chassis_Temp_Speed = 0;  //上一次底盘临时速度
+double Chassis_Temp_Speed      = 0;  //本次底盘临时速度
+double last_Chassis_Temp_Speed_Save = 0;
+double Chassis_Temp_Speed_Save = 0;
+double Chassis_Speed_Ref       = 0;  //底盘实际速度参考值
 u8 pitch_POS_Flag = 0;
 float  test1=0;
 float  GMY_Previous_Output=0;
@@ -60,6 +60,7 @@ float  CR_Pitch_increment=0;
 int    Dodeg_STATE_Change = 0;
 int    Last_Dodeg_STATE_Change=0;
 float  sbyaw=0;
+double speedBuff = 0 ;
 /***
 函数：GMBrakeControlLoop()
 功能：利用PID计算出brake电机的输出量
@@ -529,6 +530,10 @@ void ShooterMControlLoop(void)
 }
 
 
+
+
+
+
 /***
 函数：GraduallyChangeCMSpeed()
 功能：自由状态和躲避状态底盘换向时，先逐渐减速再反向逐渐加速
@@ -562,9 +567,10 @@ void GraduallyChangeCMSpeed(void)
 			Chassis_Speed_Ref = Chassis_Temp_Speed*CMSpeedRate;
 		}
 		else
-		{
-			Chassis_Speed_Ref = Chassis_Temp_Speed;
+		{					
+				Chassis_Speed_Ref = Chassis_Temp_Speed;		
 		}
   }
 }
+
 

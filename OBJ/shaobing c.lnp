@@ -62,6 +62,7 @@
 "..\obj\kalman.o"
 "..\obj\pid.o"
 "..\obj\ramp.o"
+"..\obj\ladrc.o"
 "..\obj\canbustask.o"
 "..\obj\encoder.o"
 --strict --scatter "..\OBJ\shaobing c.sct"

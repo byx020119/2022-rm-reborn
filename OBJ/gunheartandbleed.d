@@ -63,6 +63,7 @@
 ..\obj\gunheartandbleed.o: ..\Common\common.h
 ..\obj\gunheartandbleed.o: ..\Common\crc.h
 ..\obj\gunheartandbleed.o: ..\Common\kalman.h
+..\obj\gunheartandbleed.o: ..\Common\ADRC_sha.h
 ..\obj\gunheartandbleed.o: ..\ControlTask\GunHeartAndBleed.h
 ..\obj\gunheartandbleed.o: ..\ControlTask\ShootingTask.h
 ..\obj\gunheartandbleed.o: ..\ControlTask\JudgingSystemTask.h

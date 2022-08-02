@@ -63,3 +63,4 @@
 ..\obj\main.o: ..\Common\common.h
 ..\obj\main.o: ..\Common\crc.h
 ..\obj\main.o: ..\Common\kalman.h
+..\obj\main.o: ..\Common\ADRC_sha.h
