@@ -129,7 +129,7 @@ void getRobotPowerHeat(uint8_t *powerHeartData)
 	
 	ChassisPower_buffer = powerHeartData[15]|(powerHeartData[16]<<8);//|(powerHeartData[21]<<16)|(powerHeartData[22]<<24);
 //	chassisPowerBuffer = Parameter_Transformation(ChassisPower_buffer); //缓冲功率
-	robotPowerHeat.ChassisPowerBuffer = Parameter_Transformation(ChassisPower_buffer); //缓冲功率
+	robotPowerHeat.ChassisPowerBuffer = ChassisPower_buffer; //缓冲功率
 	
 //	robotPowerHeat.shooter_17_Heat= powerHeartData[23]|(powerHeartData[24]<<8);
 //	chassisPowerError = robotPowerHeat.ChassisPower - lastChassisPower;
