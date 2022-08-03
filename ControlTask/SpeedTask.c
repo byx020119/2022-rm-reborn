@@ -134,7 +134,7 @@ void SpeedBuff(uint32_t ChassisPower_buffer)
 		Chassis_Speed_Ref += speedbuff_temp;
 	}
 	else{
-		Chassis_Speed_Ref = -(speedbuff_temp+Chassis_Speed_Ref);
+		Chassis_Speed_Ref = -(speedbuff_temp-Chassis_Speed_Ref);
 	}
 
 }
