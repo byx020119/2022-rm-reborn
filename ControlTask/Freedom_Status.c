@@ -195,7 +195,7 @@ void RandSpeed(){
 	random_time++;
 	if(random_time % 100 == 0)
 	{
-		random_speed = 200 + rand()%121;
+		random_speed = 200 + rand()%121;   //121
 		ADRC_SPEED_Controller.x2 = 0;
 	}
 	ADRC_Control_SPEED(&ADRC_SPEED_Controller,(float)random_speed);

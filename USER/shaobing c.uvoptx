@@ -359,6 +359,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>robotPowerHeat</ItemText>
         </Ww>
+        <Ww>
+          <count>30</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>speedbuff_temp</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>

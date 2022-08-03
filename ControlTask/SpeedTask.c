@@ -9,6 +9,7 @@
 #include "math.h"
 #include "ShootingTask.h"
 #include "timer.h"
+#include "JudgingSystemTask.h"
 
 //调参这里PID
 //PID结构体初始化
@@ -60,7 +61,83 @@ float  CR_Pitch_increment=0;
 int    Dodeg_STATE_Change = 0;
 int    Last_Dodeg_STATE_Change=0;
 float  sbyaw=0;
-double speedBuff = 0 ;
+double speedbuff_temp = 0;//缓存变速补偿
+int speedbuff_temp_flag = 0;//缓存变速补偿标志位
+
+/***
+函数：GraduallyChangeCMSpeed()
+功能：自由状态和躲避状态底盘换向时，先逐渐减速再反向逐渐加速
+备注：无
+***/
+void GraduallyChangeCMSpeed(void)
+{
+	if(GetWorkState()== Freedom_STATE || GetWorkState()== Dodeg_STATE||GetWorkState()== ChariotRecognition_STATE||GetWorkState()== Attacked_STATE) //自由状态和躲避状态
+	{
+		if(Chassis_Change_Dir_Flag==1) //1->0，速度逐渐减小
+		{
+			Chassis_Speed_UP_Flag = 0;
+			Chassis_Speed_DOWN_Flag = 0;
+			
+			CMSpeedRate=0;//CMSpeedRate-0.05f;
+			if(CMSpeedRate<=0) 
+			{
+				CMSpeedRate=0.0f;
+				Chassis_Change_Dir_Flag=2;
+			}
+			Chassis_Speed_Ref = last_Chassis_Temp_Speed*CMSpeedRate;
+		}
+		else if(Chassis_Change_Dir_Flag==2) //0->1，速度逐渐增大
+		{
+			CMSpeedRate=1;//CMSpeedRate+0.05f;
+			if(CMSpeedRate>=1) 
+			{
+				CMSpeedRate=1.0f;
+				Chassis_Change_Dir_Flag = 0;
+			}
+			Chassis_Speed_Ref = Chassis_Temp_Speed*CMSpeedRate;
+		}
+		else
+		{					
+				Chassis_Speed_Ref = Chassis_Temp_Speed;		
+		}
+  }
+}
+/***
+函数：SpeedBuff()
+功能：根据地盘缓存添加速度补偿
+备注：无
+***/
+
+void SpeedBuff(uint32_t ChassisPower_buffer)
+{
+	int temp;
+	//判断速度符号
+	if(Chassis_Speed_Ref>0){
+		temp = 0;
+	}
+	else temp = 1;
+	//进行累加
+	if(speedbuff_temp_flag == 0 && ChassisPower_buffer < 70){//50
+		speedbuff_temp_flag = 1;
+	}
+	else if (speedbuff_temp_flag ==1 && ChassisPower_buffer >=150 ){//100
+		speedbuff_temp_flag = 0;
+		speedbuff_temp = 0;
+	}
+	
+	if(ChassisPower_buffer <= 70&&speedbuff_temp_flag == 1){
+		speedbuff_temp -= 0.05;
+	}
+	
+	//改变速度值
+	if(temp == 0){
+		Chassis_Speed_Ref += speedbuff_temp;
+	}
+	else{
+		Chassis_Speed_Ref = -(speedbuff_temp+Chassis_Speed_Ref);
+	}
+
+}
 /***
 函数：GMBrakeControlLoop()
 功能：利用PID计算出brake电机的输出量
@@ -423,7 +500,7 @@ void CMControlLoop(void)
 		//自由状态、测试状态、被攻击状态
 		if(GetWorkState()== Freedom_STATE || GetWorkState() == Test_STATE || GetWorkState() == Attacked_STATE)
 		{
-			
+			SpeedBuff(robotPowerHeat.ChassisPowerBuffer);
 			CM1SpeedPID.ref = -Chassis_Speed_Ref ;//-  Speed_Offset.output*Chassis_Speed_Ref/fabs(Chassis_Speed_Ref) ;
 			CM1SpeedPID.fdb = CM1Encoder.filter_rate;
 			CM1SpeedPID.Calc(&CM1SpeedPID);
@@ -532,45 +609,5 @@ void ShooterMControlLoop(void)
 
 
 
-
-
-/***
-函数：GraduallyChangeCMSpeed()
-功能：自由状态和躲避状态底盘换向时，先逐渐减速再反向逐渐加速
-备注：无
-***/
-void GraduallyChangeCMSpeed(void)
-{
-	if(GetWorkState()== Freedom_STATE || GetWorkState()== Dodeg_STATE||GetWorkState()== ChariotRecognition_STATE||GetWorkState()== Attacked_STATE) //自由状态和躲避状态
-	{
-		if(Chassis_Change_Dir_Flag==1) //1->0，速度逐渐减小
-		{
-			Chassis_Speed_UP_Flag = 0;
-			Chassis_Speed_DOWN_Flag = 0;
-			
-			CMSpeedRate=0;//CMSpeedRate-0.05f;
-			if(CMSpeedRate<=0) 
-			{
-				CMSpeedRate=0.0f;
-				Chassis_Change_Dir_Flag=2;
-			}
-			Chassis_Speed_Ref = last_Chassis_Temp_Speed*CMSpeedRate;
-		}
-		else if(Chassis_Change_Dir_Flag==2) //0->1，速度逐渐增大
-		{
-			CMSpeedRate=1;//CMSpeedRate+0.05f;
-			if(CMSpeedRate>=1) 
-			{
-				CMSpeedRate=1.0f;
-				Chassis_Change_Dir_Flag = 0;
-			}
-			Chassis_Speed_Ref = Chassis_Temp_Speed*CMSpeedRate;
-		}
-		else
-		{					
-				Chassis_Speed_Ref = Chassis_Temp_Speed;		
-		}
-  }
-}
 
 
