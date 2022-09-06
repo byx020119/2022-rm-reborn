@@ -40,8 +40,6 @@
 
 - [开发环境](#开发环境)
 
-- [安装步骤](#安装步骤)
-
 - [文件目录说明](#文件目录说明)
 
 - [贡献者](#贡献者)
@@ -141,7 +139,7 @@ byx020119
 
   
 
-github:github.com/byx020119 &ensp; qq:2237478533
+github:http://github.com/byx020119 &ensp; qq:2237478533
 
   
 
@@ -151,7 +149,7 @@ github:github.com/byx020119 &ensp; qq:2237478533
 ### 鸣谢
 
 
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+- [Y1Yukina (赵玥玥) (github.com)](https://github.com/Y1Yukina)
 
 
 <!-- links -->
@@ -161,6 +159,6 @@ github:github.com/byx020119 &ensp; qq:2237478533
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2MTA5MTQ4NiwtMTQ1NDY2NDUwNCwxMT
+eyJoaXN0b3J5IjpbLTQzMzYxMDI1NCwtMTQ1NDY2NDUwNCwxMT
 kzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4NThdfQ==
 -->
