@@ -40,8 +40,6 @@
 
 - [开发环境](#开发环境)
 
-- [开发前的配置要求](#开发前的配置要求)
-
 - [安装步骤](#安装步骤)
 
 - [文件目录说明](#文件目录说明)
@@ -60,25 +58,13 @@
 
 ### 开发环境
 
-windows系统性的
-  
-
-###### 开发前的配置要求
-
-  
-
-1. xxxxx x.x.x
-
-2. xxxxx x.x.x
-
+windows系统下的keil平台，keil5
   
 
 ###### **安装步骤**
 
 
 1. Clone the repo
-
-  
 
 ```sh
 
@@ -229,6 +215,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDU3NjAzMzQyLDExOTM2MjE1MTksLTk2Mz
-E4NjQ3NywtMTI1NDY1Mzg1OF19
+eyJoaXN0b3J5IjpbLTE2NTMzMTQ3NDAsMTE5MzYyMTUxOSwtOT
+YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
 -->
