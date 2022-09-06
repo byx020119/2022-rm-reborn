@@ -93,7 +93,8 @@ eg:
 |--/ControlTask/（控制任务文档）
 |  |--ControlTask.c
 |  |--ControlTask.h
-|--Sentry.uvprojx（启动文件）
+|--/USER/（用户文件）
+|  |--shaobing c.uvprojx（启动文件）
 ...
  
 
@@ -157,5 +158,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Mjg4Mzc5OTldfQ==
+eyJoaXN0b3J5IjpbLTE3NDUwNTg1MjZdfQ==
 -->
