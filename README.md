@@ -84,35 +84,11 @@ eg:
 
 2022-rm-a-down
 
-├── ARCHITECTURE.md
-
-├── LICENSE.txt
-
 ├── README.md
+|├──
 
-├── /account/
 
-├── /bbs/
 
-├── /docs/
-
-│ ├── /rules/
-
-│ │ ├── backend.txt
-
-│ │ └── frontend.txt
-
-├── manage.py
-
-├── /oa/
-
-├── /static/
-
-├── /templates/
-
-├── useless.md
-
-└── /util/
 
   
 
@@ -215,6 +191,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjk0NDY4ODIsMTE5MzYyMTUxOSwtOT
+eyJoaXN0b3J5IjpbLTEyNDgzMjczMzMsMTE5MzYyMTUxOSwtOT
 YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
 -->
