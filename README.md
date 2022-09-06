@@ -4,8 +4,6 @@ ProjectName and Description
 
 <!-- PROJECT SHIELDS -->
 
-  
-
 [![Contributors][contributors-shield]][contributors-url]
 
 [![Forks][forks-shield]][forks-url]
@@ -17,12 +15,6 @@ ProjectName and Description
 [![MIT License][license-shield]][license-url]
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-  
-
-<!-- PROJECT LOGO -->
-
-<br  />
 
 <h3  align="center">"完美的"README模板</h3>
 
@@ -315,5 +307,5 @@ xxx@xxxx
 
 [linkedin-url]: https://linkedin.com/in/shaojintian
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1MTMzMTg3NywtMTI1NDY1Mzg1OF19
+eyJoaXN0b3J5IjpbLTk2MzE4NjQ3NywtMTI1NDY1Mzg1OF19
 -->
