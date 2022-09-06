@@ -9,7 +9,7 @@
 
 <p  align="center">
 
-此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队哨兵嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分，另有2022-rm-a-test为Cx
+此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队哨兵嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，另有2022-rm-a-test为C型板代码。
 
 <br  />
 
@@ -277,6 +277,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODUwMTczNzksMTE5MzYyMTUxOSwtOT
-YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
+eyJoaXN0b3J5IjpbNjk5NzU0NzE4LDExOTM2MjE1MTksLTk2Mz
+E4NjQ3NywtMTI1NDY1Mzg1OF19
 -->
