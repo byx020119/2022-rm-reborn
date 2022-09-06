@@ -8,7 +8,7 @@
 
 <p  align="center">
 
-此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队哨兵嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，另有2022-rm-a-test为C型板代码。本赛季Reborn战队获得东部赛区二等奖及全国三等奖。
+此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队哨兵嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，另有2022-rm-a-test为C型板代码。2022赛季Reborn战队获得超级对抗赛东部赛区二等奖及全国三等奖。[RoboMaster 2022机甲大师超级对抗赛全国赛获奖名单](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)
 
 <br  />
 
@@ -153,7 +153,7 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NDQyMjg2OCwtNjkyNjAwMTEyLC0xND
-U0NjY0NTA0LDExOTM2MjE1MTksLTk2MzE4NjQ3NywtMTI1NDY1
-Mzg1OF19
+eyJoaXN0b3J5IjpbODU0OTQ3MDMxLC02OTI2MDAxMTIsLTE0NT
+Q2NjQ1MDQsMTE5MzYyMTUxOSwtOTYzMTg2NDc3LC0xMjU0NjUz
+ODU4XX0=
 -->
