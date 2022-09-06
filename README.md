@@ -88,6 +88,10 @@ eg:
 |--/BSP/
 |  |--adc.c
 |  |--adc.h
+...
+|--/COMMON/
+|  |--common.c
+|  |--common.h
 
 
 
@@ -194,6 +198,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NjM2NTkyMSwxMTkzNjIxNTE5LC05Nj
+eyJoaXN0b3J5IjpbMTMwNzgyMzc5NywxMTkzNjIxNTE5LC05Nj
 MxODY0NzcsLTEyNTQ2NTM4NThdfQ==
 -->
