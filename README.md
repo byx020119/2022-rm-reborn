@@ -2,7 +2,6 @@
 
 <!-- PROJECT SHIELDS -->
 
-[![Contributors][contributors-shield]][contributors-url]
 
 
 <h3  align="center">2022-rm-a-down</h3>
@@ -152,11 +151,8 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 <!-- links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/shaojintian/Best_README_template.svg?style=flat-square
-
-[contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzExOTMwNzU5LC0xNDU0NjY0NTA0LDExOT
-M2MjE1MTksLTk2MzE4NjQ3NywtMTI1NDY1Mzg1OF19
+eyJoaXN0b3J5IjpbLTY5MjYwMDExMiwtMTQ1NDY2NDUwNCwxMT
+kzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4NThdfQ==
 -->
