@@ -100,7 +100,7 @@ eg:
 |  |--/COMMON/（基本控制算法文档）
 |  |  |--pid.c
 |  |  |--pid.h
-|  |--/ControlTask/（控制任务文档）
+|  |--/TASK/（控制任务文档）
 |  |  |--ControlTask.c
 |  |  |--ControlTask.h
 |  |--/USER/（用户文件）
@@ -170,5 +170,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODI3MTU5NDZdfQ==
+eyJoaXN0b3J5IjpbMzI5NzAxMDA5XX0=
 -->
