@@ -97,29 +97,10 @@ eg:
 |--Sentry.uvprojx（启动文件）
 |--rm-2022-down-old.zip（旧版本压缩包）
 ...
-
-
-
-
-  
+ 
 
 ```
 
-  
-  
-  
-  
-  
-
-  
-
-### 贡献者
-
-  
-
-请阅读**CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
-
-  
 
 #### 如何参与开源项目
 
@@ -202,6 +183,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODIxMDY3NDgsMTE5MzYyMTUxOSwtOT
+eyJoaXN0b3J5IjpbLTE0NTQ2NjQ1MDQsMTE5MzYyMTUxOSwtOT
 YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
 -->
