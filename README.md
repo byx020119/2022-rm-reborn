@@ -9,7 +9,7 @@
 <p  align="center">
 
 此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队哨兵嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，另有2022-rm-a-test为C型板代码。2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
-
+![](https://rm-static.djicdn.com/robomasters/dps/32775910973c67bf09e558ce80b3438b.jpg)
 <br  />
 
 <a  href="https://github.com/byx20119/2022-rm-a-down"><strong>探索本项目的文档 »</strong></a>
@@ -153,7 +153,7 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0MDg5MDE4LC02OTI2MDAxMTIsLTE0NT
-Q2NjQ1MDQsMTE5MzYyMTUxOSwtOTYzMTg2NDc3LC0xMjU0NjUz
-ODU4XX0=
+eyJoaXN0b3J5IjpbMTg3OTU3MzE5NSwxNjQwODkwMTgsLTY5Mj
+YwMDExMiwtMTQ1NDY2NDUwNCwxMTkzNjIxNTE5LC05NjMxODY0
+NzcsLTEyNTQ2NTM4NThdfQ==
 -->
