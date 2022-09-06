@@ -1,16 +1,11 @@
 # 2022-rm-a-down
-ProjectName and Description
-
 
 <!-- PROJECT SHIELDS -->
 
 [![Contributors][contributors-shield]][contributors-url]
 
-[![MIT License][license-shield]][license-url]
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-<h3  align="center">完美的"README模板</h3>
+<h3  align="center">2022-rm-a-down</h3>
 
 <p  align="center">
 
@@ -281,11 +276,7 @@ xxx@xxxx
 
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-
-[linkedin-url]: https://linkedin.com/in/shaojintian
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODk5MTI1NTksMTE5MzYyMTUxOSwtOT
+eyJoaXN0b3J5IjpbLTEwODEyNzI4ODAsMTE5MzYyMTUxOSwtOT
 YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
 -->
