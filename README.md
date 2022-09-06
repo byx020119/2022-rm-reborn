@@ -52,7 +52,7 @@
   <br>
 </br>
 
-### 开发环境
+## 开发环境
 
 windows系统下的keil平台，keil5
   
@@ -71,7 +71,7 @@ git clone https://github.com/byx20119/2022-rm-a-down.git
   <br>
 </br>
 
-### 文件目录说明
+## 文件目录说明
 
 eg:
 
@@ -99,7 +99,7 @@ eg:
 ```
 
 
-#### 如何参与开源项目
+### 如何参与开源项目
 
   
 
@@ -123,7 +123,7 @@ eg:
 </br>
   
 
-### 版本控制
+## 版本控制
 
   
 
@@ -133,7 +133,7 @@ eg:
 <br>
 </br>
 
-### 作者
+## 作者
 
   
 
@@ -151,7 +151,7 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 <br>
 </br>
 
-### 鸣谢
+## 鸣谢
 
 
 - [Y1Yukina (赵玥玥) (github.com)](https://github.com/Y1Yukina)
@@ -161,8 +161,9 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDU5NjMxODA4LC04Mjk5NTMxNjEsLTcxMD
-I5NTk1Myw4MTAyMDA3MDMsODY3OTkyNTA3LC0xMTUzNjEyMjIy
-LDE2NDA4OTAxOCwtNjkyNjAwMTEyLC0xNDU0NjY0NTA0LDExOT
-M2MjE1MTksLTk2MzE4NjQ3NywtMTI1NDY1Mzg1OF19
+eyJoaXN0b3J5IjpbLTI4OTkwNTc0LDQ1OTYzMTgwOCwtODI5OT
+UzMTYxLC03MTAyOTU5NTMsODEwMjAwNzAzLDg2Nzk5MjUwNywt
+MTE1MzYxMjIyMiwxNjQwODkwMTgsLTY5MjYwMDExMiwtMTQ1ND
+Y2NDUwNCwxMTkzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4
+NThdfQ==
 -->
