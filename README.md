@@ -8,25 +8,25 @@
 
 <p  align="center">
 
-此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队“哨兵”机器人嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，分别控制机器人的上枪组及下枪组，另有2022-rm-a-test为C型板代码。2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
+此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队“空中”机器人嵌入式组代码，包括a板及自研板代码。2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
 ![](https://rm-static.djicdn.com/tem/55708/428eaaef4b6ba1632310756119837520.png)
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-a-down"><strong>探索本项目的文档 »</strong></a>
+<a  href="https://github.com/byx020119/2022-rm-self-plane"><strong>探索本项目的文档 »</strong></a>
 
 <br  />
 
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-a-down">查看</a>
+<a  href="https://github.com/byx020119/2022-rm-self-plane">查看</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-a-down/issues">报告Bug</a>
+<a  href="https://github.com/byx020119/2022-rm-self-plane/issues">报告Bug</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-a-down/issues">提出新特性</a>
+<a  href="https://github.com/byx020119/2022-rm-self-plane/issues">提出新特性</a>
 
 </p>  
 
@@ -64,7 +64,7 @@ windows系统下的keil平台，keil5
 
 ```sh
 
-git clone https://github.com/byx20119/2022-rm-a-down.git
+git clone https://github.com/byx20119/2022-rm-self-plane.git
 
 ```
 
@@ -151,15 +151,12 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 <br>
 </br>
 
-### 鸣谢
 
-
-- [Y1Yukina (赵玥玥) (github.com)](https://github.com/Y1Yukina)
 
 
 <!-- links -->
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2OTc4MzY0Ml19
+eyJoaXN0b3J5IjpbMzMwNDYyNjU1XX0=
 -->
