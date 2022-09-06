@@ -42,8 +42,6 @@
 
 - [文件目录说明](#文件目录说明)
 
-- [贡献者](#贡献者)
-
 - [如何参与开源项目](#如何参与开源项目)
 
 - [版本控制](#版本控制)
@@ -159,6 +157,6 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzMzYxMDI1NCwtMTQ1NDY2NDUwNCwxMT
-kzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4NThdfQ==
+eyJoaXN0b3J5IjpbMzExOTMwNzU5LC0xNDU0NjY0NTA0LDExOT
+M2MjE1MTksLTk2MzE4NjQ3NywtMTI1NDY1Mzg1OF19
 -->
