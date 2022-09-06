@@ -6,8 +6,6 @@ ProjectName and Description
 
 [![Contributors][contributors-shield]][contributors-url]
 
-[![Forks][forks-shield]][forks-url]
-
 [![Stargazers][stars-shield]][stars-url]
 
 [![Issues][issues-shield]][issues-url]
@@ -307,5 +305,6 @@ xxx@xxxx
 
 [linkedin-url]: https://linkedin.com/in/shaojintian
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MzE4NjQ3NywtMTI1NDY1Mzg1OF19
+eyJoaXN0b3J5IjpbLTQxOTE5OTE3NSwtOTYzMTg2NDc3LC0xMj
+U0NjUzODU4XX0=
 -->
