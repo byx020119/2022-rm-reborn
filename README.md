@@ -95,6 +95,7 @@ eg:
 |  |--ControlTask.h
 |--/USER/（用户文件）
 |  |--shaobing c.uvprojx（启动文件）
+|  |--标准库同hal库哨兵区别.doc
 ...
  
 
@@ -158,5 +159,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDUwNTg1MjZdfQ==
+eyJoaXN0b3J5IjpbMjExMDA4Mzc2NF19
 -->
