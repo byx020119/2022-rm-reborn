@@ -8,8 +8,8 @@
 
 <p  align="center">
 
-此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队哨兵嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，另有2022-rm-a-test为C型板代码。2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
-![](https://rm-static.djicdn.com/robomasters/dps/32775910973c67bf09e558ce80b3438b.jpg)
+此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队“哨兵机器人嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，另有2022-rm-a-test为C型板代码。2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
+![](https://rm-static.djicdn.com/tem/55708/428eaaef4b6ba1632310756119837520.png)
 <br  />
 
 <a  href="https://github.com/byx20119/2022-rm-a-down"><strong>探索本项目的文档 »</strong></a>
@@ -153,7 +153,7 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3OTU3MzE5NSwxNjQwODkwMTgsLTY5Mj
+eyJoaXN0b3J5IjpbLTM4MTE5NTQzNiwxNjQwODkwMTgsLTY5Mj
 YwMDExMiwtMTQ1NDY2NDUwNCwxMTkzNjIxNTE5LC05NjMxODY0
 NzcsLTEyNTQ2NTM4NThdfQ==
 -->
