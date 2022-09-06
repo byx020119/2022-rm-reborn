@@ -55,7 +55,7 @@
   <br>
 </br>
 
-### 开发环境
+## 开发环境
 
 windows系统下的keil平台，keil5
   
@@ -74,7 +74,7 @@ git clone https://github.com/byx20119/2022-rm-c-test.git
 </br>
   
 
-### 文件目录说明
+## 文件目录说明
 
 eg:
 
@@ -106,7 +106,7 @@ eg:
 ```
 
 
-#### 如何参与开源项目
+### 如何参与开源项目
 
   
 
@@ -130,7 +130,7 @@ eg:
   
   
 
-### 版本控制
+## 版本控制
 
   
 
@@ -139,7 +139,7 @@ eg:
   <br>
 </br>
 
-### 作者
+## 作者
 
   
 
@@ -157,7 +157,7 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
   <br>
 </br>
 
-### 鸣谢
+## 鸣谢
 
 
 - [Y1Yukina (赵玥玥) (github.com)](https://github.com/Y1Yukina)
@@ -167,6 +167,6 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NDc1Njk1MywxMjIyODI2OTY4LDIxMT
-AwODM3NjRdfQ==
+eyJoaXN0b3J5IjpbLTIwMjIxNzYzNzksMTIyMjgyNjk2OCwyMT
+EwMDgzNzY0XX0=
 -->
