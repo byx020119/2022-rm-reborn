@@ -47,7 +47,6 @@
 
 - [作者](#作者)
 
-- [鸣谢](#鸣谢)
 
   <br>
 </br>
@@ -82,17 +81,20 @@ eg:
 2022-rm-a-down
 
 |--README.md（说明文档）
-|--/BSP/（基本配置文档）
-|  |--adc.c
-|  |--adc.h
-|--/COMMON/（部分算法文档）
-|  |--common.c
-|  |--common.h
-|--/TASK/（控制任务文档）
-|  |--CanBusTask.c
-|  |--CanBusTask.h
-|--Sentry.uvprojx（启动文件）
-|--rm-2022-down-old.zip（旧版本压缩包）
+|--/a/
+|  |--/BSP/（基本配置文档）
+|  |  |--adc.c
+|  |  |--adc.h
+|  |--/COMMON/（部分算法文档）
+|  |  |--common.c
+|  |  |--common.h
+|  |--/TASK/（控制任务文档）
+|  |  |--CanBusTask.c
+|  |  |--CanBusTask.h
+|  |--Sentry.uvprojx（启动文件）
+|  |--rm-2022-down-old.zip（旧版本哨兵代码压缩包）
+|--/self/
+
 ...
  
 
@@ -158,5 +160,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMwNDYyNjU1XX0=
+eyJoaXN0b3J5IjpbLTc3ODA2NzYyXX0=
 -->
