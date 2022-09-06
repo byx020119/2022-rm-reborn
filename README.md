@@ -12,21 +12,21 @@
 ![](https://rm-static.djicdn.com/tem/55708/428eaaef4b6ba1632310756119837520.png)
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-a-down"><strong>探索本项目的文档 »</strong></a>
+<a  href="https://github.com/byx020119/2022-rm-a-up"><strong>探索本项目的文档 »</strong></a>
 
 <br  />
 
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-a-down">查看</a>
+<a  href="https://github.com/byx020119/2022-rm-a-up">查看</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-a-down/issues">报告Bug</a>
+<a  href="https://github.com/byx020119/2022-rm-a-up/issues">报告Bug</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-a-down/issues">提出新特性</a>
+<a  href="https://github.com/byx020119/2022-rm-a-up/issues">提出新特性</a>
 
 </p>  
 
@@ -63,7 +63,7 @@ windows系统下的keil平台，keil5
 
 ```sh
 
-git clone https://github.com/byx20119/2022-rm-a-down.git
+git clone https://github.com/byx20119/2022-rm-a-up.git
 
 ```
 
@@ -77,7 +77,7 @@ eg:
 
 ```
 
-2022-rm-a-down
+2022-rm-a-up
 
 |--README.md（说明文档）
 |--/BSP/（基本配置文档）
@@ -90,7 +90,6 @@ eg:
 |  |--CanBusTask.c
 |  |--CanBusTask.h
 |--Sentry.uvprojx（启动文件）
-|--rm-2022-down-old.zip（旧版本压缩包）
 ...
  
 
@@ -154,5 +153,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDg2Mjc2MDddfQ==
+eyJoaXN0b3J5IjpbNDUxNTcwMTg0XX0=
 -->
