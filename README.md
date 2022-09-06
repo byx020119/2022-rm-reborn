@@ -281,14 +281,11 @@ xxx@xxxx
 
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
-[license-shield]: https://img.shields.io/github/license/shaojintian/Best_README_template.svg?style=flat-square
-
-[license-url]: https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 
 [linkedin-url]: https://linkedin.com/in/shaojintian
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5MzYyMTUxOSwtOTYzMTg2NDc3LC0xMj
-U0NjUzODU4XX0=
+eyJoaXN0b3J5IjpbLTE0ODk5MTI1NTksMTE5MzYyMTUxOSwtOT
+YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
 -->
