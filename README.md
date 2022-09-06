@@ -19,26 +19,20 @@
 
 <br  />
 
-<a  href="https://github.com/shaojintian/Best_README_template">查看Demo</a>
+<a  href="https://github.com/byx20119/2022-rm-a-down">查看Demo</a>
 
 ·
 
-<a  href="https://github.com/shaojintian/Best_README_template/issues">报告Bug</a>
+<a  href="https://github.com/byx20119/2022-rm-a-down/issues">报告Bug</a>
 
 ·
 
-<a  href="https://github.com/shaojintian/Best_README_template/issues">提出新特性</a>
+<a  href="https://github.com/byx20119/2022-rm-a-down/issues">提出新特性</a>
+
+</p>  
 
 </p>
 
-  
-
-</p>
-
-  
-  
-
-本篇README.md面向开发者
 
 ## 目录
 
@@ -48,15 +42,7 @@
 
 - [开发前的配置要求](#开发前的配置要求)
 
-- [安装步骤](#安装步骤)
-
 - [文件目录说明](#文件目录说明)
-
-- [开发的架构](#开发的架构)
-
-- [部署](#部署)
-
-- [使用到的框架](#使用到的框架)
 
 - [贡献者](#贡献者)
 
@@ -158,32 +144,6 @@ filetree
   
   
 
-### 开发的架构
-
-  
-
-请阅读[ARCHITECTURE.md](https://github.com/shaojintian/Best_README_template/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
-
-  
-
-### 部署
-
-  
-
-暂无
-
-  
-
-### 使用到的框架
-
-  
-
-- [xxxxxxx](https://getbootstrap.com)
-
-- [xxxxxxx](https://jquery.com)
-
-- [xxxxxxx](https://laravel.com)
-
   
 
 ### 贡献者
@@ -277,6 +237,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTM2MzkwNjksMTE5MzYyMTUxOSwtOT
-YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
+eyJoaXN0b3J5IjpbLTI4MzYzMTgwMCwxMTkzNjIxNTE5LC05Nj
+MxODY0NzcsLTEyNTQ2NTM4NThdfQ==
 -->
