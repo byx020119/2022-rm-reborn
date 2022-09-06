@@ -52,7 +52,8 @@
 
 - [鸣谢](#鸣谢)
 
-  
+  <br>
+</br>
 
 ### 开发环境
 
@@ -69,7 +70,8 @@ windows系统下的keil平台，keil5
 git clone https://github.com/byx20119/2022-rm-c-test.git
 
 ```
-
+<br>
+</br>
   
 
 ### 文件目录说明
@@ -123,7 +125,8 @@ eg:
 
 5. Open a Pull Request
 
-  
+  <br>
+</br>
   
   
 
@@ -133,7 +136,8 @@ eg:
 
 该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
 
-  
+  <br>
+</br>
 
 ### 作者
 
@@ -150,6 +154,8 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 *您也可以在贡献者名单中参看所有参与该项目的开发者。*
   
+  <br>
+</br>
 
 ### 鸣谢
 
@@ -161,5 +167,6 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyMjgyNjk2OCwyMTEwMDgzNzY0XX0=
+eyJoaXN0b3J5IjpbMTk1NDc1Njk1MywxMjIyODI2OTY4LDIxMT
+AwODM3NjRdfQ==
 -->
