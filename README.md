@@ -281,18 +281,6 @@ xxx@xxxx
 
 [contributors-url]: https://github.com/shaojintian/Best_README_template/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/shaojintian/Best_README_template.svg?style=flat-square
-
-[forks-url]: https://github.com/shaojintian/Best_README_template/network/members
-
-[stars-shield]: https://img.shields.io/github/stars/shaojintian/Best_README_template.svg?style=flat-square
-
-[stars-url]: https://github.com/shaojintian/Best_README_template/stargazers
-
-[issues-shield]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg?style=flat-square
-
-[issues-url]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg
-
 [license-shield]: https://img.shields.io/github/license/shaojintian/Best_README_template.svg?style=flat-square
 
 [license-url]: https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt
@@ -301,6 +289,6 @@ xxx@xxxx
 
 [linkedin-url]: https://linkedin.com/in/shaojintian
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NjU2MjM2MiwtOTYzMTg2NDc3LC0xMj
-U0NjUzODU4XX0=
+eyJoaXN0b3J5IjpbNzM5NTM4NDE4LC05NjMxODY0NzcsLTEyNT
+Q2NTM4NThdfQ==
 -->
