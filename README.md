@@ -51,7 +51,7 @@
   <br>
 </br>
 
-### 开发环境
+## 开发环境
 
 windows系统下的keil平台，keil5
   
@@ -70,7 +70,7 @@ git clone https://github.com/byx20119/2022-rm-self-plane.git
   <br>
 </br>
 
-### 文件目录说明
+## 文件目录说明
 
 eg:
 
@@ -111,7 +111,7 @@ eg:
 ```
 
 
-#### 如何参与开源项目
+### 如何参与开源项目
 
   
 
@@ -135,7 +135,7 @@ eg:
 </br>
   
 
-### 版本控制
+## 版本控制
 
   
 
@@ -145,7 +145,7 @@ eg:
 <br>
 </br>
 
-### 作者
+## 作者
 
   
 
@@ -170,5 +170,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzI5NzAxMDA5XX0=
+eyJoaXN0b3J5IjpbMTk2NTA0NjE2NCwzMjk3MDEwMDldfQ==
 -->
