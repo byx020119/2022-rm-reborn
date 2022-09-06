@@ -84,13 +84,15 @@ eg:
 |--/BSP/（基本配置文档）
 |  |--adc.c
 |  |--adc.h
-
+|--/Common/（基本控制算法文档）
+|  |--pid.c
+|  |--pid.h
 |--/CanBusTask/（can通信设置）
 |  |--CanBusTask.c
 |  |--CanBusTask.h
-|--/TASK/（控制任务文档）
-|  |--CanBusTask.c
-|  |--CanBusTask.h
+|--/ControlTask/（控制任务文档）
+|  |--ControlTask.c
+|  |--ControlTask.h
 |--Sentry.uvprojx（启动文件）
 ...
  
@@ -155,5 +157,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODcwNTY3MzBdfQ==
+eyJoaXN0b3J5IjpbLTE4Mjg4Mzc5OTldfQ==
 -->
