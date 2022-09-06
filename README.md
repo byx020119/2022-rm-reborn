@@ -94,7 +94,20 @@ eg:
 |  |--Sentry.uvprojx（启动文件）
 |  |--rm-2022-down-old.zip（旧版本哨兵代码压缩包）
 |--/self/
-
+|  |--/BSP/（基本配置文档）
+|  |  |--adc.c
+|  |  |--adc.h
+|  |--/Common/（基本控制算法文档）
+|  |  |--pid.c
+|  |  |--pid.h
+|  |--/CanBusTask/（can通信设置）
+|  |  |--CanBusTask.c
+|  |  |--CanBusTask.h
+|  |--/ControlTask/（控制任务文档）
+|  |  |--ControlTask.c
+|  |  |--ControlTask.h
+|  |--/USER/（用户文件）
+|  |  |--shaobing c.uvprojx（启动文件）
 ...
  
 
@@ -160,5 +173,5 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3ODA2NzYyXX0=
+eyJoaXN0b3J5IjpbLTQ1MzgyMjYwOF19
 -->
