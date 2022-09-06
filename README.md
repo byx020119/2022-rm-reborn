@@ -84,8 +84,8 @@ eg:
 
 2022-rm-a-down
 
-|--README.md
-|--/BSP/
+|--README.md（说明文档）
+|--/BSP/（基本配置文档）
 |  |--adc.c
 |  |--adc.h
 |--/COMMON/
@@ -94,7 +94,9 @@ eg:
 |--/TASK/
 |  |--CanBusTask.c
 |  |--CanBusTask.h
-
+|--Sentry.uvprojx
+|--rm-2022-down-old.zip
+...
 
 
 
@@ -200,6 +202,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTQ2MTY1NywxMTkzNjIxNTE5LC05Nj
-MxODY0NzcsLTEyNTQ2NTM4NThdfQ==
+eyJoaXN0b3J5IjpbLTgxMjcxMDIzLDExOTM2MjE1MTksLTk2Mz
+E4NjQ3NywtMTI1NDY1Mzg1OF19
 -->
