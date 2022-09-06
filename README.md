@@ -88,14 +88,14 @@ eg:
 |--/BSP/（基本配置文档）
 |  |--adc.c
 |  |--adc.h
-|--/COMMON/
+|--/COMMON/（部分算法文档）
 |  |--common.c
 |  |--common.h
-|--/TASK/
+|--/TASK/（控制任务文档）
 |  |--CanBusTask.c
 |  |--CanBusTask.h
-|--Sentry.uvprojx
-|--rm-2022-down-old.zip
+|--Sentry.uvprojx（启动文件）
+|--rm-2022-down-old.zip（旧版本压缩包）
 ...
 
 
@@ -202,6 +202,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxMjcxMDIzLDExOTM2MjE1MTksLTk2Mz
-E4NjQ3NywtMTI1NDY1Mzg1OF19
+eyJoaXN0b3J5IjpbLTE3ODIxMDY3NDgsMTE5MzYyMTUxOSwtOT
+YzMTg2NDc3LC0xMjU0NjUzODU4XX0=
 -->
