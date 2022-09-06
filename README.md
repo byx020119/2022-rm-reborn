@@ -141,40 +141,18 @@ byx020119
 
   
 
-github:github.com/byx020119 &ensp; qq:xxxxxx
+github:github.com/byx020119 &ensp; qq:2237478533
 
   
 
 *您也可以在贡献者名单中参看所有参与该项目的开发者。*
-
-  
-
-### 版权说明
-
-  
-
-该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt)
-
   
 
 ### 鸣谢
 
-  
-  
 
 - [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 
-- [Img Shields](https://shields.io)
-
-- [Choose an Open Source License](https://choosealicense.com)
-
-- [GitHub Pages](https://pages.github.com)
-
-- [Animate.css](https://daneden.github.io/animate.css)
-
-- [xxxxxxxxxxxxxx](https://connoratherton.com/loaders)
-
-  
 
 <!-- links -->
 
@@ -183,6 +161,6 @@ github:github.com/byx020119 &ensp; qq:xxxxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODg1NTE3MSwtMTQ1NDY2NDUwNCwxMT
+eyJoaXN0b3J5IjpbMTQ2MTA5MTQ4NiwtMTQ1NDY2NDUwNCwxMT
 kzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4NThdfQ==
 -->
