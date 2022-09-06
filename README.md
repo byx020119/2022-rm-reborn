@@ -91,9 +91,9 @@ eg:
 |--/COMMON/
 |  |--common.c
 |  |--common.h
-|--/COMMON/
-|  |--common.c
-|  |--common.h
+|--/TASK/
+|  |--CanBusTask.c
+|  |--CanBusTask.h
 
 
 
@@ -200,6 +200,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MTc4MzAwNywxMTkzNjIxNTE5LC05Nj
+eyJoaXN0b3J5IjpbLTEwMTQ2MTY1NywxMTkzNjIxNTE5LC05Nj
 MxODY0NzcsLTEyNTQ2NTM4NThdfQ==
 -->
