@@ -91,9 +91,9 @@ eg:
 |--/COMMON/
 |  |--common.c
 |  |--common.h
-|--/CORE/
-|  |--core_cm4.c
-|  |--core_cm4.h
+|--/COMMON/
+|  |--common.c
+|  |--common.h
 
 
 
@@ -200,6 +200,6 @@ xxx@xxxx
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM3Mjc4OTM1LDExOTM2MjE1MTksLTk2Mz
-E4NjQ3NywtMTI1NDY1Mzg1OF19
+eyJoaXN0b3J5IjpbLTI1MTc4MzAwNywxMTkzNjIxNTE5LC05Nj
+MxODY0NzcsLTEyNTQ2NTM4NThdfQ==
 -->
