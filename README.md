@@ -49,7 +49,8 @@
 
 - [鸣谢](#鸣谢)
 
-  
+  <br>
+</br>
 
 ### 开发环境
 
@@ -67,7 +68,8 @@ git clone https://github.com/byx20119/2022-rm-a-down.git
 
 ```
 
-  
+  <br>
+</br>
 
 ### 文件目录说明
 
@@ -118,8 +120,7 @@ eg:
 
  
 <br>
-<br/>
-
+</br>
   
 
 ### 版本控制
@@ -129,6 +130,8 @@ eg:
 该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
 
   
+<br>
+</br>
 
 ### 作者
 
@@ -145,6 +148,8 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 *您也可以在贡献者名单中参看所有参与该项目的开发者。*
   
+<br>
+</br>
 
 ### 鸣谢
 
@@ -156,8 +161,8 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxNDg0MjY4NCwtODI5OTUzMTYxLC03MT
-AyOTU5NTMsODEwMjAwNzAzLDg2Nzk5MjUwNywtMTE1MzYxMjIy
-MiwxNjQwODkwMTgsLTY5MjYwMDExMiwtMTQ1NDY2NDUwNCwxMT
-kzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4NThdfQ==
+eyJoaXN0b3J5IjpbNDU5NjMxODA4LC04Mjk5NTMxNjEsLTcxMD
+I5NTk1Myw4MTAyMDA3MDMsODY3OTkyNTA3LC0xMTUzNjEyMjIy
+LDE2NDA4OTAxOCwtNjkyNjAwMTEyLC0xNDU0NjY0NTA0LDExOT
+M2MjE1MTksLTk2MzE4NjQ3NywtMTI1NDY1Mzg1OF19
 -->
