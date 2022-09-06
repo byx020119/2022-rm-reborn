@@ -38,9 +38,11 @@
 
   
 
-- [上手指南](#上手指南)
+- [开发环境](#开发环境)
 
 - [开发前的配置要求](#开发前的配置要求)
+
+- [安装步骤](#安装步骤)
 
 - [文件目录说明](#文件目录说明)
 
@@ -56,14 +58,9 @@
 
   
 
-### 上手指南
+### 开发环境
 
-  
-
-请将所有链接中的“shaojintian/Best_README_template”改为“your_github_name/your_repository”
-
-  
-  
+windows系统性的
   
 
 ###### 开发前的配置要求
@@ -78,11 +75,8 @@
 
 ###### **安装步骤**
 
-  
 
-1. Get a free API Key at [https://example.com](https://example.com)
-
-2. Clone the repo
+1. Clone the repo
 
   
 
@@ -230,13 +224,11 @@ xxx@xxxx
 
 <!-- links -->
 
-[your-project-path]:byx20119/2022-rm-a-down
-
 [contributors-shield]: https://img.shields.io/github/contributors/shaojintian/Best_README_template.svg?style=flat-square
 
 [contributors-url]: https://github.com/byx20119/2022-rm-a-down/graphs/contributors
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4MzYzMTgwMCwxMTkzNjIxNTE5LC05Nj
-MxODY0NzcsLTEyNTQ2NTM4NThdfQ==
+eyJoaXN0b3J5IjpbNDU3NjAzMzQyLDExOTM2MjE1MTksLTk2Mz
+E4NjQ3NywtMTI1NDY1Mzg1OF19
 -->
