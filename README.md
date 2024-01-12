@@ -81,30 +81,17 @@ eg:
 2022-rm-a-down
 
 |--README.md（说明文档）
-|--/a/
-|  |--/BSP/（基本配置文档）
-|  |  |--adc.c
-|  |  |--adc.h
-|  |--/COMMON/（部分算法文档）
-|  |  |--common.c
-|  |  |--common.h
-|  |--/TASK/（控制任务文档）
-|  |  |--CanBusTask.c
-|  |  |--CanBusTask.h
-|  |--Sentry.uvprojx（启动文件）
-|  |--rm-2022-down-old.zip（旧版本哨兵代码压缩包）
-|--/self/
-|  |--/SYSTEM/（基本配置文档）
-|  |  |--adc.c
-|  |  |--adc.h
-|  |--/COMMON/（基本控制算法文档）
-|  |  |--pid.c
-|  |  |--pid.h
-|  |--/TASK/（控制任务文档）
-|  |  |--ControlTask.c
-|  |  |--ControlTask.h
-|  |--/USER/（用户文件）
-|  |  |--project1.uvprojx（启动文件）
+|--/BSP/（基本配置文档）
+|  |--adc.c
+|  |--adc.h
+|--/COMMON/（部分算法文档）
+|  |--common.c
+|  |--common.h
+|--/TASK/（控制任务文档）
+|  |--CanBusTask.c
+|  |--CanBusTask.h
+|--Sentry.uvprojx（启动文件）
+|--rm-2022-down-old.zip（旧版本哨兵代码压缩包）
 ...
  
 
