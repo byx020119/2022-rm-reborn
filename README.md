@@ -8,25 +8,33 @@
 
 <p  align="center">
 
-此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队“空中”机器人嵌入式组代码，包括a板及自研板代码。2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
+此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队“哨兵”机器人嵌入式组代码及“空中”机器人嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up，2022-rm-a-plane，2022-rm-c-test，2022-rm-self-plane几部分代码，2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
+
+其中分支名称`2022-rm-DEV-SERVICE(TYPE)`
+
+- `2022` 指robomaster 2022赛季。
+- `rm` 指robomaster比赛。
+- `DEV` 指开发板类型，本赛季所使用过的有a（DJI robomaster a型板）、c（DJI robomaster c型板）、与self（reborn队内自研板）。
+- `SERVICE` 指兵种，down（双枪哨兵下枪），up（双枪哨兵上枪），plane（空中机器人）。
+- `TYPE` 指代码类型，server为服务器版本，因为训练时候方便全自动操作，server版本中，一旦服务器开始战斗，哨兵机器人自动进入巡逻状态，全程无人操作。
 ![](https://rm-static.djicdn.com/tem/55708/428eaaef4b6ba1632310756119837520.png)
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-self-plane"><strong>探索本项目的文档 »</strong></a>
+<a  href="https://github.com/byx020119/2022-rm-reborn.git"><strong>探索本项目的文档 »</strong></a>
 
 <br  />
 
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-self-plane">查看</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn.git">查看</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-self-plane/issues">报告Bug</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn/issues">报告Bug</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-self-plane/issues">提出新特性</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn/issues">提出新特性</a>
 
 </p>  
 
@@ -47,6 +55,7 @@
 
 - [作者](#作者)
 
+- [鸣谢](#鸣谢)
 
   <br>
 </br>
@@ -63,8 +72,13 @@ windows系统下的keil平台，keil5
 
 ```sh
 
-git clone https://github.com/byx20119/2022-rm-self-plane.git
+git clone https://github.com/byx020119/2022-rm-reborn.git
 
+```
+2. checkout branch
+
+```sh
+git checkout 2022-rm-DEV-SERVICE(TYPE)
 ```
 
   <br>
@@ -96,7 +110,6 @@ eg:
  
 
 ```
-
 
 ### 如何参与开源项目
 
@@ -141,7 +154,7 @@ byx020119
 
   
 
-github:http://github.com/byx020119 &ensp; qq:2237478533
+github: http://github.com/byx020119 &ensp; email: byx020119@gmail.com
 
   
 
@@ -150,12 +163,19 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 <br>
 </br>
 
+## 鸣谢
 
+
+- [Y1Yukina (赵玥玥) (github.com)](https://github.com/Y1Yukina)
 
 
 <!-- links -->
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NTA0NjE2NCwzMjk3MDEwMDldfQ==
+eyJoaXN0b3J5IjpbLTI4OTkwNTc0LDQ1OTYzMTgwOCwtODI5OT
+UzMTYxLC03MTAyOTU5NTMsODEwMjAwNzAzLDg2Nzk5MjUwNywt
+MTE1MzYxMjIyMiwxNjQwODkwMTgsLTY5MjYwMDExMiwtMTQ1ND
+Y2NDUwNCwxMTkzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4
+NThdfQ==
 -->
