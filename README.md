@@ -30,11 +30,11 @@
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-reborn.git/issues">报告Bug</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn/issues">报告Bug</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-reborn.git/issues">提出新特性</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn/issues">提出新特性</a>
 
 </p>  
 
