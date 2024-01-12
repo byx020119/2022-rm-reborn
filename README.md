@@ -1,5 +1,4 @@
-# -2022 Robomaster备赛测试代码-
-
+# 2022-rm-c-test
 
 <!-- PROJECT SHIELDS -->
 
@@ -9,27 +8,33 @@
 
 <p  align="center">
 
-此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队“哨兵”机器人嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up两部分A型板代码，分别控制机器人的上枪组及下枪组，另有2022-rm-a-test为C型板代码。2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
+此为全国大学生机器人大赛 Robomaster 2022 机甲大师系列，Reborn战队“哨兵”机器人嵌入式组代码及“空中”机器人嵌入式组代码，包括2022-rm-a-down，2022-rm-a-up，2022-rm-a-plane，2022-rm-c-test，2022-rm-self-plane几部分代码，2022赛季Reborn战队获得超级对抗赛[东部赛区二等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1463)及[全国三等奖](https://www.robomaster.com/zh-CN/resource/pages/announcement/1477)。
 
-本工程为2022年robomaster比赛备赛过程中老版本车代码更改can口适配于2021年哨兵的代码。
+其中分支名称`2022-rm-DEV-SERVICE(TYPE)`
+
+- `2022` 指robomaster 2022赛季。
+- `rm` 指robomaster比赛。
+- `DEV` 指开发板类型，本赛季所使用过的有a（DJI robomaster a型板）、c（DJI robomaster c型板）、与self（reborn队内自研板）。
+- `SERVICE` 指兵种，down（双枪哨兵下枪），up（双枪哨兵上枪），plane（空中机器人）。
+- `TYPE` 指代码类型，server为服务器版本，因为训练时候方便全自动操作，server版本中，一旦服务器开始战斗，哨兵机器人自动进入巡逻状态，全程无人操作。
 ![](https://rm-static.djicdn.com/tem/55708/428eaaef4b6ba1632310756119837520.png)
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-c-test"><strong>探索本项目的文档 »</strong></a>
+<a  href="https://github.com/byx020119/2022-rm-reborn.git"><strong>探索本项目的文档 »</strong></a>
 
 <br  />
 
 <br  />
 
-<a  href="https://github.com/byx020119/2022-rm-c-test">查看</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn.git">查看</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-c-test/issues">报告Bug</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn/issues">报告Bug</a>
 
 ·
 
-<a  href="https://github.com/byx020119/2022-rm-c-test/issues">提出新特性</a>
+<a  href="https://github.com/byx020119/2022-rm-reborn/issues">提出新特性</a>
 
 </p>  
 
@@ -67,18 +72,24 @@ windows系统下的keil平台，keil5
 
 ```sh
 
-git clone https://github.com/byx20119/2022-rm-c-test.git
+git clone https://github.com/byx020119/2022-rm-reborn.git
 
 ```
-<br>
+2. checkout branch
+
+```sh
+git checkout 2022-rm-DEV-SERVICE(TYPE)
+```
+
+  <br>
 </br>
-  
 
 ## 文件目录说明
 
 eg:
 
   
+
 
 ```
 
@@ -125,9 +136,9 @@ eg:
 
 5. Open a Pull Request
 
-  <br>
+ 
+<br>
 </br>
-  
   
 
 ## 版本控制
@@ -136,7 +147,8 @@ eg:
 
 该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
 
-  <br>
+  
+<br>
 </br>
 
 ## 作者
@@ -148,13 +160,13 @@ byx020119
 
   
 
-github:http://github.com/byx020119 &ensp; qq:2237478533
+github: http://github.com/byx020119 &ensp; email: byx020119@gmail.com
 
   
 
 *您也可以在贡献者名单中参看所有参与该项目的开发者。*
   
-  <br>
+<br>
 </br>
 
 ## 鸣谢
@@ -167,6 +179,9 @@ github:http://github.com/byx020119 &ensp; qq:2237478533
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjIxNzYzNzksMTIyMjgyNjk2OCwyMT
-EwMDgzNzY0XX0=
+eyJoaXN0b3J5IjpbLTI4OTkwNTc0LDQ1OTYzMTgwOCwtODI5OT
+UzMTYxLC03MTAyOTU5NTMsODEwMjAwNzAzLDg2Nzk5MjUwNywt
+MTE1MzYxMjIyMiwxNjQwODkwMTgsLTY5MjYwMDExMiwtMTQ1ND
+Y2NDUwNCwxMTkzNjIxNTE5LC05NjMxODY0NzcsLTEyNTQ2NTM4
+NThdfQ==
 -->
